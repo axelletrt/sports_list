@@ -1,3 +1,57 @@
-// Place all the styles related to the Static controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-image: url("surf_drone3.jpg");
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.85;
+}
+
+.text-block {	
+  text-align: center;
+  background-color: white;
+  margin-top: 12%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  border-radius: 1.5%;
+}
+
+.coach_picture {
+  max-width: 22%;
+  max-height: auto;
+  border-radius: 50%;
+  padding-bottom: 1.5%;
+}
+
+#activity {
+  padding-top: 15%;
+  padding-left: 40%;
+  color:  #404040;
+}
+
+.activity_pic {
+  padding-top: 10%;
+  padding-left: 40%;
+  max-width: 100%;
+}
+
+.activity_pic:hover {
+  opacity: 0.9; 
+}
+
+#description {
+  padding-top: 15%;
+  padding-left: 40%;
+  color:  #404040;
+}
