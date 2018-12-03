@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_153120) do
+ActiveRecord::Schema.define(version: 2018_12_03_163757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 2018_12_03_153120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["professional_id"], name: "index_cards_on_professional_id"
+  end
+
+  create_table "cards_disciplines", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "discipline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_cards_disciplines_on_card_id"
+    t.index ["discipline_id"], name: "index_cards_disciplines_on_discipline_id"
+  end
+
+  create_table "cards_languages", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "spoken_language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_cards_languages_on_card_id"
+    t.index ["spoken_language_id"], name: "index_cards_languages_on_spoken_language_id"
   end
 
   create_table "disciplines", force: :cascade do |t|

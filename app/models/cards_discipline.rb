@@ -1,0 +1,2 @@
+class CardsDiscipline < ApplicationRecord
+end
