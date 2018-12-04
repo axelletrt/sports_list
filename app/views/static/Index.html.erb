@@ -1,28 +1,36 @@
 <div class="background"> 
-  <div class="col align-self-center">
-    <div class="text-block">
-      <h3>Bali Surf with Jaya !</h3>
-      <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
-      <p><em>"From beginner to expert, I love teaching surf"</em></p>    
-      <p><strong>Jaya</strong></p>
+  <div class="col-7">
+    <div class="bg-text">
+      <h3>Bali surf with Jaya</h3>
+      <p>"From beginner to expert, I love teaching surf !"</p>
     </div>
-   </div>
+  </div>
+  <div class="col-5" id="contact">
+    <ul id="contact_info">
+      <h2 id="contact_title">Contact</h2>  
+      <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
+      <li>http://balisurfwithjaya.com</li>
+      <li>balisurfiwithjaya@gmail.com</li>
+    </ul>
+  </div>
 </div>
+
+
 
 <div class="container">
   <div class="row">
-    <div class="col-s-10">
-      <h2 id="activity_title">Activity</h2>
+    <div class="col">
+      <h2 id="title">Activity</h2>
       <%= image_tag "surf_icon.svg", class: "activity_pic"%>
     </div>
   </div>
   <div class="row">
-    <div class="col-s-10">
-      <h2 id="description_title">Description</h2>
+    <div class="col">
+      <h2 id="title">Description</h2>
     </div>
   </div>
-  <div class="row no-gutter">
-    <div class="col-12 mx-auto">
+  <div class="row">
+    <div class="col-10">
       <p id="description_text">Live and surf locally on the gold coast and can offer you a hosting experience appropriate to your wave knowledge level. With more than 35 years experience as surfer, which includes majority of surf breaks around the world, I have vast experience in all types of conditions.
       </p>
     </div>
@@ -31,31 +39,21 @@
 
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-6">
+    <div class="col-10">
       <h2 id="practical_info_title">Practical Informations</h2>
     </div>
   </div>  
   <div class="row no-gutters">
-    <div class="col-6">
+    <div class="col-10">
       <ul id="practical_info">
-        <li>Place</li>
-        <li>Price</li>
-        <li>Language</li>
-        <li>Opening Hours</li>
-      </ul>
-    </div>
-    <div class="col-6">
-      <h2 id="contact_title">Contact</h2>
-      <ul id="contact_info">
-        <li><%= image_tag "website_icon.png", class: "contact_icons"%>http://balisurfwithjaya.com </li>
-        <li><%= image_tag "email_icon.png", class: "contact_icons"%>balisurfiwithjaya@gmail.com</li>
-        <li><%= image_tag "whatsapp_icon.png", class: "contact_icons"%>0062 857 3879 7949</li>  
-        <a href="http://www.facebook.com">
-        <%= image_tag "facebook_icon.png", class: "social_network_icon"%>
-        </a>
-        <a href="http://www.instagram.com">
-        <%= image_tag "instagram_icon.png", class: "social_network_icon"%> 
-        </a>
+        <div class="col-6">
+          <li>Place</li>
+          <li>Price</li>
+        </div>
+        <div class="col-6">
+          <li>Languages spoken</li>
+          <li>Opening Hours</li>
+        </div>
       </ul>
     </div>
   </div>
