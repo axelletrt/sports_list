@@ -1,0 +1,103 @@
+<div class="background"> 
+  <div class="col-7">
+    <div class="bg-text">
+      <h3>Bali surf with Jaya</h3>
+      <p>"From beginner to expert, I love teaching surf !"</p>
+    </div>
+  </div>
+  <div class="col-5" id="contact">
+    <ul id="contact_info">
+      <h2 id="contact_title">Contact</h2>  
+      <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
+      <li>http://balisurfwithjaya.com</li>
+      <li>balisurfiwithjaya@gmail.com</li>
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 id="title">Activity</h2>
+      <%= image_tag "surf_icon.svg", class: "activity_pic"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2 id="title">Description</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <p id="description_text">Live and surf locally on the gold coast and can offer you a hosting experience appropriate to your wave knowledge level. With more than 35 years experience as surfer, which includes majority of surf breaks around the world, I have vast experience in all types of conditions.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-10">
+      <h2 id="practical_info_title">Practical Informations</h2>
+    </div>
+  </div>  
+  <div class="row no-gutters">
+    <div class="col-10">
+      <ul id="practical_info">
+        <div class="col-6">
+          <li>Place</li>
+          <li>Price</li>
+        </div>
+        <div class="col-6">
+          <li>Languages spoken</li>
+          <li>Opening Hours</li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="slideshow">
+  <div id="slide1" class="mySlides">
+      <%= image_tag"slider_surf1.jpg", style: "width:100%"%>
+  </div>
+  <div class="mySlides">
+      <%= image_tag"slider_surf2.jpg", style: "width:100%"%>
+  </div>
+  <div class="mySlides">
+      <%= image_tag"slider_surf3.jpg", style: "width:100%"%>
+  </div>
+  <div class="mySlides">
+     <%= image_tag"slider_surf4.jpg", style: "width:100%"%>
+  </div>
+  <div class="mySlides">
+      <%= image_tag"slider_surf5.jpg", style: "width:100%"%>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <!-- Thumbnail images -->
+  <div class="row" id="slideshow_bottom">
+    <div class="column">
+      <%= image_tag "slider_surf1.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(1)"%>
+    </div>
+    <div class="column"> 
+      <%= image_tag "slider_surf2.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(2)"%>
+    </div>
+    <div class="column">
+       <%= image_tag "slider_surf3.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(3)"%>
+    </div>
+    <div class="column">
+      <%= image_tag "slider_surf4.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(4)"%>
+    </div>
+    <div class="column">
+      <%= image_tag "slider_surf5.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(5)"%>
+    </div> 
+  </div>
+</div>
+
+
