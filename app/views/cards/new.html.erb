@@ -1,49 +1,51 @@
+
 <%= form_for(@cards) do |f| %>
 
-	<%= f.label :activity_title %><br>
-	<%= f.text_field :activity_title %><br>
+		<%= f.label :activity_title %><br>
+		<%= f.text_field :activity_title %><br>
 
-	<%= f.label :short_description %><br>
-	<%= f.text_field :short_description %><br>
+		<%= f.label :short_description %><br>
+		<%= f.text_field :short_description %><br>
 
-	<%= f.label :long_description %><br>
-	<%= f.text_field :long_description %><br>
+		<%= f.label :long_description %><br>
+		<%= f.text_field :long_description %><br>
 
-	<%= f.label :organization %><br>
-	<%= f.select :organization, Card.organizations.keys %><br>
+		<%= f.label :organization %><br>
+		<%= f.select :organization, Card.organizations.keys %><br>
 
-	<%= f.label :address %><br>
-	<%= f.text_field :address %><br>
+		<%= f.label :address %><br>
+		<%= f.text_field :address %><br>
 
 
-	<%= f.label :country %><br>
-	<%= f.text_field :country %><br>
+		<%= f.label :country %><br>
+		<%= f.text_field :country %><br>
 
-	<%= f.label :price %><br>
-	<%= f.text_field :price %><br>
+		<%= f.label :price %><br>
+		<%= f.text_field :price %><br>
 
-	<%= f.label :length %><br>
-	<%= f.text_field :length %><br>
+		<%= f.label :length %><br>
+		<%= f.text_field :length %><br>
 
-	<%= f.label :opening_hour %><br>
-	<%= f.text_field :opening_hour %><br>
+		<%= f.label :opening_hour %><br>
+		<%= f.text_field :opening_hour %><br>
 
-	<%= f.label :closing_hour %><br>
-	<%= f.text_field :closing_hour %><br>
+		<%= f.label :closing_hour %><br>
+		<%= f.text_field :closing_hour %><br>
 
-	<%= f.label :whatsapp %><br>
-	<%= f.text_field :whatsapp %><br>
+		<%= f.label :whatsapp %><br>
+		<%= f.text_field :whatsapp %><br>
 
-	<%= f.label :facebook %><br>
-	<%= f.text_field :facebook %><br>
+		<%= f.label :facebook %><br>
+		<%= f.text_field :facebook %><br>
 
-	<%= f.label :instagram %><br>
-	<%= f.text_field :instagram %><br>
+		<%= f.label :instagram %><br>
+		<%= f.text_field :instagram %><br>
 
 	   <%= f.submit %><br>
 
-<% end %> 	
+	<% end %> 	
 
+</div> 
 
  <style>
         body { margin:0; padding:0; }
@@ -88,3 +90,4 @@ map.on('mousemove', function (e) {
         JSON.stringify(e.lngLat);
 });
 </script>
+
