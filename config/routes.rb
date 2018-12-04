@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   devise_for :professionals
 
   root to: "static#Index"
+  get 'home/index'
+
+   resources :cards, only: [:index, :create, :new]
+
 end
