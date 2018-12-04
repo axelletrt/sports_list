@@ -18,6 +18,8 @@
 	<%= f.label :address %><br>
 	<%= f.text_field :address %><br>
 
+	<%= f.label :city %><br>
+	<%= f.select :city, Card.cities.keys %><br>
 
 	<%= f.label :country %><br>
 	<%= f.text_field :country %><br>
@@ -28,11 +30,13 @@
 	<%= f.label :length %><br>
 	<%= f.text_field :length %><br>
 
-	<%= f.label :opening_hour %><br>
-	<%= f.text_field :opening_hour %><br>
+ 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59" required>
 
-	<%= f.label :closing_hour %><br>
-	<%= f.text_field :closing_hour %><br>
+ 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59" required> <br>
+
+
+
+
 
 	<%= f.label :whatsapp %><br>
 	<%= f.text_field :whatsapp %><br>
@@ -46,16 +50,9 @@
 
 
 
-
-
-
-
-	
-
-
-
-
-
 	   <%= f.submit %><br>
+
+
+	  
 
 <% end %> 	
