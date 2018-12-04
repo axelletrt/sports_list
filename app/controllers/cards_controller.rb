@@ -13,7 +13,8 @@ class CardsController < ApplicationController
   def create
   	@cards = Card.new
     @cards.professional_id = current_professional.id
-	
+	  puts params
+    @cards.discipline_id = Discipline.id
   	@cards.activity_title = params["card"][:activity_title]
   	@cards.short_description = params["card"][:short_description]
   	@cards.long_description = params["card"][:long_description]
@@ -23,7 +24,7 @@ class CardsController < ApplicationController
   	@cards.country = params["card"][:country]
   	@cards.price = params["card"][:price]
   	@cards.length = params["card"][:length]
-    puts params["card"]
+
   	@cards.opening_hour = params["appt"]
   	@cards.closing_hour = params["appt2"]
   	@cards.whatsapp = params["card"][:whatsapp]
@@ -36,6 +37,9 @@ class CardsController < ApplicationController
 
 	redirect_to root_path
   
+
+
+
   end
 
 end

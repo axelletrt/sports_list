@@ -3,6 +3,10 @@
 
 <%= form_for(@cards) do |f| %>
 
+
+	<%= f.label :name %>
+	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
+
 	<%= f.label :activity_title %><br>
 	<%= f.text_field :activity_title %><br>
 
@@ -30,9 +34,9 @@
 	<%= f.label :length %><br>
 	<%= f.text_field :length %><br>
 
- 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59" required>
+ 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
 
- 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59" required> <br>
+ 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
 
 
 
