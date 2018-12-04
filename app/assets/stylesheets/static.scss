@@ -130,6 +130,7 @@ h2 {
 #slideshow {
   position: relative;
   width: 40%;
+  padding: 0;
 }
 
 /* Hide the images by default */
@@ -153,7 +154,7 @@ h2 {
   top: 40%;
   width: auto;
   padding: 16px;
-  margin-top: -50px;
+  margin-top: -25px;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -171,24 +172,8 @@ h2 {
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Container for image text */
-.caption-container {
-  text-align: center;
   background-color: white;
-  padding: 2px 2px;
-  color: white;
+  opacity: 0.5;
 }
 
 .row:after {
@@ -197,14 +182,12 @@ h2 {
   clear: both;
 }
 
-/* Six columns side by side */
 .column {
   float: left;
   width: 16.66%;
   padding: 0;
 }
 
-/* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
   padding-top: 5px;
@@ -217,9 +200,11 @@ h2 {
 
 #slideshow_bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0;
   padding: 0;
+  padding-top: 10px;
+  padding-left: 12px;
 }
 
 
