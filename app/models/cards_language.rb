@@ -1,4 +1,4 @@
 class CardsLanguage < ApplicationRecord
-  belongs_to :cards
-  belongs_to :spoken_languages
+  belongs_to :card
+  belongs_to :spoken_language
 end
