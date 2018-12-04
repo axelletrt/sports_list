@@ -7,23 +7,10 @@ class DisciplinesController < ApplicationController
     @card = Card.find(params[:id])
   end
 
-  def surf
+  def categorie
     cards = Card.all
-    surf_cards_id = CardsDiscipline.where(discipline_id: 1).pluck(:card_id)
-    @surf_cards = cards.find(surf_cards_id)
-  end
-
-  def yoga
-    cards = Card.all
-    yoga_cards_id = CardsDiscipline.where(discipline_id: 2).pluck(:card_id)
-    @yoga_cards = cards.find(yoga_cards_id)
-    # optional: get the languages for the views
-  end
-
-  def scuba_diving
-    cards = Card.all
-    scuba_diving_cards_id = CardsDiscipline.where(discipline_id: 3).pluck(:card_id)
-    @scuba_diving_cards = cards.find(scuba_diving_cards_id)
-
+    puts params
+    categorie_cards_id = CardsDiscipline.where(discipline_id: params[:id]).pluck(:card_id)
+    @categorie_cards = cards.find(categorie_cards_id)
   end
 end
