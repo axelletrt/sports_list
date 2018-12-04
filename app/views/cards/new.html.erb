@@ -1,20 +1,47 @@
 
 <%= form_for(@cards) do |f| %>
 
-		<%= f.label :activity_title %><br>
-		<%= f.text_field :activity_title %><br>
+	<%= f.label :activity_title %><br>
+	<%= f.text_field :activity_title %><br>
 
-		<%= f.label :short_description %><br>
-		<%= f.text_field :short_description %><br>
+	<%= f.label :name %>
+	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
 
-		<%= f.label :long_description %><br>
-		<%= f.text_field :long_description %><br>
+	<%= f.label :activity_title %><br>
+	<%= f.text_field :activity_title %><br>
 
-		<%= f.label :organization %><br>
-		<%= f.select :organization, Card.organizations.keys %><br>
+	<%= f.label :short_description %><br>
+	<%= f.text_field :short_description %><br>
 
-		<%= f.label :address %><br>
-		<%= f.text_field :address %><br>
+	<%= f.label :long_description %><br>
+	<%= f.text_field :long_description %><br>
+
+	<%= f.label :organization %><br>
+	<%= f.select :organization, Card.organizations.keys %><br>
+
+	<%= f.label :address %><br>
+	<%= f.text_field :address %><br>
+
+	<%= f.label :city %><br>
+	<%= f.select :city, Card.cities.keys %><br>
+
+	<%= f.label :country %><br>
+	<%= f.text_field :country %><br>
+
+	<%= f.label :short_description %><br>
+	<%= f.text_field :short_description %><br>
+
+	<%= f.label :long_description %><br>
+	<%= f.text_field :long_description %><br>
+
+	<%= f.label :organization %><br>
+	<%= f.select :organization, Card.organizations.keys %><br>
+
+	<%= f.label :address %><br>
+	<%= f.text_field :address %><br>
+ 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
+
+ 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
 
 
 		<%= f.label :country %><br>
@@ -34,6 +61,7 @@
 
 		<%= f.label :whatsapp %><br>
 		<%= f.text_field :whatsapp %><br>
+	   <%= f.submit %><br>
 
 		<%= f.label :facebook %><br>
 		<%= f.text_field :facebook %><br>
@@ -42,6 +70,7 @@
 		<%= f.text_field :instagram %><br>
 
 	   <%= f.submit %><br>
+	  
 
 	<% end %> 	
 

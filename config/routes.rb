@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'disciplines/index'
-  get 'disciplines/show/:id', to: "disciplines#show"
-  get 'disciplines/yoga'
-  get 'disciplines/surf'
-  get 'disciplines/scuba_diving'
+
+  get 'home/index'
   devise_for :professionals
+  
+  resources :cards, only: [:index, :create, :new]
+
+  resources :disciplines, only: [:index, :show]
+  get 'disciplines/categorie/:id', to: 'disciplines#categorie'
 
   root to: "static#Index"
-  get 'home/index'
 
-   resources :cards, only: [:index, :create, :new]
+
 
 end
