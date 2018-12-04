@@ -2,9 +2,9 @@
   <div class="col align-self-center">
     <div class="text-block">
       <h3>Bali Surf with Jaya !</h3>
-      <p><em>"From beginner to expert, I love teaching surf"</em></p>
       <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
-      <h4>Jaya</h4>
+      <p><em>"From beginner to expert, I love teaching surf"</em></p>    
+      <p><strong>Jaya</strong></p>
     </div>
    </div>
 </div>
@@ -12,13 +12,13 @@
 <div class="container">
   <div class="row">
     <div class="col-s-10">
-      <h4 id="activity_title">Activity</h4>
+      <h2 id="activity_title">Activity</h2>
       <%= image_tag "surf_icon.svg", class: "activity_pic"%>
     </div>
   </div>
   <div class="row">
     <div class="col-s-10">
-      <h4 id="description_title">Description</h4>
+      <h2 id="description_title">Description</h2>
     </div>
   </div>
   <div class="row no-gutter">
@@ -32,7 +32,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-6">
-      <h4 id="practical_info_title">Practical Informations</h4>
+      <h2 id="practical_info_title">Practical Informations</h2>
     </div>
   </div>  
   <div class="row no-gutters">
@@ -45,7 +45,7 @@
       </ul>
     </div>
     <div class="col-6">
-      <h4 id="contact_title">Contact</h4>
+      <h2 id="contact_title">Contact</h2>
       <ul id="contact_info">
         <li><%= image_tag "website_icon.png", class: "contact_icons"%>http://balisurfwithjaya.com </li>
         <li><%= image_tag "email_icon.png", class: "contact_icons"%>balisurfiwithjaya@gmail.com</li>
@@ -61,48 +61,45 @@
   </div>
 </div>
 
-<!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-      <%= image_tag "slider_surf1.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
-    <div class="text">Caption Text</div>
+<div class="container" id="slideshow">
+  <div id="slide1" class="mySlides">
+      <%= image_tag"slider_surf1.jpg", style: "width:100%"%>
   </div>
-
-  <div class="mySlides fade">
-      <%= image_tag "slider_surf2.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
-    <div class="text">Caption Two</div>
+  <div class="mySlides">
+      <%= image_tag"slider_surf2.jpg", style: "width:100%"%>
   </div>
-
-  <div class="mySlides fade">
-      <%= image_tag "slider_surf3.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
-    <div class="text">Caption Three</div>
+  <div class="mySlides">
+      <%= image_tag"slider_surf3.jpg", style: "width:100%"%>
   </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-      <%= image_tag "slider_surf4.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
-    <div class="text">Caption Three</div>
+  <div class="mySlides">
+     <%= image_tag"slider_surf4.jpg", style: "width:100%"%>
   </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-      <%= image_tag "slider_surf5.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
-    <div class="text">Caption Three</div>
+  <div class="mySlides">
+      <%= image_tag"slider_surf5.jpg", style: "width:100%"%>
   </div>
 
   <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)"><%= image_tag "left-arrow.png"%></a>
-  <a class="next" onclick="plusSlides(1)"><%= image_tag "right-arrow.png"%></a>
-</div>
-<br>
+  <a id="slide_arrow" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a id="slide_arrow" class="next" onclick="plusSlides(1)">&#10095;</a>
 
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-  <span class="dot" onclick="currentSlide(4)"></span>
-  <span class="dot" onclick="currentSlide(5)"></span> 
+  <!-- Thumbnail images -->
+  <div class="row" id="slideshow_bottom">
+    <div class="column">
+      <%= image_tag "slider_surf1.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(1)"%>
+    </div>
+    <div class="column"> 
+      <%= image_tag "slider_surf2.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(2)"%>
+    </div>
+    <div class="column">
+       <%= image_tag "slider_surf3.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(3)"%>
+    </div>
+    <div class="column">
+      <%= image_tag "slider_surf4.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(4)"%>
+    </div>
+    <div class="column">
+      <%= image_tag "slider_surf5.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(5)"%>
+    </div> 
+  </div>
 </div>
+
+
