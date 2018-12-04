@@ -9,14 +9,100 @@
    </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-s-10">
-      <h4 id="activity">Activity</h4>
+      <h4 id="activity_title">Activity</h4>
       <%= image_tag "surf_icon.svg", class: "activity_pic"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-s-10">
+      <h4 id="description_title">Description</h4>
+    </div>
+  </div>
+  <div class="row no-gutter">
+    <div class="col-12 mx-auto">
+      <p id="description_text">Live and surf locally on the gold coast and can offer you a hosting experience appropriate to your wave knowledge level. With more than 35 years experience as surfer, which includes majority of surf breaks around the world, I have vast experience in all types of conditions.
+      </p>
     </div>
   </div>
 </div>
 
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-6">
+      <h4 id="practical_info_title">Practical Informations</h4>
+    </div>
+  </div>  
+  <div class="row no-gutters">
+    <div class="col-6">
+      <ul id="practical_info">
+        <li>Place</li>
+        <li>Price</li>
+        <li>Language</li>
+        <li>Opening Hours</li>
+      </ul>
+    </div>
+    <div class="col-6">
+      <h4 id="contact_title">Contact</h4>
+      <ul id="contact_info">
+        <li><%= image_tag "website_icon.png", class: "contact_icons"%>http://balisurfwithjaya.com </li>
+        <li><%= image_tag "email_icon.png", class: "contact_icons"%>balisurfiwithjaya@gmail.com</li>
+        <li><%= image_tag "whatsapp_icon.png", class: "contact_icons"%>0062 857 3879 7949</li>  
+        <a href="http://www.facebook.com">
+        <%= image_tag "facebook_icon.png", class: "social_network_icon"%>
+        </a>
+        <a href="http://www.instagram.com">
+        <%= image_tag "instagram_icon.png", class: "social_network_icon"%> 
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>
 
+<!-- Slideshow container -->
+<div class="slideshow-container">
 
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+      <%= image_tag "slider_surf1.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div class="mySlides fade">
+      <%= image_tag "slider_surf2.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+      <%= image_tag "slider_surf3.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
+    <div class="text">Caption Three</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+      <%= image_tag "slider_surf4.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
+    <div class="text">Caption Three</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+      <%= image_tag "slider_surf5.jpeg", class: "img-fluid"%> <!-- style="width:100%"> -->
+    <div class="text">Caption Three</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)"><%= image_tag "left-arrow.png"%></a>
+  <a class="next" onclick="plusSlides(1)"><%= image_tag "right-arrow.png"%></a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span> 
+</div>
