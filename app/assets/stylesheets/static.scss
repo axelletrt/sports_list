@@ -1,3 +1,225 @@
-// Place all the styles related to the Static controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+h2 {
+  font-size: 1.7em !important;
+}
+
+.background {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-image: url("surf_drone3.jpg");
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.85;
+}
+
+.text-block {	
+  text-align: center;
+  background-color: white;
+  margin-top: 12%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  border-radius: 1.5%;
+}
+
+.coach_picture {
+  max-width: 22%;
+  max-height: auto;
+  border-radius: 50%;
+  padding-bottom: 1.5%;
+}
+
+#activity_title {
+  padding-top: 40px;
+  color:  #404040;
+  font-size: 1.2em;
+}
+
+.activity_pic {
+  padding-top: 8px;
+  max-width: 100%;
+}
+
+.activity_pic:hover {
+  opacity: 0.9; 
+}
+
+#description_title {
+  padding-top: 40px;
+  color:  #404040;
+  font-size: 1.2em;
+}
+
+#description_text {
+  margin-left: -12px;
+  padding: 25px;
+  padding-top: 25px;
+  width: 68%;
+  height: 150px;
+  border: 1px solid #f2f2f2;
+  display: inline-block;
+  float: left;
+}
+
+#practical_info_title {
+  padding-top: 40px;
+  color:  #404040;
+  font-size: 1.2em;
+  margin-left: -12px;
+}
+
+#practical_info {
+  padding-top: 8px;
+  padding: 25px;
+  margin-left: -12px;
+  width: 70%;
+  max-height: 250px;
+  border: 1px solid #f2f2f2;
+  display: inline-block;
+  float: left;
+  list-style-type: none;
+}
+
+#contact_title {
+  padding-top: 50px;
+  color:  #404040;
+  font-size: 1.2em;
+}
+
+#contact_info {
+  padding-top: 35px;
+  padding: 25px;
+  width: 70%;
+  max-height: 250px;
+  border: 1px solid #f2f2f2;
+  display: inline-block;
+  float: left;
+  list-style-type: none;
+}
+
+.contact_icons {
+  padding-top: 5px;
+  margin-right: 20px;
+  width: 25px;
+}
+
+.social_network_icon {
+  padding-top: 30px;
+}
+
+.social_network_icon:hover {
+  opacity: 0.9; 
+  cursor: pointer;
+}
+
+
+/* Position the image container (needed to position the left and right arrows) */
+#slideshow {
+  position: relative;
+  width: 40%;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+#slide1 {
+  display: block;
+}
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: white;
+  padding: 2px 2px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+  padding: 0;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+  padding-top: 5px;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+#slideshow_bottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+
