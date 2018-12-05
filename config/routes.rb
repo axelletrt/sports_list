@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :disciplines, only: [:index, :show]
-  get 'disciplines/categorie/:id', to: 'disciplines#categorie'
+  resources :disciplines, only: [:show]
+#  get 'sport/:id', to: 'disciplines#index'
 
   root to: "static#Index"
   get 'home/index'
 
-  resources :cards, only: [:index, :create, :new]
+  resources :cards, only: [:index, :show, :create, :new]
 end

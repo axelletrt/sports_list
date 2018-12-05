@@ -1,10 +1,10 @@
 class CardsController < ApplicationController
-
   def index
-
+    @cards = Card.all
   end
+
   def show
-  	@cards = Card.find(params[:id])
+    @card = Card.find(params[:id])
   end
   def new
   	@cards = Card.new
@@ -12,7 +12,7 @@ class CardsController < ApplicationController
 
   def create
   	@cards = Card.new
-	
+
   	@cards.activity_title = params["card"][:activity_title]
   	@cards.short_description = params["card"][:short_description]
   	@cards.long_description = params["card"][:long_description]
@@ -30,7 +30,7 @@ class CardsController < ApplicationController
   	@cards.instagram = params["card"][:instagram]
 
 
-  	
+
 
 
 
@@ -43,5 +43,5 @@ class CardsController < ApplicationController
   	@cards.save
 
   	redirect_to root_path
-  end 
+  end
 end
