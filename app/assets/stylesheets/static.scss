@@ -17,6 +17,7 @@ body, html {
 }
 
 .sidebar {
+  background-color: red;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -68,6 +69,26 @@ a:visited {
 
 /*__________CONTACT__________*/
 
+#contact_info { 
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  font-size: 0.9em;
+  list-style-type: none;
+  padding: 30px;
+  box-shadow: 2px 0.5px 6px lightgrey;
+   @media (min-width: 991px) {
+        position: fixed;
+        width: 350px;
+        background-color: white;
+        font-size: 0.9em;
+        list-style-type: none;
+        padding: 30px;
+        top: 35vh;
+        box-shadow: 2px 0.5px 6px lightgrey;
+  }
+}
+
 #contact_name {
   display: flex;
   float: left;
@@ -84,18 +105,6 @@ a:visited {
   top: 40px;
 }
 
-#contact_info { 
-  position: fixed;
-  width: 350px;
-  height: 210px;
-  background-color: white;
-  font-size: 0.9em;
-  list-style-type: none;
-  box-shadow: 2px 0.5px 6px lightgrey;
-  padding: 30px;
-  top: 35vh;
-}
-
 .display_contact_button {
   background-color:  #073d46;
   border-radius: 0 3px 3px 0;
@@ -105,15 +114,14 @@ a:visited {
   margin-top: 30px;
   text-align: center;
   text-decoration: none;
-}
 
-.display_contact_button:focus {
-  outline: none;
-}
-
-.display_contact_button:hover {
-  opacity: 0.9; 
-  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    opacity: 0.9; 
+    cursor: pointer;
+  }  
 }
 
 #display_contact_info {
@@ -121,19 +129,15 @@ a:visited {
     background-color: white;
     margin-top: 20px;
     display: none;
+  ul {
+    list-style-type: none;
+    padding:0;
+  }
 }
+
 
 /*__________CONTACT BUTTON__________*/
 
-#display_contact_info ul {
-  list-style-type: none;
-}
-
-#display_contact_info {
-  min-width: 100%;
-  background-color: red;
-  float: left;
-}
 
 #icon {
   color: #073d46;
