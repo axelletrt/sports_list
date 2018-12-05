@@ -1,16 +1,14 @@
 class CardsController < ApplicationController
-
   def index
+    @cards = Card.all
+  end
 
-end
-	
   def show
-  	@cards = Card.find(params[:id])
+    @card = Card.find(params[:id])
   end
   def new
   	@cards = Card.new
   end
-
 
   def edit 
   	@cards = Card.find(params[:id])

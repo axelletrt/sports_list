@@ -1,4 +1,6 @@
-<h1>Disciplines#show</h1>
-<p>Find me in app/views/disciplines/show.html.erb</p>
 
-<%= @card.activity_title %>
+
+
+<% @cards.each do |card| %>
+  <%= card.activity_title %>
+<% end %>
