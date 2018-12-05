@@ -1,12 +1,6 @@
 <%= form_for(@cards) do |f| %>
 
-
-
-
-
-
 	<%= f.label :Discipline %>
-
 	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
 
 	<%= f.label :activity_title %><br>
