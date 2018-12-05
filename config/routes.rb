@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'disciplines/index'
-  get 'disciplines/show/:id', to: "disciplines#show"
-  get 'disciplines/yoga'
-  get 'disciplines/surf'
-  get 'disciplines/scuba_diving'
-  devise_for :professionals
-
+	#routes brouillons
   root to: "static#Index"
   get 'home/index'
 
-   resources :cards, only: [:index, :create, :new]
 
+  #routes à sauvegarder 
+  devise_for :professionals
+  resources :cards, only: [:index, :create, :new, :edit, :update]
+  resources :disciplines, only: [:index, :show]
+  
 end

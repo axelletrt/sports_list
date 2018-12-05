@@ -1,7 +1,7 @@
-
-
-
 <%= form_for(@cards) do |f| %>
+
+	<%= f.label :Discipline %>
+	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
 
 	<%= f.label :activity_title %><br>
 	<%= f.text_field :activity_title %><br>
@@ -18,6 +18,13 @@
 	<%= f.label :address %><br>
 	<%= f.text_field :address %><br>
 
+	<div id="map"> 
+	
+	</div> 
+
+
+	<%= f.label :city %><br>
+	<%= f.select :city, Card.cities.keys %><br>
 
 	<%= f.label :country %><br>
 	<%= f.text_field :country %><br>
@@ -28,11 +35,10 @@
 	<%= f.label :length %><br>
 	<%= f.text_field :length %><br>
 
-	<%= f.label :opening_hour %><br>
-	<%= f.text_field :opening_hour %><br>
+ 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
 
-	<%= f.label :closing_hour %><br>
-	<%= f.text_field :closing_hour %><br>
+ 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
+
 
 	<%= f.label :whatsapp %><br>
 	<%= f.text_field :whatsapp %><br>
@@ -43,19 +49,98 @@
 	<%= f.label :instagram %><br>
 	<%= f.text_field :instagram %><br>
 
-
-
-
-
-
-
-
-	
-
-
-
+			
+	<input type="hidden"  id="lat" name="lat" />
+	<input type="hidden"  id="lng" name="lng"/>
 
 
 	   <%= f.submit %><br>
 
 <% end %> 	
+
+<<<<<<< HEAD
+
+	  
+
+
+=======
+<script>
+	const input = document.getElementById('card_address')
+
+	var map = new google.maps.Map(document.getElementById('map'), {
+   		center: {lat: -8.6, lng: 115},
+   		zoom: 9
+ 	})
+	const autocomplete = new google.maps.places.Autocomplete(input)
+	autocomplete.bindTo('bounds', map)
+	const geocoder = new google.maps.Geocoder()
+
+	var marker = new google.maps.Marker({
+		map: map,
+		anchorPoint: new google.maps.Point(0, -29)
+	})
+
+	autocomplete.addListener('place_changed', function() {
+	    marker.setVisible(false);
+    	var place = autocomplete.getPlace();
+		if (!place.geometry) {
+			window.alert("No details available for input: '" + place.name + "'");
+			return;
+		}
+		if (place.geometry.viewport) {
+			map.fitBounds(place.geometry.viewport)
+		} else {
+			map.setCenter(place.geometry.location)
+			map.setZoom(19)
+		}
+
+		marker.setPosition(place.geometry.location);
+		marker.setVisible(true);
+		let data = parseLocation(place)
+   		fillField(data)
+	})
+
+	let clicks = 0, timer
+
+	google.maps.event.addListener(map, 'click', function(event) {
+		clicks++
+		if(clicks === 1){
+			//wait for a second clic- if second clic, cleqr timeout otherwise run the function
+			timer = setTimeout(function(){
+				marker.setPosition(event.latLng)
+				marker.setVisible(true)	
+			
+				let data ={}
+				data.long = event.latLng.lng
+				data.lat = event.latLng.lat
+				fillField(data)
+
+				clicks=0
+			},200)
+		} else {
+			clearTimeout(timer)
+			clicks=0
+		}
+	})
+
+	google.maps.event.addListener(map, 'dblclick', function(event) {
+		clearTimeout(timer)
+		clicks=0
+	})
+
+
+	function parseLocation(item){
+		let data ={}
+		data.long = item.geometry.location.lng()
+		data.lat = item.geometry.location.lat()
+
+		return data
+  	}
+
+	function fillField(data){
+		$('#lat').val(data.lat)
+		$('#lng').val(data.long)
+	}
+
+</script>  
+>>>>>>> development

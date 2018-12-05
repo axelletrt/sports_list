@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_171029) do
+ActiveRecord::Schema.define(version: 2018_12_04_170413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,10 @@ ActiveRecord::Schema.define(version: 2018_12_03_171029) do
     t.string "instagram"
     t.boolean "status", default: false
     t.bigint "professional_id"
+    t.bigint "discipline_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["discipline_id"], name: "index_cards_on_discipline_id"
     t.index ["professional_id"], name: "index_cards_on_professional_id"
   end
 
@@ -62,6 +64,15 @@ ActiveRecord::Schema.define(version: 2018_12_03_171029) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.text "comment"
+    t.integer "eval"
+    t.bigint "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_evaluations_on_card_id"
   end
 
   create_table "professionals", force: :cascade do |t|
