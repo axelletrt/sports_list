@@ -4,8 +4,10 @@ class CardsController < ApplicationController
   end
 
   def show
+    @evaluations = Evaluation.where(card_id: params[:id])
     @card = Card.find(params[:id])
   end
+
   def new
   	@cards = Card.new
   end
