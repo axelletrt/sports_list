@@ -1,4 +1,8 @@
 class CardsDiscipline < ApplicationRecord
-  belongs_to :card
-  belongs_to :discipline
+
+  belongs_to :cards
+  has_many :disciplines
+
+
+
 end
