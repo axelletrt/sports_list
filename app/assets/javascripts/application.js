@@ -47,3 +47,13 @@ function showSlides(n) {
 }
 
 
+// DISPLAY CONTACT INFORMATION
+function display_contact() {
+    var x = document.getElementById("display_contact_info");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
