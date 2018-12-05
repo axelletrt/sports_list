@@ -9,7 +9,6 @@ class DisciplinesController < ApplicationController
 
   def categorie
     cards = Card.all
-    puts params
     categorie_cards_id = CardsDiscipline.where(discipline_id: params[:id]).pluck(:card_id)
     @categorie_cards = cards.find(categorie_cards_id)
   end
