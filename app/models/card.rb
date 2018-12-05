@@ -5,4 +5,7 @@ class Card < ApplicationRecord
   enum organization: [:coacha, :school, :club]
   enum city: [:canggu, :kuta, :seminyak]
   enum country: [:indonesia]
+
+  has_many_attached :images_disciplines
+
 end
