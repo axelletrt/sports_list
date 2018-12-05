@@ -2,7 +2,8 @@ class CardsController < ApplicationController
 
   def index
 
-  end
+	end
+	
   def show
   	@cards = Card.find(params[:id])
   end
@@ -10,6 +11,7 @@ class CardsController < ApplicationController
   	@cards = Card.new
   end
 
+<<<<<<< HEAD
   def create
   	@cards = Card.new
     @cards.professional_id = current_professional.id
@@ -52,6 +54,24 @@ class CardsController < ApplicationController
 
 
   end
+=======
+	def create 
+		@card = Card.new(card_parameters)
+		@card.professional_id = current_professional.id
+		@cards.discipline  = #Je ne sais pas comment récupérer la valeur de mon collection_select 
+		@cards.opening_hour = params["appt"]
+		@cards.closing_hour = params["appt2"] 
+		@cards.latitude = params["lat"]
+		@cards.longitude = params["lng"]
+		@card.save
+	end
+	
+	private 
+  
+	def card_parameters
+		params.require(:card).permit(:activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng)
+	end
+>>>>>>> 9deef189cc0de74f39eadc55b693b8621f2d4cd9
 
 
 
