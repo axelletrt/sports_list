@@ -11,35 +11,7 @@ class CardsController < ApplicationController
   	@cards = Card.new
   end
 
-  def create
-  	@cards = Card.new
-    @cards.professional_id = current_professional.id
-    #@cards.discipline_id = di
-  	@cards.activity_title = params["card"][:activity_title]
-  	@cards.short_description = params["card"][:short_description]
-  	@cards.long_description = params["card"][:long_description]
-  	@cards.organization = params["card"][:organization]
-  	@cards.address = params["card"][:address]
-  	@cards.city = params["card"][:city]
-  	@cards.country = params["card"][:country]
-  	@cards.price = params["card"][:price]
-  	@cards.length = params["card"][:length]
-  	@cards.opening_hour = params["appt"]
-  	@cards.closing_hour = params["appt2"]
-  	@cards.whatsapp = params["card"][:whatsapp]
-  	@cards.website = params["card"][:website]
-  	@cards.facebook = params["card"][:facebook]
-  	@cards.instagram = params["card"][:instagram]
-  	@cards.save
-  	puts  @cards.errors.full_messages
 
-  	puts "okk"
-  	puts Discipline.id
-  	puts params
-  	puts "ok2"
-
-	redirect_to root_path
-  end
   def edit 
   	@cards = Card.find(params[:id])
 
@@ -57,11 +29,14 @@ class CardsController < ApplicationController
 	def create 
 		@card = Card.new(card_parameters)
 		@card.professional_id = current_professional.id
-		@cards.discipline  = #Je ne sais pas comment récupérer la valeur de mon collection_select 
-		@cards.opening_hour = params["appt"]
-		@cards.closing_hour = params["appt2"] 
-		@cards.latitude = params["lat"]
-		@cards.longitude = params["lng"]
+		@card.discipline_id  = params["card"]["id"]
+		@card.opening_hour = params["appt"]
+		@card.closing_hour = params["appt2"] 
+		@card.latitude = params["lat"]
+		@card.longitude = params["lng"]
+		puts "ok"
+
+		puts params[:card][:id]
 		@card.save
 	end
 	
