@@ -17,12 +17,11 @@ body, html {
 }
 
 .sidebar {
-  background-color: red;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 70px;
   @media (min-width: 991px) {
       min-width: 350px;
       position: static;
@@ -75,7 +74,7 @@ a:visited {
   background-color: white;
   font-size: 0.9em;
   list-style-type: none;
-  padding: 30px;
+  padding: 0;
   box-shadow: 2px 0.5px 6px lightgrey;
    @media (min-width: 991px) {
         position: fixed;
@@ -91,22 +90,39 @@ a:visited {
 
 #contact_name {
   display: flex;
-  float: left;
+  float: right;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-left: 15px; 
   color:  #404040;
   font-size: 1.7em;
-  padding-top: 15px;
+  @media (min-width: 991px) {
+      display: flex;
+      float: left;
+      color:  #404040;
+      font-size: 1.7em;
+      padding-top: 15px;
+  } 
 }
 
 .coach_picture {
   display: flex;
   float: right;
-  max-width: 20%;
+  min-width: 9%;
+  max-width: 9%;
   border-radius: 50%;
-  top: 40px;
+  padding-top: 3px;
+   @media (min-width: 991px) {
+     display: flex;
+     float: right;
+     max-width: 20%;
+     border-radius: 50%;
+     top: 40px;
+  } 
 }
 
 .display_contact_button {
-  background-color:  #073d46;
+  background-color:  #073d46; 
   border-radius: 0 3px 3px 0;
   color: white;
   padding: 10px 70px;
@@ -114,14 +130,25 @@ a:visited {
   margin-top: 30px;
   text-align: center;
   text-decoration: none;
+  margin-top: 1.5%;
+    @media (min-width: 991px) {
+    background-color:  #073d46;
+    border-radius: 0 3px 3px 0;
+    color: white;
+    padding: 10px 70px;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
 
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    opacity: 0.9; 
-    cursor: pointer;
-  }  
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        opacity: 0.9; 
+        cursor: pointer;
+      }  
+    } 
 }
 
 #display_contact_info {
