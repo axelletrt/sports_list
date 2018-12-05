@@ -1,3 +1,4 @@
+<!-- TOP BANNER -->
 <div class="background"> 
   <div class="col-7">
     <div class="bg-text">
@@ -15,17 +16,16 @@
   </div>
 </div>
 
-
-
+<!-- DISCIPLINE -->
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-10">
       <h2 id="title">Activity</h2>
       <%= image_tag "surf_icon.svg", class: "activity_pic"%>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-10">
       <h2 id="title">Description</h2>
     </div>
   </div>
@@ -37,28 +37,38 @@
   </div>
 </div>
 
+<!-- PRACTICAL INFORMATION -->
 <div class="container">
-  <div class="row no-gutters">
-    <div class="col-10">
-      <h2 id="practical_info_title">Practical Informations</h2>
+  <div class="row">
+    <div class="col-12">
+      <h2 id="practical_info_title">Practical Information</h2>
     </div>
   </div>  
-  <div class="row no-gutters">
+  <div class="row">
     <div class="col-10">
       <ul id="practical_info">
-        <div class="col-6">
-          <li>Place</li>
-          <li>Price</li>
+        <div class="col-2">
+          <li><span>Place</span></li>
+          <li><span>Price</span></li>
         </div>
-        <div class="col-6">
-          <li>Languages spoken</li>
-          <li>Opening Hours</li>
+        <div class="col-3">
+          <li>HW</li>
+          <li>HW</li>
+        </div>
+        <div class="col-2">
+          <li><span>Languages spoken</span></li>
+          <li><span>Opening Hours</span></li>
+        </div>
+        <div class="col-3">
+          <li>HW</li>
+          <li>HW</li>
         </div>
       </ul>
     </div>
   </div>
 </div>
 
+<!-- CAROUSEL -->
 <div class="container" id="slideshow">
   <div id="slide1" class="mySlides">
       <%= image_tag"slider_surf1.jpg", style: "width:100%"%>

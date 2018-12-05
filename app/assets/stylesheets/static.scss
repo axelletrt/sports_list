@@ -16,8 +16,8 @@ h2 {
 }
 
 .container {
-  margin-left: 180px !important;
-  margin-right: 180px !important;
+  margin-left: 130px !important;
+  margin-right: 130px !important;
 }
 
 /*__________BANNER TOP__________*/
@@ -43,7 +43,9 @@ h2 {
 .bg-text {	
   margin-top: 200px;
   margin-left: 150px;
-  color: white; 
+  color: white;
+    display: flex;
+  flex-wrap: wrap; 
 }
 
 /*__________CONTACT__________*/
@@ -52,7 +54,6 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   margin-top: 300px;
-
 }
 
 #contact_title {
@@ -123,15 +124,23 @@ h2 {
   box-shadow: 2.5px 0.5px 3px lightgrey;
 }
 
+#practical_info li {
+  padding-top: 15px;
+}
+
+#practical_info span {
+  font-weight: bold;
+}
 
 /*__________CAROUSEL__________*/
 
 /* Position the image container (needed to position the left and right arrows) */
 #slideshow {
   margin-top: 35px;
-  margin-left: 400px !important;
+  margin-left: 29% !important;
   width: 40%;
   padding: 0;
+  position: relative;
 }
 
 /* Hide the images by default */
@@ -155,7 +164,7 @@ h2 {
   top: 40%;
   width: auto;
   padding: 16px;
-  margin-top: -25px;
+  margin-top: -50px;
   color: white;
   font-weight: bold;
   font-size: 20px;
