@@ -11,7 +11,6 @@ class CardsController < ApplicationController
   	@cards = Card.new
   end
 
-<<<<<<< HEAD
   def create
   	@cards = Card.new
     @cards.professional_id = current_professional.id
@@ -54,7 +53,7 @@ class CardsController < ApplicationController
 
 
   end
-=======
+
 	def create 
 		@card = Card.new(card_parameters)
 		@card.professional_id = current_professional.id
@@ -71,10 +70,6 @@ class CardsController < ApplicationController
 	def card_parameters
 		params.require(:card).permit(:activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng)
 	end
->>>>>>> 9deef189cc0de74f39eadc55b693b8621f2d4cd9
-
-
-
 
 
 end
