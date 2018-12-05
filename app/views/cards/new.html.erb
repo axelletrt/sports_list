@@ -1,8 +1,4 @@
-
-
-
 <%= form_for(@cards) do |f| %>
-
 
 	<%= f.label :name %>
 	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
@@ -59,4 +55,4 @@
 
 	  
 
-<% end %> 	
+<% end %> 
