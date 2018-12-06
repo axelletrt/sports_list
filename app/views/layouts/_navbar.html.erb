@@ -14,6 +14,8 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/cards/new">Offer an experience</a>
+        <a class="nav-link"> <%= link_to "Become SL Coach", new_card_path %>
+        </a>
       </li>
       <% if professional_signed_in? %> 
 <!--       <li class="nav-item">
@@ -33,6 +35,31 @@
       <% end %> 
     </ul>
   </div> 
+
+    <div class="collapse navbar-collapse" >
+     
+     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      <% if  professional_signed_in? %> 
+         <% if current_professional.avatar.attached? %>
+          
+           <%= image_tag current_professional.avatar, height: 60, width: 60, class: "rounded-circle"  %> 
+         <% end %> 
+
+         
+           <ul class="navbar-nav mr-auto">
+            <li><%= current_professional.email %></li>           
+            <li><%= link_to "Sign Out", destroy_professional_session_path, method: :delete %></li>
+            <li><%= link_to "Edit Account", edit_professional_registration_path %></li> 
+          <% else %> 
+            <li><%= link_to "sign in", new_professional_session_path %></li>
+            <li><%= link_to "sign up", new_professional_registration_path %></li> 
+          <% end %> 
+      </ul>
+    </div>
+
+    </ul>
+  </div>
+
 </nav>
 
 

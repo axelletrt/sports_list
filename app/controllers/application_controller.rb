@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
     #We add two parameters for the subscription of the professional 
 
     def sanitize_devise_params
-        devise_parameter_sanitizer.permit(:sign_up, keys:[:first_name, :last_name])
+        devise_parameter_sanitizer.permit(:sign_up, keys:[:first_name, :last_name, :avatar])
+        devise_parameter_sanitizer.permit(:account_update, keys:[:first_name, :last_name, :avatar])
     end 
     
 end

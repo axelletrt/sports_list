@@ -1,65 +1,72 @@
 <%= form_for(@cards) do |f| %>
 
 
-<div class="step1 step"> 
+	<div class="step1 step"> 
 
-	<%= f.label :Discipline %>
-	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
+		<%= f.label :Discipline %>
+		<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
 
-	<%= f.label :activity_title %><br>
-	<%= f.text_field :activity_title %><br>
+		<%= f.label :activity_title %><br>
+		<%= f.text_field :activity_title %><br>
 
-	<%= f.label :short_description %><br>
-	<%= f.text_field :short_description %><br>
+		<%= f.label :short_description %><br>
+		<%= f.text_field :short_description %><br>
 
-	<%= f.label :long_description %><br>
-	<%= f.text_field :long_description %><br>
+		<%= f.label :long_description %><br>
+		<%= f.text_field :long_description %><br>
 
-	<%= f.label :organization %><br>
-	<%= f.select :organization, Card.organizations.keys %><br>
+		<%= f.label :organization %><br>
+		<%= f.select :organization, Card.organizations.keys %><br>
 
-	<%= f.label :price %><br>
-	<%= f.text_field :price %><br>
+		<%= f.label :price %><br>
+		<%= f.text_field :price %><br>
 
-	<%= f.label :length %><br>
-	<%= f.text_field :length %><br>
+		<%= f.label :length %><br>
+		<%= f.text_field :length %><br>
 
- 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
-
- 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
-
-	<button id="next_step1">Next</button>
-</div> 
+ 		Opening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
+ 		Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
 
 
-<div class="step2 step"> 
+  		<%= f.label :image_header %><br>
+  		<%= f.file_field :image_header %><br>
+ 
+  		<%= f.label :photos %><br>
+  		<%= f.file_field :photos, multiple: true %><br>
+
+		<button id="next_step1">Next</button>
+
+	</div> 
 
 
-	<%= f.label :whatsapp %><br>
-	<%= f.text_field :whatsapp %><br>
-
-	<%= f.label :facebook %><br>
-	<%= f.text_field :facebook %><br>
-
-	<%= f.label :instagram %><br>
-	<%= f.text_field :instagram %><br>
-
-	<button id="next_step2">Next</button>
-	<button id="back_step2">Previous</button> 
-
-</div> 
+	<div class="step2 step"> 
 
 
-<div class="step3 step"> 
+		<%= f.label :whatsapp %><br>
+		<%= f.text_field :whatsapp %><br>
+
+		<%= f.label :facebook %><br>
+		<%= f.text_field :facebook %><br>
+
+		<%= f.label :instagram %><br>
+		<%= f.text_field :instagram %><br>
+
+		<button id="next_step2">Next</button>
+		<button id="back_step2">Previous</button> 
+
+	</div> 
+
+
+	<div class="step3 step"> 
 
 	
-	<%= f.label :address %><br>
-	<%= f.text_field :address, {id: "address_input"} %><br>
+		<%= f.label :address %><br>
+		<%= f.text_field :address, {id: "address_input"} %><br>
 
-	<%= f.label :city %><br>
-	<%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %><br>
+		<%= f.label :city %><br>
+		<%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %><br>
 
-	<%= f.hidden_field :country %>
+		<%= f.hidden_field :country %>
 
 
 	<div id="map"> 
@@ -210,5 +217,22 @@
 		}
 	})
 </script> 
+
+
+
+
+ <%= form_with(model: @card, local: true) do |f| %>
+  <% if card.errors.any? %>
+    <div id="error_explanation">
+       <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+       <ul>
+       <% card.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+<% end %>
+
 
 
