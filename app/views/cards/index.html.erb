@@ -1,0 +1,10 @@
+
+<% @cards.each do |card| %>
+  <%= card.activity_title %>
+  <%= card.organization %>
+  <%= link_to "test", "cards/#{card.id}" %>
+<% end %>
+
+<%= link_to "Surf", "disciplines/#{1}" %>
+<%= link_to "Yoga", "disciplines/#{2}" %>
+<%= link_to "scuba_diving", "disciplines/#{3}" %>

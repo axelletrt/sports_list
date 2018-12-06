@@ -1,0 +1,10 @@
+
+	<%= form_for(cards_path) do |f| %>
+	  <%= f.label 'Article Title' %><br>
+	  <%= f.text_field :long_description %><br>
+
+	  <%= f.label 'Article Description' %><br>
+	  <%= f.text_area :short_description %><br>
+
+	  <%= f.submit "Submit Update card" %>
+	<% end %>

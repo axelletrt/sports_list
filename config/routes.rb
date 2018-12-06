@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+	#routes brouillons
+  root to: "static#Index"
+  get 'home/index'
+
+  #routes à sauvegarder
+  devise_for :professionals
+
+  resources :cards, only: [:index, :show, :create, :new, :edit, :update]
+  resources :disciplines, only: [:show]
+  post '/cards/:id', to: 'evaluations#create'
+
 end
