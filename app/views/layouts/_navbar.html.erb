@@ -16,14 +16,14 @@
         <a class="nav-link" href="/cards/new">Offer an experience</a>
       </li>
       <% if professional_signed_in? %> 
+<!--       <li class="nav-item">
+        <a class="nav-link" <%= current_professional.email %> </a>
+      </li class="nav-item">  -->
+        <a class="nav-link" <%= link_to "Edit Account", edit_professional_registration_path %> </a>
+      </li class="nav-item"> 
       <li class="nav-item"> 
         <a class="nav-link" <%= link_to "Sign Out", destroy_professional_session_path, method: :delete %> </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= current_professional.email %> </a>
-      </li class="nav-item"> 
-        <a class="nav-link" <%= link_to "Edit Account", edit_professional_registration_path %> </a>
-      </li class="nav-item"> 
       <% else %> 
         <a class="nav-link" <%= link_to "Sign in", new_professional_session_path %> </a>
       </li> 
