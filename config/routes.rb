@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 	#routes brouillons
-  root to: "static#Index"
   get 'home/index'
 
   #routes à sauvegarder

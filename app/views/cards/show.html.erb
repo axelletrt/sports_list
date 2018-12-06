@@ -11,7 +11,11 @@
 <div class="container">
   <div class="content">
     <div class="activity">
-      <p>A BRANCHER AU BACK></p>
+      <p>
+        <% @disciplines.each do |d| %>
+        <%= d.name %>
+        <% end %>
+      </p>
     </div>
     <div class="description">
       <p id="description_text"><%=@card.long_description%></p>
@@ -33,7 +37,11 @@
             <li><span>Language</span></li>
           </div>
           <div class="col-2">
-            <li>A BRANCHER AU BACK</li>
+            <li>
+              <% @languages.each do |l| %>
+              <%= l.name %>
+              <% end %>
+            </li>
           </div>
         </ul>
     </div>
@@ -79,6 +87,38 @@
         </div> 
       </div>
     </div>
+
+    <div class="comments">
+      <div class="eval_stars">
+        <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'} do |f| %>
+        <%= f.radio_button(:eval, 1) %>
+<!--         <%= f.label(:evaluation, "1") %> -->
+        <%= f.radio_button(:eval, 2) %>
+<!--         <%= f.label(:evaluation, "2") %> -->
+        <%= f.radio_button(:eval, 3) %>
+<!--         <%= f.label(:evaluation, "3") %> -->
+        <%= f.radio_button(:eval, 4) %>
+<!--         <%= f.label(:evaluation, "4") %> -->
+        <%= f.radio_button(:eval, 5) %>
+<!--         <%= f.label(:evaluation, "5") %> -->
+      </div>
+      <div class="field">
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+        <% end %>  
+      </div> 
+      <div class="average">      
+        moyenne: <%= @moyenne %>
+        <% @evaluations.each do |evaluation| %>
+          <p><%= evaluation.eval %></p>
+          <p><%= evaluation.comment %></p>
+        <%end%>
+      </div>
+    </div>
+
   </div>
   <div class="sidebar">
     <div id="contact_info">
@@ -101,44 +141,3 @@
 </div>
 
 
-<%= @card.activity_title %>
-
-<% @languages.each do |l| %>
-  <%= l.name %>
-<% end %>
-
-<% @disciplines.each do |d| %>
-  <%= d.name %>
-<% end %>
-
-
-
-<%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'} do |f| %>
-<%= f.radio_button(:eval, 1) %>
-<%= f.label(:evaluation, "1") %>
-<%= f.radio_button(:eval, 2) %>
-<%= f.label(:evaluation, "2") %>
-<%= f.radio_button(:eval, 3) %>
-<%= f.label(:evaluation, "3") %>
-<%= f.radio_button(:eval, 4) %>
-<%= f.label(:evaluation, "4") %>
-<%= f.radio_button(:eval, 5) %>
-<%= f.label(:evaluation, "5") %>
-
-  <div class="field">
-  <%= f.label :content %><br>
-  <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<h3>moyenne: <%= @moyenne %> </h3>
-<% @evaluations.each do |evaluation| %>
-<span> -------------------------------------- </span>
-<div>
-    <p><%= evaluation.eval %></p>
-    <p><%= evaluation.comment %></p>
-</div>
-<% end %>
