@@ -10,10 +10,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Become SL Coach</a>
+        <a class="nav-link"> <%= link_to "Become SL Coach", new_card_path %>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Help</a>
@@ -23,7 +21,7 @@
      
 
 
-     <div>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <% if  professional_signed_in? %> 
          <% if current_professional.avatar.attached? %>
           
@@ -31,7 +29,7 @@
          <% end %> 
 
          
-           <ul>
+           <ul class="navbar-nav mr-auto">
             <li><%= current_professional.email %></li>           
             <li><%= link_to "Sign Out", destroy_professional_session_path, method: :delete %></li>
             <li><%= link_to "Edit Account", edit_professional_registration_path %></li> 

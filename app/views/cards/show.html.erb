@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+
+  <%= image_tag @card.image_header %>
+
+  <h1> <%= @card.activity_title %></h1>
+  <%= link_to 'Edit', edit_card_path(@card) %>
+  
+  <div>
+    <% @card.photos.each do |photo| %>
+    <% if photos.variable?  %>
+    <%= image_tag photos.variant(resize "300x300") %>
+    <% elsif photos.previewable? %>
+     <%= image_tag photos.preview(resize "300x300") %>
+
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+
+
+  <%= image_tag @card.image_header %>
+
+  <h1> <%= @card.activity_title %></h1>
+  <%= link_to 'Edit', edit_card_path(@card) %>
+  
+  <div>
+    <% @card.photos.each do |photo| %>
+    <% if photos.variable?  %>
+    <%= image_tag photos.variant(resize "300x300") %>
+    <% elsif photos.previewable? %>
+     <%= image_tag photos.preview(resize "300x300") %>
+
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+
+<% 0...@card.photos.count).each do |image| %>
+
+	<%= image_tag(@card.images[image]) %>
+	<%end%>
