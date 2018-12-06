@@ -144,7 +144,6 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-erd (1.5.2)
       activerecord (>= 3.2)
       activesupport (>= 3.2)
       choice (~> 0.2.0)
@@ -234,7 +233,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.1, >= 5.2.1.1)
-  rails-erd
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
