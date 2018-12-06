@@ -21,25 +21,47 @@
     </ul>
   </div>
 <ul>
-    <% if professional_signed_in? %> 
-    <li> 
+    <% if professional_signed_in? %>
+    <li>
     <%= link_to "Sign Out", destroy_professional_session_path, method: :delete %>
     </li>
     <li>
-        <%= current_professional.email %> 
-    </li> 
-        <%= link_to "Edit Account", edit_professional_registration_path %> 
-    </li> 
-    <% else %> 
+        <%= current_professional.email %>
+    </li>
+    <li>
+        <%= link_to "Edit Account", edit_professional_registration_path %>
+    </li>
+    <% else %>
+    <li>
     <%= link_to "sign in", new_professional_session_path %>
-    </li> 
-    <li> 
-    <%= link_to "sign up", new_professional_registration_path %> 
-    </li> 
-    
-    <% end %> 
+    </li>
+    <li>
+    <%= link_to "sign up", new_professional_registration_path %>
+    </li>
+
+    <% end %>
+</ul>
+<ul>
+    <% if user_signed_in? %>
+    <li>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    </li>
+    <li>
+        <%= current_user.email %>
+    </li>
+    <li>
+        <%= link_to "Edit Account", edit_user_registration_path %>
+    </li>
+    <% else %>
+    <li>
+    <%= link_to "sign in (user)", new_user_session_path %>
+    </li>
+    <li>
+    <%= link_to "sign up (user)", new_user_registration_path %>
+    </li>
+
+    <% end %>
 </ul>
 
-  
-</nav>
 
+</nav>

@@ -4,6 +4,7 @@ class CardsController < ApplicationController
   end
 
   def show
+    @users = User.all
     @card = Card.find(params[:id])
     @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)

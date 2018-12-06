@@ -1,6 +1,6 @@
 
 <!-- TOP BANNER -->
-<div class="background"> 
+<div class="background">
   <div class="bg-text">
     <h3><%= @card.activity_title %></h3>
     <p>"<%=@card.short_description%>"</p>
@@ -73,7 +73,7 @@
         <div class="column">
           <%= image_tag "slider_surf1.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(1)"%>
         </div>
-        <div class="column"> 
+        <div class="column">
           <%= image_tag "slider_surf2.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(2)"%>
         </div>
         <div class="column">
@@ -84,36 +84,39 @@
         </div>
         <div class="column">
           <%= image_tag "slider_surf5.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(5)"%>
-        </div> 
+        </div>
       </div>
     </div>
 
     <div class="comments">
       <div class="eval_stars">
-        <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'} do |f| %>
-        <%= f.radio_button(:eval, 1) %>
-<!--         <%= f.label(:evaluation, "1") %> -->
-        <%= f.radio_button(:eval, 2) %>
-<!--         <%= f.label(:evaluation, "2") %> -->
-        <%= f.radio_button(:eval, 3) %>
-<!--         <%= f.label(:evaluation, "3") %> -->
-        <%= f.radio_button(:eval, 4) %>
-<!--         <%= f.label(:evaluation, "4") %> -->
-        <%= f.radio_button(:eval, 5) %>
-<!--         <%= f.label(:evaluation, "5") %> -->
+        <% if user_signed_in? %>
+          <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'} do |f| %>
+          <%= f.radio_button(:eval, 1) %>
+          <%= f.label(:evaluation, "*") %>
+          <%= f.radio_button(:eval, 2) %>
+          <%= f.label(:evaluation, "*") %>
+          <%= f.radio_button(:eval, 3) %>
+          <%= f.label(:evaluation, "*") %>
+          <%= f.radio_button(:eval, 4) %>
+          <%= f.label(:evaluation, "*") %>
+          <%= f.radio_button(:eval, 5) %>
+          <%= f.label(:evaluation, "*") %>
+        </div>
+        <div class="field">
+          <%= f.label :content %><br>
+          <%= f.text_area :content %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+          <% end %>
+        <% end %>
       </div>
-      <div class="field">
-        <%= f.label :content %><br>
-        <%= f.text_area :content %>
-      </div>
-      <div class="actions">
-        <%= f.submit %>
-        <% end %>  
-      </div> 
-      <div class="average">      
+
+      <div class="average">
         moyenne: <%= @moyenne %>
         <% @evaluations.each do |evaluation| %>
-          <p><%= evaluation.eval %></p>
+          <p><%= evaluation.eval %><span> <%= evaluation.user.first_name %> <%= evaluation.user.last_name %></span></p>
           <p><%= evaluation.comment %></p>
         <%end%>
       </div>
@@ -123,7 +126,7 @@
   <div class="sidebar">
     <div id="contact_info">
       <div>
-        <p id="contact_name">A BRANCHER AU BACK</p>  
+        <p id="contact_name">A BRANCHER AU BACK</p>
         <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
       </div>
       <button class="display_contact_button" onclick="display_contact()">Book your session with me !</button>
@@ -136,8 +139,6 @@
           </li>
         </ul>
       </div>
-    </div>      
+    </div>
   </div>
 </div>
-
-

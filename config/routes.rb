@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
 	#routes brouillons
-  get 'home/index'
+  root 'home#index'
 
   #routes à sauvegarder
   devise_for :professionals

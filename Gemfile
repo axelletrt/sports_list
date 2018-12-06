@@ -64,6 +64,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mapbox-gl-rails'
-gem 'rails-erd', group: :development
+#gem 'rails-erd', group: :development
 gem 'graphviz'
-
