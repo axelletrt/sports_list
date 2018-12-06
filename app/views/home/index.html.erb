@@ -1,20 +1,31 @@
-<ul>
-    <% if professional_signed_in? %> 
-    <li> 
-    <%= link_to "Sign Out", destroy_professional_session_path, method: :delete %>
-    </li>
-    <li>
-        <%= current_professional.email %> 
-    </li> 
-        <%= link_to "Edit Account", edit_professional_registration_path %> 
-    </li> 
-    <% else %> 
-    <%= link_to "sign in", new_professional_session_path %>
-    </li> 
-    <li> 
-    <%= link_to "sign up", new_professional_registration_path %> 
-    </li> 
-    
-    <% end %> 
-</ul>
+<!-- TOP BANNER -->
+<div class="background_lp"> 
+    <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
+</div>
+
+<div class="container">
+  <div class="activity_lp">
+    <div class="row">
+      <div class="col-4">
+        <h3> Surf </h3>
+      </div>
+      <div class="col-8">
+        <a href=""> See more ... </a>
+      </div>
+    </div>
+    <div class="activity_list_lp">
+    </div> 
+
+    <div class="row">
+      <div class="col-4">
+        <h3> Yoga </h3>
+      </div>
+      <div class="col-8">
+        <a href=""> See more ... </a>
+      </div>
+    </div>
+    <div class="activity_list_lp">
+    </div> 
+  </div>
+</div>
 

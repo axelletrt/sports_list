@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  root to: "static#Index"
-
+  
+  #routes à sauvegarder
+  root 'home#index'
   devise_for :professionals
-  resources :cards, only: [:index, :show, :create, :new]
+
+  resources :cards, only: [:index, :show, :create, :new, :edit, :update]
   resources :disciplines, only: [:show]
+  post '/cards/:id', to: 'evaluations#create'
+
 end
