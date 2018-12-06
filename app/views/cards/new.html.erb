@@ -1,7 +1,7 @@
 <%= form_for(@cards) do |f| %>
 
 
-<div class="step1"> 
+<div class="step1 step"> 
 
 	<%= f.label :Discipline %>
 	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
@@ -28,11 +28,11 @@
 
  	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
 
-
+	<button id="next_step1">Next</button>
 </div> 
 
 
-<div class="step2"> 
+<div class="step2 step"> 
 
 
 	<%= f.label :whatsapp %><br>
@@ -44,21 +44,22 @@
 	<%= f.label :instagram %><br>
 	<%= f.text_field :instagram %><br>
 
+	<button id="next_step2">Next</button>
+	<button id="back_step2">Previous</button> 
+
 </div> 
 
 
-<div class="step3"> 
+<div class="step3 step"> 
 
 	
 	<%= f.label :address %><br>
-	<%= f.text_field :address %><br>
+	<%= f.text_field :address, {id: "address_input"} %><br>
 
 	<%= f.label :city %><br>
-	<%= f.select :city, Card.cities.keys %><br>
+	<%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %><br>
 
-	<%= f.label :country %><br>
-	<%= f.text_field :country %><br>
-
+	<%= f.hidden_field :country %>
 
 
 	<div id="map"> 
@@ -69,6 +70,7 @@
 	<input type="hidden"  id="lng" name="lng"/>
 
 
+	<button id="back_step3">Previous</button> 
 
 	   <%= f.submit %><br>
 
@@ -157,4 +159,55 @@
 </script>
 
 
+<script> 
+	$('.step1').show();
+	$('.step2').hide();
+	$('.step3').hide();
+	$('#next_step1').on("click", function(e){
+		e.preventDefault();
+		$('.step1').hide();
+		$('.step2').show();
+		$('.step3').hide();
+	})
+	$('#next_step2').on("click", function(e){
+		e.preventDefault();
+		$('.step1').hide();
+		$('.step2').hide();
+		$('.step3').show();
+	})
+
+
+	$('#back_step2').on("click", function(e){
+		e.preventDefault();
+		$('.step1').show();
+		$('.step2').hide();
+		$('.step3').hide();
+	})
+	$('#back_step3').on("click", function(e){
+		e.preventDefault();
+		$('.step1').hide();
+		$('.step2').show();
+		$('.step3').hide();
+	})
+
+
+	$("#map").hide();
+	var addressChanged = false;
+	var cityChanged = false;
+	$("#address_input").on("input", function(){
+		addressChanged = true;
+		console.log(addressChanged)
+		console.log(cityChanged)
+		if(addressChanged && cityChanged){
+			$("#map").show();
+		}
+	});
+
+	$("#card_city").change(function(){
+		cityChanged = true;
+		if(addressChanged && cityChanged){
+			$("#map").show();
+		}
+	})
+</script> 
 
