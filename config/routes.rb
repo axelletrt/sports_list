@@ -11,7 +11,5 @@ Rails.application.routes.draw do
   resources :disciplines, only: [:show]
 
   post '/cards/:id', to: 'evaluations#create'
-
-
-
+  
 end
