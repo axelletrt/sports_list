@@ -17,7 +17,7 @@ class CardsController < ApplicationController
 
   def update
   	@cards = Card.find(params[:id])
-  	cards_params = params.require(:card).permit(:long_description, :short_description)
+  	cards_params = params.require(:card).permit(:activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng)
   	@cards.update(cards_params)
   end
 
