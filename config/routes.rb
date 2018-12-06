@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   resources :cards
   resources :disciplines, only: [:show]
-  post '/cards/:id', to: 'evaluations#create'
+  post 'cards/:id', to: 'evaluations#create'
 
 end

@@ -89,39 +89,7 @@
       </div>
     </div>
 
-    <div class="comments">
-      <div class="eval_stars">
-        <% if user_signed_in? %>
-          <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'} do |f| %>
-          <%= f.radio_button(:eval, 1) %>
-          <%= f.label(:evaluation, "*") %>
-          <%= f.radio_button(:eval, 2) %>
-          <%= f.label(:evaluation, "*") %>
-          <%= f.radio_button(:eval, 3) %>
-          <%= f.label(:evaluation, "*") %>
-          <%= f.radio_button(:eval, 4) %>
-          <%= f.label(:evaluation, "*") %>
-          <%= f.radio_button(:eval, 5) %>
-          <%= f.label(:evaluation, "*") %>
-        </div>
-        <div class="field">
-          <%= f.label :content %><br>
-          <%= f.text_area :content %>
-        </div>
-        <div class="actions">
-          <%= f.submit %>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="average">
-        moyenne: <%= @moyenne %>
-        <% @evaluations.each do |evaluation| %>
-          <p><%= evaluation.eval %><span> <%= evaluation.user.first_name %> <%= evaluation.user.last_name %></span></p>
-          <p><%= evaluation.comment %></p>
-        <%end%>
-      </div>
-    </div>
+    <%= render 'evaluations/index' %>
 
   </div>
   <div class="sidebar">
