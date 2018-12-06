@@ -1,0 +1,47 @@
+#nav_hp {
+  position: absolute;
+  top: 0;
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  z-index: 9999;
+  color: white;
+  width: 100%;
+
+  a {
+    color:white;
+    font-weight: bold;
+  }
+
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .nav-link {
+    margin-left: 10px;
+  }
+
+  .logo {
+    border-radius: 50%;
+    width: 40%;
+    margin-right: 15px;
+      @media (min-width: 991px) {
+      width: 4%;
+    }
+  }
+
+  .logo:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  #name_logo {
+    font-size: 1.8em;
+    margin-right: 15px;
+  }
+
+  #name_logo:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+  }
+}
+
