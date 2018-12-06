@@ -87,6 +87,15 @@ ActiveRecord::Schema.define(version: 2018_12_05_101936) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "evaluations", force: :cascade do |t|
+    t.text "comment"
+    t.integer "eval"
+    t.bigint "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_evaluations_on_card_id"
+  end
+
   create_table "professionals", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
