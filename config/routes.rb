@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:index, :show, :create, :new, :edit, :update]
   resources :disciplines, only: [:show]
-
   post '/cards/:id', to: 'evaluations#create'
 
 end
