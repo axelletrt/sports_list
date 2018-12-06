@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-	#routes brouillons
-  get 'home/index'
+  #routes brouillons
 
+  
   #routes à sauvegarder
+  root 'home#index'
   devise_for :professionals
 
   resources :cards, only: [:index, :show, :create, :new, :edit, :update]
