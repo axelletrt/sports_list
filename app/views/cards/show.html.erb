@@ -21,10 +21,11 @@
   </div>
 <% end %>
 
+<h3>moyenne: <%= @moyenne %> </h3>
 <% @evaluations.each do |evaluation| %>
 <span> -------------------------------------- </span>
 <div>
-  <p><%= evaluation.eval %></p>
-  <p><%= evaluation.comment %></p>
+    <p><%= evaluation.eval %></p>
+    <p><%= evaluation.comment %></p>
 </div>
 <% end %>
