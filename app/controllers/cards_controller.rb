@@ -1,13 +1,16 @@
 class CardsController < ApplicationController
   def index
     @cards = Card.all
+    @disciplines = @card.disciplines
   end
 
   def show
-    @evaluations = Evaluation.where(card_id: params[:id])
     @card = Card.find(params[:id])
+    @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
+    @languages = @card.spoken_languages
+    @disciplines = @card.disciplines
   end
 
   def new
@@ -18,14 +21,11 @@ class CardsController < ApplicationController
   	@cards = Card.find(params[:id])
   end
 
-
   def update
   	@cards = Card.find(params[:id])
   	cards_params = params.require(:card).permit(:long_description, :short_description)
   	@cards.update(cards_params)
   end
-
-
 
   def create
 		@card = Card.new(card_parameters)
