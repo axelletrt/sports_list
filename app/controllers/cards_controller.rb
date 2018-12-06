@@ -1,19 +1,25 @@
 class CardsController < ApplicationController
   def index
     @cards = Card.all
+    @disciplines = @card.disciplines
   end
 
   def show
     @card = Card.find(params[:id])
+    @evaluations = Evaluation.where(card_id: params[:id])
+    evals = @evaluations.pluck(:eval)
+    @moyenne = (evals.sum.to_f / evals.size).round(1)
+    @languages = @card.spoken_languages
+    @disciplines = @card.disciplines
   end
+
   def new
   	@cards = Card.new
   end
 
-  def edit 
+  def edit
   	@cards = Card.find(params[:id])
   end
-
 
   def update
   	@cards = Card.find(params[:id])
@@ -21,9 +27,7 @@ class CardsController < ApplicationController
   	@cards.update(cards_params)
   end
 
-      
-
-  def create 
+  def create
 		@card = Card.new(card_parameters)
 		@card.professional_id = current_professional.id
 		@card.discipline_id  = params["card"]["id"]
@@ -33,9 +37,9 @@ class CardsController < ApplicationController
 		@card.longitude = params["lng"]
 		@card.save
   end
-	
-	private 
-  
+
+	private
+
 	def card_parameters
 		params.require(:card).permit(:activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng)
 	end
