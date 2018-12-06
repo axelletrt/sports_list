@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  #routes brouillons
-
   
   #routes à sauvegarder
   root 'home#index'
