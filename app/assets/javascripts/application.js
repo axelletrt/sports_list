@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//*= require mapbox-gl
 //= require_tree .
 
 var slideIndex = 1;
@@ -57,4 +56,3 @@ function display_contact() {
         x.style.display = "none";
     }
 }
-

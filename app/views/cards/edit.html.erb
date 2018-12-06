@@ -1,10 +1,14 @@
+<h1>Editing Pin</h1>
+<div>
+	<%= render 'form2', card: @card %>
+</div>
+<br>
 
-	<%= form_for(cards_path) do |f| %>
-	  <%= f.label 'Article Title' %><br>
-	  <%= f.text_field :long_description %><br>
+<br>
 
-	  <%= f.label 'Article Description' %><br>
-	  <%= f.text_area :short_description %><br>
+<div>
+	<%= render 'mapp', card: @card %>
+</div>
 
-	  <%= f.submit "Submit Update card" %>
-	<% end %>
+<%= link_to 'Back', cards_path %>
+

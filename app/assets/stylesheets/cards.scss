@@ -1,6 +1,10 @@
+.step {
+    display: none; 
+}
+
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'Nanum Gothic', sans-serif; 
   font-weight: 300;
 }
 
@@ -308,3 +312,4 @@ a:visited {
 	display: inline-grid;
 	float: center;
 }
+

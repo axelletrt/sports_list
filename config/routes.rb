@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-
-  devise_for :users
-	#routes brouillons
+  #routes à sauvegarder
   root 'home#index'
 
-  #routes à sauvegarder
   devise_for :professionals
+  devise_for :users
 
-  resources :cards, only: [:index, :show, :create, :new, :edit, :update]
+  resources :cards
   resources :disciplines, only: [:show]
   post '/cards/:id', to: 'evaluations#create'
 

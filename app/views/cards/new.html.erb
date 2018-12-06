@@ -1,69 +1,90 @@
-<%= form_for(@cards) do |f| %>
+<%= form_for(@card) do |f| %>
 
-	<%= f.label :Discipline %>
-	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
 
-	<%= f.label :activity_title %><br>
-	<%= f.text_field :activity_title %><br>
+	<div class="step1 step"> 
 
-	<%= f.label :short_description %><br>
-	<%= f.text_field :short_description %><br>
+		<%= f.label :Discipline %>
+		<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
 
-	<%= f.label :long_description %><br>
-	<%= f.text_field :long_description %><br>
+		<%= f.label :activity_title %><br>
+		<%= f.text_field :activity_title %><br>
 
-	<%= f.label :organization %><br>
-	<%= f.select :organization, Card.organizations.keys %><br>
+		<%= f.label :short_description %><br>
+		<%= f.text_field :short_description %><br>
 
-	<%= f.label :address %><br>
-	<%= f.text_field :address %><br>
+		<%= f.label :long_description %><br>
+		<%= f.text_field :long_description %><br>
+
+		<%= f.label :organization %><br>
+		<%= f.select :organization, Card.organizations.keys %><br>
+
+		<%= f.label :price %><br>
+		<%= f.text_field :price %><br>
+
+		<%= f.label :length %><br>
+		<%= f.text_field :length %><br>
+
+ 		Opening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
+ 		Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
+
+
+  		<%= f.label :image_header %><br>
+  		<%= f.file_field :image_header %><br>
+ 
+  		<%= f.label :photos %><br>
+  		<%= f.file_field :photos, multiple: true %><br>
+
+		<button id="next_step1">Next</button>
+
+	</div> 
+
+
+	<div class="step2 step"> 
+
+
+		<%= f.label :whatsapp %><br>
+		<%= f.text_field :whatsapp %><br>
+
+		<%= f.label :facebook %><br>
+		<%= f.text_field :facebook %><br>
+
+		<%= f.label :instagram %><br>
+		<%= f.text_field :instagram %><br>
+
+		<button id="next_step2">Next</button>
+		<button id="back_step2">Previous</button> 
+
+	</div> 
+
+
+	<div class="step3 step"> 
+
+	
+		<%= f.label :address %><br>
+		<%= f.text_field :address, {id: "address_input"} %><br>
+
+		<%= f.label :city %><br>
+		<%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %><br>
+
+		<%= f.hidden_field :country %>
+
 
 	<div id="map"> 
 	
 	</div> 
 
-
-	<%= f.label :city %><br>
-	<%= f.select :city, Card.cities.keys %><br>
-
-	<%= f.label :country %><br>
-	<%= f.text_field :country %><br>
-
-	<%= f.label :price %><br>
-	<%= f.text_field :price %><br>
-
-	<%= f.label :length %><br>
-	<%= f.text_field :length %><br>
-
- 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
-
- 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
-
-
-	<%= f.label :whatsapp %><br>
-	<%= f.text_field :whatsapp %><br>
-
-	<%= f.label :facebook %><br>
-	<%= f.text_field :facebook %><br>
-
-	<%= f.label :instagram %><br>
-	<%= f.text_field :instagram %><br>
-
-			
 	<input type="hidden"  id="lat" name="lat" />
 	<input type="hidden"  id="lng" name="lng"/>
 
 
+	<button id="back_step3">Previous</button> 
+
 	   <%= f.submit %><br>
+
+</div> 
 
 <% end %> 	
 
-<<<<<<< HEAD
-
-	  
-
-
-=======
 <script>
 	const input = document.getElementById('card_address')
 
@@ -142,5 +163,61 @@
 		$('#lng').val(data.long)
 	}
 
-</script>  
->>>>>>> development
+</script>
+
+
+<script> 
+	$('.step1').show();
+	$('.step2').hide();
+	$('.step3').hide();
+	$('#next_step1').on("click", function(e){
+		e.preventDefault();
+		$('.step1').hide();
+		$('.step2').show();
+		$('.step3').hide();
+	})
+	$('#next_step2').on("click", function(e){
+		e.preventDefault();
+		$('.step1').hide();
+		$('.step2').hide();
+		$('.step3').show();
+	})
+
+
+	$('#back_step2').on("click", function(e){
+		e.preventDefault();
+		$('.step1').show();
+		$('.step2').hide();
+		$('.step3').hide();
+	})
+	$('#back_step3').on("click", function(e){
+		e.preventDefault();
+		$('.step1').hide();
+		$('.step2').show();
+		$('.step3').hide();
+	})
+
+
+	$("#map").hide();
+	var addressChanged = false;
+	var cityChanged = false;
+	$("#address_input").on("input", function(){
+		addressChanged = true;
+		console.log(addressChanged)
+		console.log(cityChanged)
+		if(addressChanged && cityChanged){
+			$("#map").show();
+		}
+	});
+
+	$("#card_city").change(function(){
+		cityChanged = true;
+		if(addressChanged && cityChanged){
+			$("#map").show();
+		}
+	})
+</script> 
+
+
+
+
