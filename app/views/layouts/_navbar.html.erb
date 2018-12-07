@@ -1,44 +1,49 @@
-<ul>
-    <% if professional_signed_in? %>
-    <li>
-    <%= link_to "Sign Out", destroy_professional_session_path, method: :delete %>
-    </li>
-    <li>
-        <%= current_professional.email %>
-    </li>
-    <li>
-        <%= link_to "Edit Account", edit_professional_registration_path %>
-    </li>
-    <% else %>
-    <li>
-    <%= link_to "sign in", new_professional_session_path %>
-    </li>
-    <li>
-    <%= link_to "sign up", new_professional_registration_path %>
-    </li>
+<link rel="stylesheet" type="text/css" href="/components/navbar.scss">
 
-    <% end %>
-</ul>
-<ul>
-    <% if user_signed_in? %>
-    <li>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    </li>
-    <li>
-        <%= current_user.email %>
-    </li>
-    <li>
-        <%= link_to "Edit Account", edit_user_registration_path %>
-    </li>
-    <% else %>
-    <li>
-    <%= link_to "sign in (user)", new_user_session_path %>
-    </li>
-    <li>
-    <%= link_to "sign up (user)", new_user_registration_path %>
-    </li>
-    <% end %>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <%= image_tag "logo.png", class: "logo"%>
+  <a id= "name_logo">Sports List</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Become SL Coach</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Help</a>
+      </li>
+    </ul>
+  </div>
+
+
+    <div class="collapse navbar-collapse text-right">
+        <div class="registre">
+          <div class="identification">
+            <% if  professional_signed_in? %> 
+             <% if current_professional.avatar.attached? %>
+                <%= image_tag current_professional.avatar, height: 60, width: 60, class: "rounded-circle" %>
+             <% end %>
+         
+              <ul>
+                <li><%= current_professional.email %></li>   
+            </div>        
+                <li><%= link_to "Sign Out", destroy_professional_session_path, method: :delete %></li>
+                <li><%= link_to "Edit Account", edit_professional_registration_path %></li> 
+              <% else %> 
+                <li><%= link_to "sign in", new_professional_session_path %></li>
+                <li><%= link_to "sign up", new_professional_registration_path %></li> 
+              </ul>
+            </div>
+
+         <% end %>   
+      
+    </div>
 
 
 </nav>

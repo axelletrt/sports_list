@@ -1,15 +1,99 @@
-footer {
-    background:#252525;
-    color:#fff;
-    margin-top: 10px; 
-    height: 60px;
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer_general{
+    position: absolute;
+    bottom: 0px;
     width: 100%;
 }
 
-.copyright {
+.search-text{
+
+    margin: 0;
+    margin-top:50px;
+    background-color:#222222;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+    
+.search-text .input-search{
+    height:45px;
+    width:400px;
+    padding-left:20px;
+    color:#333;
+} 
+
+.search-text .btn-search{
+    border-radius: 16%;
+    background-color:#7dabdb;
+    border:1px solid #FFF;
+    color:#FFF;
+    padding: 11px 22px;
+}
+
+.search-text .btn-search:hover{
+    background-color: #222222;
+    color:#7dabdb;
+}
+
+.copyright{
+    background-color:#222222;
+}
+
+.copyright p{
+   margin:5px 0px;
+   color: #969289;
+   font-size: 10px;
+}
+
+
+footer{
+    background-color:#222222;
+    padding: 10px 0px;
+   }
+
+footer .menu li a{
+    color:#b1aca1;
+    padding:5px;
+    text-decoration:none;
+}
+
+footer .menu li a:hover{
+    color:#7dabdb;
+}
+
+.fa.fa-facebook , 
+.fa.fa-dropbox, 
+.fa.fa-flickr , 
+.fa.fa-github , 
+.fa.fa-linkedin ,
+.fa,fa-tumblr ,
+.fa.fa-google-plus , 
+.fa.fa-tumblr {
+    color:#b1aca1;
+    font-size:20px;
+    padding:10px;
+}
+
+.fa.fa-facebook:hover, 
+.fa.fa-dropbox:hover,
+.fa.fa-flickr:hover,
+.fa.fa-github:hover, 
+.fa.fa-linkedin:hover,
+.fa,fa-tumblr:hover,
+.fa.fa-google-plus:hover, 
+.fa.fa-tumblr:hover {
+    color:#6794c2;
+}
+
+.form{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.nav-footer{
     width: 100%;
-    text-align: right;
-    color: #fff;  
-    padding-right: 1rem;
-    line-height: 60px;
 }
