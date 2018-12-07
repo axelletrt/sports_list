@@ -7,12 +7,12 @@
   font-family: 'Nanum Gothic', sans-serif; 
   font-weight: 300;
 }
-
+/*
 body, html {
     height: 100%;
     width: 100%;
     margin: 0;
-}
+}*/ //Il ne faut pas modifier la taille du block body
 
 .container {
   max-width: 1280px;
@@ -237,7 +237,7 @@ a:visited {
   border-radius: 0 3px 3px 0;
 }
 
-#slide1 {
+.mySlides:first-child {
   display: block;
   box-shadow: 2px 0.5px 6px lightgrey;
 }
