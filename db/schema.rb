@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_132249) do
     t.boolean "status", default: false
     t.bigint "professional_id"
     t.bigint "discipline_id"
+    t.boolean "draft", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["discipline_id"], name: "index_cards_on_discipline_id"

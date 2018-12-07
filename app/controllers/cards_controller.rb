@@ -48,27 +48,39 @@ class CardsController < ApplicationController
   end
 
   def create
-
+  if params[:commit] == "PUBLIER"
 		@card = Card.new(card_parameters)
 		@card.professional_id = current_professional.id
-		#@card.discipline_id  = params["card"]["id"]
+		@card.discipline_id  = params["card"]["id"]
 		@card.opening_hour = params["appt"]
 		@card.closing_hour = params["appt2"]
 		@card.latitude = params["lat"]
 		@card.longitude = params["lng"]
-    @card.photos.attach(params[:card][:photos])
-    @card.photos.attach(params[:card][:image_header])
+    @card.draft = false 
+    #@card.photos.attach(params[:card][:photos])
+    #@card.photos.attach(params[:card][:image_header])
+    @card.save 
 
-		respond_to do |format|
-      if @card.save
-        format.html { redirect_to cards_path, notice: 'Pin was successfully created.' }
-      else
-        @card.errors.full_messages
-        format.html { render :new }
-      end
-    end
+  elsif params[:commit] = "BROUILLION"
+    @card = Card.new(card_parameters)
+    @card.professional_id = current_professional.id
+    @card.discipline_id  = params["card"]["id"]
+    @card.opening_hour = params["appt"]
+    @card.closing_hour = params["appt2"]
+    @card.latitude = params["lat"]
+    @card.longitude = params["lng"]
+    @card.draft = true 
+    @card.save
 	end
+end
+
+ 
+
+
 	
+
+
+
 	private 
 
   def set_card
