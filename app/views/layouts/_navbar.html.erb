@@ -1,47 +1,51 @@
+		<div>
+			<% if professional_signed_in? %>
+		      <% if current_professional.avatar.attached? %>
+		        <%= image_tag current_professional.avatar, height: 60, width: 60, class: "rounded-circle"  %>
+		     <% end %> 
+		    <% end %> 
+    </div>
+
+
+
 <ul>
     <% if professional_signed_in? %>
     <li>
     <%= link_to "Sign Out", destroy_professional_session_path, method: :delete %>
     </li>
     <li>
-        <%= current_professional.email %>
+        <%= current_professional.username %>
     </li>
-    <li>
-        <%= link_to "Edit Account", edit_professional_registration_path %>
-    </li>
+    <li> <%= link_to "Edit Account", edit_professional_registration_path %> </li>
     <% else %>
     <li>
-    <%= link_to "sign in", new_professional_session_path %>
+    <%= link_to "sign in (professional)", new_professional_session_path %>
     </li>
     <li>
-    <%= link_to "sign up", new_professional_registration_path %>
+    <%= link_to "sign up (professional)", new_professional_registration_path %>
     </li>
-
     <% end %>
 </ul>
 
 
 
+        <div>
+	    	<% if user_signed_in? %>
+	       	 <% if current_user.avatar_user.attached? %>
+	           <%= image_tag current_user.avatar_user, height: 60, width: 60, class: "rounded-circle"  %> 
+	 		 <% end %> 
+	 		<% end %> 
+	 	</div>
+
+<div>
 <ul>
-    <% if user_signed_in? %>
-    <li>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    </li>
-    <li>
-        <%= current_user.email %>
-    </li>
-    <li>
-        <%= link_to "Edit Account", edit_user_registration_path %>
-    </li>
-    <% else %>
-    <li>
-    <%= link_to "sign in (user)", new_user_session_path %>
-    </li>
-    <li>
-    <%= link_to "sign up (user)", new_user_registration_path %>
-    </li>
-    <% end %>
+  <% if user_signed_in? %>
+   		<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
+   		<li> <%= current_user.first_name %> </li>
+   		<li> <%= link_to "Edit Account", edit_user_registration_path %> </li>
+ <% else %>
+   		<li> <%= link_to "sign in (user)", new_user_session_path %> </li>
+    	<li> <%= link_to "sign up (user)", new_user_registration_path %> </li>
+ <% end %>
 </ul>
-
-
-
+</div>

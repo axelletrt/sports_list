@@ -5,8 +5,7 @@
 <% if professional_signed_in? %> 
    <%= image_tag current_professional.avatar, height: 60, width: 60, class: "rounded-circle"  %> 
    <% end %>
-  </div>
-
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
