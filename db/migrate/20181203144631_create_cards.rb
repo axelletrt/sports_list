@@ -20,7 +20,8 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string :instagram, optional: true
       t.boolean :status, default: false
       t.belongs_to :professional, index: true  
-      t.belongs_to :discipline, index: true   
+      t.belongs_to :discipline, index: true
+      t.boolean :draft, default: false 
       t.timestamps
     end
   end

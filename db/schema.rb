@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_132249) do
     t.boolean "status", default: false
     t.bigint "professional_id"
     t.bigint "discipline_id"
+    t.boolean "draft", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["discipline_id"], name: "index_cards_on_discipline_id"
@@ -91,11 +92,9 @@ ActiveRecord::Schema.define(version: 2018_12_06_132249) do
     t.text "comment"
     t.integer "eval"
     t.bigint "card_id"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_evaluations_on_card_id"
-    t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
 
   create_table "professionals", force: :cascade do |t|
@@ -119,6 +118,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_132249) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false

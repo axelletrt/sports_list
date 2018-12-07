@@ -11,5 +11,4 @@ class Card < ApplicationRecord
   enum city: [:canggu, :kuta, :seminyak] 
   enum country: [:indonesia]
 
-
  end
