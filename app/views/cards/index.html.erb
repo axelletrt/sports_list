@@ -2,7 +2,7 @@
 <% @cards.each do |card| %>
   <%= card.activity_title %>
   <%= card.organization %>
-  <%= link_to "test", "cards/#{card.id}" %>
+  <%= link_to "test", card_path(card.id) %>
 <% end %>
 
 <%= link_to "Surf", "disciplines/#{1}" %>

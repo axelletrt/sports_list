@@ -51,13 +51,11 @@ class CardsController < ApplicationController
 
 		@card = Card.new(card_parameters)
 		@card.professional_id = current_professional.id
-		#@card.discipline_id  = params["card"]["id"]
 		@card.opening_hour = params["appt"]
 		@card.closing_hour = params["appt2"]
 		@card.latitude = params["lat"]
 		@card.longitude = params["lng"]
     @card.photos.attach(params[:card][:photos])
-    @card.photos.attach(params[:card][:image_header])
 
 		respond_to do |format|
       if @card.save
@@ -77,7 +75,7 @@ class CardsController < ApplicationController
   
 
 	def card_parameters
-		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, :image_header, photos:[])
+		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
 	end
 
 end

@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 2018_12_06_132249) do
     t.string "instagram"
     t.boolean "status", default: false
     t.bigint "professional_id"
+    t.bigint "discipline_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["discipline_id"], name: "index_cards_on_discipline_id"
     t.index ["professional_id"], name: "index_cards_on_professional_id"
   end
 
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_132249) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
