@@ -75,7 +75,7 @@ class CardsController < ApplicationController
   
 
 	def card_parameters
-		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, :image_header, photos:[])
+		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
 	end
 
 end
