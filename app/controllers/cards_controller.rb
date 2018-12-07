@@ -51,36 +51,36 @@ class CardsController < ApplicationController
   if params[:commit] == "PUBLIER"
 		@card = Card.new(card_parameters)
 		@card.professional_id = current_professional.id
-		@card.discipline_id  = params["card"]["id"]
 		@card.opening_hour = params["appt"]
 		@card.closing_hour = params["appt2"]
 		@card.latitude = params["lat"]
 		@card.longitude = params["lng"]
     @card.draft = false 
     #@card.photos.attach(params[:card][:photos])
-    #@card.photos.attach(params[:card][:image_header])
     @card.save 
 
-  elsif params[:commit] = "BROUILLION"
+  elsif params[:commit] = "BROUILLON"
     @card = Card.new(card_parameters)
     @card.professional_id = current_professional.id
-    @card.discipline_id  = params["card"]["id"]
+    # @card.discipline_id  = params["card"]["id"]
     @card.opening_hour = params["appt"]
     @card.closing_hour = params["appt2"]
     @card.latitude = params["lat"]
     @card.longitude = params["lng"]
     @card.draft = true 
     @card.save
+		# respond_to do |format|
+  #     if @card.save
+  #       format.html { redirect_to cards_path, notice: 'Pin was successfully created.' }
+  #     else
+  #       @card.errors.full_messages
+  #       format.html { render :new }
+  #     end
+  #   end
 	end
 end
 
  
-
-
-	
-
-
-
 	private 
 
   def set_card
@@ -89,7 +89,7 @@ end
   
 
 	def card_parameters
-		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, :image_header, photos:[])
+		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
 	end
 
 end
