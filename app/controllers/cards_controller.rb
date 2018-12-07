@@ -7,9 +7,9 @@ class CardsController < ApplicationController
   end
 
   def show
-    @users = User.all
+    # @users = User.all
     @card = Card.find(params[:id])
-    @professional = Professional.find(params[:id])
+    @professional = @card.professional
     @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
@@ -76,7 +76,7 @@ class CardsController < ApplicationController
   
 
 	def card_parameters
-		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, :image_header, photos:[])
+		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
 	end
 
 end
