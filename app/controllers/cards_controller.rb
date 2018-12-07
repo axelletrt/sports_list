@@ -77,7 +77,6 @@ class CardsController < ApplicationController
   #       @card.errors.full_messages
   #       format.html { render :new }
   #     end
-  #   end
 	end
 end
 
