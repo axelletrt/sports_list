@@ -56,3 +56,6 @@ function display_contact() {
         x.style.display = "none";
     }
 }
+
+
+

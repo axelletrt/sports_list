@@ -89,11 +89,9 @@ ActiveRecord::Schema.define(version: 2018_12_06_132249) do
     t.text "comment"
     t.integer "eval"
     t.bigint "card_id"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_evaluations_on_card_id"
-    t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
 
   create_table "professionals", force: :cascade do |t|
