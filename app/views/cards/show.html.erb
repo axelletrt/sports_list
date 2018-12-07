@@ -112,22 +112,29 @@
       </div>
     </div>-->
 
+
+
+      <div class="practical_info">
+            <h3 id="practical_info_title">Your Feedbacks</h3>
+      </div> 
+
+
     <%= render 'evaluations/index' %>
 
   </div>
   <div class="sidebar">
     <div id="contact_info">
       <div>
-        <p id="contact_name">A BRANCHER AU BACK</p>
+        <p id="contact_name"><%@card.professional.first_name %></p>
         <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
       </div>
       <button class="display_contact_button" onclick="display_contact()">Book your session with me !</button>
       <div id="display_contact_info">
         <ul>
-          <li id="icon"><i class="fab fa-whatsapp fa-2x"></i>A BRANCHER AU BACK</li>
+          <li id="icon"><i class="fab fa-whatsapp fa-2x"></i><%@card.whatsapp%></li>
           <li>
-            <a href="http://www.facebook.com" target="_blank" id="icon"><i class="fab fa-facebook-square fa-2x"></i></a>
-            <a href="http://www.instagram.com" target="_blank" id="icon"><i class="fab fa-instagram fa-2x"></i></a>
+            <a target="_blank" id="icon"><i class="fab fa-facebook-square fa-2x"><% @card.instagram %></i></a>
+            <a target="_blank" id="icon"><i class="fab fa-instagram fa-2x"><%@card.facebook %></i></a>
           </li>
         </ul>
       </div>

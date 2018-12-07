@@ -9,6 +9,7 @@ class CardsController < ApplicationController
   def show
     @users = User.all
     @card = Card.find(params[:id])
+    @professional = Professional.find(params[:id])
     @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
