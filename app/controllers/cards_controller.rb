@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
+  # before_action :set_card, only: [:show, :create:edit, :update, :destroy]
 
   def index
     @cards = Card.all
@@ -51,18 +51,18 @@ class CardsController < ApplicationController
   def create
   if params[:commit] == "PUBLIER"
 		@card = Card.new(card_parameters)
-		@card.professional_id = current_professional.id
+    # @card.user_id = user.id    
 		@card.opening_hour = params["appt"]
 		@card.closing_hour = params["appt2"]
 		@card.latitude = params["lat"]
 		@card.longitude = params["lng"]
-    @card.draft = false 
-    #@card.photos.attach(params[:card][:photos])
+    # @card.draft = false 
+    @card.photos.attach(params[:card][:photos])
     @card.save 
 
   elsif params[:commit] = "BROUILLON"
     @card = Card.new(card_parameters)
-    @card.professional_id = current_professional.id
+    # @card.professional_id = current_professional.id
     # @card.discipline_id  = params["card"]["id"]
     @card.opening_hour = params["appt"]
     @card.closing_hour = params["appt2"]
@@ -83,13 +83,13 @@ end
  
 	private 
 
-  def set_card
-      @card = Card.find(params[:id])
-  end
+  # def set_card
+  #     @card = Card.find(params[:id])
+  # end
   
 
 	def card_parameters
-		params.require(:card).permit(:id, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
+		params.require(:card).permit(:discipline_id, :spoken_language_ids, :spoken_language_ids, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
 	end
 
 end
