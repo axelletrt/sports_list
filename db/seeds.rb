@@ -8,9 +8,9 @@
 
 # seed table SpokenLanguage
 1.times do
-  SpokenLanguage.create(name: "Anglais")
-  SpokenLanguage.create(name: "Espagnol")
-  SpokenLanguage.create(name: "Français")
+  SpokenLanguage.create(name: "English")
+  SpokenLanguage.create(name: "Spanish")
+  SpokenLanguage.create(name: "French")
 end
 
 # seed table Discipline
@@ -20,6 +20,7 @@ end
   Discipline.create!(name: "scuba diving")
 end
 
+=begin
 # seed table Professional
 index = 1
 60.times do
@@ -93,3 +94,4 @@ end
   CardsLanguage.create!(card_id: index, spoken_language_id: 3)
   index += 1
 end
+=end
