@@ -7,23 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # seed table SpokenLanguage
-1.times do
+10.times do
   SpokenLanguage.create(name: "Anglais")
   SpokenLanguage.create(name: "Espagnol")
   SpokenLanguage.create(name: "Français")
 end
 
 # seed table Discipline
-1.times do
+10.times do
   Discipline.create!(name: "surf")
   Discipline.create!(name: "yoga")
   Discipline.create!(name: "scuba diving")
 end
 
-# seed table Professional
+# seed table User
 index = 1
 60.times do
-  user = Professional.create! :first_name => 'John', :last_name => "poufi #{index}", :email => "john#{index}@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'
+  user = User.create! :first_name => 'John', :last_name => "poufi #{index}", :email => "john#{index}@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'
   index += 1
 end
 
@@ -39,21 +39,21 @@ index2 = 2
         address: "adress#{index}", city: index2, country: 0, price: "45", length: "23:59:59.9999999",
         opening_hour: "23:59:59.9999999", closing_hour: "23:59:59.9999999", whatsapp: "+33676874421",
         website: "https/je_suis_une_url", facebook: "https/facebook_url", instagram: "https/instagram_url",
-        professional_id: index)
+        user_id: index)
   card.save
   card = Card.new(activity_title: "surf + #{index + 1}", short_description: "short_description#{index + 1}",
         long_description: "je suis une longue description numéro #{index + 1}", organization: index2,
         address: "adress#{index + 1}", city: index2, country: 0, price: "45", length: "23:59:59.9999999",
         opening_hour: "23:59:59.9999999", closing_hour: "23:59:59.9999999", whatsapp: "+33676874421",
         website: "https/je_suis_une_url", facebook: "https/facebook_url", instagram: "https/instagram_url",
-        professional_id: index + 1)
+        user_id: index + 1)
   card.save
   card = Card.new(activity_title: "surf + #{index + 2}", short_description: "short_description#{index + 2}",
         long_description: "je suis une longue description numéro #{index + 2}", organization: index2,
         address: "adress#{index + 2}", city: index2, country: 0, price: "45", length: "23:59:59.9999999",
         opening_hour: "23:59:59.9999999", closing_hour: "23:59:59.9999999", whatsapp: "+33676874421",
         website: "https/je_suis_une_url", facebook: "https/facebook_url", instagram: "https/instagram_url",
-        professional_id: index + 2)
+        user_id: index + 2)
   card.save
 index += 1
 end

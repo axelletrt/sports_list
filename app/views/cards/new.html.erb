@@ -8,10 +8,10 @@
 	<div class="step1 step"> 
 
 		<%= f.label :Discipline %>
-		<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
-
+		<%= f.select :discipline_id, options_for_select(Discipline.pluck(:name,:id)), :multiple=> true %> <br>
+		
 		<%= f.label :Spoken_Language %>
-		<%= f.collection_select :id, SpokenLanguage.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
+		<%= f.select :spoken_language_ids, options_for_select(SpokenLanguage.pluck(:name,:id)), :multiple=> true %><br>
 
 		<%= f.label :activity_title %><br>
 		<%= f.text_field :activity_title %><br>
