@@ -7,23 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # seed table SpokenLanguage
-10.times do
+
   SpokenLanguage.create(name: "Anglais")
   SpokenLanguage.create(name: "Espagnol")
   SpokenLanguage.create(name: "Français")
-end
+
 
 # seed table Discipline
-10.times do
+
   Discipline.create!(name: "surf")
   Discipline.create!(name: "yoga")
   Discipline.create!(name: "scuba diving")
-end
+
 
 # seed table User
 index = 1
 60.times do
-  user = User.create! :first_name => 'John', :last_name => "poufi #{index}", :email => "john#{index}@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'
+  user = User.create! :username => 'John', :first_name => 'John', :last_name => "poufi #{index}", :email => "john#{index}@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'
   index += 1
 end
 
@@ -39,57 +39,31 @@ index2 = 2
         address: "adress#{index}", city: index2, country: 0, price: "45", length: "23:59:59.9999999",
         opening_hour: "23:59:59.9999999", closing_hour: "23:59:59.9999999", whatsapp: "+33676874421",
         website: "https/je_suis_une_url", facebook: "https/facebook_url", instagram: "https/instagram_url",
-        user_id: index)
+        professional_id: index)
   card.save
+  card.disciplines << Discipline.first
+  card.spoken_languages << SpokenLanguage.first 
+
   card = Card.new(activity_title: "surf + #{index + 1}", short_description: "short_description#{index + 1}",
         long_description: "je suis une longue description numéro #{index + 1}", organization: index2,
         address: "adress#{index + 1}", city: index2, country: 0, price: "45", length: "23:59:59.9999999",
         opening_hour: "23:59:59.9999999", closing_hour: "23:59:59.9999999", whatsapp: "+33676874421",
         website: "https/je_suis_une_url", facebook: "https/facebook_url", instagram: "https/instagram_url",
-        user_id: index + 1)
+        professional_id: index + 1)
   card.save
+  card.disciplines << Discipline.find(2)
+  card.spoken_languages << SpokenLanguage.find(2)
+
   card = Card.new(activity_title: "surf + #{index + 2}", short_description: "short_description#{index + 2}",
         long_description: "je suis une longue description numéro #{index + 2}", organization: index2,
         address: "adress#{index + 2}", city: index2, country: 0, price: "45", length: "23:59:59.9999999",
         opening_hour: "23:59:59.9999999", closing_hour: "23:59:59.9999999", whatsapp: "+33676874421",
         website: "https/je_suis_une_url", facebook: "https/facebook_url", instagram: "https/instagram_url",
-        user_id: index + 2)
+        professional_id: index + 2)
   card.save
+  card.disciplines << Discipline.find(3)
+  card.spoken_languages << SpokenLanguage.find(3)
+
 index += 1
 end
 
-#seed table CardsDiscipline
-index = 1
-20.times do
-  CardsDiscipline.create!(card_id: index, discipline_id: 1)
-  index += 1
-end
-
-20.times do
-  CardsDiscipline.create!(card_id: index, discipline_id: 2)
-  index += 1
-end
-
-10.times do
-  CardsDiscipline.create!(card_id: index, discipline_id: 2)
-  CardsDiscipline.create!(card_id: index, discipline_id: 3)
-  index += 1
-end
-
-# seed table CardsLanguage
-index = 1
-20.times do
-  CardsLanguage.create!(card_id: index, spoken_language_id: 1)
-  index += 1
-end
-
-20.times do
-  CardsLanguage.create!(card_id: index, spoken_language_id: 2)
-  index += 1
-end
-
-10.times do
-  CardsLanguage.create!(card_id: index, spoken_language_id: 2)
-  CardsLanguage.create!(card_id: index, spoken_language_id: 3)
-  index += 1
-end

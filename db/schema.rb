@@ -100,10 +100,10 @@ ActiveRecord::Schema.define(version: 2018_12_09_213917) do
   end
 
   create_table "professionals", force: :cascade do |t|
-    t.bigint "supplier_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["supplier_id"], name: "index_professionals_on_supplier_id", unique: true
+    t.index ["user_id"], name: "index_professionals_on_user_id", unique: true
   end
 
   create_table "spoken_languages", force: :cascade do |t|
