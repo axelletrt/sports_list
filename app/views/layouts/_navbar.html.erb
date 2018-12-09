@@ -14,7 +14,7 @@
     <%= link_to "Sign Out", destroy_professional_session_path, method: :delete %>
     </li>
     <li>
-        <%= current_professional.username %>
+        <%= current_professional.first_name %>
     </li>
     <li> <%= link_to "Edit Account", edit_professional_registration_path %> </li>
     <% else %>
@@ -41,7 +41,7 @@
 <ul>
   <% if user_signed_in? %>
    		<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
-   		<li> <%= current_user.first_name %> </li>
+   		<li> <%= current_user.username %> </li>
    		<li> <%= link_to "Edit Account", edit_user_registration_path %> </li>
  <% else %>
    		<li> <%= link_to "sign in (user)", new_user_session_path %> </li>
