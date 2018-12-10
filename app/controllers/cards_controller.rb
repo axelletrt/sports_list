@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  
+
   # before_action :set_card, only: [:show, :create:edit, :update, :destroy]
 
   def index
@@ -9,7 +9,7 @@ class CardsController < ApplicationController
   def show
     # @users = User.all
     @card = Card.find(params[:id])
-    @evaluations = @card.evaluations 
+    @evaluations = @card.evaluations
     # @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
@@ -19,12 +19,15 @@ class CardsController < ApplicationController
 
   def new
   	@card = Card.new
+    @disciplines = Discipline.all
+    @languages = SpokenLanguage.all
   end
 
 
-  def edit 
+  def edit
   	@card = Card.find(params[:id])
-
+    @disciplines = Discipline.all
+    @languages = SpokenLanguage.all
   end
 
   def update
@@ -48,25 +51,40 @@ class CardsController < ApplicationController
   end
 
   def create
-  if params[:commit] == "PUBLIER"
+    p_cards = params[:card]
+#  if params[:commit] == "PUBLIER"
 		@card = Card.new(card_parameters)
-    @card.professional_id = create_or_find_professional.id 
-		@card.opening_hour = params["appt"]
-		@card.closing_hour = params["appt2"]
-		@card.latitude = params["lat"]
-		@card.longitude = params["lng"]
-    # @card.draft = false 
+    @card.professional_id = create_or_find_professional.id
+    @card.latitude = params["lat"]
+    @card.longitude = params["lng"]
+    @card.length = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
+		@card.opening_hour = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
+		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
     @card.photos.attach(params[:card][:photos])
-    @card.save 
+    @card.save
+    if params[:commit] == "save and publish"
+      @card.draft = true
+      @card.save
+    end
 
+    p_cards[:disciplines].each do |d_id|
+      CardsDiscipline.create(card_id: @card.id, discipline_id: d_id)
+    end
+
+    p_cards[:spoken_languages].each do |l_id|
+      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
+    end
+
+
+=begin
   elsif params[:commit] = "BROUILLON"
     @card = Card.new(card_parameters)
-    @card.professional_id = create_or_find_professional.id 
+    @card.professional_id = create_or_find_professional.id
     @card.opening_hour = params["appt"]
     @card.closing_hour = params["appt2"]
     @card.latitude = params["lat"]
     @card.longitude = params["lng"]
-    @card.draft = true 
+    @card.draft = true
     @card.save
 		# respond_to do |format|
   #     if @card.save
@@ -75,27 +93,27 @@ class CardsController < ApplicationController
   #       @card.errors.full_messages
   #       format.html { render :new }
   #     end
+=end
 	end
-end
+#end
 
- 
-	private 
+	private
 
   # def set_card
   #     @card = Card.find(params[:id])
   # end
-  
+
 
 	def card_parameters
 		params.require(:card).permit(:discipline_id, :spoken_language_ids, :spoken_language_ids, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
   end
-  
-  def create_or_find_professional 
+
+  def create_or_find_professional
       if current_user.professional.present?
-        current_user.professional 
-      else 
-        current_user.create_professional 
-      end 
-  end 
+        current_user.professional
+      else
+        current_user.create_professional
+      end
+  end
 
 end
