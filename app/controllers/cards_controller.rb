@@ -7,10 +7,11 @@ class CardsController < ApplicationController
   end
 
   def show
-    # @users = User.all
+    @users = User.all
+    puts "+++++++++++++++++++++++++++++++++++++"
+    puts params
     @card = Card.find(params[:id])
     @evaluations = @card.evaluations
-    # @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
     @languages = @card.spoken_languages
@@ -79,25 +80,27 @@ class CardsController < ApplicationController
     end
 
 
-=begin
-  elsif params[:commit] = "BROUILLON"
-    @card = Card.new(card_parameters)
-    @card.professional_id = create_or_find_professional.id
-    @card.opening_hour = params["appt"]
-    @card.closing_hour = params["appt2"]
-    @card.latitude = params["lat"]
-    @card.longitude = params["lng"]
-    @card.draft = true
-    @card.save
-		# respond_to do |format|
+
+#    @card = Card.new(card_parameters)
+#    @card.professional_id = create_or_find_professional.id
+#    @card.opening_hour = params["appt"]
+#    @card.closing_hour = params["appt2"]
+#    @card.latitude = params["lat"]
+#    @card.longitude = params["lng"]
+#    @card.draft = true
+#    @card.save
+
+# don't delete it, speak with cyril first
+  # respond_to do |format|
   #     if @card.save
   #       format.html { redirect_to cards_path, notice: 'Pin was successfully created.' }
   #     else
   #       @card.errors.full_messages
   #       format.html { render :new }
   #     end
-=end
-	end
+
+end
+
 #end
 
 	private
