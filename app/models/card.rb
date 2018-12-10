@@ -1,6 +1,5 @@
 class Card < ApplicationRecord
-  has_many_attached :photos
-  
+  has_many_attached :photos 
   belongs_to :professional
   has_many :cards_languages
   has_many :spoken_languages, through: :cards_languages

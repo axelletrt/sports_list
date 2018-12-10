@@ -52,18 +52,22 @@ class CardsController < ApplicationController
   def create
     p_cards = params[:card]
 #  if params[:commit] == "PUBLIER"
-		@card = Card.new(card_parameters)
+    @card = Card.new(card_parameters)
     @card.professional_id = create_or_find_professional.id
-
     @card.latitude = params["lat"]
     @card.longitude = params["lng"]
-
     @card.length = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.opening_hour = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
-
     @card.photos.attach(params[:card][:photos])
     @card.save
+
+    #send email to useremail when a new card is created 
+      if @card.save 
+           CardMailer.create_card(@card.professional.user.email).deliver_now
+        else 
+      end 
+
     if params[:commit] == "save and publish"
       @card.draft = true
       @card.save
