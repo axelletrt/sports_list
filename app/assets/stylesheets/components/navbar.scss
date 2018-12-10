@@ -2,12 +2,18 @@ nav {
   font-family: 'Nanum Gothic', sans-serif;
   box-shadow: 0px 0px 8px #f2f2f2;
   color: black;
-}
+  height: 60px;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  width: 100%;
+  z-index: 100000;
 
   a {
     color: black;
     font-weight: bold;
   }
+}
 
   .nav-link {
     margin-left: 10px;
@@ -25,6 +31,9 @@ nav {
 
   .nav-item {
     align-items: center;
+    padding-top: 8px !important; 
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 
   #name_logo {
@@ -56,10 +65,15 @@ nav {
   .dropdown-menu {
     opacity: 0.9;
     border: none !important;
+    min-width: 7rem !important;
   }
 
   .dropdown-toggle::after {
     margin-left: 1em !important;
+  }
+
+  .nav-item-log {
+    padding-top: 16px;
   }
 
 /*END*/
