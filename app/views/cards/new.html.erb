@@ -8,7 +8,10 @@
 	<div class="step1 step"> 
 
 		<%= f.label :Discipline %>
-		<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
+		<%= f.select :discipline_id, options_for_select(Discipline.pluck(:name,:id)), :multiple=> true %> <br>
+		
+		<%= f.label :Spoken_Language %>
+		<%= f.select :spoken_language_ids, options_for_select(SpokenLanguage.pluck(:name,:id)), :multiple=> true %><br>
 
 		<%= f.label :activity_title %><br>
 		<%= f.text_field :activity_title %><br>
@@ -27,14 +30,19 @@
 
 		<%= f.label :length %><br>
 		<%= f.text_field :length %><br>
+		
 
  		Opening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
- 		Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
+ 		Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br> 
 
   		<%= f.label :photos %><br>
   		<%= f.file_field :photos, multiple: true %><br>
 
+		<button id="next_step1" >Next</button>
+
 		<button id="next_step1">Next</button>
+		<%= f.submit "BROUILLION" %><br>
+
 
 	</div> 
 
@@ -51,9 +59,12 @@
 		<%= f.label :instagram %><br>
 		<%= f.text_field :instagram %><br>
 
+		<button id="back_step2" class="previous">Previous</button> 
 		<button id="next_step2">Next</button>
-		<button id="back_step2">Previous</button> 
+		
 
+		<button id="back_step2">Previous</button>
+		<%= f.submit "BROUILLION" %><br> 
 	</div> 
 
 
@@ -76,15 +87,21 @@
 	<input type="hidden"  id="lat" name="lat" />
 	<input type="hidden"  id="lng" name="lng"/>
 
-
 	<button id="back_step3">Previous</button> 
 
-	   	<%= f.submit %><br>
-
+	   	<%= f.submit "PUBLIER" %><br>
+	   	<%= f.submit "BROUILLON" %><br>
 	</div> 
 	</div> 
 
 	<% end %> 	
+
+	
+	<div class ="last_buttons"> 
+		<button id="back_step3">Previous</button> 
+		<button type="submit" class="btn-blue">Submit</button>
+	</div> 
+
 
 </div> 
 
@@ -173,6 +190,7 @@
 	$('.step1').show();
 	$('.step2').hide();
 	$('.step3').hide();
+	$('.last_buttons').hide();
 	$('#next_step1').on("click", function(e){
 		e.preventDefault();
 		$('.step1').hide();
@@ -183,6 +201,7 @@
 		e.preventDefault();
 		$('.step1').hide();
 		$('.step2').hide();
+		$('.last_buttons').hide();
 		$('.step3').show();
 	})
 
@@ -198,6 +217,7 @@
 		$('.step1').hide();
 		$('.step2').show();
 		$('.step3').hide();
+		$('.last_buttons').hide();
 	})
 
 
@@ -217,6 +237,7 @@
 		cityChanged = true;
 		if(addressChanged && cityChanged){
 			$("#map").show();
+			$('.last_buttons').show();
 		}
 	})
 </script> 

@@ -41,7 +41,6 @@
             <a> <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item"%> </a>
             <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
           </div>
-        </li> 
 
       <% else %> 
         <li class="nav-item-log dropdown">
@@ -57,8 +56,8 @@
             <a> <%= link_to "Sign in", new_user_session_path, :class => "dropdown-item" %></a>
             <a> <%= link_to "Sign up", new_user_registration_path, :class => "dropdown-item" %> </a>
           </div>
+        </li>
       <% end %> 
-
     </ul>
   </div> 
 </nav>
