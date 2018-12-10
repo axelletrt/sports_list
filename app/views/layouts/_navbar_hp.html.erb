@@ -2,7 +2,7 @@
 
 <nav id="nav_hp" class="navbar navbar-expand-lg navbar-dark">
   <%= image_tag "logo.png", class: "logo"%>
-  <a id= "name_logo">Sports List</a>
+  <span id= "name_logo">Sports List</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,30 +12,29 @@
       <li class="nav-item">
         <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">users</a>
-      </li>
+
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
             <% if current_user.avatar.attached? %>
-              <div class="nav-link-img <%= image_tag current_user.avatar %> <%= image_tag current_user.avatar, height: 45, width: 45, class: "rounded-circle"%> </div>
+              <div class="nav-link-img"> <%= image_tag current_user.avatar, height: 40, width: 40, class: "rounded-circle"%> 
+              </div>
             <% end %> 
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item" <%= current_user.first_name %>"> <%= current_user.first_name %> </div>
-            <a <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item" %> </a>
-            <a class="dropdown-item" <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %>
-            </a>
+            <div class="dropdown-item"> <%= current_user.first_name %> </div>
+            <a> <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item"%> </a>
+            <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
           </div>
-        </li>   
+
       <% else %> 
-        <li class="nav-item">
-          <a class="nav-link" <%= link_to "Sign in", new_user_session_path %> </a>
-        </li> 
-        <li class="nav-item"> 
-          <a class="nav-link" <%= link_to "Sign up", new_user_registration_path %> </a>
-        </li> 
+        <li class="nav-item-log dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop-hp" data-toggle="dropdown"> Individual </a>
+          <div class="dropdown-menu dropdown-menu-left">
+            <a> <%= link_to "Sign in", new_user_session_path, :class => "dropdown-item" %></a>
+            <a> <%= link_to "Sign up", new_user_registration_path, :class => "dropdown-item" %> </a>
+          </div>
+        </li>
       <% end %> 
     </ul>
   </div> 
