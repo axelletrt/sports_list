@@ -92,7 +92,6 @@
   </div>
 </div>
 
-
 <div class="evaluation">
   <h3 id="evaluation_form">Your Feedbacks</h3>
   <%= render 'evaluations/index' %>
@@ -106,3 +105,32 @@
     <%= e.comment %><br>
   <% end %>
 </div>
+
+	<div id="card_map">  <!-- display Google map -->
+	</div>
+
+
+<script>
+
+	var map = new google.maps.Map(document.getElementById('card_map'), {
+		center: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+		zoom: 9
+	})
+
+	var marker = new google.maps.Marker({
+		map: map,
+		position: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+	})
+
+
+
+   var infowindow = new google.maps.InfoWindow({
+    content: "<%= @card.address%>"
+  });
+  
+    infowindow.open(map, marker);
+
+</script> 
+
+
+
