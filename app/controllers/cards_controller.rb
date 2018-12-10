@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
 
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
+  # before_action :set_card, only: [:show, :create:edit, :update, :destroy]
 
   def index
     @cards = Card.all
@@ -9,8 +9,8 @@ class CardsController < ApplicationController
   def show
     # @users = User.all
     @card = Card.find(params[:id])
-    @professional = @card.professional
-    @evaluations = Evaluation.where(card_id: params[:id])
+    @evaluations = @card.evaluations
+    # @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
     @languages = @card.spoken_languages
@@ -91,8 +91,7 @@ class CardsController < ApplicationController
 =begin
   elsif params[:commit] = "BROUILLON"
     @card = Card.new(card_parameters)
-#
-    # @card.discipline_id  = params["card"]["id"]
+    @card.professional_id = create_or_find_professional.id
     @card.opening_hour = params["appt"]
     @card.closing_hour = params["appt2"]
     @card.latitude = params["lat"]
@@ -112,16 +111,21 @@ class CardsController < ApplicationController
 
 	private
 
-  def set_card
-      @card = Card.find(params[:id])
-  end
+  # def set_card
+  #     @card = Card.find(params[:id])
+  # end
 
 
 	def card_parameters
-		params.require(:card).permit(:id, :activity_title, :short_description, :long_description,
-                                :organization, :address, :city, :country, :price, :length,
-                                :whatsapp, :website, :facebook, :instagram, :appt, :appt2,
-                                :lat, :lng, :disciplines, :spoken_languages, photos:[])
-	end
+		params.require(:card).permit(:discipline_id, :spoken_language_ids, :spoken_language_ids, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
+  end
+
+  def create_or_find_professional
+      if current_user.professional.present?
+        current_user.professional
+      else
+        current_user.create_professional
+      end
+  end
 
 end

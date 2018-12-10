@@ -16,35 +16,29 @@
         <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Professionals</a>
+        <a class="nav-link" href="">users</a>
       </li>
-      <% if professional_signed_in? %>
+      <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            <% if current_professional.avatar.attached? %>
-              <div class="nav-link-img <%= image_tag current_professional.avatar %> <%= image_tag current_professional.avatar, height: 40, width: 40, class: "rounded-circle"%> </div>
+            <% if current_user.avatar.attached? %>
+              <div class="nav-link-img <%= image_tag current_user.avatar %> <%= image_tag current_user.avatar, height: 40, width: 40, class: "rounded-circle"%> </div>
             <% end %> 
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item" <%= current_professional.first_name %>"> <%= current_professional.first_name %> </div>
-            <a <%= link_to "Edit Account", edit_professional_registration_path, :class => "dropdown-item" %> </a>
-            <a class="dropdown-item" <%= link_to "Sign Out", destroy_professional_session_path, method: :delete, :class => "dropdown-item" %>
+            <div class="dropdown-item" <%= current_user.first_name %>"> <%= current_user.first_name %> </div>
+            <a <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item" %> </a>
+            <a class="dropdown-item" <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %>
             </a>
           </div>
         </li>   
       <% else %> 
         <li class="nav-item">
-          <a class="nav-link" <%= link_to "Sign in", new_professional_session_path %> </a>
-        </li> 
-        <li class="nav-item"> 
-          <a class="nav-link" <%= link_to "Sign up", new_professional_registration_path %> </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" <%= link_to "Sign in", new_user_session_path %> </a>
         </li> 
         <li class="nav-item"> 
           <a class="nav-link" <%= link_to "Sign up", new_user_registration_path %> </a>
-        </li> 
+        </li>
       <% end %> 
     </ul>
   </div> 
