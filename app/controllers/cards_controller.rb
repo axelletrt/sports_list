@@ -8,8 +8,6 @@ class CardsController < ApplicationController
 
   def show
     @users = User.all
-    puts "+++++++++++++++++++++++++++++++++++++"
-    puts params
     @card = Card.find(params[:id])
     @evaluations = @card.evaluations
     evals = @evaluations.pluck(:eval)
