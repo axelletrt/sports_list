@@ -10,7 +10,6 @@ class CardsController < ApplicationController
     # @users = User.all
     @card = Card.find(params[:id])
     @evaluations = @card.evaluations
-    # @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
     @languages = @card.spoken_languages
@@ -53,7 +52,7 @@ class CardsController < ApplicationController
   def create
     p_cards = params[:card]
 #  if params[:commit] == "PUBLIER"
-		@card = Card.new(card_parameters)
+    @card = Card.new(card_parameters)
     @card.professional_id = create_or_find_professional.id
     @card.latitude = params["lat"]
     @card.longitude = params["lng"]
@@ -62,6 +61,13 @@ class CardsController < ApplicationController
 		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
     @card.photos.attach(params[:card][:photos])
     @card.save
+
+    #send email to useremail when a new card is created 
+      if @card.save 
+           CardMailer.create_card(@card.professional.user.email).deliver_now
+        else 
+      end 
+
     if params[:commit] == "save and publish"
       @card.draft = true
       @card.save

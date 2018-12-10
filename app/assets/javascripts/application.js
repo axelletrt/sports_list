@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -66,3 +67,4 @@ $(function() {
 });
 
 //SCROLL TO TOP
+
