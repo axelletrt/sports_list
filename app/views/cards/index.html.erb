@@ -1,14 +1,13 @@
 
 <% @cards.each do |card| %>
-  <%= card.activity_title %>
-  <%= card.organization %>
-  <%= link_to "test", "cards/#{card.id}" %>
+  <% if card.draft == true %>
+    <%= card.activity_title %>
+    <%= card.draft %>
+    <%= card.organization %>
+    <%= link_to "display", card_path(card.id)%>
+    <br>
+  <% end %>
 <% end %>
 
-<%= link_to "Surf", "disciplines/#{1}" %>
-<%= link_to "Yoga", "disciplines/#{2}" %>
-<%= link_to "scuba_diving", "disciplines/#{3}" %>
 
 
-
- <!-- image_tag (current_professional.photos) -->

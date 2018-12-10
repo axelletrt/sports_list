@@ -1,100 +1,12 @@
-<div class="div"> 
-
-<%= form_for(@card) do |f| %>
-
-	<div class="form-group"> 
-
-
-	<div class="step1 step"> 
-
-		<%= f.label :Discipline %>
-		<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
-
-		<%= f.label :activity_title %><br>
-		<%= f.text_field :activity_title %><br>
-
-		<%= f.label :short_description %><br>
-		<%= f.text_field :short_description %><br>
-
-		<%= f.label :long_description %><br>
-		<%= f.text_field :long_description %><br>
-
-		<%= f.label :organization %><br>
-		<%= f.select :organization, Card.organizations.keys %><br>
-
-		<%= f.label :price %><br>
-		<%= f.text_field :price %><br>
-
-		<%= f.label :length %><br>
-		<%= f.text_field :length %><br>
-
- 		Opening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
- 		Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
-
-  		<%= f.label :photos %><br>
-  		<%= f.file_field :photos, multiple: true %><br>
-
-		<button id="next_step1">Next</button>
-
-	</div> 
-
-
-	<div class="step2 step"> 
-
-
-		<%= f.label :whatsapp %><br>
-		<%= f.text_field :whatsapp %><br>
-
-		<%= f.label :facebook %><br>
-		<%= f.text_field :facebook %><br>
-
-		<%= f.label :instagram %><br>
-		<%= f.text_field :instagram %><br>
-
-		<button id="next_step2">Next</button>
-		<button id="back_step2">Previous</button> 
-
-	</div> 
-
-
-	<div class="step3 step"> 
-
-	
-		<%= f.label :address %><br>
-		<%= f.text_field :address %><br>
-
-		<%= f.label :city %><br>
-		<%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %><br>
-
-		<%= f.hidden_field :country %>
-
-
-	<div id="map"> 
-	
-	</div> 
-
-	<input type="hidden"  id="lat" name="lat" />
-	<input type="hidden"  id="lng" name="lng"/>
-
-
-	<button id="back_step3">Previous</button> 
-
-	   	<%= f.submit %><br>
-
-	</div> 
-	</div> 
-
-	<% end %> 	
-
-</div> 
+<%= render 'cards/pro-form' %>
 
 <script>
 	const input = document.getElementById('card_address')
 
 	var map = new google.maps.Map(document.getElementById('map'), {
-   		center: {lat: -8.6, lng: 115},
-   		zoom: 9
- 	})
+		center: {lat: -8.6, lng: 115},
+		zoom: 9
+	})
 	const autocomplete = new google.maps.places.Autocomplete(input)
 	autocomplete.bindTo('bounds', map)
 	const geocoder = new google.maps.Geocoder()
@@ -105,8 +17,8 @@
 	})
 
 	autocomplete.addListener('place_changed', function() {
-	    marker.setVisible(false);
-    	var place = autocomplete.getPlace();
+		marker.setVisible(false);
+		var place = autocomplete.getPlace();
 		if (!place.geometry) {
 			window.alert("No details available for input: '" + place.name + "'");
 			return;
@@ -121,7 +33,7 @@
 		marker.setPosition(place.geometry.location);
 		marker.setVisible(true);
 		let data = parseLocation(place)
-   		fillField(data)
+		fillField(data)
 	})
 
 	let clicks = 0, timer
@@ -132,8 +44,8 @@
 			//wait for a second clic- if second clic, cleqr timeout otherwise run the function
 			timer = setTimeout(function(){
 				marker.setPosition(event.latLng)
-				marker.setVisible(true)	
-			
+				marker.setVisible(true)
+
 				let data ={}
 				data.long = event.latLng.lng
 				data.lat = event.latLng.lat
@@ -152,27 +64,26 @@
 		clicks=0
 	})
 
-
 	function parseLocation(item){
 		let data ={}
 		data.long = item.geometry.location.lng()
 		data.lat = item.geometry.location.lat()
 
 		return data
-  	}
+	}
 
 	function fillField(data){
 		$('#lat').val(data.lat)
 		$('#lng').val(data.long)
 	}
-
 </script>
 
 
-<script> 
+<script>
 	$('.step1').show();
 	$('.step2').hide();
 	$('.step3').hide();
+	$('.last_buttons').hide();
 	$('#next_step1').on("click", function(e){
 		e.preventDefault();
 		$('.step1').hide();
@@ -183,9 +94,9 @@
 		e.preventDefault();
 		$('.step1').hide();
 		$('.step2').hide();
+		$('.last_buttons').hide();
 		$('.step3').show();
 	})
-
 
 	$('#back_step2').on("click", function(e){
 		e.preventDefault();
@@ -198,8 +109,8 @@
 		$('.step1').hide();
 		$('.step2').show();
 		$('.step3').hide();
+		$('.last_buttons').hide();
 	})
-
 
 	$("#map").hide();
 	var addressChanged = false;
@@ -217,10 +128,7 @@
 		cityChanged = true;
 		if(addressChanged && cityChanged){
 			$("#map").show();
+			$('.last_buttons').show();
 		}
 	})
-</script> 
-
-
-
-
+</script>

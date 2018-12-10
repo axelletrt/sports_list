@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -56,3 +57,14 @@ function display_contact() {
         x.style.display = "none";
     }
 }
+
+// SCROLL DOWN HP
+$(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});
+
+//SCROLL TO TOP
+

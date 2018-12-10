@@ -7,18 +7,14 @@
   font-family: 'Nanum Gothic', sans-serif; 
   font-weight: 300;
 }
-/*
-body, html {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}*/ //Il ne faut pas modifier la taille du block body
 
 .container {
   max-width: 1280px;
   display: flex;
   color:  #05282e;
 }
+
+
 
 .sidebar {
   position: fixed;
@@ -54,6 +50,7 @@ a:visited {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   opacity: 0.85;
 }
 
@@ -89,6 +86,7 @@ a:visited {
         padding: 30px;
         top: 35vh;
         box-shadow: 2px 0.5px 6px lightgrey;
+        z-index: 1;
   }
 }
 
@@ -96,7 +94,7 @@ a:visited {
   display: flex;
   float: right;
   padding-right: 20px;
-  padding-top: 15px;
+  padding-top: 0;
   padding-left: 15px; 
   color:  #404040;
   font-size: 1.7em;
@@ -105,7 +103,8 @@ a:visited {
       float: left;
       color:  #404040;
       font-size: 1.7em;
-      padding-top: 15px;
+      padding-top: 0;
+      margin-bottom: 0;
   } 
 }
 
@@ -119,7 +118,7 @@ a:visited {
    @media (min-width: 991px) {
      display: flex;
      float: right;
-     max-width: 20%;
+     max-width: 27%;
      border-radius: 50%;
      top: 40px;
   } 
@@ -168,7 +167,6 @@ a:visited {
 
 
 /*__________CONTACT BUTTON__________*/
-
 
 #icon {
   color: #073d46;
@@ -224,10 +222,10 @@ a:visited {
 /* Position the image container (needed to position the left and right arrows) */
 #slideshow {
   margin-top: 35px;
-  width: 58%;
+  width: 80%;
   padding: 0;
   position: relative;
-  margin-left: 18%;
+  margin-left: 10%;
 }
 
 /* Hide the images by default */
@@ -251,7 +249,7 @@ a:visited {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 45%;
+  top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -50px;
@@ -312,4 +310,11 @@ a:visited {
 	display: inline-grid;
 	float: center;
 }
+
+
+
+// .hidden {  
+//     display: none; 
+// }
+
 
