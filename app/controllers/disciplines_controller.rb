@@ -1,10 +1,10 @@
 class DisciplinesController < ApplicationController
 
 
-  def index 
+  def index
     @disciplines = Discipline.all
-  end 
-  
+  end
+
   def show
     cards = Card.all
     sport_cards_id = CardsDiscipline.where(discipline_id: params[:id]).pluck(:card_id)
