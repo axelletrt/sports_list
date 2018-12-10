@@ -8,20 +8,18 @@
   color: white;
   width: 100%;
 
-  a {
-    color: black;
-    font-weight: bold;
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
   }
 
-/*  a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }*/
-
-  .nav-hp-link {
-    margin-left: 10px;
-    color: white;
+#navbarSupportedContent {
+    background-color: white !important;
+    opacity: 0.95;
+    border-radius: 10px 10px;
+    @media (min-width: 991px) {
+      background-color: transparent !important;
   }
-
+}
   .logo {
     border-radius: 50%;
     width: 8%;
@@ -35,37 +33,31 @@
     align-items: center;
   }
 
-/*  .logo:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-  }*/
+  .logo:hover {
+    opacity: 0.9;
+  }
 
   #name_logo {
     font-size: 1.8em;
     margin-right: 15px;
-    color: white !important;
   }
-
-/*  #name_logo:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    color: white;
-  }*/
 }
 
   #experience_button {
-    background-color: white;
-    opacity: 0.9;
-    color: black !important;
         @media (min-width: 991px) {
         background-color: white;
         opacity: 0.9;
         border-radius: 60px 60px;
-        color: black !important;
         }
   }
 
-  #navbardrop {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
+  #navbardrop-hp {
+    color: black !important;
+      @media (min-width: 991px) {
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+        color: white !important;
+      }
   }
 
   .nav-link-img {
@@ -76,7 +68,7 @@
   .dropdown-menu {
     opacity: 0.9;
     border: none !important;
-
+    min-width: 7rem !important;
   }
 
   .dropdown-toggle::after {

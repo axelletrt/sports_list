@@ -23,11 +23,4 @@
       </div>
   </div>
 
-  <div class="average">
-    moyenne: <%= @moyenne %>
-    <% @evaluations.each do |evaluation| %>
-      <p><%= evaluation.eval %><span> <%= evaluation.user.first_name %> <%= evaluation.user.last_name %></span></p>
-      <p><%= evaluation.comment %></p>
-    <%end%>
-  </div>
-</div>
+  

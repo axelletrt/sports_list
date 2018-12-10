@@ -1,5 +1,3 @@
-
-
 <!-- TOP BANNER -->
 <div class="background">
   <div class="bg-text">
@@ -23,7 +21,6 @@
     </div>
 
 <!-- PRACTICAL INFORMATION -->
-
     <div class="practical_info">
       <h3 id="practical_info_title">Practical Information</h3>
         <ul id="practical_info">
@@ -47,53 +44,43 @@
         </ul>
     </div>
 
-
+<!-- CAROUSEL -->
     <div id="slideshow">
-        <% @card.photos.each do |card| %>      
-         <div class="mySlides">
-           <%= image_tag card, style: "width:100%" %>      
-            </div> 
-        <% end %>
+      <% @card.photos.each do |card| %>      
+        <div class="mySlides">
+          <%= image_tag card, style: "width:100%" %>      
+        </div> 
+      <% end %>
+      <!-- BOUTONS -->
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-
       <div class="row" id="slideshow_bottom">
         <% @card.photos.each_with_index do |card, n| %>      
           <div class="column">
             <%= image_tag card, class: "demo cursor", style: "width:100%", onclick: "currentSlide(#{n + 1})"%>
           </div>
-          <% end %>
+        <% end %>
       </div> 
-
-    </div> 
-
-
-<!-- CAROUSEL 
-    <div id="slideshow">
-      <div id="slide1" class="mySlides">
-          <%= image_tag"slider_surf1.jpg", style: "width:100%"%>
-      </div>
-      <div class="mySlides">
-          <%= image_tag"slider_surf2.jpg", style: "width:100%"%>
-      </div>
-      <div class="mySlides">
-          <%= image_tag"slider_surf3.jpg", style: "width:100%"%>
-      </div>
-      <div class="mySlides">
-         <%= image_tag"slider_surf4.jpg", style: "width:100%"%>
-      </div>
-      <div class="mySlides">
-          <%= image_tag"slider_surf5.jpg", style: "width:100%"%>
-      </div>
-  -->
-
-      <!-- Next and previous buttons -->
-
-
+      <div id="slideshow">
+        <div id="slide1" class="mySlides">
+            <%= image_tag"slider_surf1.jpg", style: "width:100%"%>
+        </div>
+        <div class="mySlides">
+            <%= image_tag"slider_surf2.jpg", style: "width:100%"%>
+        </div>
+        <div class="mySlides">
+            <%= image_tag"slider_surf3.jpg", style: "width:100%"%>
+        </div>
+        <div class="mySlides">
+           <%= image_tag"slider_surf4.jpg", style: "width:100%"%>
+        </div>
+        <div class="mySlides">
+            <%= image_tag"slider_surf5.jpg", style: "width:100%"%>
+        </div>
+      </div> 
   
-      <!-- Thumbnail images 
-      <div class="row" id="slideshow_bottom">
+      <!-- APERCU PHOTOS -->
+        <div class="row" id="slideshow_bottom">
         <div class="column">
           <%= image_tag "slider_surf1.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(1)"%>
         </div>
@@ -110,15 +97,15 @@
           <%= image_tag "slider_surf5.jpg", class: "demo cursor", style: "width:100%", onclick: "currentSlide(5)"%>
         </div>
       </div>
-    </div>-->
+    </div>
+  </div>
 
     <%= render 'evaluations/index' %>
 
-  </div>
   <div class="sidebar">
     <div id="contact_info">
       <div>
-        <p id="contact_name">A BRANCHER AU BACK</p>
+        <p id="contact_name">Jaya</p>
         <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
       </div>
       <button class="display_contact_button" onclick="display_contact()">Book your session with me !</button>
@@ -135,5 +122,3 @@
   </div>
 </div>
 
-
-<!-- image_tag (@card.image_header) -->
