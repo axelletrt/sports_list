@@ -54,25 +54,16 @@ class CardsController < ApplicationController
     p_cards = params[:card]
 #  if params[:commit] == "PUBLIER"
 		@card = Card.new(card_parameters)
-    @card.professional_id = current_professional.id
-    @card.activity_title = p_cards[:activity_title]
-    @card.short_description = p_cards[:short_description]
-    @card.long_description = p_cards[:long_description]
-    @card.organization = p_cards[:organization]
-    @card.address = p_cards[:address]
-    @card.city = p_cards[:city]
-    @card.country = p_cards[:country]
+    @card.professional_id = create_or_find_professional.id
+
     @card.latitude = params["lat"]
     @card.longitude = params["lng"]
-    @card.price = p_cards[:price]
+
     @card.length = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.opening_hour = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
-    @card.whatsapp = p_cards[:whatsapp]
-    @card.website = p_cards[:website]
-    @card.facebook = p_cards[:facebook]
-    @card.instagram = p_cards[:instagram]
-    #@card.photos.attach(params[:card][:photos])
+
+    @card.photos.attach(params[:card][:photos])
     @card.save
     if params[:commit] == "save and publish"
       @card.draft = true
