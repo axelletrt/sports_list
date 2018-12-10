@@ -67,8 +67,7 @@
       </div>
     </div>
   </div>
-
-
+  
   <div class="sidebar">
     <div id="contact_info">
       <div>
@@ -94,12 +93,16 @@
 </div>
 
 
-  <div class="evaluation">
-    <h3 id="evaluation_form">Your Feedbacks</h3>
-  </div>
-
-
+<div class="evaluation">
+  <h3 id="evaluation_form">Your Feedbacks</h3>
   <%= render 'evaluations/index' %>
+</div>
 
-
-
+<div class="comments_evaluations">
+  <% @evaluations.each do |e| %>
+    <%= "---------------------------" %><br>
+    <%= @users.find(e.user_id).username %><br>
+    <%= e.eval %><br>
+    <%= e.comment %><br>
+  <% end %>
+</div>
