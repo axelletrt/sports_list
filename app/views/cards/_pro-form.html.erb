@@ -4,7 +4,7 @@
         <div class="step1 step">
             <%= f.label :Discipline %><br>
             <%= f.collection_check_boxes :disciplines, @disciplines.order(:name), :id, :name do |b| %>
-       <%= b.label(class:"label-checkbox") { b.check_box + b.text } %>
+        <%= b.label(class:"label-checkbox") { b.check_box + b.text } %>
             <% end %><br>
 
             <%= f.label :Languages %><br>

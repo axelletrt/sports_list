@@ -51,10 +51,7 @@ class CardsController < ApplicationController
     @card.destroy
     redirect_to my_activity_index_path
    # @professional = Professional.where(user_id: current_user.professional[:id])
-
     #puts current_user.professional[:id]
-   
-
   end
 
   def create
