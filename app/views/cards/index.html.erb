@@ -1,10 +1,12 @@
 
 <% @cards.each do |card| %>
-<% if card.draft == false %>
-  <%= card.activity_title %> 
-  <%= card.draft %>
-  <%= card.organization %> <br>
-<% end %>
+  <% if card.draft == true %>
+    <%= card.activity_title %>
+    <%= card.draft %>
+    <%= card.organization %>
+    <%= link_to "display", card_path(card.id)%>
+    <br>
+  <% end %>
 <% end %>
 
 

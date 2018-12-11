@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_213917) do
     t.integer "country", default: 0
     t.decimal "latitude"
     t.decimal "longitude"
-    t.string "price"
+    t.integer "price"
     t.time "length"
     t.time "opening_hour"
     t.time "closing_hour"
@@ -56,11 +56,9 @@ ActiveRecord::Schema.define(version: 2018_12_09_213917) do
     t.string "instagram"
     t.boolean "status", default: false
     t.bigint "professional_id"
-    t.bigint "discipline_id"
     t.boolean "draft", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["discipline_id"], name: "index_cards_on_discipline_id"
     t.index ["professional_id"], name: "index_cards_on_professional_id"
   end
 

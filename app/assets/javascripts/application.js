@@ -18,6 +18,7 @@
 //= require popper
 //= require bootstrap-sprockets
 
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -69,3 +70,4 @@ $(function() {
 });
 
 //SCROLL TO TOP
+

@@ -18,7 +18,7 @@
   Discipline.create!(name: "surf")
   Discipline.create!(name: "yoga")
   Discipline.create!(name: "scuba diving")
-
+=begin
 
 # seed table User
 index = 1
@@ -42,7 +42,7 @@ index2 = 2
         professional_id: index)
   card.save
   card.disciplines << Discipline.first
-  card.spoken_languages << SpokenLanguage.first 
+  card.spoken_languages << SpokenLanguage.first
 
   card = Card.new(activity_title: "surf + #{index + 1}", short_description: "short_description#{index + 1}",
         long_description: "je suis une longue description numéro #{index + 1}", organization: index2,
@@ -66,4 +66,4 @@ index2 = 2
 
 index += 1
 end
-
+=end

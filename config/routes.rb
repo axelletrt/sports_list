@@ -4,6 +4,7 @@ Rails.application.routes.draw do
              controllers: { sessions: 'users/sessions',
                             registrations: 'users/registrations',
                             passwords: 'users/passwords',
+                            
   }
 
 

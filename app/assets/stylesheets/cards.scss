@@ -86,6 +86,7 @@ a:visited {
         padding: 30px;
         top: 35vh;
         box-shadow: 2px 0.5px 6px lightgrey;
+        z-index: 1;
   }
 }
 
@@ -309,6 +310,7 @@ a:visited {
 	display: inline-grid;
 	float: center;
 }
+
 
 
 // .hidden {  

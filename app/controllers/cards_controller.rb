@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  
+
   # before_action :set_card, only: [:show, :create:edit, :update, :destroy]
 
   def index
@@ -7,10 +7,11 @@ class CardsController < ApplicationController
   end
 
   def show
-    # @users = User.all
+    @users = User.all
+    puts "+++++++++++++++++++++++++++++++++++++"
+    puts params
     @card = Card.find(params[:id])
-    @evaluations = @card.evaluations 
-    # @evaluations = Evaluation.where(card_id: params[:id])
+    @evaluations = @card.evaluations
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
     @languages = @card.spoken_languages
@@ -19,12 +20,15 @@ class CardsController < ApplicationController
 
   def new
   	@card = Card.new
+    @disciplines = Discipline.all
+    @languages = SpokenLanguage.all
   end
 
 
-  def edit 
+  def edit
   	@card = Card.find(params[:id])
-
+    @disciplines = Discipline.all
+    @languages = SpokenLanguage.all
   end
 
   def update
@@ -48,54 +52,78 @@ class CardsController < ApplicationController
   end
 
   def create
-  if params[:commit] == "PUBLIER"
-		@card = Card.new(card_parameters)
-    @card.professional_id = create_or_find_professional.id 
-		@card.opening_hour = params["appt"]
-		@card.closing_hour = params["appt2"]
-		@card.latitude = params["lat"]
-		@card.longitude = params["lng"]
-    # @card.draft = false 
-    @card.photos.attach(params[:card][:photos])
-    @card.save 
-
-  elsif params[:commit] = "BROUILLON"
+    p_cards = params[:card]
+#  if params[:commit] == "PUBLIER"
     @card = Card.new(card_parameters)
-    @card.professional_id = create_or_find_professional.id 
-    @card.opening_hour = params["appt"]
-    @card.closing_hour = params["appt2"]
+    @card.professional_id = create_or_find_professional.id
     @card.latitude = params["lat"]
     @card.longitude = params["lng"]
-    @card.draft = true 
+    @card.length = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
+		@card.opening_hour = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
+		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
+    @card.photos.attach(params[:card][:photos])
     @card.save
-		# respond_to do |format|
+
+    #send email to useremail when a new card is created 
+      if @card.save 
+           CardMailer.create_card(@card.professional.user.email).deliver_now
+        else 
+      end 
+
+    if params[:commit] == "save and publish"
+      @card.draft = true
+      @card.save
+    end
+
+    p_cards[:disciplines].each do |d_id|
+      CardsDiscipline.create(card_id: @card.id, discipline_id: d_id)
+    end
+
+    p_cards[:spoken_languages].each do |l_id|
+      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
+    end
+
+
+
+#    @card = Card.new(card_parameters)
+#    @card.professional_id = create_or_find_professional.id
+#    @card.opening_hour = params["appt"]
+#    @card.closing_hour = params["appt2"]
+#    @card.latitude = params["lat"]
+#    @card.longitude = params["lng"]
+#    @card.draft = true
+#    @card.save
+
+# don't delete it, speak with cyril first
+  # respond_to do |format|
   #     if @card.save
   #       format.html { redirect_to cards_path, notice: 'Pin was successfully created.' }
   #     else
   #       @card.errors.full_messages
   #       format.html { render :new }
   #     end
-	end
+
 end
 
- 
-	private 
+#end
+
+	private
 
   # def set_card
   #     @card = Card.find(params[:id])
   # end
-  
+
 
 	def card_parameters
 		params.require(:card).permit(:discipline_id, :spoken_language_ids, :spoken_language_ids, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
   end
-  
-  def create_or_find_professional 
+
+  def create_or_find_professional
       if current_user.professional.present?
-        current_user.professional 
-      else 
-        current_user.create_professional 
-      end 
-  end 
+        current_user.professional
+      else
+        current_user.create_professional
+      end
+  end
 
 end
