@@ -1,3 +1,48 @@
 .modal-content {
 	margin-top: 100px;
 }
+
+.modal-body {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.modal-title {
+	font-size: 2em;
+}
+
+.btn-sign {
+	background-color: #073d46;
+	color: white;
+	opacity: 0.8;
+	padding-top: 5px; 
+}
+
+.btn-close {
+	background-color: #660000;
+	color: white;
+	opacity: 0.8;
+}
+
+.field {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.close:focus {
+	outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+#logInModal .field input {
+  width: 400px;
+}
+
+#signUpModal .field input {
+  width: 400px;
+}
