@@ -1,5 +1,7 @@
 <% @cards.each do |card| %>
-  <%= card.activity_title %>
-  <%= card.city %>
-  <%= card.price %>
+  <p><%= image_tag card.photos[0] %></p>
+  <p>activity_title:<%= card.activity_title %></p>
+  <p>city:<%= card.city %></p>
+  <p>price:<%= card.price %></p>
+  <p><%= link_to 'display', card_path(card.id) %></p><br>
 <% end %>

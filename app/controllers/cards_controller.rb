@@ -4,13 +4,13 @@ class CardsController < ApplicationController
 
   def index
     @cards = Card.all
+    @disciplines = Discipline.all.order(:name)
   end
 
   def show
-    # @users = User.all
+    @users = User.all
     @card = Card.find(params[:id])
     @evaluations = @card.evaluations
-    # @evaluations = Evaluation.where(card_id: params[:id])
     evals = @evaluations.pluck(:eval)
     @moyenne = (evals.sum.to_f / evals.size).round(1)
     @languages = @card.spoken_languages
@@ -59,20 +59,23 @@ class CardsController < ApplicationController
 
   def create
     p_cards = params[:card]
-#  if params[:commit] == "PUBLIER"
-		@card = Card.new(card_parameters)
+    @card = Card.new(card_parameters)
     @card.professional_id = create_or_find_professional.id
-
     @card.latitude = params["lat"]
     @card.longitude = params["lng"]
-
     @card.length = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.opening_hour = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
-
     @card.photos.attach(params[:card][:photos])
      #@card.draft = false
     @card.save
+
+    #send email to useremail when a new card is created
+      if @card.save
+           CardMailer.create_card(@card.professional.user.email).deliver_now
+        else
+      end
+
     if params[:commit] == "save and publish"
       @card.draft = false
       @card.save
@@ -87,25 +90,27 @@ class CardsController < ApplicationController
     end
 
 
-=begin
-  elsif params[:commit] = "BROUILLON"
-    @card = Card.new(card_parameters)
-    @card.professional_id = create_or_find_professional.id
-    @card.opening_hour = params["appt"]
-    @card.closing_hour = params["appt2"]
-    @card.latitude = params["lat"]
-    @card.longitude = params["lng"]
-    @card.draft = true
-    @card.save
-		# respond_to do |format|
+
+#    @card = Card.new(card_parameters)
+#    @card.professional_id = create_or_find_professional.id
+#    @card.opening_hour = params["appt"]
+#    @card.closing_hour = params["appt2"]
+#    @card.latitude = params["lat"]
+#    @card.longitude = params["lng"]
+#    @card.draft = true
+#    @card.save
+
+# don't delete it, speak with cyril first
+  # respond_to do |format|
   #     if @card.save
   #       format.html { redirect_to cards_path, notice: 'Pin was successfully created.' }
   #     else
   #       @card.errors.full_messages
   #       format.html { render :new }
   #     end
-=end
-	end
+
+end
+
 #end
 
 	private

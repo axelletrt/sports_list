@@ -50,6 +50,7 @@
       <div class="mySlides">
         <%= image_tag card, style: "width:100%" %>
       </div>
+      
       <% end %>
       <!-- BOUTONS -->
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -66,14 +67,7 @@
       </div>
     </div>
   </div>
-
-  <div class="practical_info">
-    <h3 id="practical_info_title">Your Feedbacks</h3>
-  </div>
-
-
-  <%= render 'evaluations/index' %>
-
+  
   <div class="sidebar">
     <div id="contact_info">
       <div>
@@ -82,7 +76,7 @@
       </div>
 
       <div>
-        <p id="contact_name"><%@card.organization%></p>
+        <p id="contact_organization"><%= @card.organization%></p>
       </div>
       <button class="display_contact_button" onclick="display_contact()">Book your session with me !</button>
       <div id="display_contact_info">
@@ -97,3 +91,46 @@
     </div>
   </div>
 </div>
+
+<div class="evaluation">
+  <h3 id="evaluation_form">Your Feedbacks</h3>
+  <%= render 'evaluations/index' %>
+</div>
+
+<div class="comments_evaluations">
+  <% @evaluations.each do |e| %>
+    <%= "---------------------------" %><br>
+    <%= @users.find(e.user_id).username %><br>
+    <%= e.eval %><br>
+    <%= e.comment %><br>
+  <% end %>
+</div>
+
+	<div id="card_map">  <!-- display Google map -->
+	</div>
+
+
+<script>
+
+	var map = new google.maps.Map(document.getElementById('card_map'), {
+		center: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+		zoom: 9
+	})
+
+	var marker = new google.maps.Marker({
+		map: map,
+		position: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+	})
+
+
+
+   var infowindow = new google.maps.InfoWindow({
+    content: "<%= @card.address%>"
+  });
+  
+    infowindow.open(map, marker);
+
+</script> 
+
+
+

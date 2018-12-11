@@ -25,7 +25,7 @@
             <% end %> 
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item"> <%= current_user.first_name %> </div>
+            <div class="dropdown-item"> <%= current_user.username %> </div>
             <a> <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item"%> </a>
             <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
             <a> <%= link_to "Your Activity", my_activity_index_path, :class => "dropdown-item"%>  </a>
@@ -35,10 +35,10 @@
 
       <% else %> 
         <li class="nav-item-log dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Individual </a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Profile </a>
           <div class="dropdown-menu dropdown-menu-left">
-            <a> <%= link_to "Sign in", new_user_session_path, :class => "dropdown-item" %></a>
-            <a> <%= link_to "Sign up", new_user_registration_path, :class => "dropdown-item" %> </a>
+            <a class="dropdown-item" data-toggle="modal" data-target="#logInModal">Sign In</a>
+            <a class="dropdown-item" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
           </div>
         </li>  
       <%end%> 
