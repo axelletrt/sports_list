@@ -30,6 +30,9 @@ class CardsController < ApplicationController
     @languages = SpokenLanguage.all
   end
 
+
+
+
   def update
 
     @card = Card.find(params[:id])
@@ -44,10 +47,14 @@ class CardsController < ApplicationController
   end
 
    def destroy
+    @card = Card.find(params[:id])
     @card.destroy
-    respond_to do |format|
-      format.html { redirect_to @cards, notice: 'Pin was successfully destroyed.' }
-    end
+    redirect_to my_activity_index_path
+   # @professional = Professional.where(user_id: current_user.professional[:id])
+
+    #puts current_user.professional[:id]
+   
+
   end
 
   def create
@@ -60,6 +67,7 @@ class CardsController < ApplicationController
 		@card.opening_hour = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
     @card.photos.attach(params[:card][:photos])
+     #@card.draft = false
     @card.save
 
     #send email to useremail when a new card is created
@@ -69,7 +77,7 @@ class CardsController < ApplicationController
       end
 
     if params[:commit] == "save and publish"
-      @card.draft = true
+      @card.draft = false
       @card.save
     end
 
