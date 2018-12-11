@@ -1,3 +1,83 @@
-// Place all the styles related to the disciplines controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  max-width: 1280px;
+  display: flex;
+  color:  #05282e;
+
+}
+
+.sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  @media (min-width: 991px) {
+      min-width: 350px;
+      position: static;
+      height: auto;
+  }
+}
+
+a:link {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration:none;
+}
+
+.discipline-title {
+text-align: center;
+padding: 20px;  
+}
+
+
+.card-img-top {
+	max-width: 250px;
+	height: 200px;
+}
+
+.card {
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  max-width: 250px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card-deck {
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+flex-flow: row wrap;
+margin-right: -15px;
+margin-left: -15px;
+   display: flex;
+   flex-direction: column;
+   flex-flow: row wrap;
+   justify-content: space-between;
+@media (min-width: 991px) {
+   display: flex;
+   flex-direction: column;
+   flex-flow: row wrap;
+   justify-content: space-between;
+   padding: 25px;
+	}
+
+}
+
+
+
+.card-body {
+  padding-top: 5px;
+  padding-bottom: 5px !important;
+}
+
