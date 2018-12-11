@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   #routes à sauvegarder
   root 'home#index'
-
+  resources :account, only: [:index]
   resources :my_activity, only: [:index]
   resources :cards
   resources :disciplines, only: [:show]
