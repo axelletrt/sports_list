@@ -76,3 +76,4 @@ end
 
 #gem to be able to send email to user 
 gem 'mailjet'
+

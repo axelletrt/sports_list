@@ -93,14 +93,13 @@
 
     <div class="comments_evaluations">
       <% @evaluations.each do |e| %>
-        <%= "---------------------------" %><br>
         <%= @users.find(e.user_id).username %><br>
         <%= e.eval %><br>
         <%= e.comment %><br>
       <% end %>
     </div>
   </div>
-</div> 
+</div>
 
   <div class="sidebar">
     <div id="contact_info">

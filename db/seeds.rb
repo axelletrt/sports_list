@@ -15,9 +15,9 @@
 
 # seed table Discipline
 
-  #Discipline.create!(name: "surf")
-  #Discipline.create!(name: "yoga")
-  #Discipline.create!(name: "scuba diving")
+  Discipline.create!(name: "surf")
+  Discipline.create!(name: "yoga")
+  Discipline.create!(name: "scuba diving")
 =begin
 
 # seed table User
