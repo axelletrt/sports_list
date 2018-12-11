@@ -1,0 +1,2 @@
+module MyActivityHelper
+end

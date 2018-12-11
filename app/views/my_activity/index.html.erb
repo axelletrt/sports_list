@@ -1,0 +1,18 @@
+<h1>Your all activity's</h1>
+
+<% if current_user.professional.present?  %>
+	
+	<% @cards.each do |card| %> 
+		<%= card.activity_title %>
+	<a href="<%= edit_card_path(card.id)%>" class= "btn btn-default">Modifier cette fiche</a>
+	<%= link_to "Delete the card", card_path(card), method: :delete %> <br>
+
+
+
+	<% end %>
+
+<% end %>
+	<a href="<%= new_card_path %>" class= "btn btn-primary">Creer toi une fiche!</a>
+
+
+
