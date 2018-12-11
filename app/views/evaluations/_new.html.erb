@@ -1,0 +1,22 @@
+<div class="comments">
+ <div class="eval_stars">
+     <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'} do |f| %>
+     <%= f.radio_button(:eval, 1) %>
+     <%= f.label(:evaluation, "*") %>
+     <%= f.radio_button(:eval, 2) %>
+     <%= f.label(:evaluation, "*") %>
+     <%= f.radio_button(:eval, 3) %>
+     <%= f.label(:evaluation, "*") %>
+     <%= f.radio_button(:eval, 4) %>
+     <%= f.label(:evaluation, "*") %>
+     <%= f.radio_button(:eval, 5) %>
+     <%= f.label(:evaluation, "*") %>
+     <div class="field">
+         <%= f.label :content %><br>
+         <%= f.text_area :content %>
+     </div>
+     <div class="actions">
+         <%= f.submit %>
+         <% end %>
+     </div>
+ </div>

@@ -13,19 +13,19 @@
 			<% end %><br>
 
 			<%= f.label :activity_title %><br>
-			<%= f.text_field :activity_title %><br>
+			<%= f.text_field :activity_title, placeholder: '5 - 30 characters', :pattern => '.{5,30}' %><br> <!-- any characters (5 - 30) -->
 
 			<%= f.label :short_description %><br>
-			<%= f.text_field :short_description %><br>
+			<%= f.text_field :short_description, placeholder: '10 - 100 characters', :pattern => '.{10,100}' %><br> <!-- any characters (10 - 100) -->
 
 			<%= f.label :long_description %><br>
-			<%= f.text_field :long_description %><br>
+			<%= f.text_field :long_description, placeholder: '300 - 1000 characters', :pattern => '.{300,1000}' %><br> <!-- any characters (300 - 1000) -->
 
 			<%= f.label :organization %><br>
-			<%= f.select :organization, Card.organizations.keys %><br>
+			<%= f.select :organization, Card.organizations.keys %><br> <!-- -->
 
 			<%= f.label :price %><br>
-			<%= f.text_field :price %><br>
+			<%= f.text_field :price, placeholder: 'ex: 200000', :pattern => '\d{1,6}' %><br> <!-- any number (1 - 6) (see with roupies) -->
 
 			<%= f.label :length %><br>
 			<%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %><br>
@@ -45,13 +45,13 @@
 
 		<div class="step2 step">
 			<%= f.label :whatsapp %><br>
-			<%= f.text_field :whatsapp %><br>
+			<%= f.text_field :whatsapp, placeholder: '0676349823', :pattern => '\d{10,14}'%><br> <!-- only numbers between (10 - 14) -->
 
 			<%= f.label :facebook %><br>
-			<%= f.text_field :facebook %><br>
+			<%= f.text_field :facebook, placeholder: 'https://www.facebook.com/...', :pattern => '^(https:\/\/www.facebook.com\/\S+)' %><br>
 
 			<%= f.label :instagram %><br>
-			<%= f.text_field :instagram %><br>
+			<%= f.text_field :instagram, placeholder: 'https://www.instagram.com/...', :pattern => '^(https:\/\/www.instagram.com\/\S+)' %><br>
 
 			<button id="back_step2" class="previous">Previous</button>
 			<button id="next_step2">Next</button>
@@ -61,13 +61,13 @@
 
 		<div class="step3 step">
 			<%= f.label :address %><br>
-			<%= f.text_field :address %><br>
+			<%= f.text_field :address %><br> <!-- pattern: ???? for the moment -->
 
 			<%= f.label :city %><br>
 			<%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %><br>
 
 			<%= f.hidden_field :country %>
-			<div id="map">  <!-- ????????????????? -->
+			<div id="map">  <!-- Display Google map -->
 			</div>
 
 			<input type="hidden"  id="lat" name="lat" />

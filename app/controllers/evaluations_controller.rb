@@ -1,4 +1,21 @@
 class EvaluationsController < ApplicationController
+
+  def index 
+    @evaluation = Evaluation.all 
+  end 
+
+  def show 
+    @evaluations = Evaluation.find(params[id])
+  end 
+
+  def new 
+    @evaluation = Evaluation.new 
+    # @card = Card.find(params[:id])
+    # @evaluations = @card.evaluations
+    # evals = @evaluations.pluck(:eval)
+    # @moyenne = (evals.sum.to_f / evals.size).round(1)
+  end 
+
   def create
     p_eval = params[:evaluation]
     # search in the database Evaluations if the user has already done a comment on this card

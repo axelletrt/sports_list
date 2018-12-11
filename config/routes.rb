@@ -4,12 +4,14 @@ Rails.application.routes.draw do
              controllers: { sessions: 'users/sessions',
                             registrations: 'users/registrations',
                             passwords: 'users/passwords',
-                          }
+                            
+  }
+
 
  resources :searches
-  #routes à sauvegarder
   root 'home#index'
- 
+
+  resources :my_activity, only: [:index]
   resources :cards
   resources :disciplines, only: [:show]
   post 'cards/:id', to: 'evaluations#create'
