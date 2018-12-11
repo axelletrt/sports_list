@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
 
-  #routes à sauvegarder
+ resources :searches
   root 'home#index'
   resources :account, only: [:index]
   resources :my_activity, only: [:index]

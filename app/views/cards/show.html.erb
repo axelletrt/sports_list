@@ -66,8 +66,42 @@
         </div>
       </div>
     </div>
+
+  <div class="evaluation">
+    <h3 id="evaluation_title">Your Feedbacks</h3>
+  <button class="evaluation_button">Comment</button>
+  <% if user_signed_in? %>
+    <div class="evaluation_form"><%= render 'evaluations/new' %></div>
+    </div> 
+  <% else %> 
+  <% end %> 
+
+
+    <!-- hide evaluation form before click --> 
+
+    <script> 
+      $('.evaluation_form').hide(); 
+        <% if user_signed_in? %>
+      $(".evaluation_button").click(function(){
+      $(".evaluation_form").toggle();
+        <% else %>
+       $(".evaluation_button").click(function(){
+        alert("You need to Sign up or Sign In to evaluate an activity");
+            <% end %> 
+     });
+    </script> 
+
+    <div class="comments_evaluations">
+      <% @evaluations.each do |e| %>
+        <%= "---------------------------" %><br>
+        <%= @users.find(e.user_id).username %><br>
+        <%= e.eval %><br>
+        <%= e.comment %><br>
+      <% end %>
+    </div>
   </div>
-  
+</div> 
+
   <div class="sidebar">
     <div id="contact_info">
       <div>
@@ -92,45 +126,25 @@
   </div>
 </div>
 
-<div class="evaluation">
-  <h3 id="evaluation_form">Your Feedbacks</h3>
-  <%= render 'evaluations/index' %>
-</div>
 
-<div class="comments_evaluations">
-  <% @evaluations.each do |e| %>
-    <%= "---------------------------" %><br>
-    <%= @users.find(e.user_id).username %><br>
-    <%= e.eval %><br>
-    <%= e.comment %><br>
-  <% end %>
-</div>
-
-	<div id="card_map">  <!-- display Google map -->
+<div id="card_map">  <!-- display Google map -->
 	</div>
 
 
 <script>
-
 	var map = new google.maps.Map(document.getElementById('card_map'), {
 		center: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
 		zoom: 9
 	})
-
 	var marker = new google.maps.Marker({
 		map: map,
 		position: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
 	})
-
-
 
    var infowindow = new google.maps.InfoWindow({
     content: "<%= @card.address%>"
   });
   
     infowindow.open(map, marker);
-
 </script> 
-
-
 

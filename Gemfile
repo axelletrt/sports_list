@@ -70,6 +70,8 @@ gem "aws-sdk-s3", require: false
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+
+gem "pry", "~> 0.12.2"
 end 
 
 #gem to be able to send email to user 
