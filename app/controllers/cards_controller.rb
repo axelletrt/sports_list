@@ -4,6 +4,7 @@ class CardsController < ApplicationController
 
   def index
     @cards = Card.all
+    @disciplines = Discipline.all.order(:name)
   end
 
   def show
@@ -51,7 +52,6 @@ class CardsController < ApplicationController
 
   def create
     p_cards = params[:card]
-#  if params[:commit] == "PUBLIER"
     @card = Card.new(card_parameters)
     @card.professional_id = create_or_find_professional.id
     @card.latitude = params["lat"]
@@ -62,11 +62,11 @@ class CardsController < ApplicationController
     @card.photos.attach(params[:card][:photos])
     @card.save
 
-    #send email to useremail when a new card is created 
-      if @card.save 
+    #send email to useremail when a new card is created
+      if @card.save
            CardMailer.create_card(@card.professional.user.email).deliver_now
-        else 
-      end 
+        else
+      end
 
     if params[:commit] == "save and publish"
       @card.draft = true

@@ -12,9 +12,7 @@ class Card < ApplicationRecord
   validates :activity_title, presence: true
   validates :short_description, presence: true
   validates :organization, presence: true
-  validates :address, presence: true
   validates :city, presence: true
   validates :price, presence: true
   validates :length, presence: true
-
  end
