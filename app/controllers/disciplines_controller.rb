@@ -1,9 +1,7 @@
 class DisciplinesController < ApplicationController
 
 
-  def index 
-    @disciplines = Discipline.all
-  end 
+  
   
   def show
     cards = Card.all
@@ -12,3 +10,5 @@ class DisciplinesController < ApplicationController
     @cards = cards.find(sport_cards_id)
   end
 end
+
+

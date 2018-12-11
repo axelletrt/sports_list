@@ -11,4 +11,9 @@ class Card < ApplicationRecord
   enum city: [:canggu, :kuta, :seminyak] 
   enum country: [:indonesia]
 
+
+  has_many :cards_discipline, inverse_of: :card
+  has_many :disciplines, through: :cards_discipline
+  accepts_nested_attributes_for :disciplines, reject_if: proc { |attributes| attributes[:name].blank? }, allow_destroy: true
+
  end

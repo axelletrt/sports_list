@@ -1,7 +1,9 @@
 <!-- TOP BANNER -->
 <section id="section01" class="scroll_down">
   <div class="background_lp"> 
-    <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
+ 
+      <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
+
   </div>
   <a href="#disciplines"><span></span>Scroll down</a>
 </section>
@@ -11,19 +13,37 @@
     <h3><%= discipline.name %></h3>
   <% end %>
   <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
-  <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
-  <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
-  <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
-  <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
-  <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
-  <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
-  <p>rzfgnzùrobfzùrfzrjbnfzjbfmkzbjfkbjazfkjbfmzbffb</p><br>
+  
 </section>
 
 <body>
 
+<%= form_for @search do |f| %>
+
+    <div >
+    <div >
+      <%= f.collection_select(:discipline_id, Discipline.all, :id, :name) %>
+     </div>
+
+    <div>
+    <%= f.submit "GO" %>
+    </div>
+
+  </div>
+
+ <% end %>
 
 
+  </div>
+
+
+
+
+<% @disciplines.each do |discipline| %>
+    <%= link_to "#{discipline.name}", discipline_path(discipline.id)%>
+
+    <% end %>
 
 </body>
+
 
