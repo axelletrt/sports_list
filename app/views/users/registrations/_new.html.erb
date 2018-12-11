@@ -7,26 +7,26 @@
               <span>&times;</span>
         </button>
       </div>
-      <div class="modal-body">   
+      <div class="modal-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>       
+        <%= devise_error_messages! %>
           <div class="field">
             <%= f.label :profile_picture %><br/>
             <%= f.file_field :avatar%>
           </div>
-          <div class="field"> 
-             <%= f.text_field :username, placeholder: "Username" %> 
-          </div>         
-          <div class="field">        
-            <%= f.text_field :first_name, placeholder: "First name" %> 
+          <div class="field">
+             <%= f.text_field :username, placeholder: "Username", :pattern => '[a-zA-Z0-9\-_]{3,20}' %>
           </div>
-          <div class="field">        
-            <%= f.text_field :last_name, placeholder: "Last name" %> 
+          <div class="field">
+            <%= f.text_field :first_name, placeholder: "First name", :pattern => '[a-zA-Z]{3,20}' %>
           </div>
-          <div class="field">       
+          <div class="field">
+            <%= f.text_field :last_name, placeholder: "Last name", :pattern => '[a-zA-Z]{3,25}' %>
+          </div>
+          <div class="field">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
           </div>
-          <div class="field">    
+          <div class="field">
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %>
@@ -43,4 +43,3 @@
     </div>
   </div>
 </div>
-
