@@ -81,8 +81,13 @@
 
     <script> 
       $('.evaluation_form').hide(); 
+        <% if user_signed_in? %>
       $(".evaluation_button").click(function(){
       $(".evaluation_form").toggle();
+        <% else %>
+       $(".evaluation_button").click(function(){
+        alert("You need to Sign up or Sign In to evaluate an activity");
+            <% end %> 
      });
     </script> 
 
@@ -124,8 +129,6 @@
 
 <div id="card_map">  <!-- display Google map -->
 	</div>
-
-
 
 
 <script>
