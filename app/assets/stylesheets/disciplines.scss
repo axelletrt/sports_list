@@ -2,7 +2,6 @@
   max-width: 1280px;
   display: flex;
   color:  #05282e;
-
 }
 
 a:link {
@@ -42,21 +41,19 @@ padding: 20px;
   padding: 0;
 }
 
-/*.card {
+.card {
   -webkit-box-flex: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
   max-width: 250px;
   grid-template-columns: repeat(4, 1fr);
-}*/
+}
 
 .card-deck {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   flex-flow: row wrap;
-  margin-right: -15px;
-  margin-left: -15px;
   display: flex;
   flex-direction: column;
   flex-flow: row wrap;
@@ -67,12 +64,10 @@ padding: 20px;
        flex-flow: row wrap;
        justify-content: space-between;
        padding: 25px;
+       margin: 0;
+       padding-left: 15vh;
+       padding-right: 15vh;
     }
-}
-
-.card-deck::after {
-  content: "";
-  flex: auto;
 }
 
 .card-body {

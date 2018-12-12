@@ -8,6 +8,12 @@ a:visited {
     color: inherit;
 }
 
+.container {
+  max-width: 1280px;
+  display: flex;
+  color:  #05282e;
+}
+
 /*__________BANNER TOP__________*/
 
 .background_lp {
@@ -86,11 +92,19 @@ a:visited {
 
 /*__________CARDS DISPLAY__________*/
 
+
 .discipline-title-hp {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding-left: 0px;
-  display: flex;
+  margin-top: 12vh;
+  padding-left: 16vh;
+}
+
+.card {
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  max-width: 250px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .card-deck-hp {
@@ -106,16 +120,21 @@ a:visited {
        flex-direction: column;
        flex-flow: row wrap;
        justify-content: space-between;
+       padding: 25px;
+       grid-template-columns: repeat(4, 1fr);
+       margin: 0;
+       padding-right: 15vh;
+       padding-left: 15vh;
     }
 }
 
 .card-deck-hp a {
-  width: 250px ;
+  width: 250px;
 }
 
 .link-to-list {
   display: inline-block;
-  padding: 15px;
+  padding-left: 16vh;
 }
 
 .fas {
