@@ -1,3 +1,131 @@
-// Place all the styles related to the my_activity controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background:white;
+  padding:10px;
+}
+th img {
+  margin-right:3px;
+}
+th {font-weight:normal;}
+th, td {
+    text-align: left;
+    padding: 10px;
+
+  
+}
+th {
+  padding-top:5px;
+  padding-bottom:15px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;
+
+}
+tr {
+  border-bottom:1px solid #d8d8d8;
+}
+tr:hover:nth-child(n+2) {
+  background:#E74011;
+  transition: all 0.5s;
+  color:white !important;
+  max-width:100px;
+}
+th:first-child {
+ padding-right:20px;
+}
+
+.section1cp {
+  color:#2b2b2b;
+  width:1000px;
+  margin:0px auto;
+  background:#F1F3F6;
+  padding:20px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.section1bg {
+  background:white;
+  padding:20px;
+  border:1px solid #e5e5e5;
+}
+.titresectioncp {
+  color:#E74011;
+  font-size:18px;
+}
+
+
+
+
+
+
+
+
+
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid #d6d6d6;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #f2f2f2;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #f2f2f2;
+}
+
+.addback {
+ background-color: #f2f2f2; 
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #E74011;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
