@@ -95,15 +95,21 @@
     </script> 
 
     <div class="comments_evaluations">
-      <% @evaluations.each do |e| %>
-        <%= "---------------------------" %><br>
-        <%= @users.find(e.user_id).username %><br>
-        <%= e.eval %><br>
-        <%= e.comment %><br>
-      <% end %>
+      <div class="unique_comment">
+        <% @evaluations.each do |e| %>
+          <%= @users.find(e.user_id).username %>
+          <%= e.comment %>
+          <div class="stars">
+          <%= number_stars= e.eval %>
+            <% number_stars.times do |i| %> 
+              <label class="full" for="star"></label>
+            <% end %> 
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div> 
+</div>
 
   <div class="sidebar">
     <div id="contact_info">
