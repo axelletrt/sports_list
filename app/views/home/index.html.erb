@@ -1,44 +1,87 @@
 <!-- TOP BANNER -->
 <section id="section01" class="scroll_down">
-
   <div class="background_lp">
-    <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
-
-     <%= form_for @search do |f| %>
-
-         <div class="center-on-page">
-      
-                <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select sports" }) %>
-                <%= f.submit "GO" ,class:"search_btn_sub"%>
-               
-
-                <% end %>
-
-           
-         </div>
-
-
+  <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
+    <%= form_for @search do |f| %>
+      <div class="center-on-page">     
+        <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select an activity" }) %>
+        <%= f.submit "Search" ,class:"search_btn_sub"%>            
+      </div>
+    <% end %> 
   </div>
-  <a href="#disciplines"><span></span>Scroll down</a>
+  <a href="#surf"><span></span>Scroll down</a>
 </section>
 
-<section id="disciplines" class="disciplines_list">
-  <% @disciplines.each do |discipline| %>
-    <h3><%= discipline.name %></h3>
-  <% end %>
+<div class="container">
+  <h2 class="discipline-title-hp">Surf</h2>  
+    <div class="card-deck-hp">
+      <% @cards.take(4).each do |card| %>
+        <%= link_to card_path(card.id) do %>
+          <div class="wrapper">
+            <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+            </div>
+            <div class="card-body">
+              <div><h5 class="card-title"><%= card.activity_title %></h5></div>
+              <div><p class="card-city"><%= card.city %></p></div>
+              <div><p class="card-city">IDR <%= card.price %></p></div>
+            </div>
+          </div>
+        <%end%>        
+      <%end%>
+    </div>  
 
-</section>
+  <div class="link-to-list">
+    <a href="/disciplines/1">See all surf experiences </a>
+    <i class="fas fa-angle-double-right"></i>
+  </div>
 
-<body>
+  <h2 class="discipline-title-hp">Yoga</h2>  
+    <div class="card-deck-hp">
+      <% @cards_yoga.take(4).each do |card| %>
+        <%= link_to card_path(card.id) do %>
+          <div class="wrapper">
+            <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+            </div>
+            <div class="card-body">
+              <div><h5 class="card-title"><%= card.activity_title %></h5></div>
+              <div><p class="card-city"><%= card.city %></p></div>
+              <div><p class="card-city">IDR <%= card.price %></p></div>
+            </div>
+          </div>
+        <%end%>        
+      <%end%>
+    </div> 
+
+  <div class="link-to-list">
+    <a href="/disciplines/2">See all yoga experiences </a>
+    <i class="fas fa-angle-double-right"></i>
+  </div>
+
+  <h2 class="discipline-title-hp">Scuba diving</h2>  
+    <div class="card-deck-hp">
+      <% @cards_scuba.take(4).each do |card| %>
+        <%= link_to card_path(card.id) do %>
+          <div class="wrapper">
+            <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+            </div>
+            <div class="card-body">
+              <div><h5 class="card-title"><%= card.activity_title %></h5></div>
+              <div><p class="card-city"><%= card.city %></p></div>
+              <div><p class="card-city">IDR <%= card.price %></p></div>
+            </div>
+          </div>
+        <%end%>        
+      <%end%>
+    </div>  
+  <div class="link-to-list">
+    <a href="/disciplines/3">See all scuba diving experiences </a>
+    <i class="fas fa-angle-double-right"></i>
+  </div>
+</div>
+
+    
 
 
 
 
-
-<% @disciplines.each do |discipline| %>
-    <%= link_to "#{discipline.name}", discipline_path(discipline.id)%>
-
-    <% end %>
-
-</body>
 

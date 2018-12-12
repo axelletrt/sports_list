@@ -4,20 +4,6 @@
   font-weight: 300;
 }
 
-.sidebar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
-  @media (min-width: 991px) {
-      min-width: 350px;
-      position: static;
-      height: auto;
-  }
-}
-
-
 a:visited {
     color: inherit;
 }
@@ -58,7 +44,7 @@ a:visited {
 }
 
 
-/*__________Sceach BAR__________*/
+/*__________Search BAR__________*/
 
 
 #search_discipline_id{
@@ -71,21 +57,19 @@ a:visited {
   width: 250px;
   height: 40px;
   font-family:'Nanum Gothic', sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
 }  
 
-
-
 .search_btn_sub{
-  border-radius: 0.5px solid lightgray;
-  background-color: #17a2b8;
+  border: none;
+  background-color: #d14734;
   margin-left: 20px;
   border-radius: 5px;
   width: 70px;
   height: 40px;
   color: white;
   font-family:'Nanum Gothic', sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 .center-on-page {
   z-index: 999999;
@@ -98,4 +82,43 @@ a:visited {
 .select{
   color:lightgray;
 
+}
+
+/*__________CARDS DISPLAY__________*/
+
+.discipline-title-hp {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 0px;
+  display: flex;
+}
+
+.card-deck-hp {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row wrap;
+  display: flex;
+  flex-direction: column;
+  flex-flow: row wrap;
+  justify-content: space-between;
+    @media (min-width: 991px) {
+       display: flex;
+       flex-direction: column;
+       flex-flow: row wrap;
+       justify-content: space-between;
+    }
+}
+
+.card-deck-hp a {
+  width: 250px ;
+}
+
+.link-to-list {
+  display: inline-block;
+  padding: 15px;
+}
+
+.fas {
+  vertical-align: middle;
+  font-size: 1.3em;
 }

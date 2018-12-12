@@ -21,13 +21,13 @@ a:hover {
 }
 
 
-.wrapper {
+.wrapper-card {
   padding-left: 11px;
   padding-right: 11px;
   padding-top: 11px;
 }
 
-.wrapper:hover {
+.wrapper-card:hover {
   opacity: 0.9;
 }
 
@@ -37,18 +37,19 @@ padding: 20px;
 }
 
 .card-img-top {
-	max-width: 250px;
-	height: 200px;
+  max-width: 250px;
+  height: 200px;
+  padding: 0;
 }
 
-.card {
+/*.card {
   -webkit-box-flex: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
   max-width: 250px;
   grid-template-columns: repeat(4, 1fr);
-}
+}*/
 
 .card-deck {
   -webkit-box-orient: horizontal;
@@ -80,5 +81,3 @@ padding: 20px;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.018);
 }
-
-
