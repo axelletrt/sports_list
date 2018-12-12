@@ -11,7 +11,8 @@ class MyActivityController < ApplicationController
  	#@card = activity_title.present?
 
 
- 	@testt = Card.all
+ 	
+ 	#@card = Card.find(params[:id])
 	end
 
 

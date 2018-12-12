@@ -16,31 +16,38 @@
     <th><label class="container">
 
 </label></th>
+	<th>Photo</th>
     <th>Activity Title</th>
     <th>Short Description</th>
     <th>City</th>
     <th>Modifier</th>
     <th>Supprimer</th>
+    <th>Status</th>
 
    
       </th>
   </tr>
   <% @cards.each do |card| %>
+
   <tr>
     <td><label class="container">
 
 </label></td>
+	<td><%= image_tag card.photos[0], style: "width:50%" %></td>
     <td><%= card.activity_title %></td>
     <td><%= card.short_description %></td>
     <td><%= card.city %></td>
     <td><a href="<%= edit_card_path(card.id)%>" class= "btn btn-default">Modifier cette fiche</a></td>
     <td><%= link_to "Delete the card", card_path(card), method: :delete %> <br></td>
+    <td><%= card.draft ? 'BROULLION' : 'PUBLIER' %><br></td>
+
 
   
     <td></td>
   </tr>
   <% end %>
-    <% end %>
+  <% end %>
+    
  
 </table>
   </div>

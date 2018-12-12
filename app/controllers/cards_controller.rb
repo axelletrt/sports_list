@@ -76,6 +76,11 @@ class CardsController < ApplicationController
     if params[:commit] == "save and publish"
       @card.draft = false
       @card.save
+
+    elsif params[:commit] == "save"
+      @card.draft = true
+      @card.save
+      
     end
 
     p_cards[:disciplines].each do |d_id|
