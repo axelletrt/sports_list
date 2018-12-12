@@ -17,9 +17,6 @@
   }
 }
 
-a:link {
-    color: inherit;
-}
 
 a:visited {
     color: inherit;
@@ -61,3 +58,44 @@ a:visited {
 }
 
 
+/*__________Sceach BAR__________*/
+
+
+#search_discipline_id{
+  outline: 0;
+  box-shadow: none;
+  border: 0.5px solid lightgray;
+  background: white;
+  background-image: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 40px;
+  font-family:'Nanum Gothic', sans-serif;
+  font-size: 1.3em;
+}  
+
+
+
+.search_btn_sub{
+  border-radius: 0.5px solid lightgray;
+  background-color: #17a2b8;
+  margin-left: 20px;
+  border-radius: 5px;
+  width: 70px;
+  height: 40px;
+  color: white;
+  font-family:'Nanum Gothic', sans-serif;
+  font-size: 1.3em;
+}
+.center-on-page {
+  z-index: 999999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.select{
+  color:lightgray;
+
+}

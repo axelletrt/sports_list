@@ -26,10 +26,9 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-item"> <%= current_user.username %> </div>
-            <a> <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item"%> </a>
-            <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
-            <a> <%= link_to "Your Activity", my_activity_index_path, :class => "dropdown-item"%>  </a>
-            <a> <%= link_to "Account", my_activity_index_path, :class => "dropdown-item"%>  </a>
+            <a> <%= link_to "My activity", my_activity_index_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Edit account", edit_user_registration_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
           </div>
         </li> 
 
