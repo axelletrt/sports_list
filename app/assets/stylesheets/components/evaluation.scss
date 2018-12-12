@@ -4,13 +4,13 @@ h1 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Rating Widget *****/
 
-.rating { 
+.evaluation[eval] { 
   border: none;
   float: left;
 }
 
-.rating > input { display: none; } 
-.rating > label:before { 
+.evaluation[eval] > input { display: none; } 
+.evaluation[eval] > label:before { 
   margin: 5px;
   font-size: 1.25em;
   font-family: FontAwesome;
@@ -18,23 +18,23 @@ h1 { font-size: 1.5em; margin: 10px; }
   content: "\f005";
 }
 
-.rating > .half:before { 
+.evaluation[eval] > .half:before { 
   content: "\f089";
   position: absolute;
 }
 
-.rating > label { 
+.evaluation[eval] > label { 
   color: #ddd; 
  float: right; 
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.evaluation[eval] > input:checked ~ label, /* show gold star when clicked */
+.evaluation[eval]:not(:checked) > label:hover, /* hover current star */
+.evaluation[eval]:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
 
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+.evaluation[eval] > input:checked + label:hover, /* hover current star when changing rating */
+.evaluation[eval] > input:checked ~ label:hover,
+.evaluation[eval] > label:hover ~ input:checked ~ label, /* lighten current selection */
+.evaluation[eval] > input:checked ~ label:hover ~ label { color: #FFED85;  } 
