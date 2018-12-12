@@ -1,13 +1,22 @@
 <!-- TOP BANNER -->
 <section id="section01" class="scroll_down">
 
-  <div class="background_lp"> 
- 
-      <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
-
-
   <div class="background_lp">
     <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
+
+     <%= form_for @search do |f| %>
+
+         <div class="center-on-page">
+      
+                <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select sports" }) %>
+                <%= f.submit "GO" ,class:"search_btn_sub"%>
+               
+
+                <% end %>
+
+           
+         </div>
+
 
   </div>
   <a href="#disciplines"><span></span>Scroll down</a>
@@ -22,24 +31,6 @@
 
 <body>
 
-
-<%= form_for @search do |f| %>
-
-    <div >
-    <div >
-      <%= f.collection_select(:discipline_id, Discipline.all, :id, :name) %>
-     </div>
-
-    <div>
-    <%= f.submit "GO" %>
-    </div>
-
-  </div>
-
- <% end %>
-
-
-  </div>
 
 
 
