@@ -49,6 +49,9 @@ class CardsController < ApplicationController
    def destroy
     @card = Card.find(params[:id])
     @card.destroy
+    CardsDiscipline.where(card_id: params[:id]).delete_all
+    CardsLanguage.where(card_id: params[:id]).delete_all
+
     redirect_to my_activity_index_path
    # @professional = Professional.where(user_id: current_user.professional[:id])
     #puts current_user.professional[:id]
