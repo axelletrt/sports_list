@@ -125,7 +125,7 @@ a:visited {
 
 .display_contact_button {
   background-color:  #d14734; 
-  border-radius: 0 3px 3px 0;
+  border-radius: 60px 60px;
   color: white;
   padding: 10px 70px;
   font-weight: bold;
@@ -310,4 +310,26 @@ a:visited {
   float: center;
 }
 
+.evaluation_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:auto;  
+  color: #fff;   
+  border-color: #26cfe7;
+  background-color: #26cfe7;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  padding-left: 20px; 
+  border-radius: 60px 60px;
+  cursor: pointer;
+}
 
+.evaluation_button:hover {
+  background-color:  #14b5cc;
+  border-color: #14B5CC;
+  border-radius: 60px 60px;
+}

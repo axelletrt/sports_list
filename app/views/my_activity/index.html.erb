@@ -1,48 +1,24 @@
 
-
 <% if current_user.professional.present?  %>
 
-
-
-
-
-
-
-<div class="section1cp">
-  <p class="titresectioncp">VOS FICHE</p>
-  <div class="section1bg">
-  <table>  
-  <tr>
-    <th><label class="container">
-
-</label></th>
-    <th>Activity Title</th>
-    <th>Short Description</th>
-    <th>City</th>
-    <th>Modifier</th>
-    <th>Supprimer</th>
-
+<div class="container">
+  <div class="card-deck">
+    <% @cards.each do |card| %>
    
-      </th>
-  </tr>
-  <% @cards.each do |card| %>
-  <tr>
-    <td><label class="container">
-
-</label></td>
-    <td><%= card.activity_title %></td>
-    <td><%= card.short_description %></td>
-    <td><%= card.city %></td>
-    <td><a href="<%= edit_card_path(card.id)%>" class= "btn btn-default">Modifier cette fiche</a></td>
-    <td><%= link_to "Delete the card", card_path(card), method: :delete %> <br></td>
-
+    <div class="wrapper">
+      <div><%= image_tag card.photos[0], class: 'card-img-top' %></div>
+        <div class="card-body_activity">
+         <div><h5 ><%= card.activity_title %></h5></div>
+         <div><p >Description:<%= card.short_description %></p></div>
+         <div><p >City:<%= card.city %></p></div>
+         <div><p >IDR:<%= card.price %></p></div>
+          <div class= "btn_activity_edit"> <%=link_to "Edit card", edit_card_path(card.id)%> </div>
+          <div class= "btn_activity_delete"> <%= link_to "Delete the card", card_path(card), method: :delete , class: "activity_delete"%></div>
+        </div>
+      </div>
+      <% end %>
+    </div>    
   
-    <td></td>
-  </tr>
-  <% end %>
-    <% end %>
- 
-</table>
   </div>
-  </div>
-  
+</div> 
+<% end %>

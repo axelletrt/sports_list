@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
 
-  # before_action :set_card, only: [:show, :create:edit, :update, :destroy]
+   before_action :set_card, only: [:show, :create, :edit, :update, :destroy]
 
   def index
     @cards = Card.all
@@ -39,7 +39,7 @@ class CardsController < ApplicationController
     @card.update(long_description: params["cards"][:long_description], short_description: params["cards"][:short_description])
     respond_to do |format|
       if @cards.update(card_params)
-        #format.html { redirect_to root_path, notice: 'Pin was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Pin was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class CardsController < ApplicationController
     CardsLanguage.where(card_id: params[:id]).delete_all
 
     redirect_to my_activity_index_path
-   # @professional = Professional.where(user_id: current_user.professional[:id])
+   #@professional = Professional.where(user_id: current_user.professional[:id])
     #puts current_user.professional[:id]
   end
 
@@ -115,9 +115,9 @@ end
 
 	private
 
-  # def set_card
-  #     @card = Card.find(params[:id])
-  # end
+   def set_card
+       @card = Card.find(params[:id])
+   end
 
 
 	def card_parameters
