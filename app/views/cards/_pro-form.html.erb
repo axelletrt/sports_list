@@ -5,13 +5,15 @@
 		<div class="step1 step">
 			<%= f.label :Discipline %><br>
 			<%= f.collection_check_boxes :disciplines, @disciplines.order(:name), :id, :name do |b| %>
-        <%= b.label(class:"label-checkbox") { b.check_box + b.text } %>
-			<% end %><br>
+        <%= b.label(class:"disciplines_checkbox") { b.check_box + b.text } %>
+      <% end %>
+			<span class="error-message">error</span><br>
 
-			<%= f.label :Languages %><br>
-			<%= f.collection_check_boxes :spoken_languages, @languages.order(:name), :id, :name do |b| %>
-				<%= b.label(class:"label-checkbox") { b.check_box + b.text } %>
-			<% end %><br>
+            <%= f.label :Languages %><br>
+            <%= f.collection_check_boxes :spoken_languages, @languages.order(:name), :id, :name do |b| %>
+                <%= b.label(class:"languages_checkbox") { b.check_box + b.text } %>
+            <% end %>
+						<span class="error-message">error</span><br>
 
 			<%= f.label :activity_title %><br>
 			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
@@ -25,28 +27,28 @@
 			<%= f.text_field :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
 				<span class="error-message">error</span><br>
 
-			<%= f.label :organization %><br>
-			<%= f.select :organization, Card.organizations.keys %><br> <!-- -->
+            <%= f.label :organization %><br>
+            <%= f.select :organization, Card.organizations.keys %><br> <!-- -->
 
 			<%= f.label :price %><br>
 			<%= f.text_field :price, id: 'price', placeholder: 'ex: 200000' %> <!-- any number (1 - 6) (see with roupies) -->
 				<span class="error-message">error</span><br>
 
-			<%= f.label :length %><br>
-			<%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %><br>
+            <%= f.label :length %><br>
+            <%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %>
+						<span class="error-message">error</span><br>
 
-			<%= f.label "Opening hour" %><br>
-			<%= f.time_select :opening_hour, {minute_step: 15} %><br>
+            <%= f.label "Opening hour" %><br>
+            <%= f.time_select :opening_hour, {minute_step: 15} %><br>
 
 			<%= f.label "Closing hour" %><br>
-			<%= f.time_select :closing_hour, {minute_step: 15} %><br>
+			<%= f.time_select :closing_hour, {minute_step: 15} %>
+			<span class="error-message">error</span><br>
 
 			<%= f.label :photos %><br>
 			<%= f.file_field :photos, id: 'photos', multiple: true %><br>
 
 			<button id="next_step1">Next</button>
-
-			<%= f.submit "save" %><br>
 		</div>
 
 		<div class="step2 step">
@@ -62,44 +64,69 @@
 			<%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/...' %>
 			<span class="error-message">error</span><br>
 
-			<button id="back_step2" class="previous">Previous</button>
-			<button id="next_step2">Next</button>
+            <button id="back_step2" class="previous">Previous</button>
+            <button id="next_step2">Next</button>
+        </div>
 
-			<%= f.submit "save" %><br>
-		</div>
+        <div class="step3 step">
+            <%= f.label :address %><br>
+            <%= f.text_field :address, id: 'address' %> <!-- pattern: ???? for the moment -->
+						<span class="error-message">error</span><br>
+            <%= f.label :city %><br>
+            <%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %>
+						<span class="error-message">error</span><br>
 
-		<div class="step3 step">
-			<%= f.label :address %><br>
-			<%= f.text_field :address %><br> <!-- pattern: ???? for the moment -->
+            <%= f.hidden_field :country %>
+            <div id="map">  <!-- Display Google map -->
+            </div>
 
-			<%= f.label :city %><br>
-			<%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %><br>
-
-			<%= f.hidden_field :country %>
-			<div id="map">  <!-- Display Google map -->
-			</div>
-
-			<input type="hidden"  id="lat" name="lat" />
-			<input type="hidden"  id="lng" name="lng"/>
+            <input type="hidden"  id="lat" name="lat" />
+            <input type="hidden"  id="lng" name="lng"/>
 
 			<button id="back_step3">Previous</button><br>
-			<%= f.submit "save" %>
 			<%= f.submit "save and publish", id: 'publish' %>
 		</div>
 	</div>
 
-	<% end %>
-	<div class ="last_buttons">
-		<button id="back_step3">Previous</button>
-		<button type="submit" class="btn-blue">Submit</button>
-	</div>
+    <% end %>
 </div>
 
 <script>
 $(document).ready(function() {
 	$(function(){
-		$("#publish").click(function(){
+		$("#next_step1").click(function(e) {
+			e.preventDefault();
 			valid = true;
+			 var d_checkboxs = document.getElementsByName("card[disciplines][]");
+			 var count = 0;
+			 for(var i = 0, l = d_checkboxs.length; i < l; i++) {
+							if(d_checkboxs[i].checked) {
+									count++;
+							}
+				}
+				if(count == 0) {
+					$(".disciplines_checkbox").last().next().html("<br>You must select at least one discipline").show();
+					valid = false
+				}
+				else {
+					$(".disciplines_checkbox").last().next().html("<br>Invalid field").hide();
+				}
+
+				var l_checkboxs = document.getElementsByName("card[spoken_languages][]");
+				var count = 0;
+				for(var i = 0, l = l_checkboxs.length; i < l; i++) {
+					if(l_checkboxs[i].checked) {
+						count++;
+					}
+				}
+				if(count == 0) {
+					$(".languages_checkbox").last().next().html("<br>You must select at least one language").show();
+					valid = false
+				}
+				else {
+					$(".languages_checkbox").last().next().html("<br>Invalid field").hide();
+				}
+
 			if ($("#card_activity_title").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null){
 				$("#card_activity_title").css("border-color", "#FF0000");
 				$("#card_activity_title").next().html("Invalid field").show();
@@ -107,6 +134,7 @@ $(document).ready(function() {
 			}
 			else{
 				$("#card_activity_title").css("border-color", "#008000");
+				$("#card_activity_title").next().html("Invalid field").hide();
 			}
 			if ($("#short_description").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
 				$("#short_description").css("border-color", "#FF0000");
@@ -115,6 +143,7 @@ $(document).ready(function() {
 			}
 			else{
 				$("#short_description").css("border-color", "#008000");
+				$("#short_description").next().html("Invalid field").hide();
 			}
 			if ($("#long_description").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
 				$("#long_description").css("border-color", "#FF0000");
@@ -123,6 +152,7 @@ $(document).ready(function() {
 			}
 			else{
 				$("#long_description").css("border-color", "#008000");
+				$("#long_description").next().html("Invalid field").hide();
 			}
 			if ($("#price").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
 				$("#price").css("border-color", "#FF0000");
@@ -131,61 +161,100 @@ $(document).ready(function() {
 			}
 			else{
 				$("#price").css("border-color", "#008000");
+				$("#price").next().html("Invalid field").hide();
 			}
 
-			if ($("#whatsapp").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
-				$("#whatsapp").css("border-color", "#FF0000");
-				$("#whatsapp").next().html("Invalid field").show();
-				valid = false;
+			if (($('#card_length_4i').val() === "00") && (($('#card_length_5i').val()) === "00")) {
+				$('#card_length_5i').next().html('<br>You re activity should last at least 15 minutes').show();
 			}
 			else {
-				$("#whatsapp").css("border-color", "#008000");
+				$('#card_length_5i').next().html('<br>You re activity should last at least 15 minutes').hide();
 			}
 
-			if ($("#facebook").val() == "") {
-				$("#facebook").css("border-color", "#C0C0C0");
+
+			if ($('#card_opening_hour_4i').val() > $('#card_closing_hour_4i').val()) {
+				$('#card_closing_hour_5i').next().html('<br>You should open before you close').show();
 			}
-			else if ($("#facebook").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
-				$("#facebook").css("border-color", "#FF0000");
-				$("#facebook").next().html("Invalid field").show();
-				valid = false;
+			else if ($('#card_opening_hour_4i').val() === $('#card_closing_hour_4i').val()) {
+				$('#card_closing_hour_5i').next().html('<br>You should be open at least 1 hour').show();
 			}
-			else {
-				$("#facebook").css("border-color", "#008000");
+			else
+			{
+				$('#card_closing_hour_5i').next().html('<br>You should open before you close').hide();
 			}
 
-			if ($("#instagram").val() == "") {
-				$("#instagram").css("border-color", "#C0C0C0");
+			if (valid === true) {
+				$('.step1').hide();
+				$('.step2').show();
+				$('.step3').hide();
 			}
-			else if ($("#instagram").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
-				$("#instagram").css("border-color", "#FF0000");
-				$("#instagram").next().html("Invalid field").show();
-				valid = false;
-			}
-			else{
-				$("#instagram").css("border-color", "#008000");
-			}
+			});
+			});
+			$("#next_step2").click(function(e){
+				e.preventDefault();
+				valid = true;
+				if ($("#whatsapp").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+					$("#whatsapp").css("border-color", "#FF0000");
+					$("#whatsapp").next().html("Invalid field").show();
+					valid = false;
+				}
+				else {
+					$("#whatsapp").css("border-color", "#008000");
+					$("#whatsapp").next().html("Invalid field").hide();
+				}
 
-			if (valid === false) {
-				alert("Some fields are incorrect");
-			}
+				if ($("#facebook").val() == "") {
+					$("#facebook").css("border-color", "#C0C0C0");
+				}
+				else if ($("#facebook").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
+					$("#facebook").css("border-color", "#FF0000");
+					$("#facebook").next().html("Invalid field").show();
+					valid = false;
+				}
+				else {
+					$("#facebook").css("border-color", "#008000");
+					$("#facebook").next().html("Invalid field").hide();
+				}
 
-			return valid;
+				if ($("#instagram").val() == "") {
+					$("#instagram").css("border-color", "#C0C0C0");
+				}
+				else if ($("#instagram").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
+					$("#instagram").css("border-color", "#FF0000");
+					$("#instagram").next().html("Invalid field").show();
+					valid = false;
+				}
+				else{
+					$("#instagram").css("border-color", "#008000");
+					$("#instagram").next().html("Invalid field").hide();
+				}
+				if (valid === true) {
+					$('.step1').hide();
+					$('.step2').hide();
+					$('.last_buttons').hide();
+					$('.step3').show();
+				}
+			});
+			$("#publish").click(function(e){
+				valid = true;
+				if ($("#address").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+					$("#address").css("border-color", "#FF0000");
+					$("#address").next().html("Invalid field").show();
+					valid = false;
+				}
+				else {
+					$("#address").css("border-color", "#008000");
+					$("#address").next().html("Invalid field").hide();
+				}
+				if ($('#card_city').val() === "") {
+					$("#card_city").css("border-color", "FF0000")
+					$("#card_city").next().html("Invalid field").show();
+					valid = false;
+				}
+				else {
+					$("#card_city").next().html("Invalid field").hide();
+				}
+				return valid;
+			});
 		});
-	});
-
-/*
-	//jQuery code goes here
-	$('#activity_title').on('click', function() {
-		$('#activity_title').css("border-color", "#FF0000");
-	});
-
-		$('#activity_title').on('input', function() {
-		var input=$(this);
-		var is_name=input.val();
-		if(is_name){input.removeClass("invalid").addClass("valid");}
-		else{input.removeClass("valid").addClass("invalid");}
-		});
-	});
-*/
 </script>

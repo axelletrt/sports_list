@@ -4,25 +4,14 @@
   font-weight: 300;
 }
 
-.sidebar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
-  @media (min-width: 991px) {
-      min-width: 350px;
-      position: static;
-      height: auto;
-  }
-}
-
-a:link {
-    color: inherit;
-}
-
 a:visited {
     color: inherit;
+}
+
+.container {
+  max-width: 1280px;
+  display: flex;
+  color:  #05282e;
 }
 
 /*__________BANNER TOP__________*/
@@ -61,3 +50,94 @@ a:visited {
 }
 
 
+/*__________Search BAR__________*/
+
+
+#search_discipline_id{
+  outline: 0;
+  box-shadow: none;
+  border: 0.5px solid lightgray;
+  background: white;
+  background-image: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 40px;
+  font-family:'Nanum Gothic', sans-serif;
+  font-size: 1em;
+}  
+
+.search_btn_sub{
+  border: none;
+  background-color: #d14734;
+  margin-left: 20px;
+  border-radius: 5px;
+  width: 70px;
+  height: 40px;
+  color: white;
+  font-family:'Nanum Gothic', sans-serif;
+  font-size: 1em;
+}
+.center-on-page {
+  z-index: 999999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.select{
+  color:lightgray;
+
+}
+
+/*__________CARDS DISPLAY__________*/
+
+
+.discipline-title-hp {
+  margin-top: 12vh;
+  padding-left: 16vh;
+}
+
+.card {
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  max-width: 250px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card-deck-hp {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row wrap;
+  display: flex;
+  flex-direction: column;
+  flex-flow: row wrap;
+  justify-content: space-between;
+    @media (min-width: 991px) {
+       display: flex;
+       flex-direction: column;
+       flex-flow: row wrap;
+       justify-content: space-between;
+       padding: 25px;
+       grid-template-columns: repeat(4, 1fr);
+       margin: 0;
+       padding-right: 15vh;
+       padding-left: 15vh;
+    }
+}
+
+.card-deck-hp a {
+  width: 250px;
+}
+
+.link-to-list {
+  display: inline-block;
+  padding-left: 16vh;
+}
+
+.fas {
+  vertical-align: middle;
+  font-size: 1.3em;
+}

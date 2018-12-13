@@ -1,9 +1,21 @@
-<%= @discipline_name %>
+<div class="discipline-title">
+  <h1><%= @discipline_name %></h1>
+</div>
 
-<% @cards.each do |card| %>
-  <p><%= image_tag card.photos[0] %></p>
-  <p>activity_title:<%= card.activity_title %></p>
-  <p>city:<%= card.city %></p>
-  <p>price:<%= card.price %></p>
-  <p><%= link_to 'display', card_path(card.id) %></p><br>
-<% end %>
+<div class="container">
+  <div class="card-deck">
+    <% @cards.each do |card| %>
+	    <%= link_to card_path(card.id) do %>
+	      <div class="wrapper-card">
+	        <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+	        </div>
+          <div class="card-body">
+            <div><h5 class="card-title"><%= card.activity_title %></h5></div>
+            <div><p class="card-city"><%= card.city %></p></div>
+            <div><p class="card-city">IDR <%= card.price %></p></div>
+          </div>
+	      </div>
+	    <%end%>
+	  <%end%>
+  </div>
+</div>
