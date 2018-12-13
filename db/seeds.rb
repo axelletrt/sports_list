@@ -10,9 +10,9 @@
 
 # seed table SpokenLanguage
 
-SpokenLanguage.create(name: 'Anglais')
-SpokenLanguage.create(name: 'Espagnol')
-SpokenLanguage.create(name: 'Français')
+SpokenLanguage.create(name: 'English')
+SpokenLanguage.create(name: 'Spanish')
+SpokenLanguage.create(name: 'French')
 
 # seed table Discipline
 

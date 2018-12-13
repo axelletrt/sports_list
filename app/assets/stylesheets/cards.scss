@@ -184,6 +184,12 @@ a:visited {
   font-size: 1.3em;
 }
 
+.activity h1 {
+  font-weight:500;
+  line-height: 1.2; 
+  color:inherit; 
+}
+
 /*__________DESCRIPTION__________*/
 
 #description_text {
@@ -352,3 +358,27 @@ a:visited {
 }
 
 
+.carrousel {
+  width: 450px;
+  height: 400px;
+  object-fit: cover;
+  padding: 0;
+}
+
+.demo {
+  object-fit: cover;
+}
+
+
+.hidden {
+  display: none; 
+}
+
+.text {
+  display: flex; 
+  flex-direction: column; 
+}
+
+#practical_info {
+  border: 1px solid #f1f1f1;
+}
