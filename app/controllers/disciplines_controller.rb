@@ -5,7 +5,6 @@ class DisciplinesController < ApplicationController
     @disciplines = Discipline.all
   end
 
-
   def show
     @card = Card.all
     sport_cards_id = CardsDiscipline.where(discipline_id: params[:id]).pluck(:card_id)

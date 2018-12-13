@@ -1,16 +1,14 @@
 class HomeController < ApplicationController
   
   def index
-    @disciplines = Discipline.all 
+    @cards = Card.all
+    @disciplines = Discipline.all
     @search = Search.new
-    @card = Card.all 
-    sport_cards_id = CardsDiscipline.where(discipline_id: params[:id]).pluck(:card_id)
-    @cards = @card.find(sport_cards_id)
+    surf_cards_id = CardsDiscipline.where(discipline_id: Discipline.where(name: 'surf')).pluck(:card_id)
+    yoga_cards_id = CardsDiscipline.where(discipline_id: Discipline.where(name: 'yoga')).pluck(:card_id)
+    scuba_cards_id = CardsDiscipline.where(discipline_id: Discipline.where(name: 'scuba diving')).pluck(:card_id)
+    @cards_surf = @cards.find(surf_cards_id)
+    @cards_yoga = @cards.find(yoga_cards_id)
+    @cards_scuba = @cards.find(scuba_cards_id)
   end
-
- 
-
-
-
-  
 end

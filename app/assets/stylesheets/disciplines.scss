@@ -2,7 +2,6 @@
   max-width: 1280px;
   display: flex;
   color:  #05282e;
-
 }
 
 a:link {
@@ -21,13 +20,13 @@ a:hover {
 }
 
 
-.wrapper {
+.wrapper-card {
   padding-left: 11px;
   padding-right: 11px;
   padding-top: 11px;
 }
 
-.wrapper:hover {
+.wrapper-card:hover {
   opacity: 0.9;
 }
 
@@ -37,8 +36,9 @@ padding: 20px;
 }
 
 .card-img-top {
-	max-width: 250px;
-	height: 200px;
+  max-width: 250px;
+  height: 200px;
+  padding: 0;
 }
 
 .card {
@@ -54,8 +54,6 @@ padding: 20px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   flex-flow: row wrap;
-  margin-right: -15px;
-  margin-left: -15px;
   display: flex;
   flex-direction: column;
   flex-flow: row wrap;
@@ -66,12 +64,10 @@ padding: 20px;
        flex-flow: row wrap;
        justify-content: space-between;
        padding: 25px;
+       margin: 0;
+       padding-left: 15vh;
+       padding-right: 15vh;
     }
-}
-
-.card-deck::after {
-  content: "";
-  flex: auto;
 }
 
 .card-body {
@@ -80,5 +76,3 @@ padding: 20px;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.018);
 }
-
-
