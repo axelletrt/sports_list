@@ -4,7 +4,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Nanum Gothic', sans-serif; 
+
   font-weight: 300;
 }
 
@@ -81,17 +81,16 @@ a:visited {
   font-size: 0.9em;
   list-style-type: none;
   padding: 0;
-  box-shadow: 2px 0.5px 6px lightgrey;
-   @media (min-width: 991px) {
-        position: fixed;
-        width: 350px;
-        background-color: white;
-        font-size: 0.9em;
-        list-style-type: none;
-        padding: 30px;
-        top: 35vh;
-        box-shadow: 2px 0.5px 6px lightgrey;
-        z-index: 1;
+  box-shadow: 0 3px 27px -5px rgba(50,50,50,.4);
+  @media (min-width: 991px) {
+    position: fixed;
+    width: 350px;
+    background-color: white;
+    font-size: 0.9em;
+    list-style-type: none;
+    padding: 30px;
+    top: 35vh;
+    z-index: 1;
   }
 }
 
@@ -107,7 +106,6 @@ a:visited {
       display: flex;
       float: left;
       color:  #404040;
-      font-size: 1.7em;
       padding-top: 0;
       margin-bottom: 0;
   } 
@@ -248,7 +246,6 @@ a:visited {
 .mySlides {
   margin: auto 40px;
   display: none;
-  box-shadow: 2px 0.5px 6px lightgrey;
   border-radius: 0 3px 3px 0;
 }
 .mySlides img{
@@ -257,7 +254,6 @@ a:visited {
 }
 .mySlides:first-child {
   display: block;
-  box-shadow: 2px 0.5px 6px lightgrey;
 }
 /* Add a pointer when hovering over the thumbnail images */
 .cursor {
