@@ -66,7 +66,6 @@ class CardsController < ApplicationController
     @card.length = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.opening_hour = "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}"
 		@card.closing_hour = "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}"
-    @card.photos.attach(params[:card][:photos])
      #@card.draft = false
     @card.save
 
@@ -116,7 +115,7 @@ end
 
    #def set_card
     #   @card = Card.find(params[:id])
-   #end
+  #end
 
 
 	def card_parameters

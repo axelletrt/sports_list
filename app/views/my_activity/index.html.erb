@@ -1,24 +1,26 @@
 
-<% if current_user.professional.present?  %>
-
-<div class="container">
-  <div class="card-deck_activity">
-    <% @cards.each do |card| %>
-   
-    <div class="wrapper">
-      <div><%= image_tag card.photos[0], class: 'card-img-top' %></div>
-        <div class="card-body_activity">
-         <div><h5 ><%= card.activity_title %></h5></div>
-         <div><p >Description:<%= card.short_description %></p></div>
-         <div><p >City:<%= card.city %></p></div>
-         <div><p >IDR:<%= card.price %></p></div>
-          <div class= "btn_activity_edit"> <%=link_to "Edit card", edit_card_path(card.id)%> </div>
-          <div class= "btn_activity_delete"> <%= link_to "Delete the card", card_path(card), method: :delete , class: "activity_delete"%></div>
-        </div>
-      </div>
+     
+<% if current_user.professional.present?  %>  
+  <div class="section1cp">
+    <p class="titresectioncp">Dashboard</p>
+    <div class="section1bg">
+      <% @cards.each do |card| %>
+        <a class="db-card" href="<%= edit_card_path(card.id) %>">
+          <div class="col_activity "><%= image_tag card.photos[0], style: "width:150px" %></div>
+          <div class="col_activity text">
+            <div ><%= card.activity_title %></div>
+            <div ><%= card.city %></div>
+            
+            <div>
+            <% if card.draft %>
+            <span class="draft"> Rough draft </span>
+            <% else %>
+              <span class="published"> Published </span>
+              <% end %>
+              </div>
+          </div>
+        </a>         
       <% end %>
-    </div>    
-  
-  </div>
-</div> 
+    </div>
+  </div>  
 <% end %>
