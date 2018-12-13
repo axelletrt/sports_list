@@ -6,9 +6,9 @@ class EvaluationsController < ApplicationController
       @evaluation = Evaluation.all 
     end 
 
-    def show 
+    def show
       @evaluations = Evaluation.find(params[id])
-    end 
+    end
 
     def new 
       @evaluation = Evaluation.new 
@@ -20,7 +20,7 @@ class EvaluationsController < ApplicationController
       # (Evaluation.where(user_id: current_user.id, card_id: params[:id]).empty?)
         @evaluation = Evaluation.create(comment: p_eval[:content], eval: p_eval[:eval], card_id: params[:id], user_id: current_user.id)
         redirect_to "/cards/#{params[:id]}"
-        
+
         if @evaluation.save
           respond_to do |format|
              format.js   ## cela va rendre create.js.erb

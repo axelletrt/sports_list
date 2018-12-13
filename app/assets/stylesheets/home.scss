@@ -4,9 +4,6 @@
   font-weight: 300;
 }
 
-a:visited {
-    color: inherit;
-}
 
 .container {
   max-width: 1280px;
@@ -64,6 +61,9 @@ a:visited {
   height: 40px;
 
   font-size: 1em;
+    @media (max-width: 991px){
+     margin-left: 20px;
+   }  
 }  
 
 .search_btn_sub{
@@ -71,24 +71,30 @@ a:visited {
   background-color: #d14734;
   margin-left: 20px;
   border-radius: 5px;
-  width: 70px;
+  letter-spacing: 0.8px;
+  font-size: 15px;
+  padding: 0 20px;
   height: 40px;
   color: white;
 
   font-size: 1em;
+     @media (max-width: 991px){
+     width: 250px;
+     margin-top: 10px;
+   }
 }
+
 .center-on-page {
-  z-index: 999999;
+  z-index: 1;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+   
 }
 
-.select{
-  color:lightgray;
 
-}
+
 
 /*__________CARDS DISPLAY__________*/
 
