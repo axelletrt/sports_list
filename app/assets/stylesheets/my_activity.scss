@@ -12,7 +12,7 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-.card-deck {
+.card-deck_activity {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   flex-flow: row wrap;
@@ -37,7 +37,7 @@ transform: scale(1);
   transform: scale(1.10);
 }
 
-.card-deck::after {
+.card-deck_activity::after {
   content: "";
   flex: auto;
 }
