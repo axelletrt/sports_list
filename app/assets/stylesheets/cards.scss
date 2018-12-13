@@ -8,10 +8,11 @@
   font-weight: 300;
 }
 
-.container {
-  max-width: 1280px;
+.container_sl {
   display: flex;
   color:  #05282e;
+  margin: auto;
+  justify-content: space-between;
 }
 .content{
   width:100%;
@@ -114,11 +115,7 @@ a:visited {
 
 .coach_picture {
   display: flex;
-  float: right;
-  min-width: 9%;
-  max-width: 9%;
-  border-radius: 50%;
-  padding-top: 3px;
+  float: center;
    @media (min-width: 991px) {
      display: flex;
      float: right;
@@ -129,6 +126,7 @@ a:visited {
 }
 
 .display_contact_button {
+  border: none; 
   background-color:  #d14734; 
   border-radius: 60px 60px;
   color: white;
@@ -209,19 +207,25 @@ a:visited {
 
 /*__________PRACTICAL INFORMATION__________*/
 
+
+.practical_info {
+  margin-top: 80px; 
+}
+
 #practical_info {
   margin-top: 45px;
   width: 100%;
-  height: 150px;
   display: flex;
   flex-direction: column; 
+  justify-content: space-around; 
+  padding: 5px; 
   flex-wrap: wrap;
   padding-left: 0;
   list-style-type: none;
 }
 
-#practical_info li {
-  padding-top: 15px;
+#practical_info div {
+  margin-bottom: 20px; 
 }
 
 #practical_info span {
@@ -294,11 +298,6 @@ a:visited {
 .prev svg{
   transform: rotate(180deg)
 }
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-
-}
 
 .row:after {
   content: "";
@@ -341,14 +340,18 @@ a:visited {
   opacity: 1;
 }
 
-
 .comments {
   padding-top: 50px;
   display: inline-grid;
   float: center;
 }
 
+.evaluation {
+    margin-top: 80px; 
+}
+
 .evaluation_button {
+  border:none; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -374,7 +377,18 @@ a:visited {
 
 .unique_comment {
   display: flex; 
-  flex-direction: row; 
+  flex-direction: row;
+  .stars{
+    width:165px;
+  }
+  .stars > label {
+    float: left;
+  }
+}
+.user{
+  display: flex;
+  flex-direction: column;
+  padding: 6px 12px;
 }
 .firstline {
   display: flex; 
@@ -401,15 +415,21 @@ a:visited {
 }
 
 
-.hidden {
-  display: none; 
-}
-
 .text {
   display: flex; 
   flex-direction: column; 
 }
 
-#practical_info {
-  border: 1px solid #f1f1f1;
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.container_sl h3{
+  color: #8d8b8b;
+  font-weight: 600; 
 }

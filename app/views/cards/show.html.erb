@@ -7,13 +7,14 @@
 </div>
 
 <!-- DISCIPLINE -->
-<div class="container">
+<div class="container_sl">
   <div class="content">
     <div class="activity">
       <p>
-      </p>
+      </p> 
     </div>
     <div class="description">
+    <h3>Description</h3>
       <p id="description_text"><%=@card.long_description%></p>
     </div>
 
@@ -55,41 +56,46 @@
     <div class="practical_info">
       <h3 id="practical_info_title">Practical Information</h3>
       <div id="practical_info">
-        <div class="discipline">
-              <% @disciplines.each do |discipline| %>
-              <%= discipline.name %><h1> 
-              <% end %>
-        </div>
         <div class="price">
+          <%= image_tag "coin.svg", style: "height:25px" %>
           <%=@card.price%> IDR/ per person 
         </div>
         <div class="address">
+          <%= image_tag "placeholder.svg", style: "height:25px" %>
           <%=@card.address%>
         </div>
         <div class="languages">
+          <%= image_tag "worlwide.svg", style: "height:25px" %>
           Offered in
           <% @languages.each do |language| %>
           <%= language.name %>
           <% end %>
         </div>
+         <div class="length">
+                <%= image_tag "time.svg", style: "height:25px" %>
+            <%=@card.length.strftime("%I:%M") %> 
+          </div>
         <div class="hours">
-          From <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %> 
+          <%= image_tag "clock.svg", style: "height:25px" %>
+          Operating hours <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %> 
         </div>
       </div>
     </div>
-
- 
-
      <!-- FORMULAIRE EVALUATION -->
 
   <div class="evaluation">
+  <div class="title_comment">
     <h3 id="evaluation_title">Your Feedbacks</h3>
-  <button class="evaluation_button">Add a comment</button>
-  <% if user_signed_in? %>
-    <div class="evaluation_form"><%= render 'evaluations/new' %></div>
+    <button class="evaluation_button">Add a comment</button>
+  </div> 
+   <% if user_signed_in? %>
+    <div class="evaluation_form">
+    <%= render 'evaluations/new' %></div>
     </div> 
   <% else %> 
-  <% end %> 
+  <% end %>
+
+ 
 
 
     <!-- hide evaluation form before click --> 
@@ -106,10 +112,14 @@
      });
     </script> 
 
+ 
     <div class="comments_evaluations">
         <% @evaluations.each do |e| %>
+          <hr/>
           <div class="unique_comment">
+
             <div class="user">
+              <%= image_tag e.user.avatar, height: 40, width: 40, class: "rounded-circle"%> 
               <%= @users.find(e.user_id).username %>
             </div> 
             <div class="content">
@@ -119,9 +129,6 @@
                     <% e.eval.times do |i| %> 
                       <label class="full" for="star"></label>
                     <% end %>
-                  </div>
-                  <div class="score">
-                    <%= e.eval %>
                   </div>
                 </div>
                 <div class="publication">
@@ -137,31 +144,32 @@
       </div>
     </div>
   </div>
-</div>
+
 
   <div class="sidebar">
     <div id="contact_info">
-      <div id="contact">
-        <div id="contact_name"><%= @card.professional.user.first_name%></div>
-        <div id="contact_organization"><%= @card.organization %>
-      <div>
-        <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
-      </div>
-
-     
-      <button class="display_contact_button" onclick="display_contact()">Book your session with me</button>
-      <div id="display_contact_info">
-        <ul>
-          <li id="icon"><i class="fab fa-whatsapp fa-2x"></i><%@card.whatsapp%></li>
-          <li>
-            <a target="_blank" id="icon"><i class="fab fa-facebook-square fa-2x"><% @card.instagram %></i></a>
-            <a target="_blank" id="icon"><i class="fab fa-instagram fa-2x"><%@card.facebook %></i></a>
-          </li>
-        </ul>
+        <div class="contact_picture">
+          <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
+        </div> 
+        <div clas="discipline">
+          <%= @card.organization %>, <% @disciplines.each do |discipline| %><%= discipline.name %><% end %>
+        </div> 
+        <div id="contact_name">
+          <%= @card.professional.user.first_name%>
+        </div> 
+        <button class="display_contact_button" onclick="display_contact()">Book your session with me</button>
+        <div id="display_contact_info">
+          <ul>
+            <li>
+              <%= image_tag "whatsapp_icon.png", id:"icon", class: "fab fa-whatsapp fa-2x"%><%=@card.whatsapp%></li>
+              <a href="<%= @card.facebook%>"><%= image_tag "facebook_icon.png", id:"icon", class: "fab fa-facebook-square fa-2x"%></a>
+              <a href="<%= @card.instagram%>"><%= image_tag "instagram_icon.png", id:"icon", class: "fab fa-instagram fa-2x"%></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 

@@ -26,6 +26,7 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > label { 
   color: #ddd; 
  float: right; 
+ cursor: pointer;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
@@ -38,6 +39,21 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+
+.eval_stars textarea{
+  border-radius: 8px;
+  padding: 0.5rem;
+  
+	&:active, &:focus{
+		background-color: #FAFAFA;
+	}
+	&:hover{
+		background-color: #FAFAFA;
+	}
+	height: 7rem;
+	width: 600px;
+}
 
 /*Css to display stars */ 
 
