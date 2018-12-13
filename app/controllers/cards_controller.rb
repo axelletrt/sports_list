@@ -23,27 +23,42 @@ class CardsController < ApplicationController
     @languages = SpokenLanguage.all
   end
 
-
   def edit
   	@card = Card.find(params[:id])
     @disciplines = Discipline.all
     @languages = SpokenLanguage.all
   end
 
-
-
-
   def update
-
+    puts params
     @card = Card.find(params[:id])
-    @card.update(long_description: params["cards"][:long_description], short_description: params["cards"][:short_description])
-    respond_to do |format|
-      if @cards.update(card_params)
-        format.html { redirect_to root_path, notice: 'Pin was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    p_cards = params[:card]
+    @card.update(card_parameters)
+    @card.update(latitude: params["lat"])
+    @card.update(longitude: params["lng"])
+    @card.update(length: "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}")
+    @card.update(opening_hour: "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}")
+    @card.update(closing_hour: "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}")
+
+    CardsDiscipline.where(card_id: params[:id]).delete_all
+    CardsLanguage.where(card_id: params[:id]).delete_all
+
+    p_cards[:disciplines].each do |d_id|
+      CardsDiscipline.create(card_id: @card.id, discipline_id: d_id)
     end
+
+    p_cards[:spoken_languages].each do |l_id|
+      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
+    end
+  #      respond_to do |format|
+  #        if @card.update(card_params)
+  #          format.html { redirect_to root_path, notice: 'Pin was successfully updated.' }
+  #        else
+  #          format.html { render :edit }
+  #        end
+  #      end
+    redirect_to my_activity_index_path
+
   end
 
    def destroy
@@ -75,11 +90,6 @@ class CardsController < ApplicationController
         else
       end
 
-    if params[:commit] == "save and publish"
-      @card.draft = false
-      @card.save
-    end
-
     p_cards[:disciplines].each do |d_id|
       CardsDiscipline.create(card_id: @card.id, discipline_id: d_id)
     end
@@ -91,11 +101,6 @@ class CardsController < ApplicationController
 end
 
 	private
-
-#   def set_card
-#       @card = Card.find(params[:id])
-#   end
-
 
 	def card_parameters
 		params.require(:card).permit(:discipline_id, :spoken_language_ids, :spoken_language_ids, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos:[])
