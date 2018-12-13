@@ -333,3 +333,15 @@ a:visited {
   border-color: #14B5CC;
   border-radius: 60px 60px;
 }
+
+/*__________BOUTON_DELETE____*/
+.delete_card_btn{
+  background: #d14734;
+  padding: 10px;
+  text-decoration-color: none;
+  border-radius: 5px;
+  color:white !important;
+  &:hover{
+    color:white;
+  }
+}
