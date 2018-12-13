@@ -1,20 +1,20 @@
 class EvaluationsController < ApplicationController
 
-  def index 
-    @evaluation = Evaluation.all 
-  end 
+  def index
+    @evaluation = Evaluation.all
+  end
 
-  def show 
+  def show
     @evaluations = Evaluation.find(params[id])
-  end 
+  end
 
-  def new 
-    @evaluation = Evaluation.new 
+  def new
+    @evaluation = Evaluation.new
     # @card = Card.find(params[:id])
     # @evaluations = @card.evaluations
     # evals = @evaluations.pluck(:eval)
     # @moyenne = (evals.sum.to_f / evals.size).round(1)
-  end 
+  end
 
   def create
     p_eval = params[:evaluation]

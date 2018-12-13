@@ -1,5 +1,6 @@
 <div class="div">
-	<%= form_for(@card) do |f| %>
+	<div id="test"></div>
+	<%= form_for(@card, :html => {:id => 'card_form'}) do |f| %>
 	<div class="form-group">
 		<div class="step1 step">
 			<%= f.label :Discipline %><br>
@@ -13,19 +14,23 @@
 			<% end %><br>
 
 			<%= f.label :activity_title %><br>
-			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %><br> <!-- any characters (5 - 30) -->
+			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
+				<span class="error-message">error</span><br>
 
-			<%= f.label :short_description %><br>
-			<%= f.text_field :short_description, placeholder: '10 - 100 characters' %><br> <!-- any characters (10 - 100) -->
+			<%= f.label :short_description %>
+			<%= f.text_field :short_description, id: 'short_description', placeholder: '10 - 100 characters' %> <!-- any characters (10 - 100) -->
+				<span class="error-message">error</span><br>
 
 			<%= f.label :long_description %><br>
-			<%= f.text_field :long_description, placeholder: '300 - 1000 characters' %><br> <!-- any characters (300 - 1000) -->
+			<%= f.text_field :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
+				<span class="error-message">error</span><br>
 
 			<%= f.label :organization %><br>
 			<%= f.select :organization, Card.organizations.keys %><br> <!-- -->
 
 			<%= f.label :price %><br>
-			<%= f.text_field :price, placeholder: 'ex: 200000' %><br> <!-- any number (1 - 6) (see with roupies) -->
+			<%= f.text_field :price, id: 'price', placeholder: 'ex: 200000' %> <!-- any number (1 - 6) (see with roupies) -->
+				<span class="error-message">error</span><br>
 
 			<%= f.label :length %><br>
 			<%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %><br>
@@ -35,22 +40,27 @@
 
 			<%= f.label "Closing hour" %><br>
 			<%= f.time_select :closing_hour, {minute_step: 15} %><br>
+
 			<%= f.label :photos %><br>
-			<%= f.file_field :photos, multiple: true %><br>
+			<%= f.file_field :photos, id: 'photos', multiple: true %><br>
 
 			<button id="next_step1">Next</button>
+
 			<%= f.submit "save" %><br>
 		</div>
 
 		<div class="step2 step">
 			<%= f.label :whatsapp %><br>
-			<%= f.text_field :whatsapp, placeholder: '0676349823'%><br> <!-- only numbers between (10 - 14) -->
+			<%= f.text_field :whatsapp, id: 'whatsapp', placeholder: '0676349823'%> <!-- only numbers between (10 - 14) -->
+			<span class="error-message">error</span><br>
 
 			<%= f.label :facebook %><br>
-			<%= f.text_field :facebook, placeholder: 'https://www.facebook.com/...' %><br>
+			<%= f.text_field :facebook, id: 'facebook', placeholder: 'https://www.facebook.com/...' %>
+			<span class="error-message">error</span><br>
 
 			<%= f.label :instagram %><br>
-			<%= f.text_field :instagram, placeholder: 'https://www.instagram.com/...' %><br>
+			<%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/...' %>
+			<span class="error-message">error</span><br>
 
 			<button id="back_step2" class="previous">Previous</button>
 			<button id="next_step2">Next</button>
@@ -74,7 +84,7 @@
 
 			<button id="back_step3">Previous</button><br>
 			<%= f.submit "save" %>
-			<%= f.submit "save and publish" %>
+			<%= f.submit "save and publish", id: 'publish' %>
 		</div>
 	</div>
 
@@ -84,3 +94,98 @@
 		<button type="submit" class="btn-blue">Submit</button>
 	</div>
 </div>
+
+<script>
+$(document).ready(function() {
+	$(function(){
+		$("#publish").click(function(){
+			valid = true;
+			if ($("#card_activity_title").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null){
+				$("#card_activity_title").css("border-color", "#FF0000");
+				$("#card_activity_title").next().html("Invalid field").show();
+				valid = false;
+			}
+			else{
+				$("#card_activity_title").css("border-color", "#008000");
+			}
+			if ($("#short_description").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+				$("#short_description").css("border-color", "#FF0000");
+				$("#short_description").next().html("Invalid field").show();
+				valid = false;
+			}
+			else{
+				$("#short_description").css("border-color", "#008000");
+			}
+			if ($("#long_description").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+				$("#long_description").css("border-color", "#FF0000");
+				$("#long_description").next().html("Invalid field").show();
+				valid = false;
+			}
+			else{
+				$("#long_description").css("border-color", "#008000");
+			}
+			if ($("#price").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+				$("#price").css("border-color", "#FF0000");
+				$("#price").next().html("Invalid field").show();
+				valid = false;
+			}
+			else{
+				$("#price").css("border-color", "#008000");
+			}
+
+			if ($("#whatsapp").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+				$("#whatsapp").css("border-color", "#FF0000");
+				$("#whatsapp").next().html("Invalid field").show();
+				valid = false;
+			}
+			else {
+				$("#whatsapp").css("border-color", "#008000");
+			}
+
+			if ($("#facebook").val() == "") {
+				$("#facebook").css("border-color", "#C0C0C0");
+			}
+			else if ($("#facebook").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
+				$("#facebook").css("border-color", "#FF0000");
+				$("#facebook").next().html("Invalid field").show();
+				valid = false;
+			}
+			else {
+				$("#facebook").css("border-color", "#008000");
+			}
+
+			if ($("#instagram").val() == "") {
+				$("#instagram").css("border-color", "#C0C0C0");
+			}
+			else if ($("#instagram").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
+				$("#instagram").css("border-color", "#FF0000");
+				$("#instagram").next().html("Invalid field").show();
+				valid = false;
+			}
+			else{
+				$("#instagram").css("border-color", "#008000");
+			}
+
+			if (valid === false) {
+				alert("Some fields are incorrect");
+			}
+
+			return valid;
+		});
+	});
+
+/*
+	//jQuery code goes here
+	$('#activity_title').on('click', function() {
+		$('#activity_title').css("border-color", "#FF0000");
+	});
+
+		$('#activity_title').on('input', function() {
+		var input=$(this);
+		var is_name=input.val();
+		if(is_name){input.removeClass("invalid").addClass("valid");}
+		else{input.removeClass("valid").addClass("invalid");}
+		});
+	});
+*/
+</script>
