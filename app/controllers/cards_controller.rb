@@ -1,10 +1,6 @@
 class CardsController < ApplicationController
 
-<<<<<<< HEAD
-  # before_action :set_card, only: [:show, :create, :edit, :update, :destroy]
-=======
    #before_action :set_card, only: [:show, :create, :edit, :update, :destroy]
->>>>>>> bf46c2ed57dea8659af63997f10ea1d6c612e854
 
   def index
     @cards = Card.all
@@ -96,15 +92,9 @@ end
 
 	private
 
-<<<<<<< HEAD
 #   def set_card
 #       @card = Card.find(params[:id])
 #   end
-=======
-   #def set_card
-    #   @card = Card.find(params[:id])
-  #end
->>>>>>> bf46c2ed57dea8659af63997f10ea1d6c612e854
 
 
 	def card_parameters
