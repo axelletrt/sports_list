@@ -1,6 +1,4 @@
-class CardsController < ApplicationController
-
-   #before_action :set_card, only: [:show, :create, :edit, :update, :destroy]
+# frozen_string_literal: true
 
 class CardsController < ApplicationController
   def index
@@ -40,9 +38,6 @@ class CardsController < ApplicationController
         format.html { render :edit }
       end
     end
-
-    redirect_to my_activity_index_path
-
   end
 
   def destroy
