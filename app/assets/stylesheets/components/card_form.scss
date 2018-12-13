@@ -1,0 +1,123 @@
+@keyframes slide{
+from{
+	left: 100%;
+}
+to{
+	left: 0;
+}
+}
+
+@keyframes slide-back{
+from{
+	left: -100%;
+}
+to{
+	left: 0;
+}
+}
+
+@keyframes slide-out{
+from{
+	left: 0;
+}
+to{
+	left: -100%;
+}
+}
+
+
+
+
+.formulaire {
+	position: relative;
+	border-radius: 8px;
+	box-shadow: 0px 3px 12px rgba(60, 60, 60, 0.6);
+	width: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+	height: 80vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: rgba(255,255,255, 0.95);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.container-formulaire{
+	background-image: url("../bg0.jpg");
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	margin-top: 80px;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+
+}
+
+.title-formulaire{
+	text-align: center;
+	color: white;
+}
+label{
+	font-weight: bold;
+}
+
+input, textarea{
+	border-radius: 8px;
+	padding: 0.5rem;
+	border: 2px solid #06afc7;
+
+	&:active, &:focus{
+		background-color: #FAFAFA;
+	}
+	&:hover{
+		background-color: #FAFAFA;
+	}
+
+}
+textarea{
+	height: 7rem;
+	width: 100%;
+}
+
+.label-checkbox{
+	display: inline-block;
+	width: 25%;
+	margin-left: 2rem;
+}
+
+.btn-step{
+	margin-top: 2rem;
+	display: inline-block;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-color: #26cfe7;
+    background-color: #26cfe7;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    border-radius: 60px 60px;
+    cursor: pointer;
+}
+
+.step{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 1rem 4rem;
+}
+
+.appear-step{
+	animation: slide 0.5s;
+}
+.appear-back-step{
+	animation: slide-back 0.5s;
+}
+.disappear-step{
+	animation: slide-out 0.5s;
+}

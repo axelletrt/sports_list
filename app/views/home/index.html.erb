@@ -15,7 +15,7 @@
     <p class="discipline-desc">Discover surfing in Bali, whether you are a beginner looking to get your first surf lesson or a skilled surfer hoping to get barreled at one of Bali’s legendary spots.</p>
   </div>
   <div class="card-deck-hp">
-    <% @cards_yoga.take(4).reverse_each do |card| %>
+    <% @cards_surf.take(4).reverse_each do |card| %>
       <%= link_to card_path(card.id) do %>
         <div class="wrapper-card-hp">
           <div><%= image_tag card.photos[0], class: 'card-img-top-hp' %>

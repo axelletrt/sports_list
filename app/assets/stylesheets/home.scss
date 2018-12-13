@@ -132,7 +132,7 @@
 
 .card-body-hp {
   padding-top: 5px;
-  padding-bottom: 5px !important;
+  padding-bottom: 5px;
   overflow: auto;
   font-size: 0.8em;
 }
@@ -141,7 +141,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
 
+.card-title {
+  max-width: 170px;
+  overflow-wrap: break-word;
 }
 
 .card-city {

@@ -1,4 +1,6 @@
-<div class="div">
+<div class="container-formulaire">
+    <h2 class="title-formulaire">Offer an experience</h2>
+<div class="formulaire">
     <%= form_for(@card) do |f| %>
     <div class="form-group">
         <div class="step1 step">
@@ -16,10 +18,10 @@
             <%= f.text_field :activity_title, placeholder: '5 - 30 characters' %><br> <!-- any characters (5 - 30) -->
 
             <%= f.label :short_description %><br>
-            <%= f.text_field :short_description, placeholder: '10 - 100 characters' %><br> <!-- any characters (10 - 100) -->
+            <%= f.text_area :short_description, placeholder: '10 - 100 characters' %><br> <!-- any characters (10 - 100) -->
 
             <%= f.label :long_description %><br>
-            <%= f.text_field :long_description, placeholder: '300 - 1000 characters' %><br> <!-- any characters (300 - 1000) -->
+            <%= f.text_area :long_description, placeholder: '300 - 1000 characters' %><br> <!-- any characters (300 - 1000) -->
 
             <%= f.label :organization %><br>
             <%= f.select :organization, Card.organizations.keys %><br> <!-- -->
@@ -38,8 +40,7 @@
             <%= f.label :photos %><br>
             <%= f.file_field :photos, multiple: true %><br>
 
-            <button id="next_step1">Next</button>
-            <%= f.submit "save" %><br>
+            <button class="btn-step" id="next_step1">Next Step</button>
         </div>
 
         <div class="step2 step">
@@ -52,10 +53,9 @@
             <%= f.label :instagram %><br>
             <%= f.text_field :instagram, placeholder: 'https://www.instagram.com/...' %><br>
 
-            <button id="back_step2" class="previous">Previous</button>
-            <button id="next_step2">Next</button>
+            <button id="back_step2" class="btn-step previous">Previous</button>
+            <button id="next_step2" class="btn-step">Next</button>
 
-            <%= f.submit "save" %><br>
         </div>
 
         <div class="step3 step">
@@ -72,8 +72,7 @@
             <input type="hidden"  id="lat" name="lat" />
             <input type="hidden"  id="lng" name="lng"/>
 
-            <button id="back_step3">Previous</button><br>
-            <%= f.submit "save" %>
+            <button id="back_step3" class="btn-step">Previous</button><br>
             <%= f.submit "save and publish" %>
         </div>
     </div>
@@ -83,4 +82,5 @@
         <button id="back_step3">Previous</button>
         <button type="submit" class="btn-blue">Submit</button>
     </div>
+</div>
 </div>
