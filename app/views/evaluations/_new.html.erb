@@ -1,6 +1,6 @@
 <div class="comments">
  <div class="eval_stars">
-     <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'} do |f| %>
+     <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'}, :remote => true do |f| %>
      <fieldset class="rating">
         <input type="radio" id="star5" name="evaluation[eval]" value= "5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
         <input type="radio" id="star4" name="evaluation[eval]" value= "4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
@@ -13,8 +13,9 @@
          <%= f.label :content %><br>
          <%= f.text_area :content %>
      </div>
-     <div class="actions">
+     <div class="">
          <%= f.submit %>
          <% end %>
      </div>
  </div>
+ 

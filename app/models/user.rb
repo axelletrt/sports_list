@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-#Mailer d'inscription
+#Subscription mailer 
     after_create :send_user_mail
     def send_user_mail
       UserMailer.welcome_email(self).deliver
