@@ -89,8 +89,6 @@ class CardsController < ApplicationController
       CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
     end
 
-
-
 #    @card = Card.new(card_parameters)
 #    @card.professional_id = create_or_find_professional.id
 #    @card.opening_hour = params["appt"]
@@ -101,6 +99,7 @@ class CardsController < ApplicationController
 #    @card.save
 
 # don't delete it, speak with cyril first
+#--> Okay but can I delete it ? I don't get it 
   # respond_to do |format|
   #     if @card.save
   #       format.html { redirect_to cards_path, notice: 'Pin was successfully created.' }
