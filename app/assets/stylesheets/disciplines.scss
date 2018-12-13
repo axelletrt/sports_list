@@ -2,6 +2,7 @@
   max-width: 1280px;
   display: flex;
   color:  #05282e;
+
 }
 
 a:link {
@@ -54,6 +55,8 @@ padding: 20px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   flex-flow: row wrap;
+  margin-right: -15px;
+  margin-left: -15px;
   display: flex;
   flex-direction: column;
   flex-flow: row wrap;
@@ -64,15 +67,16 @@ padding: 20px;
        flex-flow: row wrap;
        justify-content: space-between;
        padding: 25px;
-       margin: 0;
-       padding-left: 15vh;
-       padding-right: 15vh;
     }
+}
+
+.card-deck::after {
+  content: "";
+  flex: auto;
 }
 
 .card-body {
   padding-top: 5px;
   padding-bottom: 5px !important;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.018);
 }
