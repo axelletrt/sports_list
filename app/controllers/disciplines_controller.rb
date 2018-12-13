@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 class DisciplinesController < ApplicationController
-
-
   def index
     @disciplines = Discipline.all
   end
@@ -13,5 +13,3 @@ class DisciplinesController < ApplicationController
     @discipline_name = Discipline.find(params[:id]).name
   end
 end
-
-

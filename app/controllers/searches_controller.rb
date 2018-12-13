@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 require 'pry'
 class SearchesController < ApplicationController
-
   def new
     @search = Search.new
   end
@@ -11,16 +12,14 @@ class SearchesController < ApplicationController
   end
 
   def show
-  
     @search = Search.find(params[:id])
     @search = Search.search(@search.keywords, @search.discipline_id)
-    #Permet d'envoyer les paramètres au model search et à les réutilisé dans la méthode self.search
+    # Permet d'envoyer les paramètres au model search et à les réutilisé dans la méthode self.search
   end
 
-private
+  private
 
   def search_params
-    params.require(:search).permit(:keywords,:discipline_id,:id)
+    params.require(:search).permit(:keywords, :discipline_id, :id)
   end
-
 end

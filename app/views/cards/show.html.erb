@@ -23,25 +23,23 @@
     <!-- PRACTICAL INFORMATION -->
     <div class="practical_info">
       <h3 id="practical_info_title">Practical Information</h3>
-      <ul id="practical_info">
-        <div class="col-2">
-          <li><i class="fas fa-map-pin fa-2x"></i></li>
+      <div id="practical_info">
+        <div class="price">
+          <%=@card.price%> IDR
         </div>
-        <div class="col-4">
-          <li><%=@card.address%></li>
-          <li><span><%=@card.price%></span></li>
+        <div class="address">
+          <%=@card.address%>
         </div>
-        <div class="col-3">
-          <li><span>Language</span></li>
+        <div class="languages">
+          Offered in
+          <% @languages.each do |language| %>
+          <%= language.name %>
+          <% end %>
         </div>
-        <div class="col-2">
-          <li>
-            <% @languages.each do |language| %>
-            <%= language.name %>
-            <% end %>
-          </li>
+        <div class="hours">
+          From <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %> 
         </div>
-      </ul>
+      </div>
     </div>
 
     <!-- CAROUSEL -->
@@ -50,7 +48,7 @@
       <div class="mySlides">
         <%= image_tag card, style: "width:100%" %>
       </div>
-      
+
       <% end %>
 
       <!-- BOUTONS -->
@@ -95,16 +93,32 @@
     </script> 
 
     <div class="comments_evaluations">
-      <div class="unique_comment">
         <% @evaluations.each do |e| %>
-          <%= @users.find(e.user_id).username %>
-          <%= e.comment %>
-          <div class="stars">
-          <%= number_stars= e.eval %>
-            <% number_stars.times do |i| %> 
-              <label class="full" for="star"></label>
-            <% end %> 
-        </div>
+          <div class="unique_comment">
+            <div class="user">
+              <%= @users.find(e.user_id).username %>
+            </div> 
+            <div class="content">
+              <div class="firstline">
+                <div>
+                  <div class="stars">
+                    <% e.eval.times do |i| %> 
+                      <label class="full" for="star"></label>
+                    <% end %>
+                  </div>
+                  <div class="score">
+                    <%= e.eval %>
+                  </div>
+                </div>
+                <div class="publication">
+                  Published on : <%= e.created_at.strftime("%B,%d, %y") %>
+                </div>
+              </div>
+              <div class="comment">
+                <%= e.comment %>
+              </div>
+            </div> 
+          </div>
         <% end %>
       </div>
     </div>
@@ -115,7 +129,7 @@
     <div id="contact_info">
       <div>
         <p id="contact_name"><%= @card.professional.user.first_name %></p>
-        <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
+        <%= image_tag  user(id).avatar, class: "coach_picture"%>
       </div>
 
       <div>

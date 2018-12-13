@@ -203,6 +203,7 @@ a:visited {
   width: 100%;
   height: 150px;
   display: flex;
+  flex-direction: column; 
   flex-wrap: wrap;
   padding-left: 0;
   list-style-type: none;
@@ -333,3 +334,21 @@ a:visited {
   border-color: #14B5CC;
   border-radius: 60px 60px;
 }
+
+.unique_comment {
+  display: flex; 
+  flex-direction: row; 
+}
+.firstline {
+  display: flex; 
+}
+
+.starscore {
+  display: flex;
+}
+.score, .publication {
+  line-height: 36px; 
+  margin-left: 20px; 
+}
+
+

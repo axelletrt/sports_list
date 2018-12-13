@@ -1,19 +1,16 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   devise_for :users,
              controllers: { sessions: 'users/sessions',
                             registrations: 'users/registrations',
-                            passwords: 'users/passwords',
-                            
-  }
+                            passwords: 'users/passwords' }
 
-
- resources :searches
+  resources :searches
   root 'home#index'
   resources :account, only: [:index]
   resources :my_activity, only: [:index]
   resources :cards
   resources :disciplines, only: [:show]
   post 'cards/:id', to: 'evaluations#create'
-
 end
