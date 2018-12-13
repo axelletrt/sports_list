@@ -13,7 +13,12 @@
   display: flex;
   color:  #05282e;
 }
-
+.content{
+  width:100%;
+  @media (min-width:990px){
+    width: 60%;
+  }
+}
 .sidebar {
   position: fixed;
   bottom: 0;
@@ -221,19 +226,24 @@ a:visited {
 /* Position the image container (needed to position the left and right arrows) */
 #slideshow {
   margin-top: 35px;
-  width: 40%;
   padding: 0;
   position: relative;
-  margin-left: 10%;
+}
+.mainslide{
+  position:relative;
 }
 
 /* Hide the images by default */
 .mySlides {
+  margin: auto 40px;
   display: none;
   box-shadow: 2px 0.5px 6px lightgrey;
   border-radius: 0 3px 3px 0;
 }
-
+.mySlides img{
+  height: 420px;
+  object-fit: cover;
+}
 .mySlides:first-child {
   display: block;
   box-shadow: 2px 0.5px 6px lightgrey;
@@ -248,29 +258,39 @@ a:visited {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: calc( 50% - 23px );
   width: auto;
-  padding: 16px;
-  margin-top: -50px;
+  padding: 0 10px;
   color: white;
   font-weight: bold;
   font-size: 20px;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  -webkit-user-select: none;
+  &:hover{
+    svg path{
+      fill: rgba(0,0,0,1)
+    }
+  }
 }
 
 /* Position the "next button" to the right */
 .next {
   right: 0;
-  border-radius: 3px 0 0 3px;
 }
-
+.prev svg,.next svg{
+  width: 20px;
+}
+.prev svg path,.next svg path{
+  fill: rgba(0,0,0,0.7);
+  transition: 0.2s ease-in;
+}
+.prev svg{
+  transform: rotate(180deg)
+}
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: white;
-  opacity: 0.5;
+
 }
 
 .row:after {
@@ -278,11 +298,30 @@ a:visited {
   display: table;
   clear: both;
 }
+#slideshow_bottom {
+  display: flex;
+  flex-wrap: nowrap;
+  // justify-content: space-around;
+  overflow-x: scroll;
+  padding: 0;
+  padding-top: 10px;
+  margin: auto 40px;
+}
 
 .column {
   float: left;
-  width: 16.66%;
+  height: 80px;
+  width: 160px;
   padding: 0;
+  margin-right: 10px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &:last-child{
+    margin-right: 0;
+  }
 }
 
 .demo {
@@ -295,14 +334,6 @@ a:visited {
   opacity: 1;
 }
 
-#slideshow_bottom {
-  display: flex;
-  justify-content: space-around;
-  margin: 0;
-  padding: 0;
-  padding-top: 10px;
-  padding-left: 12px;
-}
 
 .comments {
   padding-top: 50px;
