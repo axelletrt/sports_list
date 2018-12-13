@@ -132,10 +132,8 @@
   <div class="sidebar">
     <div id="contact_info">
       <div id="contact">
-          <div class="test">
         <div id="contact_name"><%= @card.professional.user.first_name%></div>
-        <div id="contact_organization"><%= @card.organization%></div>
-          </div>
+        <div id="contact_organization"><%= @card.organization %>
       <div>
         <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
       </div>
@@ -153,6 +151,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
