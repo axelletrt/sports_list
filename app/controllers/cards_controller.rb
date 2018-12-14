@@ -45,7 +45,7 @@ class CardsController < ApplicationController
   end
 =begin
    respond_to do |format|
-     if @cards.update(card_params)
+     if @cards.update(card_parameters)
        format.html { redirect_to root_path, notice: 'Pin was successfully updated.' }
      else
        format.html { render :edit }
@@ -57,7 +57,7 @@ class CardsController < ApplicationController
  def destroy
    @card = Card.find(params[:id])
    @card.destroy
-   CardsDiscipline.where(card_id: params[:id]).delete_all
+   CardsDCyriliscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all
 
    redirect_to my_activity_index_path
@@ -99,7 +99,7 @@ end
  private
 
  def card_parameters
-   params.require(:card).permit(:discipline_id, :spoken_language_ids, :spoken_language_ids, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, photos: [])
+   params.require(:card).permit(:discipline_id, :spoken_language_ids, :spoken_language_ids, :activity_title, :short_description, :long_description, :organization, :address, :city, :country, :price, :length, :whatsapp, :website, :facebook, :instagram, :appt, :appt2, :lat, :lng, :avatar, photos: [])
  end
 
  def create_or_find_professional
