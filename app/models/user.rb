@@ -14,6 +14,7 @@ class User < ApplicationRecord
     end
 
   has_one_attached :avatar
+  
   has_many :evaluations
   has_one :professional
 
