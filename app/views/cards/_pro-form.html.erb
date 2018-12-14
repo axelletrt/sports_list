@@ -1,131 +1,105 @@
 
 <div class="container-formulaire">
-    <h2 class="title-formulaire">Offer an experience</h2>
-<div class="formulaire">
+  <h2 class="title-formulaire">Offer an experience</h2>
+  <div class="formulaire">
     <div class="inner-form">
-    <div id="test"></div>
-    <%= form_for(@card, :html => {:id => 'card_form'}) do |f| %>
-    <div class="form-group">
+      <div id="test"></div>
+      <%= form_for(@card, :html => {:id => 'card_form'}) do |f| %>
+      <div class="form-group">
         <div class="step1 step">
-            <%= f.label :Discipline %><br>
-            <%= f.collection_check_boxes :disciplines, @disciplines.order(:name), :id, :name do |b| %>
-        <%= b.label(class:"label-checkbox disciplines_checkbox") { b.check_box + b.text } %>
-            <% end %>
-            <span class="error-message">error</span><br>
+          <%= f.label :Discipline %><br>
+          <%= f.collection_check_boxes :disciplines, @disciplines.order(:name), :id, :name do |b| %>
+          <%= b.label(class:"label-checkbox disciplines_checkbox") { b.check_box + b.text } %>
+          <% end %>
+          <span class="error-message">error</span><br>
 
-            <%= f.label :Languages %><br>
-            <%= f.collection_check_boxes :spoken_languages, @languages.order(:name), :id, :name do |b| %>
-                <%= b.label(class:"languages_checkbox") { b.check_box + b.text } %>
-            <% end %>
-						<span class="error-message">error</span><br>
+          <%= f.label :Languages %><br>
+          <%= f.collection_check_boxes :spoken_languages, @languages.order(:name), :id, :name do |b| %>
+          <%= b.label(class:"languages_checkbox") { b.check_box + b.text } %>
+          <% end %>
+          <span class="error-message">error</span><br>
 
-
-			<%= f.label :activity_title %><br>
-			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
-				<span class="error-message">error</span><br>
-
-
-			<%= f.label :short_description %>
-			<%= f.text_area :short_description, id: 'short_description', placeholder: '10 - 100 characters' %> <!-- any characters (10 - 100) -->
-				<span class="error-message">error</span><br>
-
-			<%= f.label :long_description %><br>
-			<%= f.text_area :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
-				<span class="error-message">error</span><br>
+          <%= f.label :activity_title %><br>
+          <%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
+          <span class="error-message">error</span><br>
 
 
+          <%= f.label :short_description %>
+          <%= f.text_area :short_description, id: 'short_description', placeholder: '10 - 100 characters' %> <!-- any characters (10 - 100) -->
+          <span class="error-message">error</span><br>
 
-			<%= f.label :activity_title %><br>
-			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
-				<span class="error-message">error</span><br>
-
-
-			<%= f.label :short_description %>
-			<%= f.text_area :short_description, id: 'short_description', placeholder: '10 - 100 characters' %> <!-- any characters (10 - 100) -->
-				<span class="error-message">error</span><br>
-
-			<%= f.label :long_description %><br>
-			<%= f.text_area :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
-				<span class="error-message">error</span><br>
+          <%= f.label :long_description %><br>
+          <%= f.text_area :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
+          <span class="error-message">error</span><br>
 
 
+          <%= f.label :organization %><br>
+          <%= f.select :organization, Card.organizations.keys %><br> <!-- -->
 
-            <%= f.label :organization %><br>
-            <%= f.select :organization, Card.organizations.keys %><br> <!-- -->
+          <%= f.label :price %><br>
+          <%= f.text_field :price, id: 'price', placeholder: 'ex: 200000' %> <!-- any number (1 - 6) (see with roupies) -->
+          <span class="error-message">error</span><br>
 
-			<%= f.label :price %><br>
-			<%= f.text_field :price, id: 'price', placeholder: 'ex: 200000' %> <!-- any number (1 - 6) (see with roupies) -->
-				<span class="error-message">error</span><br>
+          <%= f.label :length %><br>
+          <%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %>
+          <span class="error-message">error</span><br>
 
-            <%= f.label :length %><br>
-            <%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %>
-						<span class="error-message">error</span><br>
+          <%= f.label "Opening hour" %><br>
+          <%= f.time_select :opening_hour, {minute_step: 15} %><br>
 
-            <%= f.label "Opening hour" %><br>
-            <%= f.time_select :opening_hour, {minute_step: 15} %><br>
+          <%= f.label "Closing hour" %><br>
+          <%= f.time_select :closing_hour, {minute_step: 15} %>
+          <span class="error-message">error</span><br>
 
-			<%= f.label "Closing hour" %><br>
-			<%= f.time_select :closing_hour, {minute_step: 15} %>
-			<span class="error-message">error</span><br>
+			    <%= f.label :photos %><br>
+          <%= f.file_field :photos, multiple: true, id: "gallery-photo-add" %><br>
 
+          <div class="gallery"></div>
 
-			
-			<%= f.label :photos %><br>
-            <%= f.file_field :photos, multiple: true, id: "gallery-photo-add" %><br>
-         
-           <div class="gallery"></div>
+          <button class="btn-step" id="next_step1">Next Step</button>
+        </div>
 
+        <div class="step2 step">
+          <%= f.label :whatsapp %><br>
+          <%= f.text_field :whatsapp, id: 'whatsapp', placeholder: '0676349823'%> <!-- only numbers between (10 - 14) -->
+          <span class="error-message">error</span><br>
 
+          <%= f.label :facebook %><br>
+          <%= f.text_field :facebook, id: 'facebook', placeholder: 'https://www.facebook.com/...' %>
+          <span class="error-message">error</span><br>
 
+          <%= f.label :instagram %><br>
+          <%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/...' %>
+          <span class="error-message">error</span><br>
 
-
-			
-
-
-            <button class="btn-step" id="next_step1">Next Step</button>
-		</div>
-
-		<div class="step2 step">
-			<%= f.label :whatsapp %><br>
-			<%= f.text_field :whatsapp, id: 'whatsapp', placeholder: '0676349823'%> <!-- only numbers between (10 - 14) -->
-			<span class="error-message">error</span><br>
-
-			<%= f.label :facebook %><br>
-			<%= f.text_field :facebook, id: 'facebook', placeholder: 'https://www.facebook.com/...' %>
-			<span class="error-message">error</span><br>
-
-			<%= f.label :instagram %><br>
-			<%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/...' %>
-			<span class="error-message">error</span><br>
-
-            <button id="back_step2" class="btn-step previous">Previous</button>
-            <button id="next_step2" class="btn-step">Next</button>
+          <button id="back_step2" class="btn-step previous">Previous</button>
+          <button id="next_step2" class="btn-step">Next</button>
 
         </div>
 
         <div class="step3 step">
-            <%= f.label :address %><br>
-            <%= f.text_field :address, id: 'card_address' %> <!-- pattern: ???? for the moment -->
-						<span class="error-message">error</span><br>
-            <%= f.label :city %><br>
-            <%= f.select :city, Card.cities.keys, {id: "card_city", include_blank: true} %>
-						<span class="error-message">error</span><br>
+          <%= f.label :address %><br>
+          <%= f.text_field :address, id: 'card_address' %> <!-- pattern: ???? for the moment -->
+          <span class="error-message">error</span><br>
+          <%= f.label :city %><br>
+          <%= f.select :city, Card.cities.keys, {id: "card_city", include_blank: true} %>
+          <span class="error-message">error</span><br>
 
-            <%= f.hidden_field :country %>
-            <div id="map">  <!-- Display Google map -->
-            </div>
+          <%= f.hidden_field :country %>
+          <div id="map">  <!-- Display Google map -->
+          </div>
 
-            <input type="hidden"  id="lat" name="lat" />
-            <input type="hidden"  id="lng" name="lng"/>
+          <input type="hidden"  id="lat" name="lat" />
+          <input type="hidden"  id="lng" name="lng"/>
 
-            <button id="back_step3" class="btn-step">Previous</button><br>
-            <%= f.submit "save and publish", id: "publish" %>
+          <button id="back_step3" class="btn-step">Previous</button><br>
+          <%= f.submit "save and publish", id: "publish" %>
         </div>
-    </div>
+      </div>
 
-    <% end %>
-</div>
-</div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
@@ -140,7 +114,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<script type="text/javascript">			
+<script type="text/javascript">
 
 $(function() {
     // Multiple images preview in browser
@@ -348,4 +322,3 @@ $(function() {
 
 
 </script>
-
