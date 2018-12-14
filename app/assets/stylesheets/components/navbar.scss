@@ -16,6 +16,11 @@ nav {
   }
 }
 
+nav li {
+  list-style-type: none;
+}
+
+
 #nav {
   position: fixed;
 }
@@ -24,15 +29,17 @@ nav {
   margin-left: 10px;
   color: black !important;
 }
-
 .logo {
+  vertical-align: bottom;
   border-radius: 50%;
-  width: 8%;
+  width: 18%;
   margin-right: 15px;
     @media (min-width: 991px) {
-    width: 4%;
+    width: 22%;
+     vertical-align: bottom;
   }
 }
+
 
 .nav-item {
   align-items: center;

@@ -32,6 +32,10 @@
 	outline: none;
 }
 
+.modal-footer {
+	display: none !important;
+}
+
 input:focus,
 select:focus,
 textarea:focus,

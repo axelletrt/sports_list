@@ -51,8 +51,10 @@
           <%= f.time_select :closing_hour, {minute_step: 15} %>
           <span class="error-message">error</span><br>
 
-          <%= f.label :photos %><br>
-          <%= f.file_field :photos, id: 'photos', multiple: true %><br>
+			    <%= f.label :photos %><br>
+          <%= f.file_field :photos, multiple: true, id: "gallery-photo-add" %><br>
+
+          <div class="gallery"></div>
 
           <button class="btn-step" id="next_step1">Next Step</button>
         </div>
@@ -100,7 +102,51 @@
   </div>
 </div>
 
-<script>
+
+<script type="text/javascript">
+	$("form").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+        return false;
+    }
+});
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview)
+                                  .width(150)
+              .height(200);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+
+</script>
+
+
+<script type="text/javascript">
   $(document).ready(function() {
     $(function(){
       $("#next_step1").click(function(e) {
@@ -272,4 +318,7 @@
       return valid;
     });
   });
+
+
+
 </script>
