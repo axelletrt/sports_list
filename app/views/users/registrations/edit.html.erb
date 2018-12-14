@@ -4,9 +4,9 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
-<div class="all_edit">
+<!-- <div class="all_edit">
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= resource_name.to_s.humanize %></h2> -->
 
     <div class="field">
       <%= f.label :username %><br />
@@ -66,14 +66,5 @@
     <i class="fas fa-angle-double-left"></i> <%= link_to "Back to previous page", :back, :class =>"go-back" %>
   </div>
 
-</div>
 
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-</div>
 
