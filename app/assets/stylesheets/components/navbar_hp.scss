@@ -1,12 +1,13 @@
 #nav_hp {
-  position: absolute;
+  position: fixed;
   top: 0;
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: none;
-  z-index: 9999;
+  z-index: 10;
   color: white;
   width: 100%;
   height: auto;
+  letter-spacing: 1px;
 
   a:hover {
     background-color: rgba(255, 255, 255, 0.4);
@@ -20,58 +21,70 @@
       background-color: transparent !important;
   }
 }
-  .logo {
-    border-radius: 50%;
-    width: 8%;
-    margin-right: 15px;
-      @media (min-width: 991px) {
-      width: 4%;
-    }
-  }
 
-  .nav-item {
-    align-items: center;
-  }
-
-  .logo:hover {
-    opacity: 0.9;
-  }
-
-  #name_logo {
-    font-size: 1.8em;
-    margin-right: 15px;
+.logo {
+  border-radius: 50%;
+  width: 8%;
+  margin-right: 15px;
+    @media (min-width: 991px) {
+    width: 4%;
   }
 }
 
-  #experience_button {
-        @media (min-width: 991px) {
-        background-color: white;
-        opacity: 0.9;
-        border-radius: 60px 60px;
-        }
-  }
+.nav-item {
+  align-items: center;
+}
 
-  #navbardrop-hp {
-    color: black !important;
+.logo:hover {
+  opacity: 0.9;
+}
+
+#name_logo {
+  font-size: 1.8em;
+  margin-right: 15px;
+}
+}
+
+#experience_button {
       @media (min-width: 991px) {
-        padding-bottom: 0 !important;
-        padding-top: 0 !important;
-        color: white !important;
+      background-color: white;
+      opacity: 0.9;
+      border-radius: 60px 60px;
+      vertical-align: middle;
       }
-  }
+}
 
-  .nav-link-img {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
-  }
+#navbardrop-hp {
+  color: black !important;
+    @media (min-width: 991px) {
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+      color: white !important;
+    }
+}
 
-  .dropdown-menu {
-    opacity: 0.9;
-    border: none !important;
-    min-width: 7rem !important;
-  }
+.nav-link-img {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
 
-  .dropdown-toggle::after {
-    margin-left: 1em !important;
-  }
+.dropdown-menu {
+  opacity: 0.9;
+  border: none !important;
+  min-width: 7rem !important;
+}
 
+.dropdown-toggle::after {
+  margin-left: 1em !important;
+}
+
+.log-hp {
+  color: black !important;
+  display: block;
+  padding: 0.5rem 1rem;  
+    @media (min-width: 991px) {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: white !important;
+  }
+}

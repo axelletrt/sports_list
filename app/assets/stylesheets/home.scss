@@ -10,7 +10,6 @@
   display: flex;
   color:  #05282e;
 }
-
 /*__________BANNER TOP__________*/
 
 .background_lp {
@@ -31,6 +30,7 @@
   position: absolute; 
   top: 18%;
   width: 100%;
+  letter-spacing: 3px;
     @media (min-width: 991px) {
         font-size: 3em;
   }
@@ -85,7 +85,7 @@
 }
 
 .center-on-page {
-  z-index: 1;
+  z-index: 9;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -100,30 +100,42 @@
 
 
 .discipline-title-hp {
-  margin-top: 12vh;
-  padding-left: 16vh;
+  margin-top: 6vh;
+  padding-left: 2vh;
+  padding-right: 40%;
+    @media (min-width: 991px) {
+    padding-left: 16vh;
+    padding-right: 40%;
+    }
 }
 
-.card {
-  -webkit-box-flex: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  max-width: 250px;
-  grid-template-columns: repeat(4, 1fr);
+.discipline-title-hp a {
+  font-size: 1.6rem;  
+  letter-spacing: 3px;
+  font-weight: 700;
+
+  }
+
+.discipline-desc {
+  padding-top: 8px;
+}
+
+.card-img-top-hp {
+  width: 230px;
+  height: 130px;
+  object-fit: cover;
+  padding: 0;
 }
 
 .card-deck-hp {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  flex-flow: row wrap;
   display: flex;
-  flex-direction: column;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-right: 1vh;
+  padding-left: 1vh;
+  grid-template-columns: repeat(4, 1fr);
     @media (min-width: 991px) {
        display: flex;
-       flex-direction: column;
        flex-flow: row wrap;
        justify-content: space-between;
        padding: 25px;
@@ -131,6 +143,7 @@
        margin: 0;
        padding-right: 15vh;
        padding-left: 15vh;
+       padding-bottom: 1vh;
     }
 }
 
@@ -138,12 +151,61 @@
   width: 250px;
 }
 
+.card-body-hp {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow: auto;
+  font-size: 0.8em;
+}
+
+.title-city {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-title {
+  max-width: 170px;
+  overflow-wrap: break-word;
+}
+
+.card-city {
+  text-transform: uppercase;
+}
+
+.card-price {
+  font-size: 0.9rem;
+}
+
+.wrapper-card-hp {
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 11px;
+}
+
+.wrapper-card-hp:hover {
+  opacity: 0.9;
+}
+
+
 .link-to-list {
-  display: inline-block;
-  padding-left: 16vh;
+  padding-left: 2vh;
+  margin-top: 0;    
+    @media (min-width: 991px) {
+    display: inline-block;
+    padding-left: 16vh;
+    margin-top: 0;
+    margin-bottom: 3vh;
+    }
 }
 
 .fas {
   vertical-align: middle;
   font-size: 1.3em;
+}
+
+.bottom-line {
+  margin-right: 20%;
+  margin-left: 20%;
+  border: 1px solid #e6e6e6;
 }
