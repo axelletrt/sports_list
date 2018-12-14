@@ -32,7 +32,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+ gem 'mini_magick', '~> 4.8'
+
+
+ # Use frendly_id 
+gem 'friendly_id', '~> 5.2.4'
+
+ #end frendly_id
+
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
