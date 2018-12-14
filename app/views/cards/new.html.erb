@@ -2,7 +2,6 @@
 
 <script>
 	const input = document.getElementById('card_address')
-
 	var map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: -8.6, lng: 115},
 		zoom: 9
@@ -10,12 +9,10 @@
 	const autocomplete = new google.maps.places.Autocomplete(input)
 	autocomplete.bindTo('bounds', map)
 	const geocoder = new google.maps.Geocoder()
-
 	var marker = new google.maps.Marker({
 		map: map,
 		anchorPoint: new google.maps.Point(0, -29)
 	})
-
 	autocomplete.addListener('place_changed', function() {
 		marker.setVisible(false);
 		var place = autocomplete.getPlace();
@@ -29,15 +26,12 @@
 			map.setCenter(place.geometry.location)
 			map.setZoom(19)
 		}
-
 		marker.setPosition(place.geometry.location);
 		marker.setVisible(true);
 		let data = parseLocation(place)
 		fillField(data)
 	})
-
 	let clicks = 0, timer
-
 	google.maps.event.addListener(map, 'click', function(event) {
 		clicks++
 		if(clicks === 1){
@@ -45,12 +39,10 @@
 			timer = setTimeout(function(){
 				marker.setPosition(event.latLng)
 				marker.setVisible(true)
-
 				let data ={}
 				data.long = event.latLng.lng
 				data.lat = event.latLng.lat
 				fillField(data)
-
 				clicks=0
 			},200)
 		} else {
@@ -58,20 +50,16 @@
 			clicks=0
 		}
 	})
-
 	google.maps.event.addListener(map, 'dblclick', function(event) {
 		clearTimeout(timer)
 		clicks=0
 	})
-
 	function parseLocation(item){
 		let data ={}
 		data.long = item.geometry.location.lng()
 		data.lat = item.geometry.location.lat()
-
 		return data
 	}
-
 	function fillField(data){
 		$('#lat').val(data.lat)
 		$('#lng').val(data.long)
@@ -84,6 +72,7 @@
 	$('.step2').hide();
 	$('.step3').hide();
 	$('.last_buttons').hide();
+
 	$('#next_step1').on("click", function(e){
 		e.preventDefault();
 		$('.step2').addClass("appear-step");
@@ -91,7 +80,6 @@
 		$('.step1').hide();
 		$('.step2').show();
 		$('.step3').hide();
-
 	})
 	$('#next_step2').on("click", function(e){
 		e.preventDefault();
@@ -102,34 +90,27 @@
 		$('.step3').show();
 	})
 
-
 	$('#back_step2').on("click", function(e){
 		e.preventDefault();
 		$('.step2').addClass("disappear-step");
 		$('.step2').removeClass("appear-step");
 		$('.step2').removeClass("appear-back-step");
-
 		$('.step1').removeClass("disappear-step");
 		$('.step1').removeClass("appear-step");
 		$('.step1').addClass("appear-back-step");
-
 		$('.step1').show();
 		$('.step2').hide();
 		$('.step3').hide();
-
-
 	})
 	$('#back_step3').on("click", function(e){
 		e.preventDefault();
 		$('.step2').removeClass("disappear-step");
 		$('.step2').removeClass("appear-step");
 		$('.step2').addClass("appear-back-step");
-
 		$('.step1').hide();
 		$('.step2').show();
 		$('.step3').hide();
 	})
-
 	$("#map").hide();
 	var addressChanged = false;
 	var cityChanged = false;
@@ -141,7 +122,6 @@
 			$("#map").show();
 		}
 	});
-
 	$("#card_city").change(function(){
 		cityChanged = true;
 		if(addressChanged && cityChanged){
