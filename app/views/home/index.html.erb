@@ -1,85 +1,96 @@
 <!-- TOP BANNER -->
-<section id="section01" class="scroll_down">
-  <div class="background_lp">
-  <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
-    <%= form_for @search do |f| %>
-      <div class="center-on-page">
-        <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select a sport"}) %>
+<div class="background_lp">
+<h3>DISCOVER LOCAL SPORTS IN BALI</h3>
+  <%= form_for @search do |f| %>
+    <div class="center-on-page">
+      <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select a sport" }) %>
+      <%= f.submit "Search" ,class:"search_btn_sub"%>
+    </div>
+  <% end %>
+</div>
 
-
-        <%= f.submit "Search" ,class:"search_btn_sub"%>
-      </div>
-    <% end %>
+<div class="container-hp">
+  <div class="discipline-title-hp">
+    <a href="/disciplines/1">SURF</a>
+    <p class="discipline-desc">Discover surfing in Bali, whether you are a beginner looking to get your first surf lesson or a skilled surfer hoping to get barreled at one of Bali’s legendary spots.</p>
   </div>
-  <a href="#surf"><span></span>Scroll down</a>
-</section>
-
-
-<h2 class="discipline-title-hp">Surf</h2>
   <div class="card-deck-hp">
-    <% @cards_yoga.take(4).each do |card| %>
+    <% @cards_surf.take(4).reverse_each do |card| %>
       <%= link_to card_path(card.id) do %>
-        <div class="wrapper-card">
-          <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+        <div class="wrapper-card-hp">
+          <div><%= image_tag card.photos[0], class: 'card-img-top-hp' %>
           </div>
-          <div class="card-body">
-            <div><h5 class="card-title"><%= card.activity_title %></h5></div>
-            <div><p class="card-city"><%= card.city %></p></div>
-            <div><p class="card-city">IDR <%= card.price %></p></div>
+          <div class="card-body-hp">
+            <div class="title-city">
+              <h5 class="card-title"><%= card.activity_title %></h5>
+              <p class="card-city"><%= card.city %></p>
+            </div>
+              <p class="card-price">IDR <%= card.price %></p>
           </div>
         </div>
       <%end%>
     <%end%>
   </div>
-</div>
-
-<div class="link-to-list">
-  <a href="/disciplines/1">See all surf experiences </a>
-  <i class="fas fa-angle-double-right"></i>
-</div>
-
-<h2 class="discipline-title-hp">Yoga</h2>
+  <div class="link-to-list">
+    <a href="/disciplines/1">See all surf experiences </a>
+    <i class="fas fa-angle-double-right"></i>
+  </div>
+  <div class="discipline-title-hp">
+    <a href="/disciplines/2">YOGA</a>
+    <p class="discipline-desc">Immerse yourself into the Island of Gods sacred culture by practicing any type of yoga in Bali.
+  </p>
+  </div>
   <div class="card-deck-hp">
-    <% @cards_yoga.take(4).each do |card| %>
+    <% @cards_yoga.take(4).reverse_each do |card| %>
       <%= link_to card_path(card.id) do %>
-        <div class="wrapper-card">
-          <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+        <div class="wrapper-card-hp">
+          <div><%= image_tag card.photos[0], class: 'card-img-top-hp' %>
           </div>
-          <div class="card-body">
-            <div><h5 class="card-title"><%= card.activity_title %></h5></div>
-            <div><p class="card-city"><%= card.city %></p></div>
-            <div><p class="card-city">IDR <%= card.price %></p></div>
+          <div class="card-body-hp">
+            <div class="title-city">
+              <h5 class="card-title"><%= card.activity_title %></h5>
+              <p class="card-city"><%= card.city %></p>
+            </div>
+              <p class="card-price">IDR <%= card.price %></p>
           </div>
         </div>
       <%end%>
     <%end%>
   </div>
-</div>
-
-<div class="link-to-list">
-  <a href="/disciplines/2">See all yoga experiences </a>
-  <i class="fas fa-angle-double-right"></i>
-</div>
-
-<h2 class="discipline-title-hp">Scuba Diving</h2>
+  <div class="link-to-list">
+    <a href="/disciplines/2">See all yoga experiences </a>
+    <i class="fas fa-angle-double-right"></i>
+  </div>
+  <div class="discipline-title-hp">
+    <a href="/disciplines/3">SCUBA DIVING</a>
+    <p class="discipline-desc">Manta rays, Mola Mola (sunfish), schooling fish, an incredible wreck and colourful reefs will leave even the most seasoned of divers spell bound.</p>
+  </div>
   <div class="card-deck-hp">
-    <% @cards_scuba.take(4).each do |card| %>
+    <% @cards_scuba.take(4).reverse_each do |card| %>
       <%= link_to card_path(card.id) do %>
-        <div class="wrapper-card">
-          <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+        <div class="wrapper-card-hp">
+          <div><%= image_tag card.photos[0], class: 'card-img-top-hp' %>
           </div>
-          <div class="card-body">
-            <div><h5 class="card-title"><%= card.activity_title %></h5></div>
-            <div><p class="card-city"><%= card.city %></p></div>
-            <div><p class="card-city">IDR <%= card.price %></p></div>
+          <div class="card-body-hp">
+            <div class="title-city">
+              <h5 class="card-title"><%= card.activity_title %></h5>
+              <p class="card-city"><%= card.city %></p>
+            </div>
+              <p class="card-price">IDR <%= card.price %></p>
           </div>
         </div>
       <%end%>
     <%end%>
   </div>
+  <div class="link-to-list">
+    <a href="/disciplines/3">See all scuba diving experiences </a>
+    <i class="fas fa-angle-double-right"></i>
+  </div>
 </div>
 
-<div class="link-to-list">
-  <a href="/disciplines/3">See all scuba diving experiences </a>
-  <i class="fas fa-angle-double-right"></i>
+<div>
+  <hr class="bottom-line">
+</div>
+
+<div class="become-coach">
 </div>

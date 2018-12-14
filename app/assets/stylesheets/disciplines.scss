@@ -2,6 +2,7 @@
   max-width: 1280px;
   display: flex;
   color:  #05282e;
+
 }
 
 a:link {
@@ -17,62 +18,45 @@ a:visited {
 a:hover {
   cursor: pointer;
   text-decoration:none;
+  color: inherit !important;
 }
-
 
 .wrapper-card {
   padding-left: 11px;
-  padding-right: 11px;
+  padding-right: 30px;
   padding-top: 11px;
 }
 
-.wrapper-card:hover {
-  opacity: 0.9;
-}
-
 .discipline-title {
-text-align: center;
-padding: 20px;  
+  margin-top: 10vh;
+  text-align: center;
+  padding: 20px;  
+  letter-spacing: 3px;
 }
 
 .card-img-top {
-  max-width: 250px;
-  height: 200px;
-  padding: 0;
+  width: 230px !important;
+  height: 130px;
+  padding-bottom: 15px;
+  object-fit: cover;
+  transition: transform .2s;
 }
 
-.card {
-  -webkit-box-flex: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  max-width: 250px;
-  grid-template-columns: repeat(4, 1fr);
+.card-img-top:hover {
+  transform: scale(1.15);
 }
 
 .card-deck {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  flex-flow: row wrap;
   display: flex;
-  flex-direction: column;
   flex-flow: row wrap;
   justify-content: space-between;
     @media (min-width: 991px) {
-       display: flex;
-       flex-direction: column;
-       flex-flow: row wrap;
-       justify-content: space-between;
        padding: 25px;
-       margin: 0;
-       padding-left: 15vh;
-       padding-right: 15vh;
     }
 }
 
-.card-body {
-  padding-top: 5px;
-  padding-bottom: 5px !important;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.018);
+.card-deck::after {
+  content: "";
+  flex: auto;
 }
+

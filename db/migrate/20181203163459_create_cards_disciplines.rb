@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCardsDisciplines < ActiveRecord::Migration[5.2]
   def change
     create_table :cards_disciplines do |t|

@@ -1,20 +1,18 @@
-class EvaluationsController < ApplicationController
+# frozen_string_literal: true
 
-    def index
-      @evaluation = Evaluation.all
-    end
+class EvaluationsController < ApplicationController
+  
+    def index 
+      @evaluation = Evaluation.all 
+    end 
 
     def show
       @evaluations = Evaluation.find(params[id])
     end
 
-    def new
-      @evaluation = Evaluation.new
-      # @card = Card.find(params[:id])
-      # @evaluations = @card.evaluations
-      # evals = @evaluations.pluck(:eval)
-      # @moyenne = (evals.sum.to_f / evals.size).round(1)
-    end
+    def new 
+      @evaluation = Evaluation.new 
+    end 
 
     def create
       p_eval = params[:evaluation]
@@ -28,9 +26,5 @@ class EvaluationsController < ApplicationController
              format.js   ## cela va rendre create.js.erb
           end
         end
-
-
-
     end
-
 end
