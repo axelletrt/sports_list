@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track':'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEVFqqE6vUvbxQYw4PuWenRG0ohLZcVgE&libraries=places" type="text/javascript"></script>
@@ -29,8 +29,8 @@
     <%= yield %>
 
     <% unless user_signed_in? %>
-      <%= render 'users/registrations/new' %>
-      <%= render 'users/sessions/new' %>
+      <%= render partial: 'users/registrations/new' %>
+      <%= render partial: 'users/sessions/new' %>
     <% end %>
 
     </div>
