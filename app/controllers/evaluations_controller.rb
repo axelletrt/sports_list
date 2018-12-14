@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 # frozen_string_literal: true
 
 class EvaluationsController < ApplicationController
@@ -28,4 +31,8 @@ class EvaluationsController < ApplicationController
           end
         end
     end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> development

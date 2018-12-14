@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 <div class="container-formulaire">
     <h2 class="title-formulaire">Offer an experience</h2>
 <div class="formulaire">
@@ -17,6 +21,7 @@
                 <%= b.label(class:"languages_checkbox") { b.check_box + b.text } %>
             <% end %>
 						<span class="error-message">error</span><br>
+<<<<<<< HEAD
 
 			<%= f.label :activity_title %><br>
 			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
@@ -31,6 +36,22 @@
 			<%= f.text_area :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
 				<span class="error-message">error</span><br>
 
+=======
+
+			<%= f.label :activity_title %><br>
+			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
+				<span class="error-message">error</span><br>
+
+
+			<%= f.label :short_description %>
+			<%= f.text_area :short_description, id: 'short_description', placeholder: '10 - 100 characters' %> <!-- any characters (10 - 100) -->
+				<span class="error-message">error</span><br>
+
+			<%= f.label :long_description %><br>
+			<%= f.text_area :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
+				<span class="error-message">error</span><br>
+
+>>>>>>> development
 
             <%= f.label :organization %><br>
             <%= f.select :organization, Card.organizations.keys %><br> <!-- -->
@@ -49,6 +70,7 @@
 			<%= f.label "Closing hour" %><br>
 			<%= f.time_select :closing_hour, {minute_step: 15} %>
 			<span class="error-message">error</span><br>
+<<<<<<< HEAD
 
 			
 			<%= f.label :photos %><br>
@@ -58,6 +80,11 @@
 
 
 
+=======
+
+			<%= f.label :photos %><br>
+			<%= f.file_field :photos, id: 'photos', multiple: true %><br>
+>>>>>>> development
 
             <button class="btn-step" id="next_step1">Next Step</button>
 		</div>
@@ -105,6 +132,7 @@
 </div>
 </div>
 
+<<<<<<< HEAD
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -139,6 +167,8 @@ $(function() {
 
 </script>
 
+=======
+>>>>>>> development
 <script>
 $(document).ready(function() {
 	$(function(){
@@ -159,6 +189,10 @@ $(document).ready(function() {
 				else {
 					$(".disciplines_checkbox").last().next().html("<br>Invalid field").hide();
 				}
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 				var l_checkboxs = document.getElementsByName("card[spoken_languages][]");
 				var count = 0;
 				for(var i = 0, l = l_checkboxs.length; i < l; i++) {
@@ -173,6 +207,10 @@ $(document).ready(function() {
 				else {
 					$(".languages_checkbox").last().next().html("<br>Invalid field").hide();
 				}
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 			if ($("#card_activity_title").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null){
 				$("#card_activity_title").css("border-color", "#FF0000");
 				$("#card_activity_title").next().html("Invalid field").show();
@@ -209,12 +247,21 @@ $(document).ready(function() {
 				$("#price").css("border-color", "#008000");
 				$("#price").next().html("Invalid field").hide();
 			}
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 			if (($('#card_length_4i').val() === "00") && (($('#card_length_5i').val()) === "00")) {
 				$('#card_length_5i').next().html('<br>You re activity should last at least 15 minutes').show();
 			}
 			else {
 				$('#card_length_5i').next().html('<br>You re activity should last at least 15 minutes').hide();
 			}
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> development
 			if ($('#card_opening_hour_4i').val() > $('#card_closing_hour_4i').val()) {
 				$('#card_closing_hour_5i').next().html('<br>You should open before you close').show();
 			}
@@ -225,6 +272,10 @@ $(document).ready(function() {
 			{
 				$('#card_closing_hour_5i').next().html('<br>You should open before you close').hide();
 			}
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 			if (valid === true) {
 				$('.step1').hide();
 				$('.step2').show();
@@ -244,6 +295,10 @@ $(document).ready(function() {
 					$("#whatsapp").css("border-color", "#008000");
 					$("#whatsapp").next().html("Invalid field").hide();
 				}
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 				if ($("#facebook").val() == "") {
 					$("#facebook").css("border-color", "#C0C0C0");
 				}
@@ -256,6 +311,10 @@ $(document).ready(function() {
 					$("#facebook").css("border-color", "#008000");
 					$("#facebook").next().html("Invalid field").hide();
 				}
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 				if ($("#instagram").val() == "") {
 					$("#instagram").css("border-color", "#C0C0C0");
 				}
@@ -297,4 +356,8 @@ $(document).ready(function() {
 				return valid;
 			});
 		});
+<<<<<<< HEAD
 </script>
+=======
+</script>
+>>>>>>> development

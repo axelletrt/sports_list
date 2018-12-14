@@ -12,4 +12,8 @@ class DisciplinesController < ApplicationController
     @cards = Card.all.find(sport_cards_id)
     @discipline_name = Discipline.find(params[:id]).name
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> development

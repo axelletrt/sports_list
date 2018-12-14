@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 class CardsController < ApplicationController
  def index
    @cards = Card.all
@@ -7,7 +10,11 @@ class CardsController < ApplicationController
 
  def show
    @users = User.all
+<<<<<<< HEAD
    @card = Card.friendly.find(params[:id])
+=======
+   @card = Card.find(params[:id])
+>>>>>>> development
    @evaluations = @card.evaluations
    evals = @evaluations.pluck(:eval)
    @moyenne = (evals.sum.to_f / evals.size).round(1)
@@ -22,13 +29,21 @@ class CardsController < ApplicationController
  end
 
  def edit
+<<<<<<< HEAD
    @card = Card.friendly.find(params[:id])
+=======
+   @card = Card.find(params[:id])
+>>>>>>> development
    @disciplines = Discipline.all
    @languages = SpokenLanguage.all
  end
 
  def update
+<<<<<<< HEAD
    @card = Card.friendly.find(params[:id])
+=======
+   @card = Card.find(params[:id])
+>>>>>>> development
    @card.update(long_description: params['cards'][:long_description], short_description: params['cards'][:short_description])
    respond_to do |format|
      if @cards.update(card_params)
@@ -40,7 +55,11 @@ class CardsController < ApplicationController
  end
 
  def destroy
+<<<<<<< HEAD
    @card = Card.friendly.find(params[:id])
+=======
+   @card = Card.find(params[:id])
+>>>>>>> development
    @card.destroy
    CardsDiscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all

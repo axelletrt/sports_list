@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -59,8 +61,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  #configuration for the mailer 
+  # configuration for the mailer
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.perform_deliveries = true
-
 end

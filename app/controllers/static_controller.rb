@@ -2,4 +2,8 @@
 
 class StaticController < ApplicationController
   def Index; end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> development
