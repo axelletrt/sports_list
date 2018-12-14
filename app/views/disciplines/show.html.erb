@@ -13,11 +13,27 @@
           <div><%= image_tag "fond-gris.jpg", class: 'card-img-top' %></div>
           <% end %>
           <div class="card-body-hp">
+              <p class="card-city"><%= card.city %></p>
             <div class="title-city">
               <h5 class="card-title"><%= card.activity_title %></h5>
-              <p class="card-city"><%= card.city %></p>
             </div>
-              <p class="card-price">IDR<%= card.price %></p>
+              <p class="card-price"><%= card.price %> Rp / per person </p>              <!-- to calculate the average-->
+                  <% if card.evaluations.first.present?%>
+               <div class="average">
+                  <%= e = ((card.evaluations.pluck(:eval).sum.to_f) / card.evaluations.pluck(:eval).size).round(1) %>
+              </div> 
+               <div class="stars">
+                    <% e.to_i.times do |i| %> 
+                      <label class="full" for="star"></label>
+                    <% end %>
+                  </div>
+                <div class="rating">
+                    <label class="half" for="starhalf"></label>
+                </div>
+                <% else %> 
+                     No review.
+              <% end %>
+              </div>
           </div>
 	      </div>
 	    <% end %>
