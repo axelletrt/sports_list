@@ -1,16 +1,21 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users,
-             controllers: { sessions: 'users/sessions',
-                            registrations: 'users/registrations',
-                            passwords: 'users/passwords' }
+
+  root 'home#index'
 
   resources :searches
-  root 'home#index'
+  resources :evaluations
   resources :account, only: [:index]
   resources :my_activity, only: [:index]
   resources :cards
   resources :disciplines, only: [:show]
   post 'cards/:id', to: 'evaluations#create'
+  post 'disciplines/:id', to: 'evaluations#show'
+  post 'home', to: 'evaluations#show'
+
+  devise_for :users,
+  controllers: { sessions: 'users/sessions',
+                 registrations: 'users/registrations',
+                 passwords: 'users/passwords' }
 end

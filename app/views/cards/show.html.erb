@@ -6,6 +6,9 @@
   </div>
 </div>
 
+    <%= link_to 'Back to previous page', :back %>
+
+
 <!-- DISCIPLINE -->
 <div class="container_sl">
   <div class="content">
@@ -15,6 +18,7 @@
     </div>
     <div class="description">
     <h3>Description</h3>
+
       <p id="description_text"><%=@card.long_description%></p>
     </div>
 
@@ -87,17 +91,14 @@
   <div class="title_comment">
     <h3 id="evaluation_title">Your Feedbacks</h3>
     <button class="evaluation_button">Add a comment</button>
-  </div> 
+      </div> 
    <% if user_signed_in? %>
     <div class="evaluation_form">
     <%= render 'evaluations/new' %></div>
     </div> 
   <% else %> 
   <% end %>
-
- 
-
-
+  
     <!-- hide evaluation form before click --> 
 
     <script> 
@@ -145,7 +146,6 @@
     </div>
   </div>
 
-
   <div class="sidebar">
     <div id="contact_info">
         <div class="contact_picture">
@@ -171,26 +171,20 @@
     </div>
   </div>
 </div>
-
-
 <div id="card_map">  <!-- display Google map -->
-	</div>
-
-
+  </div>
 <script>
-	var map = new google.maps.Map(document.getElementById('card_map'), {
-		center: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
-		zoom: 9
-	})
-	var marker = new google.maps.Marker({
-		map: map,
-		position: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
-	})
-
+  var map = new google.maps.Map(document.getElementById('card_map'), {
+    center: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+    zoom: 9
+  })
+  var marker = new google.maps.Marker({
+    map: map,
+    position: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+  })
    var infowindow = new google.maps.InfoWindow({
     content: "<%= @card.address%>"
   });
   
     infowindow.open(map, marker);
 </script> 
-

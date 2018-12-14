@@ -1,3 +1,4 @@
+
 class CardsController < ApplicationController
  def index
    @cards = Card.all
@@ -6,7 +7,7 @@ class CardsController < ApplicationController
 
  def show
    @users = User.all
-   @card = Card.find(params[:id])
+   @card = Card.friendly.find(params[:id])
    @evaluations = @card.evaluations
    evals = @evaluations.pluck(:eval)
    @moyenne = (evals.sum.to_f / evals.size).round(1)
@@ -21,12 +22,16 @@ class CardsController < ApplicationController
  end
 
  def edit
+
+   @card = Card.friendly.find(params[:id])
    @card = Card.find(params[:id])
+
    @disciplines = Discipline.all
    @languages = SpokenLanguage.all
  end
 
  def update
+   @card = Card.friendly.find(params[:id])
    @card = Card.find(params[:id])
    p_cards = params[:card]
    @card.update(card_parameters)
@@ -37,35 +42,26 @@ class CardsController < ApplicationController
    @card.update(closing_hour: "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}")
    CardsDiscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all
-  p_cards[:disciplines].each do |d_id|
-   CardsDiscipline.create(card_id: @card.id, discipline_id: d_id)
-  end
-  p_cards[:spoken_languages].each do |l_id|
-    CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
-  end
-=begin
-   respond_to do |format|
-     if @cards.update(card_parameters)
-       format.html { redirect_to root_path, notice: 'Pin was successfully updated.' }
-     else
-       format.html { render :edit }
-     end
+   p_cards[:disciplines].each do |d_id|
+     CardsDiscipline.create(card_id: @card.id, discipline_id: d_id)
    end
-=end
+   p_cards[:spoken_languages].each do |l_id|
+     CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
+   end
  end
 
  def destroy
-   @card = Card.find(params[:id])
+   @card = Card.friendly.find(params[:id])
    @card.destroy
    CardsDCyriliscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all
-
    redirect_to my_activity_index_path
   # @professional = Professional.where(user_id: current_user.professional[:id])
   # puts current_user.professional[:id]
 end
 
  def create
+  @cards = Card.all
    p_cards = params[:card]
    @card = Card.new(card_parameters)
    @card.professional_id = create_or_find_professional.id
@@ -85,6 +81,7 @@ end
    if params[:commit] == 'save and publish'
      @card.draft = false
      @card.save
+     redirect_to @cards.last
    end
 
    p_cards[:disciplines].each do |d_id|
@@ -94,6 +91,7 @@ end
    p_cards[:spoken_languages].each do |l_id|
      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
    end
+   
 end
 
  private
