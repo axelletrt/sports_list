@@ -21,8 +21,4 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:keywords, :discipline_id, :id)
   end
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> development

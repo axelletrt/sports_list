@@ -20,7 +20,7 @@ class Card < ApplicationRecord
   has_many :disciplines, through: :cards_discipline
   accepts_nested_attributes_for :disciplines, reject_if: proc { |attributes| attributes[:name].blank? }, allow_destroy: true
 
-<<<<<<< HEAD
+
 
   #validates :activity_title, presence: true
   #validates :short_description, presence: true
@@ -29,12 +29,3 @@ class Card < ApplicationRecord
   #validates :price, presence: true
   #validates :length, presence: true
 end
-=======
-  # validates :activity_title, presence: true
-  # validates :short_description, presence: true
-  # validates :organization, presence: true
-  # validates :city, presence: true
-  # validates :price, presence: true
-  # validates :length, presence: true
-end
->>>>>>> development
