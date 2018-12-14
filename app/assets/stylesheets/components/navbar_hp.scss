@@ -1,5 +1,5 @@
 #nav_hp {
-  position: fixed;
+  position: absolute;
   top: 0;
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: none;
@@ -22,12 +22,16 @@
   }
 }
 
+
+
 .logo {
+  vertical-align: bottom;
   border-radius: 50%;
-  width: 8%;
+  width: 18%;
   margin-right: 15px;
     @media (min-width: 991px) {
-    width: 4%;
+    width: 22%;
+     vertical-align: bottom;
   }
 }
 
