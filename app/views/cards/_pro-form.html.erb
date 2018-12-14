@@ -77,7 +77,7 @@
 
         <div class="step3 step">
             <%= f.label :address %><br>
-            <%= f.text_field :address, id: 'address' %> <!-- pattern: ???? for the moment -->
+            <%= f.text_field :address, id: 'card_address' %> <!-- pattern: ???? for the moment -->
 						<span class="error-message">error</span><br>
             <%= f.label :city %><br>
             <%= f.select :city, Card.cities.keys, {id: "city_input", include_blank: true} %>
