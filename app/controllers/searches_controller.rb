@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 class SearchesController < ApplicationController
   def new
     @search = Search.new
