@@ -3,13 +3,13 @@
   <div class="background_lp">
   <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
     <%= form_for @search do |f| %>
-      <div class="center-on-page">     
+      <div class="center-on-page">
         <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select a sport"}) %>
 
-      
-        <%= f.submit "Search" ,class:"search_btn_sub"%>            
+
+        <%= f.submit "Search" ,class:"search_btn_sub"%>
       </div>
-    <% end %> 
+    <% end %>
   </div>
   <a href="#surf"><span></span>Scroll down</a>
 </section>
@@ -28,10 +28,10 @@
             <div><p class="card-city">IDR <%= card.price %></p></div>
           </div>
         </div>
-      <%end%>        
+      <%end%>
     <%end%>
   </div>
-</div> 
+</div>
 
 <div class="link-to-list">
   <a href="/disciplines/1">See all surf experiences </a>
@@ -51,10 +51,10 @@
             <div><p class="card-city">IDR <%= card.price %></p></div>
           </div>
         </div>
-      <%end%>        
+      <%end%>
     <%end%>
   </div>
-</div> 
+</div>
 
 <div class="link-to-list">
   <a href="/disciplines/2">See all yoga experiences </a>
@@ -74,14 +74,12 @@
             <div><p class="card-city">IDR <%= card.price %></p></div>
           </div>
         </div>
-      <%end%>        
+      <%end%>
     <%end%>
   </div>
-</div> 
+</div>
 
 <div class="link-to-list">
   <a href="/disciplines/3">See all scuba diving experiences </a>
   <i class="fas fa-angle-double-right"></i>
 </div>
-
-
