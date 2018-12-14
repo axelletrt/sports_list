@@ -1,6 +1,6 @@
 
-     
-<% if current_user.professional.present?  %>  
+
+<% if current_user.professional.present?  %>
   <div class="section1cp">
     <p class="titresectioncp">Dashboard</p>
     <div class="section1bg">
@@ -10,7 +10,7 @@
           <div class="col_activity text">
             <div ><%= card.activity_title %></div>
             <div ><%= card.city %></div>
-            
+
             <div>
             <% if card.draft %>
             <span class="draft"> Rough draft </span>
@@ -19,8 +19,8 @@
               <% end %>
               </div>
           </div>
-        </a>         
+        </a>
       <% end %>
     </div>
-  </div>  
+  </div>
 <% end %>
