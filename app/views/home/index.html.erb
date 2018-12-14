@@ -2,11 +2,11 @@
 <div class="background_lp">
 <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
   <%= form_for @search do |f| %>
-    <div class="center-on-page">     
+    <div class="center-on-page">
       <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select a sport" }) %>
-      <%= f.submit "Search" ,class:"search_btn_sub"%>            
+      <%= f.submit "Search" ,class:"search_btn_sub"%>
     </div>
-  <% end %> 
+  <% end %>
 </div>
 
 <div class="container-hp">
@@ -28,7 +28,7 @@
               <p class="card-price">IDR <%= card.price %></p>
           </div>
         </div>
-      <%end%>        
+      <%end%>
     <%end%>
   </div>
   <div class="link-to-list">
@@ -54,7 +54,7 @@
               <p class="card-price">IDR <%= card.price %></p>
           </div>
         </div>
-      <%end%>        
+      <%end%>
     <%end%>
   </div>
   <div class="link-to-list">
@@ -79,7 +79,7 @@
               <p class="card-price">IDR <%= card.price %></p>
           </div>
         </div>
-      <%end%>        
+      <%end%>
     <%end%>
   </div>
   <div class="link-to-list">
@@ -94,5 +94,3 @@
 
 <div class="become-coach">
 </div>
-
-
