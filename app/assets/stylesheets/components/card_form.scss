@@ -1,30 +1,3 @@
-@keyframes slide{
-from{
-	left: 100%;
-}
-to{
-	left: 0;
-}
-}
-
-@keyframes slide-back{
-from{
-	left: -100%;
-}
-to{
-	left: 0;
-}
-}
-
-@keyframes slide-out{
-from{
-	left: 0;
-}
-to{
-	left: -100%;
-}
-}
-
 @keyframes bounce{
 	from{
 		transform: scale(0);
@@ -54,119 +27,143 @@ body::-webkit-scrollbar-thumb {
 	animation: bounce 0.6s;
 }
 
-.inner-form {
-	position: relative;
-	width: 100%;
-	height: 80vh;
-	overflow-y: auto;
-	overflow-x: hidden;
-	z-index: 9;
-	color: black;
-	/*background-color: rgba(255,255,255, 0.95);
-	-webkit-backdrop-filter: blur(10px);*/
-}
+
 .formulaire{
-	position: relative;
-	border-radius: 8px;
-	width: 50%;
-	margin-right: 25%;
-	margin-left: 25%;
-	height: 80vh;
-	overflow: hidden;
-	/*background-color: rgba(255,255,255, 0.95);
-	-webkit-backdrop-filter: blur(10px);*/
-	background: inherit;
-	box-shadow: 0 8px 12px #eee;
+	margin-top: 64px;
+	min-height: calc(100vh - 80px);
+	background: #f9f8f6;
+	display: flex;
+	justify-content: center;
+	h2{
+		margin: 24px auto;
+		font-weight: 300;
+	}
 }
 
-.formulaire:after{
- content: '';
- width: 165%;
- height: 150vh;
- background: inherit;
- position: absolute;
- top: -250px;
- left: -250px;
- box-shadow: inset 0 0 0 2000px rgba(255,255,255, 1);
- filter: blur(100px);
-}
-
-
-.container-formulaire{
-/*background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);	background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;*/
-  background-color: #fafafa;
-	margin-top: 40px;
-	padding-top: 5rem;
-	padding-bottom: 5rem;
-
+.form-group{
+	z-index: 10;
 }
 
 .title-formulaire{
 	text-align: center;
 	color: black;
 }
-label{
-}
 
 input, textarea{
-	border-radius: 8px;
-	padding: 0.5rem;
-	border: 2px solid #06afc7;
+	
+	border-radius: 3px;
+	padding: 0.75rem;
+	// border: 1px solid #06afc7;
+	border: 1px solid rgb(170,170,170);
 
 	&:active, &:focus{
 		background-color: #FAFAFA;
+		border: 1px solid #06afc7;
 	}
 	&:hover{
-		background-color: #FAFAFA;
 	}
-
+	&::placeholder{
+		font-size: 1.125rem;
+		color:#383838;
+	}
+}
+.formulaire{
+	input{
+		width: 100%;
+	}
+}
+.input{
+	margin: 24px auto;
+}
+.input-label{
+	width: 100%;
+	display: flex;
+	&>label{
+		width: 33%;
+		font-weight: 600;
+	}
+	.checkboxes{
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		input{
+			transform: scale(1.25);
+		}
+		label{
+			font-size: 0.875rem;
+			font-weight: 500;
+		}
+	}
+}
+.label-checkbox{
+	display: flex;
+	justify-content: flex-start;
+	width: 33%;
+	input{
+		width: 24px;
+	}
 }
 textarea{
 	height: 7rem;
 	width: 100%;
 }
 
-.label-checkbox{
-	display: inline-block;
-	width: 25%;
-	margin-left: 2rem;
+.step-nav{
+	display:flex;
+	justify-content: flex-end;
+
 }
 
 .btn-step{
-	margin-top: 2rem;
-	display: inline-block;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    border-color: #26cfe7;
-    background-color: #26cfe7;
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    border-radius: 10px;
-    padding-top: 15px;
-    padding-right: 20px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-    border-radius: 60px 60px;
-    cursor: pointer;
+	width: 50%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+
+	cursor: pointer;
+	padding:0.675rem;
+	background-color: hsl(182, 100%, 30%);
+	color: white;
+	font-weight: 600;
+	border: none;
+	border-radius: 3px;
+	transition: background-color ease 0.25s;
+	&:hover{
+		background-color: hsl(182, 100%, 20%);
+	}
+}
+
+.btn-step.previous{
+	border: 0;
+	background:transparent;
+	font-weight: 500;
+	color: rgba(0,0,0,0.8);
+	&:hover{
+		color:rgba(0,0,0,1);
+	}
 }
 
 .step{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	min-width: 90%;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,.07);
+	border-radius: 3px;
+	z-index:10;
+	background: white;
 	padding: 1rem 4rem;
+	@media (min-width: 600px){
+		min-width: 640px;
+	}
 }
 
-.appear-step{
-	animation: slide 0.5s;
+.step.hidden{
+	margin-left: 200px;
+	opacity: 0;
+	transition: opacity 0.5s ease, margin-left 0.5s ease;
 }
-.appear-back-step{
-	animation: slide-back 0.5s;
-}
-.disappear-step{
-	animation: slide-out 0.5s;
+
+.step{
+	opacity: 1;
+	margin-left: 0;
+	transition: opacity 0.5s ease, margin-left 0.5s ease;
 }

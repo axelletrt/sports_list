@@ -71,33 +71,68 @@
 
 
 <script>
+<<<<<<< HEAD
 	$('.step1').show();
 	$('.step2').hide();
 	$('.step3').hide();
-	$('#back_step2').on("click", function(e){
+=======
+	$('.step1').removeClass('hidden').show()
+	$('.step3').addClass('hidden').hide()
+	$('.step2').addClass('hidden').hide()
+
+	$('#next_step1').on("click", function(e){
 		e.preventDefault();
-		$('.step2').removeClass("appear-step");
-		$('.step2').addClass("disappear-step");
-
-		$('.step1').show();
-		$('.step2').hide();
-		$('.step3').hide();
-
-
+		$('.step1').addClass('hidden')
+		$('.step3').addClass('hidden')
+		setTimeout( function(){
+			$('.step2').show().removeClass('hidden')
+			$('.step1').hide()
+			$('.step3').hide()
+		}
+		, 500)
 	})
+
+	$('#next_step2').on("click", function(e){
+		e.preventDefault();
+		$('.step1').addClass('hidden')
+		$('.step2').addClass('hidden')
+		setTimeout( function(){
+			$('.step3').show().removeClass('hidden')
+			$('.step1').hide()
+			$('.step2').hide()
+		}
+		, 500)
+	})
+
+>>>>>>> ac33a98df647f4dcd5b43b1fdafbd52b6cae36b1
+	$('#back_step2').on("click", function(e){
+		e.preventDefault()
+		$('.step2').addClass('hidden')
+		$('.step3').addClass('hidden')
+		setTimeout( function(){
+			$('.step1').show().removeClass('hidden')
+			$('.step2').hide()
+			$('.step3').hide()
+		}
+		, 500)
+	})
+
 	$('#back_step3').on("click", function(e){
 		e.preventDefault();
-		$('.step1').hide();
-		$('.step2').show();
-		$('.step3').hide();
+		$('.step1').addClass('hidden')
+		$('.step3').addClass('hidden')
+		setTimeout( function(){
+			$('.step2').show().removeClass('hidden')
+			$('.step1').hide()
+			$('.step3').hide()
+		}
+		, 500)
 	})
 	$("#map").hide();
 	var addressChanged = false;
 	var cityChanged = false;
 	$('#card_address').on("input", function(){
 		addressChanged = true;
-		console.log(addressChanged)
-		console.log(cityChanged)
 		if(addressChanged && cityChanged){
 			$("#map").show();
 		}

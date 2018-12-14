@@ -7,11 +7,8 @@
     <% @cards.each do |card| %>
 	    <%= link_to card_path(card.id) do %>
 	      <div class="wrapper-card">
-          <% if card.photos.attached? %>
-	        <div><%= image_tag card.photos[0], class: 'card-img-top' %></div>
-          <% else %>
-          <div><%= image_tag "fond-gris.jpg", class: 'card-img-top' %></div>
-          <% end %>
+	        <div><%= image_tag card.photos[0], class: 'card-img-top' %>
+	        </div>
           <div class="card-body-hp">
               <p class="card-city"><%= card.city %></p>
             <div class="title-city">
@@ -40,3 +37,5 @@
 	  <% end %>
   </div>
 </div>
+
+

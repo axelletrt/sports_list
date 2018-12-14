@@ -3,11 +3,11 @@
 class EvaluationsController < ApplicationController
   
     def index 
-      @evaluation = Evaluation.all 
+      @evaluations = Evaluation.all 
     end 
 
     def show
-      @evaluations = Evaluation.find(params[id])
+      @evaluation = Evaluation.find(params[:id])
     end
 
     def new 

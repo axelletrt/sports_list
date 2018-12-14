@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserMailer < ApplicationMailer
-  default from: 'axelle.tortai@student.esc-rennes.com'
+  default from: 'contact.sportslist@gmail.com'
 
   def welcome_email(user)
     @user = user
