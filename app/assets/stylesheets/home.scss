@@ -61,26 +61,24 @@
   height: 40px;
 
   font-size: 1em;
-    @media (max-width: 991px){
-     margin-left: 20px;
-   }  
+   
 }  
 
 .search_btn_sub{
   border: none;
   background-color: #d14734;
-  margin-left: 20px;
   border-radius: 5px;
   letter-spacing: 0.8px;
   font-size: 15px;
   padding: 0 20px;
   height: 40px;
   color: white;
-
+  margin-left: 10px;
   font-size: 1em;
      @media (max-width: 991px){
      width: 250px;
      margin-top: 10px;
+     margin-left: 0px;
    }
 }
 
@@ -90,7 +88,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-   
+  text-align: center;
 }
 
 

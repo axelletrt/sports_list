@@ -16,6 +16,11 @@ nav {
   }
 }
 
+nav li {
+  list-style-type: none;
+}
+
+
 #nav {
   position: fixed;
 }
@@ -24,7 +29,6 @@ nav {
   margin-left: 10px;
   color: black !important;
 }
-
 .logo {
   vertical-align: bottom;
   border-radius: 50%;
