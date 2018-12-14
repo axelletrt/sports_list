@@ -1,4 +1,5 @@
+# frozen_string_literal: true
+
 class StaticController < ApplicationController
-  def Index
-  end
+  def Index; end
 end

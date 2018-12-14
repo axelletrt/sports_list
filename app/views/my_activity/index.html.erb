@@ -1,55 +1,24 @@
-
-
-<% if current_user.professional.present?  %>
-
-
-
-
-
-
-
-<div class="section1cp">
-  <p class="titresectioncp">VOS FICHE</p>
-  <div class="section1bg">
-  <table>  
-  <tr>
-    <th><label class="container">
-
-</label></th>
-	<th>Photo</th>
-    <th>Activity Title</th>
-    <th>Short Description</th>
-    <th>City</th>
-    <th>Modifier</th>
-    <th>Supprimer</th>
-    <th>Status</th>
-
-   
-      </th>
-  </tr>
-  <% @cards.each do |card| %>
-
-  <tr>
-    <td><label class="container">
-
-</label></td>
-	<td><%= image_tag card.photos[0], style: "width:50%" %></td>
-    <td><%= card.activity_title %></td>
-    <td><%= card.short_description %></td>
-    <td><%= card.city %></td>
-    <td><a href="<%= edit_card_path(card.id)%>" class= "btn btn-default">Modifier cette fiche</a></td>
-    <td><%= link_to "Delete the card", card_path(card), method: :delete %> <br></td>
-    <td><%= card.draft ? 'BROULLION' : 'PUBLIER' %><br></td>
-
-
-  
-    <td></td>
-  </tr>
-  <% end %>
-  <% end %>
-    
- 
-</table>
-  </div>
-  </div>
-  
+<% if current_user.professional.present?  %>  
+  <div class="section1cp">
+    <p class="titresectioncp">Dashboard</p>
+    <div class="section1bg">
+      <% @cards.each do |card| %>
+        <a class="db-card" href="<%= edit_card_path(card.id) %>">
+          <div class="col_activity "><%= image_tag card.photos[0], style: "width:150px" %></div>
+          <div class="col_activity text">
+            <div ><%= card.activity_title %></div>
+            <div ><%= card.city %></div>
+            
+            <div>
+            <% if card.draft %>
+            <span class="draft"> Rough draft </span>
+            <% else %>
+              <span class="published"> Published </span>
+              <% end %>
+              </div>
+          </div>
+        </a>         
+      <% end %>
+    </div>
+  </div>  
+<% end %>
