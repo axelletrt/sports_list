@@ -97,61 +97,110 @@ body::-webkit-scrollbar-thumb {
   background-repeat: no-repeat;
   background-size: cover;*/
   background-color: #fafafa;
-	margin-top: 40px;
-	padding-top: 5rem;
-	padding-bottom: 5rem;
+  margin-top: 40px;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 
 }
 
 .title-formulaire{
-	text-align: center;
-	color: black;
-}
-label{
+  text-align: center;
+  color: black;
 }
 
-input, textarea{
-	border-radius: 8px;
-	padding: 0.5rem;
-	border: 2px solid #06afc7;
+
+label {
+	text-transform: capitalize;
+}
+
+#label-title {
+	font-weight: bold;
+	color: #8d8b8b;
+	padding-top: 12.5px !important; 
+}
+
+#card_city {
+	height: 20%;
+}
+
+#back-step3 {
+	height: 20% !important;
+}
+
+input, textarea{	
+	border-radius: 3px;
+	padding: 0.75rem;
+	// border: 0.5px solid #06afc7;
+	border: 0.8px solid #8d8b8b;
+	min-width: 45%;
 
 	&:active, &:focus{
 		background-color: #FAFAFA;
+		border: 1px solid #06afc7;
 	}
 	&:hover{
-		background-color: #FAFAFA;
 	}
-
+	&::placeholder{
+		font-size: 1.125rem;
+		color:#383838;
+	}
 }
+
 textarea{
 	height: 7rem;
 	width: 100%;
+	margin-bottom: 8px;
 }
 
+.card-upload-pic {
+	display: flex;
+	margin-top: 10px;
+	vertical-align: center;
+}
+
+#pp-box {
+	border:none !important;
+	display: flex;
+	float: left;
+}
 .label-checkbox{
 	display: inline-block;
 	width: 25%;
 	margin-left: 2rem;
 }
 
-.btn-step{
-	margin-top: 2rem;
+.languages_checkbox {
 	display: inline-block;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    border-color: #26cfe7;
-    background-color: #26cfe7;
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    border-radius: 10px;
-    padding-top: 15px;
-    padding-right: 20px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-    border-radius: 60px 60px;
-    cursor: pointer;
+	width: 25%;
+	margin-left: 2rem;
 }
 
+.btn-step{
+	width: 50%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	cursor: pointer;
+	padding:0.675rem;
+	background-color: #26cfe7;
+	color: white;
+	font-weight: 600;
+	border: none;
+	border-radius: 3px;
+	transition: background-color ease 0.25s;
+	&:hover{
+		background-color: hsl(182, 100%, 20%);
+	}
+}
+
+.btn-step.previous{
+	border: 1px solid #26cfe7;
+	background:transparent;
+	font-weight: 500;
+	color: rgba(0,0,0,0.8);
+	&:hover{
+		color:rgba(0,0,0,1);
+	}
+}
 .step{
 	position: absolute;
 	top: 0;
