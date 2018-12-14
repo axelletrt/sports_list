@@ -29,6 +29,10 @@ h1 { font-size: 1.5em; margin: 10px; }
  cursor: pointer;
 }
 
+.rating > .half { 
+  color:#FFD700;; 
+}
+
 /***** CSS Magic to Highlight Stars on Hover *****/
 
 .rating > input:checked ~ label, /* show gold star when clicked */
