@@ -28,8 +28,8 @@
     <%= yield %>
 
     <% unless user_signed_in? %>
-      <%= render partial: 'users/registrations/new' %>
-      <%= render partial: 'users/sessions/new' %>
+      <%= render 'users/registrations/new' %>
+      <%= render 'users/sessions/new' %> 
     <% end %>
 
     </div>

@@ -14,7 +14,7 @@
 	background-color: #073d46;
 	color: white;
 	opacity: 0.8;
-	padding-top: 5px; 
+	padding-top: 5px;
 }
 
 .btn-close {
@@ -45,4 +45,10 @@ button:focus {
 
 #signUpModal .field input {
   width: 400px;
+}
+
+.error-message-sign_up
+{
+  display: none;
+  color: red;
 }
