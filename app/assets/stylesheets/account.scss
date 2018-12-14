@@ -1,3 +1,56 @@
-// Place all the styles related to the account controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.account-information {
+  margin-right: 25%;
+  margin-left: 25%;
+}
+
+.container-edit {
+	margin-top: 40px;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+  position: relative;
+}
+
+.title-edit {
+	text-align: center;
+	color: black;	
+}
+
+.btn-cancel {
+  border: none; 
+  background-color:  #d14734; 
+  border-radius: 60px 60px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.unhappy {
+  margin-top: 20px;
+}
+
+.btn-update {
+  color: #fff;   
+  border-color: #26cfe7;
+  background-color: #26cfe7;
+  margin-top: 20px;
+ }
+
+ .profile-picture {
+  position: absolute;
+  margin-top: -480px;
+  margin-left: 50%;
+ }
+
+#pp-edit {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  display: flex;
+  float: center;
+  margin-left: 70px;
+  position: relative;
+  margin-bottom: 15px;
+}
+.actions {
+  margin-right: 25%;
+  margin-left: 25%;  
+}
