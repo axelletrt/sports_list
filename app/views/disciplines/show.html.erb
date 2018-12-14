@@ -17,14 +17,12 @@
               <h5 class="card-title"><%= card.activity_title %></h5>
             </div>
               <p class="card-price"><%= card.price %> Rp / per person </p>
-              <!-- to calculate the average--> 
               <div class="score">
-                  <% if card.evaluations.first.present?%>
-                <div class="average">
-                  <%= e = ((card.evaluations.pluck(:eval).sum.to_f) / card.evaluations.pluck(:eval).size).round(1) %>
-                </div>
-                  </div> 
-                  <div class="stars">
+              <!-- to calculate the average--> 
+              <% if card.evaluations.first.present?%>
+              <%= e = ((card.evaluations.pluck(:eval).sum.to_f) / card.evaluations.pluck(:eval).size).round(1) %>
+              </div> 
+               <div class="stars">
                     <% e.to_i.times do |i| %> 
                       <label class="full" for="star"></label>
                     <% end %>
@@ -34,9 +32,8 @@
                 </div>
                 <% else %> 
                      No review.
-                <% end %>
+              <% end %>
               </div>
-              <!-- end of the evaluation --> 
             </div>
 	      </div>
 	    <% end %>
