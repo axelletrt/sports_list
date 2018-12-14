@@ -1,3 +1,58 @@
-// Place all the styles related to the disciplines controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+  max-width: 1280px;
+  display: flex;
+  color:  #05282e;
+
+}
+
+a:link {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration:none;
+  color: inherit !important;
+}
+
+.wrapper-card {
+  padding-left: 11px;
+  padding-right: 30px;
+  padding-top: 11px;
+}
+
+.discipline-title {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;  
+  letter-spacing: 3px;
+  text-transform: capitalize;
+}
+
+.card-img-top {
+  width: 230px !important;
+  height: 130px;
+  padding-bottom: 15px;
+  object-fit: cover;
+}
+
+.card-deck {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+    @media (min-width: 991px) {
+       padding: 25px;
+    }
+}
+
+.card-deck::after {
+  content: "";
+  flex: auto;
+}
+

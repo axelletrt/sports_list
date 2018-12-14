@@ -1,8 +1,10 @@
 <link rel="stylesheet" type="text/css" href="/components/navbar.scss">
 
 <nav id="nav" class="navbar navbar-fixed-top navbar-expand-lg navbar-light">
-  <%= image_tag "logo.png", class: "logo"%>
-  <a id= "name_logo">Sports List</a>
+  <%= link_to root_path do %>
+  <%= image_tag("logo.png", class: "logo")%>
+  <span id= "name_logo">Sports List</span>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,7 +17,8 @@
       <li class="nav-item">
         <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
       </li>
-
+    </ul>
+    <ul>
       <% if user_signed_in? %>  
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -26,21 +29,16 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-item"> <%= current_user.username %> </div>
-            <a> <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item"%> </a>
-            <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
-            <a> <%= link_to "Your Activity", my_activity_index_path, :class => "dropdown-item"%>  </a>
-            <a> <%= link_to "Account", my_activity_index_path, :class => "dropdown-item"%>  </a>
+            <a> <%= link_to "My activity", my_activity_index_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Edit my account", edit_user_registration_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
           </div>
         </li> 
-
       <% else %> 
-        <li class="nav-item-log dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Profile </a>
-          <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" data-toggle="modal" data-target="#logInModal">Sign In</a>
-            <a class="dropdown-item" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
-          </div>
-        </li>  
+        <li class="nav-item">        
+            <a class="log" data-toggle="modal" data-target="#logInModal">Sign In</a>
+            <a class="log" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+        </li>
       <%end%> 
     </ul>
   </div> 

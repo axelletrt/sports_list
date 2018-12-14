@@ -1,15 +1,16 @@
 <link rel="stylesheet" type="text/css" href="/components/navbar.scss">
 
-
 <nav id="nav_hp" class="navbar navbar-expand-lg navbar-dark">
-  <%= image_tag "logo.png", class: "logo"%>
+  <%= link_to root_path do %>
+  <%= image_tag("logo.png", class: "logo")%>
   <span id= "name_logo">Sports List</span>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav navbarhome ml-auto">
       <li class="nav-item">
         <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
       </li>
@@ -23,26 +24,17 @@
             <% end %> 
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-
-            <div class="dropdown-item"> <%= current_user.username %> 
-            </div>
-            <a> <%= link_to "Edit Account", edit_user_registration_path, :class => "dropdown-item"%> </a>
-            <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
-            <a> <%= link_to "Your Activity", my_activity_index_path, :class => "dropdown-item"%>  </a>
-            <a> <%= link_to "Account", my_activity_index_path, :class => "dropdown-item"%>  </a>
-            <a> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %> </a>
-
+            <div class="dropdown-item"> <%= current_user.username %> </div>
+            <a> <%= link_to "My activity", my_activity_index_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Edit my account", edit_user_registration_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
           </div>
         </li>
-      <% else %> 
-        <li class="nav-item-log dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop-hp" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Profile </a>
-          <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" data-toggle="modal" data-target="#logInModal">Sign In</a>
-            <a class="dropdown-item" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
-          </div>
+      <% else %>
+        <li class="nav-item">        
+            <a class="log-hp" data-toggle="modal" data-target="#logInModal">Sign In</a>
+            <a class="log-hp" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
         </li>
-
       <% end %> 
     </ul>
   </div> 

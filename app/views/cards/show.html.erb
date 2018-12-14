@@ -7,55 +7,41 @@
 </div>
 
 <!-- DISCIPLINE -->
-<div class="container">
+<div class="container_sl">
   <div class="content">
     <div class="activity">
       <p>
-        <% @disciplines.each do |discipline| %>
-        <%= discipline.name %>
-        <% end %>
-      </p>
+      </p> 
     </div>
     <div class="description">
+    <h3>Description</h3>
+
       <p id="description_text"><%=@card.long_description%></p>
     </div>
 
-    <!-- PRACTICAL INFORMATION -->
-    <div class="practical_info">
-      <h3 id="practical_info_title">Practical Information</h3>
-      <ul id="practical_info">
-        <div class="col-2">
-          <li><i class="fas fa-map-pin fa-2x"></i></li>
-        </div>
-        <div class="col-4">
-          <li><%=@card.address%></li>
-          <li><span><%=@card.price%></span></li>
-        </div>
-        <div class="col-3">
-          <li><span>Language</span></li>
-        </div>
-        <div class="col-2">
-          <li>
-            <% @languages.each do |language| %>
-            <%= language.name %>
-            <% end %>
-          </li>
-        </div>
-      </ul>
-    </div>
-
-    <!-- CAROUSEL -->
+           <!-- CAROUSEL -->
     <div id="slideshow">
-      <% @card.photos.each do |card| %>
-      <div class="mySlides">
-        <%= image_tag card, style: "width:100%" %>
-      </div>
-      
-      <% end %>
-      <!-- BOUTONS -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
+      <div class="mainslide">
+        <% @card.photos.each do |card| %>
+        <div class="mySlides">
+          <%= image_tag card, style: "width:100%" %>
+        </div>        
+        <% end %>
+
+
+        <!-- BOUTONS -->
+        <a class="prev" onclick="plusSlides(-1)">
+          <svg width="46" height="46" viewBox="0 0 46 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M45.6548 45.9211C45.6838 45.8651 45.7168 45.8111 45.7408 45.7531C45.7668 45.6901 45.7818 45.6251 45.8008 45.5601C45.8178 45.5011 45.8388 45.4431 45.8508 45.3831C45.8628 45.3191 45.8668 45.2541 45.8728 45.1891C45.8788 45.1261 45.8878 45.0641 45.8878 45.0011C45.8878 44.9381 45.8788 44.8761 45.8728 44.8131C45.8668 44.7481 45.8638 44.6831 45.8508 44.6191C45.8388 44.5591 45.8188 44.5011 45.8008 44.4421C45.7818 44.3771 45.7658 44.3121 45.7408 44.2491C45.7168 44.1911 45.6848 44.1371 45.6548 44.0811C45.6238 44.0211 45.5958 43.9601 45.5578 43.9031C45.5208 43.8481 45.4748 43.7981 45.4328 43.7451C45.3958 43.7001 45.3658 43.6511 45.3248 43.6081L3.54582 0.608054C2.77482 -0.184946 1.50982 -0.202945 0.717818 0.567055C-0.0741818 1.33705 -0.0931821 2.60306 0.676818 3.39506L41.1008 45.0001L0.675818 86.6061C-0.0941816 87.3981 -0.0751832 88.6641 0.716817 89.4341C1.10482 89.8121 1.60782 90.0001 2.10982 90.0001C2.63082 90.0001 3.15182 89.7971 3.54482 89.3941L45.3238 46.3941C45.3658 46.3511 45.3958 46.3031 45.4318 46.2571C45.4748 46.2051 45.5208 46.1551 45.5568 46.0991C45.5958 46.0421 45.6228 45.9811 45.6548 45.9211Z" fill="black"/>
+            </svg>
+          </a>
+        <a class="next" onclick="plusSlides(1)">
+          <svg width="46" height="46" viewBox="0 0 46 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M45.6548 45.9211C45.6838 45.8651 45.7168 45.8111 45.7408 45.7531C45.7668 45.6901 45.7818 45.6251 45.8008 45.5601C45.8178 45.5011 45.8388 45.4431 45.8508 45.3831C45.8628 45.3191 45.8668 45.2541 45.8728 45.1891C45.8788 45.1261 45.8878 45.0641 45.8878 45.0011C45.8878 44.9381 45.8788 44.8761 45.8728 44.8131C45.8668 44.7481 45.8638 44.6831 45.8508 44.6191C45.8388 44.5591 45.8188 44.5011 45.8008 44.4421C45.7818 44.3771 45.7658 44.3121 45.7408 44.2491C45.7168 44.1911 45.6848 44.1371 45.6548 44.0811C45.6238 44.0211 45.5958 43.9601 45.5578 43.9031C45.5208 43.8481 45.4748 43.7981 45.4328 43.7451C45.3958 43.7001 45.3658 43.6511 45.3248 43.6081L3.54582 0.608054C2.77482 -0.184946 1.50982 -0.202945 0.717818 0.567055C-0.0741818 1.33705 -0.0931821 2.60306 0.676818 3.39506L41.1008 45.0001L0.675818 86.6061C-0.0941816 87.3981 -0.0751832 88.6641 0.716817 89.4341C1.10482 89.8121 1.60782 90.0001 2.10982 90.0001C2.63082 90.0001 3.15182 89.7971 3.54482 89.3941L45.3238 46.3941C45.3658 46.3511 45.3958 46.3031 45.4318 46.2571C45.4748 46.2051 45.5208 46.1551 45.5568 46.0991C45.5958 46.0421 45.6228 45.9811 45.6548 45.9211Z" fill="black"/>
+          </svg>
+        </a>
+      </div>
       <div class="hidden">
         <div class="row" id="slideshow_bottom">
           <% @card.photos.each_with_index do |card, n| %>
@@ -63,18 +49,55 @@
             <%= image_tag card, class: "demo cursor", style: "width:100%", onclick: "currentSlide(#{n + 1})"%>
           </div>
           <% end %>
-        </div>
+        </div> 
       </div>
     </div>
 
+    <!-- PRACTICAL INFORMATION -->
+    <div class="practical_info">
+      <h3 id="practical_info_title">Practical Information</h3>
+      <div id="practical_info">
+        <div class="price">
+          <%= image_tag "coin.svg", style: "height:25px" %>
+          <%=@card.price%> IDR/ per person 
+        </div>
+        <div class="address">
+          <%= image_tag "placeholder.svg", style: "height:25px" %>
+          <%=@card.address%>
+        </div>
+        <div class="languages">
+          <%= image_tag "worlwide.svg", style: "height:25px" %>
+          Offered in
+          <% @languages.each do |language| %>
+          <%= language.name %>
+          <% end %>
+        </div>
+         <div class="length">
+                <%= image_tag "time.svg", style: "height:25px" %>
+            <%=@card.length.strftime("%I:%M") %> 
+          </div>
+        <div class="hours">
+          <%= image_tag "clock.svg", style: "height:25px" %>
+          Operating hours <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %> 
+        </div>
+      </div>
+    </div>
+     <!-- FORMULAIRE EVALUATION -->
+
   <div class="evaluation">
+  <div class="title_comment">
     <h3 id="evaluation_title">Your Feedbacks</h3>
-  <button class="evaluation_button">Comment</button>
-  <% if user_signed_in? %>
-    <div class="evaluation_form"><%= render 'evaluations/new' %></div>
+    <button class="evaluation_button">Add a comment</button>
+    <%= link_to 'retours en arrière', :back, { :class=>"evaluation_button" } %>
+  </div> 
+   <% if user_signed_in? %>
+    <div class="evaluation_form">
+    <%= render 'evaluations/new' %></div>
     </div> 
   <% else %> 
-  <% end %> 
+  <% end %>
+
+ 
 
 
     <!-- hide evaluation form before click --> 
@@ -91,60 +114,78 @@
      });
     </script> 
 
+ 
     <div class="comments_evaluations">
-      <% @evaluations.each do |e| %>
-        <%= "---------------------------" %><br>
-        <%= @users.find(e.user_id).username %><br>
-        <%= e.eval %><br>
-        <%= e.comment %><br>
-      <% end %>
+        <% @evaluations.each do |e| %>
+          <hr/>
+          <div class="unique_comment">
+
+            <div class="user">
+              <%= image_tag e.user.avatar, height: 40, width: 40, class: "rounded-circle"%> 
+              <%= @users.find(e.user_id).username %>
+            </div> 
+            <div class="content">
+              <div class="firstline">
+                <div>
+                  <div class="stars">
+                    <% e.eval.times do |i| %> 
+                      <label class="full" for="star"></label>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="publication">
+                  Published on : <%= e.created_at.strftime("%B,%d, %y") %>
+                </div>
+              </div>
+              <div class="comment">
+                <%= e.comment %>
+              </div>
+            </div> 
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div> 
 
   <div class="sidebar">
     <div id="contact_info">
-      <div>
-        <p id="contact_name"><%= @card.professional.user.first_name %></p>
-        <%= image_tag "coach_pic.jpg", class: "coach_picture"%>
-      </div>
-
-      <div>
-        <p id="contact_organization"><%= @card.organization%></p>
-      </div>
-      <button class="display_contact_button" onclick="display_contact()">Book your session with me !</button>
-      <div id="display_contact_info">
-        <ul>
-          <li id="icon"><i class="fab fa-whatsapp fa-2x"></i><%@card.whatsapp%></li>
-          <li>
-            <a target="_blank" id="icon"><i class="fab fa-facebook-square fa-2x"><% @card.instagram %></i></a>
-            <a target="_blank" id="icon"><i class="fab fa-instagram fa-2x"><%@card.facebook %></i></a>
-          </li>
-        </ul>
+        <div class="contact_picture">
+          <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
+        </div> 
+        <div clas="discipline">
+          <%= @card.organization %>, <% @disciplines.each do |discipline| %><%= discipline.name %><% end %>
+        </div> 
+        <div id="contact_name">
+          <%= @card.professional.user.first_name%>
+        </div> 
+        <button class="display_contact_button" onclick="display_contact()">Book your session with me</button>
+        <div id="display_contact_info">
+          <ul>
+            <li>
+              <%= image_tag "whatsapp_icon.png", id:"icon", class: "fab fa-whatsapp fa-2x"%><%=@card.whatsapp%></li>
+              <a href="<%= @card.facebook%>"><%= image_tag "facebook_icon.png", id:"icon", class: "fab fa-facebook-square fa-2x"%></a>
+              <a href="<%= @card.instagram%>"><%= image_tag "instagram_icon.png", id:"icon", class: "fab fa-instagram fa-2x"%></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
 <div id="card_map">  <!-- display Google map -->
-	</div>
-
-
+  </div>
 <script>
-	var map = new google.maps.Map(document.getElementById('card_map'), {
-		center: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
-		zoom: 9
-	})
-	var marker = new google.maps.Marker({
-		map: map,
-		position: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
-	})
-
+  var map = new google.maps.Map(document.getElementById('card_map'), {
+    center: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+    zoom: 9
+  })
+  var marker = new google.maps.Marker({
+    map: map,
+    position: {lat: <%= @card.latitude %>, lng: <%= @card.longitude %>},
+  })
    var infowindow = new google.maps.InfoWindow({
     content: "<%= @card.address%>"
   });
   
     infowindow.open(map, marker);
 </script> 
-

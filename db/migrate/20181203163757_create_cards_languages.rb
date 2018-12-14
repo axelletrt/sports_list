@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCardsLanguages < ActiveRecord::Migration[5.2]
   def change
     create_table :cards_languages do |t|

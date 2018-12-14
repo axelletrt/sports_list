@@ -1,3 +1,4 @@
+
 class MyActivityController < ApplicationController
 	def index
 		 if current_user.professional.present?  
@@ -11,9 +12,8 @@ class MyActivityController < ApplicationController
  	#@card = activity_title.present?
 
 
- 	@testt = Card.all
+ 	
+ 	#@card = Card.find(params[:id])
 	end
-
-
 
 end

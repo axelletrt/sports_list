@@ -3,7 +3,7 @@
 }
 
 .modal-body {
-	font-family: 'Nanum Gothic', sans-serif;
+
 }
 
 .modal-title {
@@ -30,6 +30,10 @@
 
 .close:focus {
 	outline: none;
+}
+
+.modal-footer {
+	display: none !important;
 }
 
 input:focus,
