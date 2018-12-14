@@ -1,6 +1,4 @@
-.step {
-    display: none; 
-}
+
 
 * {
   box-sizing: border-box;
@@ -27,10 +25,10 @@
   right: 0;
   height: 70px;
   @media (min-width: 991px) {
-      min-width: 350px;
-      position: static;
-      height: auto;
-      float: right;
+    min-width: 350px;
+    position: static;
+    height: auto;
+    float: right;
   }
 }
 
