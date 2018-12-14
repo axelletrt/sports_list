@@ -31,12 +31,15 @@
   margin-right: 15px;
     @media (min-width: 991px) {
     width: 22%;
-     vertical-align: bottom;
+    
   }
 }
 
 .nav-item {
   align-items: center;
+  display: table-cell!important;
+  vertical-align: middle; 
+  padding-top: 0px!important;
 }
 
 .logo:hover {
@@ -92,3 +95,7 @@
     color: white !important;
   }
 }
+
+.navbarhome {
+    display: table !important;
+  }
