@@ -11,8 +11,10 @@
 # seed table SpokenLanguage
 
 SpokenLanguage.create(name: 'English')
-SpokenLanguage.create(name: 'Spanish')
+SpokenLanguage.create(name: 'Balinese ')
+SpokenLanguage.create(name: 'Bahasa Indonesia')
 SpokenLanguage.create(name: 'French')
+
 
 # seed table Discipline
 

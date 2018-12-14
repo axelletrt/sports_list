@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   resources :disciplines, only: [:show]
   post 'cards/:id', to: 'evaluations#create'
   post 'disciplines/:id', to: 'evaluations#show'
+  post 'home', to: 'evaluations#show'
 
   devise_for :users,
   controllers: { sessions: 'users/sessions',
                  registrations: 'users/registrations',
                  passwords: 'users/passwords' }
-
-
 end
