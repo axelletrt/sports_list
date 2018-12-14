@@ -15,6 +15,7 @@
     </div>
     <div class="description">
     <h3>Description</h3>
+
       <p id="description_text"><%=@card.long_description%></p>
     </div>
 
@@ -87,6 +88,7 @@
   <div class="title_comment">
     <h3 id="evaluation_title">Your Feedbacks</h3>
     <button class="evaluation_button">Add a comment</button>
+    <%= link_to 'retours en arrière', :back, { :class=>"evaluation_button" } %>
   </div> 
    <% if user_signed_in? %>
     <div class="evaluation_form">
