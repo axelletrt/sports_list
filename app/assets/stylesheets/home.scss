@@ -9,6 +9,13 @@
   display: flex;
   color:  #05282e;
 }
+
+
+.home {
+  margin-left: 0 !important;
+}
+
+
 /*__________BANNER TOP__________*/
 
 .background_lp {
@@ -113,14 +120,15 @@
 
 
 /*__________CARDS DISPLAY__________*/
+/*New css by Axelle, please keep it*/
+
 
 
 .discipline-title-hp {
   margin-top: 6vh;
-  padding-left: 2vh;
   padding-right: 40%;
+  text-transform: uppercase; 
     @media (min-width: 991px) {
-    padding-left: 16vh;
     padding-right: 40%;
     }
 }
@@ -130,86 +138,12 @@
   letter-spacing: 3px;
   font-weight: 700;
 
-  }
-
-.discipline-desc {
-  padding-top: 8px;
 }
-
-.card-img-top-hp {
-  width: 230px;
-  height: 130px;
-  object-fit: cover;
-  padding: 0;
-}
-
-.card-deck-hp {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  padding-right: 1vh;
-  padding-left: 1vh;
-  grid-template-columns: repeat(4, 1fr);
-    @media (min-width: 991px) {
-       display: flex;
-       flex-flow: row wrap;
-       justify-content: space-between;
-       padding: 25px;
-       grid-template-columns: repeat(4, 1fr);
-       margin: 0;
-       padding-right: 15vh;
-       padding-left: 15vh;
-       padding-bottom: 1vh;
-    }
-}
-
-.card-deck-hp a {
-  width: 250px;
-}
-
-.card-body-hp {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow: auto;
-  font-size: 0.8em;
-}
-
-.title-city {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.card-title {
-  max-width: 170px;
-  overflow-wrap: break-word;
-}
-
-.card-city {
-  text-transform: uppercase;
-}
-
-.card-price {
-  font-size: 0.9rem;
-}
-
-.wrapper-card-hp {
-  padding-left: 11px;
-  padding-right: 11px;
-  padding-top: 11px;
-}
-
-.wrapper-card-hp:hover {
-  opacity: 0.9;
-}
-
 
 .link-to-list {
-  padding-left: 2vh;
   margin-top: 0;    
     @media (min-width: 991px) {
     display: inline-block;
-    padding-left: 16vh;
     margin-top: 0;
     margin-bottom: 3vh;
     }
@@ -225,5 +159,17 @@
   margin-left: 20%;
   border: 1px solid #e6e6e6;
 
+}
+
+.discipline-desc {
+  padding-top: 8px;
+}
+
+.allcards {
+  padding-left: 16vh; 
+}
+
+.homethumbnail {
+  margin-top: 15vh; 
 }
 
