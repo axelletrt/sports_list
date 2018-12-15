@@ -6,10 +6,8 @@ class DisciplinesController < ApplicationController
   end
 
   def show
-    @discipline_name = Discipline.find(params[:id]).name
-    sport_cards_id = CardsDiscipline.where(discipline_id: params[:id]).pluck(:card_id)
-    # only sport cards asked by the visitor
-    @cards = Card.all.find(sport_cards_id)
-    @discipline_name = Discipline.find(params[:id]).name
+    #simplified code by Dorian : To display Discipline.cards 
+    @discipline = Discipline.find(params[:id])
+    @cards = @discipline.cards
   end
 end 
