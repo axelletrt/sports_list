@@ -53,7 +53,7 @@ class CardsController < ApplicationController
  def destroy
    @card = Card.friendly.find(params[:id])
    @card.destroy
-   CardsDCyriliscipline.where(card_id: params[:id]).delete_all
+   CardsDiscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all
    redirect_to my_activity_index_path
   # @professional = Professional.where(user_id: current_user.professional[:id])
