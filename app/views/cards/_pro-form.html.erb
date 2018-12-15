@@ -52,8 +52,11 @@
       
       <div class="card-upload-pic">
 		  	<%= f.label :photos, :id => 'label-title' %><br>
-			  <%= f.file_field :photos, id: 'pp-box', multiple: true %><br>
+			  <%= f.file_field :photos, id: 'gallery-photo-add', multiple: true, class: "pp-box" %><br>
       </div>
+         
+           <div class="gallery"></div>
+
 
             <button class="btn-step" id="next_step1">Next Step</button>
 		</div>
@@ -100,6 +103,48 @@
 </div>
 </div>
 </div>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+<script type="text/javascript">
+  $("form").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+        return false;
+    }
+});
+</script>
+      
+<script type="text/javascript">     
+
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview)
+                                  .width(150)
+              .height(200);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+
+</script>
+
 
 <script>
   $(document).ready(function() {

@@ -3,7 +3,7 @@
 <h3>DISCOVER LOCAL SPORTS IN BALI</h3>
   <%= form_for @search do |f| %>
     <div class="center-on-page">
-      <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select a sport" }, :class => "blabla")  %>
+      <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select a sport" }, :class => "capitalize")  %>
       <%= f.submit "Search" ,class:"search_btn_sub"%>
     </div>
   <% end %>
