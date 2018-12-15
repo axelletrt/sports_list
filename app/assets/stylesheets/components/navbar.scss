@@ -2,13 +2,14 @@ nav {
 
   box-shadow: 0px 0px 8px #e4e4e4;
   color: black;
-  height: 60px;
+  max-height: 70px;
   position: fixed;
   background-color: white;
   top: 0;
   width: 100%;
   z-index: 10;
   height: auto;
+  letter-spacing: 1px;
 
   a {
     color: black;
@@ -18,6 +19,14 @@ nav {
 
 nav li {
   list-style-type: none;
+}
+
+nav ul {
+  padding-left: 0px;
+}
+
+.nav-logo {
+  margin-top: 15px;
 }
 
 
@@ -30,6 +39,11 @@ nav li {
   margin-left: 10px;
   color: black !important;
 }
+
+.nav-link-img {
+  margin-top: 20px;
+}
+
 .logo {
   vertical-align: bottom;
   border-radius: 50%;
@@ -40,7 +54,6 @@ nav li {
      vertical-align: bottom;
   }
 }
-
 
 .nav-item {
   align-items: center;
@@ -98,5 +111,3 @@ nav li {
     padding: 0.5rem 1rem;
   }
 }
-
-/*END*/

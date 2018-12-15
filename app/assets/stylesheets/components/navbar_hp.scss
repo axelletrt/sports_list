@@ -7,6 +7,7 @@
   color: white;
   width: 100%;
   height: auto;
+  max-height: 70px;
   letter-spacing: 1px;
 
   a:hover {
@@ -19,10 +20,9 @@
     border-radius: 10px 10px;
     @media (min-width: 991px) {
       background-color: transparent !important;
+      margin-top: 7px;
   }
 }
-
-
 
 .logo {
   vertical-align: bottom;
@@ -70,9 +70,10 @@
     }
 }
 
-.nav-link-img {
+.nav-link-img-hp {
   padding-bottom: 0 !important;
   padding-top: 0 !important;
+  margin-top: 25px;
 }
 
 .dropdown-menu {
