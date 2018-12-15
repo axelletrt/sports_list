@@ -3,7 +3,7 @@
 class Card < ApplicationRecord
   extend FriendlyId
   friendly_id :activity_title, use: :slugged
-  
+
   has_many_attached :photos
 
   belongs_to :professional
@@ -42,14 +42,14 @@ class Card < ApplicationRecord
   Sayan
   Sekumpul
   Semarapura
-  Seminyak 
+  Seminyak
   Singaraja
   Tampaksiring
   Tenganan
   Tuban
   Ubud
-  Uluwatu 
-  Other 
+  Uluwatu
+  Other
   ]
   enum country: [:indonesia]
 
@@ -57,7 +57,10 @@ class Card < ApplicationRecord
   has_many :disciplines, through: :cards_discipline
   accepts_nested_attributes_for :disciplines, reject_if: proc { |attributes| attributes[:name].blank? }, allow_destroy: true
 
-
+  def evaluation_average
+    evals = evaluations.pluck(:eval)
+    average = (evals.sum.to_f / evals.size).round(1)
+  end
 
   #validates :activity_title, presence: true
   #validates :short_description, presence: true

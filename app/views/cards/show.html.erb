@@ -14,7 +14,7 @@
   <div class="content">
     <div class="activity">
       <p>
-      </p> 
+      </p>
     </div>
     <div class="description">
     <h3>Description</h3>
@@ -29,7 +29,7 @@
         <% @card.photos.each do |card| %>
         <div class="mySlides">
           <%= image_tag card, style: "width:100%" %>
-        </div>        
+        </div>
         <% end %>
 
 
@@ -52,7 +52,7 @@
             <%= image_tag card, class: "demo cursor", style: "width:100%", onclick: "currentSlide(#{n + 1})"%>
           </div>
           <% end %>
-        </div> 
+        </div>
       </div>
     </div>
 
@@ -62,7 +62,7 @@
       <div id="practical_info">
         <div class="price">
           <%= image_tag "coin.svg", style: "height:25px" %>
-          <%=@card.price%> IDR/ per person 
+          <%=@card.price%> IDR/ per person
         </div>
         <div class="address">
           <%= image_tag "placeholder.svg", style: "height:25px" %>
@@ -77,11 +77,11 @@
         </div>
          <div class="length">
                 <%= image_tag "time.svg", style: "height:25px" %>
-            <%=@card.length.strftime("%I:%M") %> 
+            <%=@card.length.strftime("%I:%M") %>
           </div>
         <div class="hours">
           <%= image_tag "clock.svg", style: "height:25px" %>
-          Operating hours <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %> 
+          Operating hours <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %>
         </div>
       </div>
     </div>
@@ -91,43 +91,45 @@
   <div class="title_comment">
     <h3 id="evaluation_title">Your Feedbacks</h3>
     <button class="evaluation_button">Add a comment</button>
-      </div> 
+      </div>
    <% if user_signed_in? %>
     <div class="evaluation_form">
     <%= render 'evaluations/new' %></div>
-    </div> 
-  <% else %> 
+    </div>
+  <% else %>
   <% end %>
-  
-    <!-- hide evaluation form before click --> 
 
-    <script> 
-      $('.evaluation_form').hide(); 
+    <!-- hide evaluation form before click -->
+
+    <script>
+      $('.evaluation_form').hide();
         <% if user_signed_in? %>
       $(".evaluation_button").click(function(){
       $(".evaluation_form").toggle();
         <% else %>
        $(".evaluation_button").click(function(){
         alert("You need to Sign up or Sign In to evaluate an activity");
-            <% end %> 
+            <% end %>
      });
-    </script> 
+    </script>
 
- 
+
     <div class="comments_evaluations">
         <% @evaluations.each do |e| %>
           <hr/>
           <div class="unique_comment">
 
             <div class="user">
-              <%= image_tag e.user.avatar, height: 40, width: 40, class: "rounded-circle"%> 
+              <% if e.user.avatar.attached? %>
+              <%= image_tag e.user.avatar, height: 40, width: 40, class: "rounded-circle"%>
               <%= @users.find(e.user_id).username %>
-            </div> 
+              <% end %>
+            </div>
             <div class="content">
               <div class="firstline">
                 <div>
                   <div class="stars">
-                    <% e.eval.times do |i| %> 
+                    <% e.eval.times do |i| %>
                       <label class="full" for="star"></label>
                     <% end %>
                   </div>
@@ -139,7 +141,7 @@
               <div class="comment">
                 <%= e.comment %>
               </div>
-            </div> 
+            </div>
           </div>
         <% end %>
       </div>
@@ -149,14 +151,16 @@
   <div class="sidebar">
     <div id="contact_info">
         <div class="contact_picture">
+          <% if @card.professional.user.avatar.attached %>
           <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
-        </div> 
+          <% end %>
+        </div>
         <div clas="discipline">
           <%= @card.organization %>, <% @disciplines.each do |discipline| %><%= discipline.name %><% end %>
-        </div> 
+        </div>
         <div id="contact_name">
           <%= @card.professional.user.first_name%>
-        </div> 
+        </div>
         <button class="display_contact_button" onclick="display_contact()">Book your session with me</button>
         <div id="display_contact_info">
           <ul>
@@ -185,6 +189,6 @@
    var infowindow = new google.maps.InfoWindow({
     content: "<%= @card.address%>"
   });
-  
+
     infowindow.open(map, marker);
-</script> 
+</script>

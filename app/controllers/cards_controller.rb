@@ -9,8 +9,7 @@ class CardsController < ApplicationController
    @users = User.all
    @card = Card.friendly.find(params[:id])
    @evaluations = @card.evaluations
-   evals = @evaluations.pluck(:eval)
-   @moyenne = (evals.sum.to_f / evals.size).round(1)
+   @moyenne = @card.evaluation_average
    @languages = @card.spoken_languages
    @disciplines = @card.disciplines
  end
@@ -56,8 +55,6 @@ class CardsController < ApplicationController
    CardsDCyriliscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all
    redirect_to my_activity_index_path
-  # @professional = Professional.where(user_id: current_user.professional[:id])
-  # puts current_user.professional[:id]
 end
 
  def create
@@ -91,7 +88,7 @@ end
    p_cards[:spoken_languages].each do |l_id|
      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
    end
-   
+
 end
 
  private

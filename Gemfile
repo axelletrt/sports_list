@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'mini_magick', '~> 4.8'
 
 
- # Use frendly_id 
+ # Use frendly_id
 gem 'friendly_id', '~> 5.2.4'
 
  #end frendly_id
@@ -77,11 +77,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'aws-sdk-s3', require: false
 
-# group :development do
-#   gem 'better_errors'
-#   gem 'binding_of_caller'
-#   gem 'pry', '~> 0.12.2'
-# end
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry', '~> 0.12.2'
+end
 
 # gem to be able to send email to user
 gem 'mailjet'
