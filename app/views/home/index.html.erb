@@ -8,7 +8,16 @@
     </div>
   <% end %>
 </div>
+  <!-- Partial Thumbnail --> 
+  <% @disciplines.each do |discipline| %>
+    <li><%= discipline.name %></li>
+      <% discipline.cards.each  do |card| %>
+      <%= render partial: "cards/thumbnail", locals: {card: card} %>
+      <% end %> 
+  <%end%>
 
+
+</div>
 <div class="container-hp">
   <div class="discipline-title-hp">
     <a href="/disciplines/1">SURF</a>

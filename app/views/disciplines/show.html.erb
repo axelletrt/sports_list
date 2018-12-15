@@ -6,32 +6,7 @@
   <div class="card-deck">
     <% @cards.each do |card| %>
 	    <%= link_to card_path(card.id) do %>
-	      <div class="wrapper-card">
-	        <div><%= image_tag card.photos[0], class: 'card-img-top' %>
-	        </div>
-          <div class="card-body-hp">
-              <p class="card-city"><%= card.city %></p>
-            <div class="title-city">
-              <h5 class="card-title"><%= card.activity_title %></h5>
-            </div>
-              <p class="card-price"><%= card.price %> Rp / per person </p>              <!-- to calculate the average-->
-                  <% if card.evaluations.first.present?%>
-               <div class="average">
-                  <%= e = ((card.evaluations.pluck(:eval).sum.to_f) / card.evaluations.pluck(:eval).size).round(1) %>
-              </div> 
-               <div class="stars">
-                    <% e.to_i.times do |i| %> 
-                      <label class="full" for="star"></label>
-                    <% end %>
-                  </div>
-                <div class="rating">
-                    <label class="half" for="starhalf"></label>
-                </div>
-                <% else %> 
-                     No review.
-              <% end %>
-              </div>
-          </div>
+        <%= render partial: "cards/thumbnail", locals: {card: card} %>
 	    <% end %>
 	  <% end %>
   </div>

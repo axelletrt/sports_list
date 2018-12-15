@@ -15,7 +15,10 @@
         <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
+        <% if user_signed_in? %>
         <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
+        <%else%>
+        <% end %> 
       </li>
     </ul>
     <ul>
