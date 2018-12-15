@@ -25,7 +25,7 @@ to{
 }
 }
 
-@keyframes bounce{
+/*@keyframes bounce{
 	from{
 		transform: scale(0);
 	}
@@ -35,9 +35,9 @@ to{
 	100%{
 		transform: scale(1);
 	}
-}
+}*/
 
-
+/*
 body::-webkit-scrollbar {
     width: 1em;
 }
@@ -48,11 +48,11 @@ body::-webkit-scrollbar-track {
  
 body::-webkit-scrollbar-thumb {
   background-color: rgba(0,0,0,0);
-}
+}*/
 
-#map{
+/*#map{
 	animation: bounce 0.6s;
-}
+}*/
 
 .inner-form {
 	position: relative;
@@ -60,6 +60,7 @@ body::-webkit-scrollbar-thumb {
 	height: 80vh;
 	overflow-y: auto;
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 	z-index: 9;
 	color: black;
 	/*background-color: rgba(255,255,255, 0.95);
