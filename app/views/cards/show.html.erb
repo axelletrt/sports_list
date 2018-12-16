@@ -1,10 +1,28 @@
 <!-- TOP BANNER -->
-<div class="background">
-  <div class="bg-text">
-    <h3><%= @card.activity_title %></h3>
-    <p>"<%=@card.short_description%>"</p>
-  </div>
-</div>
+<% @disciplines.each do |discipline| %>
+  <% if discipline.id == 1 %> 
+    <div class="background-surf">
+      <div class="bg-text">
+        <h3><%= @card.activity_title %></h3>
+        <p>"<%=@card.short_description%>"</p>
+      </div>
+    </div>
+  <% elsif discipline.id == 2 %> 
+    <div class="background-yoga">
+      <div class="bg-text">
+        <h3><%= @card.activity_title %></h3>
+        <p>"<%=@card.short_description%>"</p>
+      </div>
+    </div>
+  <% else discipline.id == 3 %> 
+    <div class="background-scuba">
+      <div class="bg-text">
+        <h3><%= @card.activity_title %></h3>
+        <p>"<%=@card.short_description%>"</p>
+      </div>
+    </div>
+  <%end%>
+<%end%>
 
 <!-- DISCIPLINE -->
 <div class="container_sl">
@@ -83,6 +101,8 @@
         </div>
       </div>
     </div>
+
+
      <!-- FORMULAIRE EVALUATION -->
 
   <div class="evaluation">
@@ -145,7 +165,7 @@
   </div>
 
   <div class="sidebar">
-    <div id="contact_info">
+    <div id="contact_info">   
         <div class="contact_picture">
         <% if @card.professional.user.avatar.attached?%>
           <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
@@ -153,13 +173,15 @@
             <%= image_tag "fond-gris.jpg", class:"coach_picture"%>
             <% end%>
         </div> 
-        <div clas="discipline">
-          <%= @card.organization %>, <% @disciplines.each do |discipline| %><%= discipline.name %><% end %>
-        </div> 
         <div id="contact_name">
-          <%= @card.professional.user.first_name%>
-        </div> 
-        <button class="display_contact_button" onclick="display_contact()">Book your session with me</button>
+          <%= @card.professional.user.first_name%> <br>
+        </div>
+        <div class="card-org">
+          <%= @card.organization %> <br>
+          <% @disciplines.each do |discipline| %><%= discipline.name %>
+          <% end %>  
+        </div>
+        <button class="display_contact_button" onclick="display_contact()">Book your session !</button>
         <div id="display_contact_info">
           <ul>
             <li>

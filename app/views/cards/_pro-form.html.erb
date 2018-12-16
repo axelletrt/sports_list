@@ -143,8 +143,8 @@ $(function() {
 
                 reader.onload = function(event) {
                     $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview)
-                                  .width(150)
-              .height(200);
+                                  .width(100)
+              .height(100);
                 }
 
                 reader.readAsDataURL(input.files[i]);

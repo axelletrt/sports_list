@@ -4,12 +4,17 @@ footer {
     margin-top: 10px; 
     height: 60px;
     width: 100%;
+    letter-spacing: 3px;
+    bottom: 0;
 }
 
+.designedwithlove {
+  float: left;
+  padding-left: 1rem;
+  line-height: 60px;
+}
 .copyright {
-    width: 100%;
-    text-align: right;
-    color: #fff;  
-    padding-right: 1rem;
-    line-height: 60px;
+  float: right;
+  padding-right: 1rem;
+  line-height: 60px;
 }
