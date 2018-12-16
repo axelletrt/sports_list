@@ -126,7 +126,7 @@
       $(".evaluation_form").toggle();
         <% else %>
        $(".evaluation_button").click(function(){
-        alert("You need to Sign up or Sign In to evaluate an activity");
+        alert("Oups! Please SIGN IN or SIGN UP to evaluate an experience 🧘🏄‍");
             <% end %> 
      });
     </script> 
@@ -167,7 +167,11 @@
   <div class="sidebar">
     <div id="contact_info">   
         <div class="contact_picture">
+        <% if @card.professional.user.avatar.attached?%>
           <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
+          <% else%>
+            <%= image_tag "fond-gris.jpg", class:"coach_picture"%>
+            <% end%>
         </div> 
         <div id="contact_name">
           <%= @card.professional.user.first_name%> <br>

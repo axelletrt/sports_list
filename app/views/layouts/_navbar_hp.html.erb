@@ -15,7 +15,7 @@
       <% if user_signed_in? %>
         <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
         <%else%>
-              <a id="experience_button" data-toggle="modal" data-target="#signUpModal" class="nav-link">Offer an experience</a>
+              <a onclick="alert('Please SIGN IN or create an account to publish an experience 😉')" id="experience_button" data-toggle="modal" data-target="#signUpModal" class="nav-link">Offer an experience</a>
         <% end %> 
     </ul>
     <ul class="nav-logo">
@@ -29,7 +29,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-item"> <%= current_user.username %> </div>
-            <a> <%= link_to "My activity", my_activity_index_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Dashboard", my_activity_index_path, :class => "dropdown-item"%></a>
             <a> <%= link_to "Edit my account", edit_user_registration_path, :class => "dropdown-item"%></a>
             <a> <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
           </div>

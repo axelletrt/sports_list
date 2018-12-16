@@ -1,8 +1,17 @@
-#activity_title
-{
-}
 .error-message
 {
   display: none;
   color: red;
+}
+
+.mandatory {
+  margin-top: 70px;
+  margin-bottom: 20px; 
+}
+
+#message {
+  display: none; 
+  color: red; 
+  display: flex; 
+  margin-bottom: 20px; 
 }

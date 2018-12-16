@@ -2,44 +2,46 @@
     <h1 class="title-formulaire">Offer an experience</h1>
 <div class="formulaire">
     <div class="inner-form">
-    <div id="test"></div>
+    <div id="new_card"></div>
     <%= form_for(@card, :html => {:id => 'card_form'}) do |f| %>
     <div class="form-group">
         <div class="step1 step">
-            <%= f.label :Discipline, :id => 'label-title' %><br>
+            <%= f.label :'What sports do you teach?*', :id => 'label-title' %><br>
             <%= f.collection_check_boxes :disciplines, @disciplines.order(:name), :id, :name do |b| %>
         <%= b.label(class:"label-checkbox disciplines_checkbox") { b.check_box + b.text } %>
             <% end %>
             <span class="error-message">error</span><br>
 
-            <%= f.label :Languages, :id => 'label-title' %><br>
+            <%= f.label :'What languages do you speak?*', :id => 'label-title' %><br>
             <%= f.collection_check_boxes :spoken_languages, @languages.order(:name), :id, :name do |b| %>
                 <%= b.label(class:"languages_checkbox") { b.check_box + b.text } %>
             <% end %>
 						<span class="error-message">error</span><br>
 
-			<%= f.label :activity_title, :id => 'label-title' %><br>
-			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
+			<%= f.label :'Experience title*', :id => 'label-title' %><br>
+			<%= f.text_field :activity_title, placeholder: 'Name your experience with few words' %>
 				<span class="error-message">error</span><br>
 
 
-			<%= f.label :short_description, :id => 'label-title' %>
-			<%= f.text_area :short_description, id: 'short_description', placeholder: '10 - 100 characters' %> <!-- any characters (10 - 100) -->
+			<%= f.label :'short_description*', :id => 'label-title' %>
+			<%= f.text_area :short_description, id: 'short_description', placeholder: 'Write a short tagline (one sentence) about your experience' %> <!-- any characters (10 - 100) -->
 				<span class="error-message">error</span><br>
 
-			<%= f.label :long_description, :id => 'label-title' %><br>
-			<%= f.text_area :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
+			<%= f.label :'long_description*', :id => 'label-title' %><br>
+			<%= f.text_area :long_description, id: 'long_description', placeholder: 'Please describe the experience you offer' %> <!-- any characters (300 - 1000) -->
 				<span class="error-message">error</span><br>
 
 
-            <%= f.label :organization, :id => 'label-title' %><br>
+            <%= f.label :'organization*', :id => 'label-title' %><br>
+            <p>Are your a coach, school or a club?</p>
             <%= f.select :organization, Card.organizations.keys %><br> <!-- -->
 
-			<%= f.label :price, :id => 'label-title' %><br>
-			<%= f.text_field :price, id: 'price', placeholder: 'ex: 200000' %> <!-- any number (1 - 6) (see with roupies) -->
+			<%= f.label :'price/per person Rp*', :id => 'label-title' %><br>
+			<%= f.text_field :price, id: 'price', placeholder: '000 000' %> <!-- any number (1 - 6) (see with roupies) -->
 				<span class="error-message">error</span><br>
 
-            <%= f.label :length, :id => 'label-title' %><br>
+            <%= f.label :'length*', :id => 'label-title' %><br>
+            <p> How long is your experience?</p> 
             <%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %>
 						<span class="error-message">error</span><br>
 
@@ -51,28 +53,34 @@
 			<span class="error-message">error</span><br>
       
       <div class="card-upload-pic">
-		  	<%= f.label :photos, :id => 'label-title' %><br>
+		  	<%= f.label :'Pictures*', :id => 'label-title', required:'required' %><br>
 			  <%= f.file_field :photos, id: 'gallery-photo-add', multiple: true, class: "pp-box" %><br>
       </div>
-         
-           <div class="gallery"></div>
 
+           <div class="gallery"></div>
+           <div class="mandatory">*Mandatory fields</div> 
 
             <button class="btn-step" id="next_step1">Next Step</button>
+
 		</div>
 
 		<div class="step2 step">
-			<%= f.label :whatsapp, :id => 'label-title' %><br>
-			<%= f.text_field :whatsapp, id: 'whatsapp', placeholder: '0676349823'%> <!-- only numbers between (10 - 14) -->
+      <%= image_tag "whatsapp_icon.png"%>
+			<%= f.label :'Your Whatsapp number*', :id => 'label-title' %><br>
+			<%= f.text_field :whatsapp, id: 'whatsapp', placeholder: '+62 XXX-XXXX-XXXX'%> <!-- only numbers between (10 - 14) -->
 			<span class="error-message">error</span><br>
 
-			<%= f.label :facebook, :id => 'label-title' %><br>
-			<%= f.text_field :facebook, id: 'facebook', placeholder: 'https://www.facebook.com/...' %>
+      <%= image_tag "facebook_icon.png"%>
+			<%= f.label :'facebook account or page', :id => 'label-title' %><br>
+			<%= f.text_field :facebook, id: 'facebook', placeholder: 'https://www.facebook.com/myfacebookpage/' %>
 			<span class="error-message">error</span><br>
 
-			<%= f.label :instagram, :id => 'label-title' %><br>
-			<%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/...' %>
+      <%= image_tag "instagram_icon.png"%>
+			<%= f.label :'Instragram accout', :id => 'label-title' %><br>
+			<%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/myinstagramaccount/' %>
 			<span class="error-message">error</span><br>
+
+                 <div class="mandatory">*Mandatory fields</div> 
 
             <button id="back_step2" class="btn-step previous">Previous</button>
             <button id="next_step2" class="btn-step">Next</button>
@@ -80,19 +88,26 @@
         </div>
 
         <div class="step3 step">
-            <%= f.label :address%><br>
-            <%= f.text_field :address, id: 'card_address' %> <!-- pattern: ???? for the moment -->
+            <%= f.label :'Meeting Point'%><br>
+            <%= f.text_field :address, id: 'card_address', placeholder: 'City,town,locality,postal code'%>
 						<span class="error-message">error</span><br>
             <%= f.label :city, :id => 'label-title' %><br>
+            <p>Please select a city</p>
             <%= f.select :city, Card.cities.keys, {id: "card_city", include_blank: true} %>
 						<span class="error-message">error</span><br>
 
             <%= f.hidden_field :country %>
+
+            <div id="message">Please confirm or mark your position the map</div>
             <div id="map">  <!-- Display Google map -->
             </div>
+            
 
             <input type="hidden"  id="lat" name="lat" />
             <input type="hidden"  id="lng" name="lng"/>
+
+
+            <div class="mandatory">*Mandatory fields</div> 
 
             <button id="back_step3" class="btn-step">Previous</button><br>
             <%= f.submit "save and publish", id: "publish" %>
