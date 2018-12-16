@@ -102,6 +102,14 @@
 
 .search_btn_sub:hover {
   opacity: 0.9 !important;
+  cursor: pointer;
+}
+
+.search_btn_sub:focus {
+  outline: none;
+  background-color: #d14734 !important;
+  color: white !important;
+  border: none !important;
 }
 
 .center-on-page {

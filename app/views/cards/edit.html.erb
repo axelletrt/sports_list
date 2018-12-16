@@ -1,7 +1,7 @@
 <%= render 'cards/pro-form' %>
-
-<%= link_to "Delete the card", card_path, method: :delete , class: "delete_card_btn"%>
-
+<div class="delete-card">
+  <%= link_to "Delete experience", card_path, method: :delete , class: "delete_card_btn"%>
+</div>
 
 <script>
 	const input = document.getElementById('card_address')

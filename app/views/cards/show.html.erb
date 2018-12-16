@@ -83,6 +83,8 @@
         </div>
       </div>
     </div>
+
+
      <!-- FORMULAIRE EVALUATION -->
 
   <div class="evaluation">
@@ -146,16 +148,20 @@
 
   <div class="sidebar">
     <div id="contact_info">
+
+      <div>
         <div class="contact_picture">
           <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
         </div> 
-        <div clas="discipline">
-          <%= @card.organization %>, <% @disciplines.each do |discipline| %><%= discipline.name %><% end %>
-        </div> 
         <div id="contact_name">
-          <%= @card.professional.user.first_name%>
+          <%= @card.professional.user.first_name%> <br>
+          <%= @card.organization %> <br>
+          <% @disciplines.each do |discipline| %><%= discipline.name %>
+          <% end %>
         </div> 
-        <button class="display_contact_button" onclick="display_contact()">Book your session with me</button>
+      </div>
+
+        <button class="display_contact_button" onclick="display_contact()">Book your session !</button>
         <div id="display_contact_info">
           <ul>
             <li>
