@@ -22,6 +22,18 @@
   border-radius: 60px 60px;
   color: white;
   margin-bottom: 20px;
+  &:hover{
+    opacity: 0.9;
+    cursor: pointer;
+  }
+}
+
+.btn-cancel:focus {
+  outline: none;
+  border: none; 
+  background-color:  #d14734; 
+  border-radius: 60px 60px;
+  color: white;
 }
 
 .unhappy {
@@ -33,7 +45,18 @@
   border-color: #26cfe7;
   background-color: #26cfe7;
   margin-top: 20px;
+  &:hover{
+    opacity: 0.9;
+    cursor: pointer;
+  }
  }
+
+ .btn-update:focus {
+  outline: none;
+  color: #fff;   
+  border-color: #26cfe7;
+  background-color: #26cfe7;
+}
 
  .profile-picture {
   position: absolute;

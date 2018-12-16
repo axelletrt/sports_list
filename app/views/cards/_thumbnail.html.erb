@@ -1,5 +1,9 @@
 <div class="wrapper-card">
-    <div><%= image_tag card.photos[0], class: 'card-img-top' %></div>
+    <% if card.photos.attached?%>
+   <div><%= image_tag card.photos[0], class: 'card-img-top' %></div>
+   <% else%>
+   <div class="col_activity"><%= image_tag "fond-gris.jpg", class:'card-img-top'%></div>
+   <% end%>
         <div class="card-body-hp">
          <p class="card-city"><%= card.city %></p>
           <div class="title-city">
