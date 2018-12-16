@@ -40,13 +40,45 @@ a:visited {
 
 /*__________BANNER TOP__________*/
 
-.background {
+.background-surf {
   margin: 0;
   margin-bottom: 15px;
   padding: 0;
   display: flex;
   align-items: center;
   background-image: url("surf_drone3.jpg");
+  height: 60vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 0.85;
+}
+
+.background-yoga{
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-image: url("yoga1.jpg");
+  height: 60vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 0.85;
+}
+
+.background-scuba {
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-image: url("scuba1.jpg");
   height: 60vh;
   width: 100%;
   background-position: center;

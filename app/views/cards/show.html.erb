@@ -1,10 +1,28 @@
 <!-- TOP BANNER -->
-<div class="background">
-  <div class="bg-text">
-    <h3><%= @card.activity_title %></h3>
-    <p>"<%=@card.short_description%>"</p>
-  </div>
-</div>
+<% @disciplines.each do |discipline| %>
+  <% if discipline.id == 1 %> 
+    <div class="background-surf">
+      <div class="bg-text">
+        <h3><%= @card.activity_title %></h3>
+        <p>"<%=@card.short_description%>"</p>
+      </div>
+    </div>
+  <% elsif discipline.id == 2 %> 
+    <div class="background-yoga">
+      <div class="bg-text">
+        <h3><%= @card.activity_title %></h3>
+        <p>"<%=@card.short_description%>"</p>
+      </div>
+    </div>
+  <% else discipline.id == 3 %> 
+    <div class="background-scuba">
+      <div class="bg-text">
+        <h3><%= @card.activity_title %></h3>
+        <p>"<%=@card.short_description%>"</p>
+      </div>
+    </div>
+  <%end%>
+<%end%>
 
 <!-- DISCIPLINE -->
 <div class="container_sl">
