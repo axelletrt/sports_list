@@ -61,8 +61,8 @@ function display_contact() {
     }
 }
 
-// DROPDOWN MENU 
-$(document).ready(function() {
-    $(".dropdown-toggle").dropdown();
-});
+// // DROPDOWN MENU 
+// $(document).ready(function() {
+//     $(".dropdown-toggle").dropdown();
+// });
 
