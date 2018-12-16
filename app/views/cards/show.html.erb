@@ -147,20 +147,18 @@
   </div>
 
   <div class="sidebar">
-    <div id="contact_info">
-
-      <div>
+    <div id="contact_info">   
         <div class="contact_picture">
           <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
         </div> 
         <div id="contact_name">
           <%= @card.professional.user.first_name%> <br>
+        </div>
+        <div class="card-org">
           <%= @card.organization %> <br>
           <% @disciplines.each do |discipline| %><%= discipline.name %>
-          <% end %>
-        </div> 
-      </div>
-
+          <% end %>  
+        </div>
         <button class="display_contact_button" onclick="display_contact()">Book your session !</button>
         <div id="display_contact_info">
           <ul>
