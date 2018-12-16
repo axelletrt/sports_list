@@ -13,11 +13,11 @@
   <% @disciplines.each do |discipline| %>
     <div class="homethumbnail">
   <div class="discipline-title-hp"> <a href="/disciplines/<%=discipline.id%>"><%= discipline.name %></a></div>
-   <% if discipline.id == 0 %> 
+   <% if discipline.id == 1 %> 
     <p class="discipline-desc">Discover surfing in Bali, whether you are a beginner looking to get your first surf lesson or a skilled surfer hoping to get barreled at one of Bali’s legendary spots.</p>
-  <% elsif discipline.id == 1 %> 
+  <% elsif discipline.id == 2 %> 
     <p class="discipline-desc">Immerse yourself into the Island of Gods sacred culture by practicing any type of yoga in Bali.</p>
-  <% else discipline.id == 2 %> 
+  <% else discipline.id == 3 %> 
       <p class="discipline-desc">Manta rays, Mola Mola (sunfish), schooling fish, an incredible wreck and colourful reefs will leave even the most seasoned of divers spell bound.</p>
   <%end%>
     <div class="container home">
