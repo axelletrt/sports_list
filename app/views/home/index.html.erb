@@ -21,7 +21,7 @@
       <p class="discipline-desc">Manta rays, Mola Mola (sunfish), schooling fish, an incredible wreck and colourful reefs will leave even the most seasoned of divers spell bound.</p>
   <%end%>
     <div class="container home">
-      <% discipline.cards.each  do |card| %>
+      <% discipline.cards.first(4).each  do |card| %>
         <div class="card-deck">
           <%= link_to card_path(card.id) do %>
           <%= render partial: "cards/thumbnail", locals: {card: card} %>
