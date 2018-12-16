@@ -1,76 +1,12 @@
-<%= form_for(@cards) do |f| %>
+<%= render 'cards/pro-form' %>
 
-	<%= f.label :Discipline %>
-	<%= f.collection_select :id, Discipline.order(:name), :id, :name, {include_blank: false}, {class: "form-control"} %>
-
-	<%= f.label :activity_title %><br>
-	<%= f.text_field :activity_title %><br>
-
-	<%= f.label :short_description %><br>
-	<%= f.text_field :short_description %><br>
-
-	<%= f.label :long_description %><br>
-	<%= f.text_field :long_description %><br>
-
-	<%= f.label :organization %><br>
-	<%= f.select :organization, Card.organizations.keys %><br>
-
-	<%= f.label :address %><br>
-	<%= f.text_field :address %><br>
-
-	<div id="map"> 
-	
-	</div> 
-
-
-	<%= f.label :city %><br>
-	<%= f.select :city, Card.cities.keys %><br>
-
-	<%= f.label :country %><br>
-	<%= f.text_field :country %><br>
-
-	<%= f.label :price %><br>
-	<%= f.text_field :price %><br>
-
-	<%= f.label :length %><br>
-	<%= f.text_field :length %><br>
-
- 	Oppening hours: <input type="time" id="appt" value="<%= form_authenticity_token %>" name="appt" min="00:00" max="23:59">
-
- 	Closing hours: <input type="time" id="appt2" value="<%= form_authenticity_token %>" name="appt2" min="00:00" max="23:59"> <br>
-
-
-	<%= f.label :whatsapp %><br>
-	<%= f.text_field :whatsapp %><br>
-
-	<%= f.label :facebook %><br>
-	<%= f.text_field :facebook %><br>
-
-	<%= f.label :instagram %><br>
-	<%= f.text_field :instagram %><br>
-
-			
-	<input type="hidden"  id="lat" name="lat" />
-	<input type="hidden"  id="lng" name="lng"/>
-
-
-	   <%= f.submit %><br>
-
-<% end %> 	
-
-<<<<<<< HEAD
-
-	  
-
-
-=======
 <script>
 	const input = document.getElementById('card_address')
 
 	var map = new google.maps.Map(document.getElementById('map'), {
-   		center: {lat: -8.6, lng: 115},
-   		zoom: 9
- 	})
+		center: {lat: -8.6, lng: 115},
+		zoom: 9
+	})
 	const autocomplete = new google.maps.places.Autocomplete(input)
 	autocomplete.bindTo('bounds', map)
 	const geocoder = new google.maps.Geocoder()
@@ -81,8 +17,8 @@
 	})
 
 	autocomplete.addListener('place_changed', function() {
-	    marker.setVisible(false);
-    	var place = autocomplete.getPlace();
+		marker.setVisible(false);
+		var place = autocomplete.getPlace();
 		if (!place.geometry) {
 			window.alert("No details available for input: '" + place.name + "'");
 			return;
@@ -97,7 +33,7 @@
 		marker.setPosition(place.geometry.location);
 		marker.setVisible(true);
 		let data = parseLocation(place)
-   		fillField(data)
+		fillField(data)
 	})
 
 	let clicks = 0, timer
@@ -108,8 +44,8 @@
 			//wait for a second clic- if second clic, cleqr timeout otherwise run the function
 			timer = setTimeout(function(){
 				marker.setPosition(event.latLng)
-				marker.setVisible(true)	
-			
+				marker.setVisible(true)
+
 				let data ={}
 				data.long = event.latLng.lng
 				data.lat = event.latLng.lat
@@ -128,19 +64,71 @@
 		clicks=0
 	})
 
-
 	function parseLocation(item){
 		let data ={}
 		data.long = item.geometry.location.lng()
 		data.lat = item.geometry.location.lat()
 
 		return data
-  	}
+	}
 
 	function fillField(data){
 		$('#lat').val(data.lat)
 		$('#lng').val(data.long)
 	}
+</script>
 
-</script>  
->>>>>>> development
+
+<script>
+	$('.step1').show();
+	$('.step2').hide();
+	$('.step3').hide();
+	$('.last_buttons').hide();
+
+	$('#back_step2').on("click", function(e){
+		e.preventDefault();
+		$('.step2').addClass("disappear-step");
+		$('.step2').removeClass("appear-step");
+		$('.step2').removeClass("appear-back-step");
+
+		$('.step1').removeClass("disappear-step");
+		$('.step1').removeClass("appear-step");
+		$('.step1').addClass("appear-back-step");
+
+		$('.step1').show();
+		$('.step2').hide();
+		$('.step3').hide();
+
+
+	})
+	$('#back_step3').on("click", function(e){
+		e.preventDefault();
+		$('.step2').removeClass("disappear-step");
+		$('.step2').removeClass("appear-step");
+		$('.step2').addClass("appear-back-step");
+
+		$('.step1').hide();
+		$('.step2').show();
+		$('.step3').hide();
+	})
+
+	$("#map").hide();
+	var addressChanged = false;
+	var cityChanged = false;
+	$('#card_address').on("input", function(){
+		addressChanged = true;
+		console.log(addressChanged)
+		console.log(cityChanged)
+		if(addressChanged && cityChanged){
+			$("#map").show();
+		}
+	});
+
+	$("#card_city").change(function(){
+		cityChanged = true;
+		if(addressChanged && cityChanged){
+			$("#map").show();
+			$('.last_buttons').show();
+		}
+	})
+</script>

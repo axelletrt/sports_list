@@ -1,6 +1,15 @@
+<div class="discipline-title">
+  <h1><%= @discipline.name  %></h1>
+</div>
+
+<div class="container">
+  <div class="card-deck">
+    <% @cards.each do |card| %>
+	    <%= link_to card_path(card.id) do %>
+        <%= render partial: "cards/thumbnail", locals: {card: card} %>
+	    <% end %>
+	  <% end %>
+  </div>
+</div>
 
 
-
-<% @cards.each do |card| %>
-  <%= card.activity_title %>
-<% end %>

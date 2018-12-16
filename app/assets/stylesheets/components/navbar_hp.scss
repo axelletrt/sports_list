@@ -1,0 +1,102 @@
+#nav_hp {
+  position: absolute;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  z-index: 10;
+  color: white;
+  width: 100%;
+  height: auto;
+  max-height: 70px;
+  letter-spacing: 1px;
+
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+#navbarSupportedContent {
+    background-color: white !important;
+    opacity: 0.95;
+    border-radius: 10px 10px;
+    @media (min-width: 991px) {
+      background-color: transparent !important;
+      margin-top: 7px;
+  }
+}
+
+.logo {
+  vertical-align: bottom;
+  border-radius: 50%;
+  width: 18%;
+  margin-right: 15px;
+    @media (min-width: 991px) {
+    width: 22%;
+    
+  }
+}
+
+.nav-item {
+  align-items: center;
+  display: table-cell!important;
+  vertical-align: middle; 
+  padding-top: 0px!important;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+#name_logo {
+  font-size: 1.8em;
+  margin-right: 15px;
+}
+}
+
+#experience_button {
+      @media (min-width: 991px) {
+      background-color: white;
+      opacity: 0.9;
+      border-radius: 60px 60px;
+      vertical-align: middle;
+      }
+}
+
+#navbardrop-hp {
+  color: black !important;
+    @media (min-width: 991px) {
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+      color: white !important;
+    }
+}
+
+.nav-link-img-hp {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  margin-top: 25px;
+}
+
+.dropdown-menu {
+  opacity: 0.9;
+  border: none !important;
+  min-width: 7rem !important;
+}
+
+.dropdown-toggle::after {
+  margin-left: 1em !important;
+}
+
+.log-hp {
+  color: black !important;
+  display: block;
+  padding: 0.5rem 1rem;  
+    @media (min-width: 991px) {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: white !important;
+  }
+}
+
+.navbarhome {
+    display: table !important;
+  }

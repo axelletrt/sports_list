@@ -1,0 +1,103 @@
+<div class="modal fade" id="signUpModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign Up</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="field">
+          <%= f.label :profile_picture %><br/>
+          <%= f.file_field :avatar%>
+        </div>
+        <div class="field">
+          <%= f.text_field :username, placeholder: "Username", :pattern => '[a-zA-Z0-9\-_]{3,20}' %>
+          <span class="error-message-sign_up">error</span><br>
+        </div>
+        <div class="field">
+          <%= f.text_field :first_name, placeholder: "First name", :pattern => '[a-zA-Z\-_ ]{3,20}' %>
+          <span class="error-message-sign_up">error</span><br>
+        </div>
+        <div class="field">
+          <%= f.text_field :last_name, placeholder: "Last name", :pattern => '[a-zA-Z\-_ ]{3,25}' %>
+          <span class="error-message-sign_up">error</span><br>
+        </div>
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+          <span class="error-message-sign_up">error</span><br>
+        </div>
+        <div class="field">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+          <span class="error-message-sign_up">error</span><br>
+        </div>
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
+          <span class="error-message-sign_up">error</span><br>
+        </div>
+        <div class="field">
+          <a class="" data-toggle="modal" data-target="#logInModal" data-dismiss="modal">Already an account?</a>         
+        </div>
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'btn btn-sign', id: 'submit_sign_up' %>
+          <span class="error-message-sign_up">error</span><br>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $("#submit_sign_up").click(function(){
+        valid = true;
+        if ($("#user_username").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null) {
+          $("#user_username").css("border-color", "#FF0000");
+          $("#user_username").next().html("<br>Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#user_username").css("border-color", "#008000");
+          $("#user_username").next().html("<br>Invalid field").hide();
+        }
+
+        if ($("#user_first_name").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null) {
+          $("#user_first_name").css("border-color", "#FF0000");
+          $("#user_first_name").next().html("<br>Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#user_first_name").css("border-color", "#008000");
+          $("#user_first_name").next().html("<br>Invalid field").hide();
+        }
+
+        if ($("#user_last_name").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null) {
+          $("#user_last_name").css("border-color", "#FF0000");
+          $("#user_last_name").next().html("<br>Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#user_last_name").css("border-color", "#008000");
+          $("#user_last_name").next().html("<br>Invalid field").hide();
+        }
+
+        if ($("#user_email").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null) {
+          $("#user_email").css("border-color", "#FF0000");
+          $("#user_email").next().html("<br>Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#user_email").css("border-color", "#008000");
+          $("#user_email").next().html("<br>Invalid field").hide();
+        }
+        return valid;
+      });
+  });
+</script>

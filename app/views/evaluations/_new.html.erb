@@ -1,0 +1,22 @@
+<div class="comments">
+    @<%= current_user.username %><br>
+    Your review will be posted publicity on the web.
+ <div class="eval_stars">
+     <%= form_for :evaluation, url: {controller: 'evaluations', action: 'create'}, :remote => true do |f| %>
+     <fieldset class="rating">
+        <input type="radio" id="star5" name="evaluation[eval]" value= "5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="star4" name="evaluation[eval]" value= "4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="star3" name="evaluation[eval]" value= "3" /><label class = "full" for="star3" title="Not very good - 3 stars"></label>
+        <input type="radio" id="star2" name="evaluation[eval]" value="2" /><label class = "full" for="star2" title="Bad - 2 stars"></label>
+        <input type="radio" id="star1" name="evaluation[eval]" value= "1" /><label class = "full" for="star1" title="Awful- 1 star"></label>
+        <input type="radio" id="star0" name="evaluation[eval]" value= "0"/>
+    </fieldset>
+     <div class="field">
+         <%= f.text_area :content, placeholder:"Share details of your own experience"%>
+     </div>
+     <div class="">
+     <input type="submit" name="commit" value="POST" data-disable-with="Save Evaluation">
+          </div>
+         <% end %>
+ </div>
+ 

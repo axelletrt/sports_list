@@ -1,7 +1,6 @@
+# frozen_string_literal: true
+
 class Professional < ApplicationRecord
-  has_many :cards
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  belongs_to :user
+
 end

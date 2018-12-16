@@ -1,20 +1,41 @@
-<ul>
-    <% if professional_signed_in? %> 
-    <li> 
-    <%= link_to "Sign Out", destroy_professional_session_path, method: :delete %>
-    </li>
-    <li>
-        <%= current_professional.email %> 
-    </li> 
-        <%= link_to "Edit Account", edit_professional_registration_path %> 
-    </li> 
-    <% else %> 
-    <%= link_to "sign in", new_professional_session_path %>
-    </li> 
-    <li> 
-    <%= link_to "sign up", new_professional_registration_path %> 
-    </li> 
-    
-    <% end %> 
-</ul>
+<!-- TOP BANNER -->
+<div class="background_lp">
+<h3>DISCOVER LOCAL SPORTS IN BALI</h3>
+  <%= form_for @search do |f| %>
+    <div class="center-on-page">
+      <%= f.collection_select(:discipline_id, Discipline.all, :id, :name,{ prompt: "Select a sport" }, :class => "capitalize")  %>
+      <%= f.submit "Search" ,class:"search_btn_sub"%>
+    </div>
+  <% end %>
+</div>
+  <!-- Partial Thumbnail : Modification by Axelle with Dorian, please keep it--> 
+  <div class="allcards"> 
+  <% @disciplines.each do |discipline| %>
+    <div class="homethumbnail">
+  <div class="discipline-title-hp"> <a href="/disciplines/<%=discipline.id%>"><%= discipline.name %></a></div>
+   <% if discipline.id == 1 %> 
+    <p class="discipline-desc">Discover surfing in Bali, whether you are a beginner looking to get your first surf lesson or a skilled surfer hoping to get barreled at one of Bali’s legendary spots.</p>
+  <% elsif discipline.id == 2 %> 
+    <p class="discipline-desc">Immerse yourself into the Island of Gods sacred culture by practicing any type of yoga in Bali.</p>
+  <% else discipline.id == 3 %> 
+      <p class="discipline-desc">Manta rays, Mola Mola (sunfish), schooling fish, an incredible wreck and colourful reefs will leave even the most seasoned of divers spell bound.</p>
+  <%end%>
+    <div class="container home">
+      <% discipline.cards.each  do |card| %>
+        <div class="card-deck">
+          <%= link_to card_path(card.id) do %>
+          <%= render partial: "cards/thumbnail", locals: {card: card} %>
+          <% end %> 
+        </div>
+      <%end%>
+      </div>
+      <div class="link-to-list">
+      <a href="/disciplines/<%=discipline.id%>">See all <%=discipline.name%> experiences </a>
+      <i class="fas fa-angle-double-right"></i>
+            </div>
+      </div>
+      <% end%>
+    </div>
+</div>
 
+<!-- end of the code you should keep --> 

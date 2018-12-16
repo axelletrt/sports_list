@@ -1,14 +1,21 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
 
-	#routes brouillons
-  root to: "static#Index"
-  get 'home/index'
+  root 'home#index'
 
-  #routes à sauvegarder
-  devise_for :professionals
-
-  resources :cards, only: [:index, :show, :create, :new, :edit, :update]
+  resources :searches
+  resources :evaluations
+  resources :account, only: [:index]
+  resources :my_activity, only: [:index]
+  resources :cards
   resources :disciplines, only: [:show]
-  post '/cards/:id', to: 'evaluations#create'
+  post 'cards/:id', to: 'evaluations#create'
+  post 'disciplines/:id', to: 'evaluations#show'
+  post 'home', to: 'evaluations#show'
 
+  devise_for :users,
+  controllers: { sessions: 'users/sessions',
+                 registrations: 'users/registrations',
+                 passwords: 'users/passwords' }
 end

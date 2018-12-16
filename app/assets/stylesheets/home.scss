@@ -1,3 +1,180 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+
+.container {
+  max-width: 1280px;
+  display: flex;
+  color:  #05282e;
+}
+
+
+.home {
+  margin-left: 0 !important;
+}
+
+
+/*__________BANNER TOP__________*/
+
+.background_lp {
+  margin: 0;
+  padding: 0;
+  background-image: url("lp-banner.jpg");
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.background_lp h3 {
+  font-size: 2.5em;
+  color: white;
+  text-align: center; 
+  position: absolute; 
+  top: 18%;
+  width: 100%;
+  letter-spacing: 3px;
+    @media (min-width: 991px) {
+        font-size: 3em;
+  }
+}
+
+.activity_lp {
+  padding-top: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.activity_lp h3 {
+  padding-right: 30px;
+}
+
+
+/*__________Search BAR__________*/
+
+
+.center-on-page {
+  width: 500px !important;
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%,-50%);  
+    @media (max-width: 991px){
+       max-width: 300px;
+     }    
+}
+
+#search_discipline_id{
+  outline: 0;
+  box-shadow: none;
+  border: 0.5px solid lightgray;
+  background: white;
+  background-image: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 40px;
+  font-size: 1em;
+   
+}  
+
+.search_btn_sub{
+  min-width: 20% !important;
+  border: none;
+  background-color: #d14734;
+  border-radius: 5px;
+  letter-spacing: 0.8px;
+  font-size: 15px;
+  padding: 0 20px;
+  height: 40px;
+  color: white;
+  margin-left: 10px;
+  font-size: 1em;
+     @media (max-width: 991px){
+     margin-top: 10px;
+     margin-left: 0px;
+   }
+}
+
+
+.search_btn_sub:hover {
+  opacity: 0.9 !important;
+}
+
+.center-on-page {
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+
+
+/*__________CARDS DISPLAY__________*/
+/*New css by Axelle, please keep it*/
+
+
+
+.discipline-title-hp {
+  margin-top: 6vh;
+  padding-right: 40%;
+  padding-left: 30px;
+  text-transform: uppercase; 
+    @media (min-width: 991px) {
+    padding-right: 40%;
+    }
+}
+
+.discipline-title-hp a {
+  font-size: 1.6rem;  
+  letter-spacing: 3px;
+  font-weight: 700;
+
+}
+
+.link-to-list {
+  margin-top: 0;
+  padding-left: 30px;    
+    @media (min-width: 991px) {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 3vh;
+    }
+}
+
+.fas {
+  vertical-align: middle;
+  font-size: 1.3em;
+}
+
+.bottom-line {
+  margin-right: 20%;
+  margin-left: 20%;
+  border: 1px solid #e6e6e6;
+
+}
+
+.discipline-desc {
+  padding-top: 8px;
+  padding-left: 30px;
+}
+
+.allcards {
+  padding-left: 50px;
+
+}
+
+.homethumbnail {
+  margin-top: 15vh; 
+}
+
+

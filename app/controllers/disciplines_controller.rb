@@ -1,8 +1,11 @@
 class DisciplinesController < ApplicationController
-  def show
-    cards = Card.all
-    sport_cards_id = CardsDiscipline.where(discipline_id: params[:id]).pluck(:card_id)
-    # only sport cards asked by the visitor
-    @cards = cards.find(sport_cards_id)
+  def index
+    @disciplines = Discipline.all
   end
-end
+
+  def show
+    #simplified code by Dorian : To display Discipline.cards 
+    @discipline = Discipline.find(params[:id])
+    @cards = @discipline.cards
+  end 
+end 

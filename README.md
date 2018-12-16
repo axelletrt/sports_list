@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Sport-list
 
-Things you may want to cover:
+Sport-List est un projet consistant à créer un annuaire de clubs ou coach sportifs à Bali.
 
-* Ruby version
+L'application à un intérêt pour les professionnels qui peuvent gagner en visibilité (notamment auprès des touristes et digitals nomades) et bien entendu pour les utilisateurs à la recherche d'activités sportives.
 
-* System dependencies
+A terme, l'application a pour but de devenir payante pour les professionnels. 
 
-* Configuration
+Les principales fonctionnalités de l'application sont:
 
-* Database creation
+Un visiteur peut :
+  - Effectuer une recherche par discipline
+  - Trouver un coach ou un club qui l'intéresse et le contacter directement
+  - s'inscrire
+Un utilisateur peut en plus:
+  - Laisser des commentaires
+  - Proposer sa propre activité et devenir professionnel
+Un professionnel peut:
+  - éditer son ou ses activitée(s)
 
-* Database initialization
+Collaborateur sur ce projet:
 
-* How to run the test suite
+- Axelle
+- Charlotte
+- Cyril
+- Shayane
+- Olivier
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Lien de l'application: https://sports-list.herokuapp.com/

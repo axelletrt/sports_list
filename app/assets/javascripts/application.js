@@ -13,8 +13,11 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//*= require mapbox-gl
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+
 
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -57,4 +60,10 @@ function display_contact() {
         x.style.display = "none";
     }
 }
+
+// DROPDOWN MENU 
+
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
 

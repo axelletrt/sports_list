@@ -1,3 +1,432 @@
-// Place all the styles related to the cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+
+  font-weight: 300;
+}
+
+.container_sl {
+  display: flex;
+  color:  #05282e;
+  margin: auto;
+  justify-content: space-between;
+}
+.content{
+  width:100%;
+  @media (min-width:990px){
+    width: 60%;
+  }
+}
+.sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  @media (min-width: 991px) {
+    min-width: 350px;
+    position: static;
+    height: auto;
+    float: right;
+  }
+}
+
+a:link {
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+/*__________BANNER TOP__________*/
+
+.background {
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-image: url("surf_drone3.jpg");
+  height: 60vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 0.85;
+}
+
+.background h3 {
+  font-size: 2em;
+  @media (min-width: 991px) {
+      font-size: 3em;
+  }
+}
+
+.bg-text {  
+  margin-left: 10%;
+  color: white; 
+  font-size: 1.3em;
+}
+
+/*__________CONTACT__________*/
+
+#contact_info { 
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  font-size: 0.9em;
+  list-style-type: none;
+  padding: 0;
+  box-shadow: 0 3px 27px -5px rgba(50,50,50,.4);
+  @media (min-width: 991px) {
+    position: fixed;
+    width: 350px;
+    background-color: white;
+    font-size: 0.9em;
+    list-style-type: none;
+    padding: 30px;
+    top: 35vh;
+    z-index: 1;
+  }
+}
+
+#contact_name {
+  display: flex;
+  float: right;
+  padding-right: 20px;
+  padding-top: 0;
+  padding-left: 15px; 
+  color:  #404040;
+  font-size: 1.7em;
+  @media (min-width: 991px) {
+      display: flex;
+      float: left;
+      color:  #404040;
+      padding-top: 0;
+      margin-bottom: 0;
+  } 
+}
+
+.coach_picture {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  float: center;
+   @media (min-width: 991px) {
+     display: flex;
+     float: right;
+     max-width: 27%;
+     border-radius: 50%;
+     top: 40px;
+  } 
+}
+
+.display_contact_button {
+  border: none; 
+  background-color:  #d14734; 
+  border-radius: 60px 60px;
+  color: white;
+  padding: 10px 70px;
+  font-weight: bold;
+  margin-top: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 1.5%;
+    @media (min-width: 991px) {
+    background-color: #d14734;
+    border-radius: 60px 60px;
+    color: white;
+    padding: 10px 70px;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        opacity: 0.9; 
+        cursor: pointer;
+      }  
+    } 
+}
+
+#display_contact_info {
+    text-align: center;
+    background-color: white;
+    margin-top: 20px;
+    display: none;
+  ul {
+    list-style-type: none;
+    padding:0;
+  }
+}
+
+
+/*__________CONTACT BUTTON__________*/
+
+#icon {
+  color: #073d46;
+  padding: 20px;
+  font-size: 1.2em;
+}
+
+#icon:hover {
+  opacity: 0.8;
+}
+
+/*__________DISCIPLINE__________*/
+
+.activity {
+  margin-top: 60px;
+  font-size: 1.3em;
+}
+
+.activity h1 {
+  font-weight:500;
+  line-height: 1.2; 
+  color:inherit; 
+}
+
+/*__________DESCRIPTION__________*/
+
+#description_text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 45px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+/*__________PRACTICAL INFORMATION__________*/
+
+
+.practical_info {
+  margin-top: 80px; 
+}
+
+#practical_info {
+  margin-top: 45px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-around; 
+  padding: 5px; 
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+#practical_info div {
+  margin-bottom: 20px; 
+}
+
+#practical_info span {
+  font-weight: bold;
+}
+
+/*__________CAROUSEL__________*/
+
+/* Position the image container (needed to position the left and right arrows) */
+#slideshow {
+  margin-top: 35px;
+  padding: 0;
+  position: relative;
+}
+.mainslide{
+  position:relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  margin: auto 40px;
+  display: none;
+  border-radius: 0 3px 3px 0;
+}
+.mySlides img{
+  height: 420px;
+  object-fit: cover;
+}
+.mySlides:first-child {
+  display: block;
+}
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: calc( 50% - 23px );
+  width: auto;
+  padding: 0 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  &:hover{
+    svg path{
+      fill: rgba(0,0,0,1)
+    }
+  }
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+}
+.prev svg,.next svg{
+  width: 20px;
+}
+.prev svg path,.next svg path{
+  fill: rgba(0,0,0,0.7);
+  transition: 0.2s ease-in;
+}
+.prev svg{
+  transform: rotate(180deg)
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#slideshow_bottom {
+  display: flex;
+  flex-wrap: nowrap;
+  // justify-content: space-around;
+  overflow-x: scroll;
+  padding: 0;
+  padding-top: 10px;
+  margin: auto 40px;
+}
+
+.column {
+  float: left;
+  height: 80px;
+  width: 160px;
+  padding: 0;
+  margin-right: 10px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+.demo {
+  opacity: 0.6;
+  padding-top: 5px;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.comments {
+  padding-top: 50px;
+  display: inline-grid;
+  float: center;
+}
+
+.evaluation {
+    margin-top: 80px; 
+}
+
+.evaluation_button {
+  border:none; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:auto;  
+  color: #fff;   
+  border-color: #26cfe7;
+  background-color: #26cfe7;
+/*  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  padding-left: 20px; 
+  border-radius: 60px 60px;
+  cursor: pointer;
+}
+
+.evaluation_button:hover {
+  background-color:  #14b5cc;
+  border-color: #14B5CC;
+  border-radius: 60px 60px;
+}
+
+.unique_comment {
+  display: flex; 
+  flex-direction: row;
+  .stars{
+    width:165px;
+  }
+  .stars > label {
+    float: left;
+  }
+}
+.user{
+  display: flex;
+  flex-direction: column;
+  padding: 6px 12px;
+}
+.firstline {
+  display: flex; 
+}
+
+.starscore {
+  display: flex;
+}
+.score, .publication {
+  line-height: 36px; 
+  margin-left: 20px; 
+}
+
+
+.carrousel {
+  width: 450px;
+  height: 400px;
+  object-fit: cover;
+  padding: 0;
+}
+
+.demo {
+  object-fit: cover;
+}
+
+
+.text {
+  display: flex; 
+  flex-direction: column; 
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.container_sl h3{
+  color: #8d8b8b;
+  font-weight: 600; 
+}

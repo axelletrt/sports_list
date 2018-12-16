@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCards < ActiveRecord::Migration[5.2]
   def change
     create_table :cards do |t|
@@ -10,7 +12,7 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.integer :country, default: 0
       t.decimal :latitude, optional: true
       t.decimal :longitude, optional: true
-      t.string :price
+      t.integer :price
       t.time :length
       t.time :opening_hour, optional: true
       t.time :closing_hour, optional: true
@@ -19,8 +21,8 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string :facebook, optional: true
       t.string :instagram, optional: true
       t.boolean :status, default: false
-      t.belongs_to :professional, index: true  
-      t.belongs_to :discipline, index: true   
+      t.belongs_to :professional, index: true
+      t.boolean :draft, default: false
       t.timestamps
     end
   end

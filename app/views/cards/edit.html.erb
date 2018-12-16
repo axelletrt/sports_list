@@ -1,10 +1,110 @@
+<%= render 'cards/pro-form' %>
 
-	<%= form_for(cards_path) do |f| %>
-	  <%= f.label 'Article Title' %><br>
-	  <%= f.text_field :long_description %><br>
+<%= link_to "Delete the card", card_path, method: :delete , class: "delete_card_btn"%>
 
-	  <%= f.label 'Article Description' %><br>
-	  <%= f.text_area :short_description %><br>
 
-	  <%= f.submit "Submit Update card" %>
-	<% end %>
+<script>
+	const input = document.getElementById('card_address')
+	var map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: -8.6, lng: 115},
+		zoom: 9
+	})
+	const autocomplete = new google.maps.places.Autocomplete(input)
+	autocomplete.bindTo('bounds', map)
+	const geocoder = new google.maps.Geocoder()
+	var marker = new google.maps.Marker({
+		map: map,
+		anchorPoint: new google.maps.Point(0, -29)
+	})
+	autocomplete.addListener('place_changed', function() {
+		marker.setVisible(false);
+		var place = autocomplete.getPlace();
+		if (!place.geometry) {
+			window.alert("No details available for input: '" + place.name + "'");
+			return;
+		}
+		if (place.geometry.viewport) {
+			map.fitBounds(place.geometry.viewport)
+		} else {
+			map.setCenter(place.geometry.location)
+			map.setZoom(19)
+		}
+		marker.setPosition(place.geometry.location);
+		marker.setVisible(true);
+		let data = parseLocation(place)
+		fillField(data)
+	})
+	let clicks = 0, timer
+	google.maps.event.addListener(map, 'click', function(event) {
+		clicks++
+		if(clicks === 1){
+			//wait for a second clic- if second clic, cleqr timeout otherwise run the function
+			timer = setTimeout(function(){
+				marker.setPosition(event.latLng)
+				marker.setVisible(true)
+				let data ={}
+				data.long = event.latLng.lng
+				data.lat = event.latLng.lat
+				fillField(data)
+				clicks=0
+			},200)
+		} else {
+			clearTimeout(timer)
+			clicks=0
+		}
+	})
+	google.maps.event.addListener(map, 'dblclick', function(event) {
+		clearTimeout(timer)
+		clicks=0
+	})
+	function parseLocation(item){
+		let data ={}
+		data.long = item.geometry.location.lng()
+		data.lat = item.geometry.location.lat()
+		return data
+	}
+	function fillField(data){
+		$('#lat').val(data.lat)
+		$('#lng').val(data.long)
+	}
+</script>
+
+<script>
+	$('.step1').show();
+	$('.step2').hide();
+	$('.step3').hide();
+
+
+	$('#back_step2').on("click", function(e){
+		e.preventDefault();
+		$('.step2').removeClass("appear-step");
+		$('.step2').addClass("disappear-step");
+		$('.step1').show();
+		$('.step2').hide();
+		$('.step3').hide();
+	})
+	$('#back_step3').on("click", function(e){
+		e.preventDefault();
+		$('.step1').hide();
+		$('.step2').show();
+		$('.step3').hide();
+	})
+
+	$("#map").hide();
+	var addressChanged = false;
+	var cityChanged = false;
+	$('#card_address').on("input", function(){
+		addressChanged = true;
+		console.log(addressChanged)
+		console.log(cityChanged)
+		if(addressChanged && cityChanged){
+			$("#map").show();
+		}
+	});
+	$("#card_city").change(function(){
+		cityChanged = true;
+		if(addressChanged && cityChanged){
+			$("#map").show();
+		}
+	})
+</script>

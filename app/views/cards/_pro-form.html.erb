@@ -1,0 +1,321 @@
+<div class="container-formulaire">
+    <h1 class="title-formulaire">Offer an experience</h1>
+<div class="formulaire">
+    <div class="inner-form">
+    <div id="test"></div>
+    <%= form_for(@card, :html => {:id => 'card_form'}) do |f| %>
+    <div class="form-group">
+        <div class="step1 step">
+            <%= f.label :Discipline, :id => 'label-title' %><br>
+            <%= f.collection_check_boxes :disciplines, @disciplines.order(:name), :id, :name do |b| %>
+        <%= b.label(class:"label-checkbox disciplines_checkbox") { b.check_box + b.text } %>
+            <% end %>
+            <span class="error-message">error</span><br>
+
+            <%= f.label :Languages, :id => 'label-title' %><br>
+            <%= f.collection_check_boxes :spoken_languages, @languages.order(:name), :id, :name do |b| %>
+                <%= b.label(class:"languages_checkbox") { b.check_box + b.text } %>
+            <% end %>
+						<span class="error-message">error</span><br>
+
+			<%= f.label :activity_title, :id => 'label-title' %><br>
+			<%= f.text_field :activity_title, placeholder: '5 - 30 characters' %>
+				<span class="error-message">error</span><br>
+
+
+			<%= f.label :short_description, :id => 'label-title' %>
+			<%= f.text_area :short_description, id: 'short_description', placeholder: '10 - 100 characters' %> <!-- any characters (10 - 100) -->
+				<span class="error-message">error</span><br>
+
+			<%= f.label :long_description, :id => 'label-title' %><br>
+			<%= f.text_area :long_description, id: 'long_description', placeholder: '300 - 1000 characters' %> <!-- any characters (300 - 1000) -->
+				<span class="error-message">error</span><br>
+
+
+            <%= f.label :organization, :id => 'label-title' %><br>
+            <%= f.select :organization, Card.organizations.keys %><br> <!-- -->
+
+			<%= f.label :price, :id => 'label-title' %><br>
+			<%= f.text_field :price, id: 'price', placeholder: 'ex: 200000' %> <!-- any number (1 - 6) (see with roupies) -->
+				<span class="error-message">error</span><br>
+
+            <%= f.label :length, :id => 'label-title' %><br>
+            <%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %>
+						<span class="error-message">error</span><br>
+
+            <%= f.label "Opening hour", :id => 'label-title' %><br>
+            <%= f.time_select :opening_hour, {minute_step: 15} %><br>
+
+			<%= f.label "Closing hour", :id => 'label-title' %><br>
+			<%= f.time_select :closing_hour, {minute_step: 15} %>
+			<span class="error-message">error</span><br>
+      
+      <div class="card-upload-pic">
+		  	<%= f.label :photos, :id => 'label-title' %><br>
+			  <%= f.file_field :photos, id: 'gallery-photo-add', multiple: true, class: "pp-box" %><br>
+      </div>
+         
+           <div class="gallery"></div>
+
+
+            <button class="btn-step" id="next_step1">Next Step</button>
+		</div>
+
+		<div class="step2 step">
+			<%= f.label :whatsapp, :id => 'label-title' %><br>
+			<%= f.text_field :whatsapp, id: 'whatsapp', placeholder: '0676349823'%> <!-- only numbers between (10 - 14) -->
+			<span class="error-message">error</span><br>
+
+			<%= f.label :facebook, :id => 'label-title' %><br>
+			<%= f.text_field :facebook, id: 'facebook', placeholder: 'https://www.facebook.com/...' %>
+			<span class="error-message">error</span><br>
+
+			<%= f.label :instagram, :id => 'label-title' %><br>
+			<%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/...' %>
+			<span class="error-message">error</span><br>
+
+            <button id="back_step2" class="btn-step previous">Previous</button>
+            <button id="next_step2" class="btn-step">Next</button>
+
+        </div>
+
+        <div class="step3 step">
+            <%= f.label :address%><br>
+            <%= f.text_field :address, id: 'card_address' %> <!-- pattern: ???? for the moment -->
+						<span class="error-message">error</span><br>
+            <%= f.label :city, :id => 'label-title' %><br>
+            <%= f.select :city, Card.cities.keys, {id: "card_city", include_blank: true} %>
+						<span class="error-message">error</span><br>
+
+            <%= f.hidden_field :country %>
+            <div id="map">  <!-- Display Google map -->
+            </div>
+
+            <input type="hidden"  id="lat" name="lat" />
+            <input type="hidden"  id="lng" name="lng"/>
+
+            <button id="back_step3" class="btn-step">Previous</button><br>
+            <%= f.submit "save and publish", id: "publish" %>
+        </div>
+    </div>
+
+    <% end %>
+</div>
+</div>
+</div>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+<script type="text/javascript">
+  $("form").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+        return false;
+    }
+});
+</script>
+      
+<script type="text/javascript">     
+
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview)
+                                  .width(150)
+              .height(200);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+
+</script>
+
+
+<script>
+  $(document).ready(function() {
+    $(function(){
+      $("#next_step1").click(function(e) {
+        e.preventDefault();
+        valid = true;
+        var d_checkboxs = document.getElementsByName("card[disciplines][]");
+        var count = 0;
+        for(var i = 0, l = d_checkboxs.length; i < l; i++) {
+          if(d_checkboxs[i].checked) {
+            count++;
+          }
+        }
+        if(count == 0) {
+          $(".disciplines_checkbox").last().next().html("<br>You must select at least one discipline").show();
+          valid = false
+        }
+        else {
+          $(".disciplines_checkbox").last().next().html("<br>Invalid field").hide();
+        }
+
+        var l_checkboxs = document.getElementsByName("card[spoken_languages][]");
+        var count = 0;
+        for(var i = 0, l = l_checkboxs.length; i < l; i++) {
+          if(l_checkboxs[i].checked) {
+            count++;
+          }
+        }
+        if(count == 0) {
+          $(".languages_checkbox").last().next().html("<br>You must select at least one language").show();
+          valid = false
+        }
+        else {
+          $(".languages_checkbox").last().next().html("<br>Invalid field").hide();
+        }
+
+        if ($("#card_activity_title").val().match(/[a-zA-Z0-9\- ]{1,30}/) == null){
+          $("#card_activity_title").css("border-color", "#FF0000");
+          $("#card_activity_title").next().html("Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#card_activity_title").css("border-color", "#008000");
+          $("#card_activity_title").next().html("Invalid field").hide();
+        }
+        if ($("#short_description").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+          $("#short_description").css("border-color", "#FF0000");
+          $("#short_description").next().html("Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#short_description").css("border-color", "#008000");
+          $("#short_description").next().html("Invalid field").hide();
+        }
+        if ($("#long_description").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+          $("#long_description").css("border-color", "#FF0000");
+          $("#long_description").next().html("Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#long_description").css("border-color", "#008000");
+          $("#long_description").next().html("Invalid field").hide();
+        }
+        if ($("#price").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+          $("#price").css("border-color", "#FF0000");
+          $("#price").next().html("Invalid field").show();
+          valid = false;
+        }
+        else {
+          $("#price").css("border-color", "#008000");
+          $("#price").next().html("Invalid field").hide();
+        }
+
+        if (($('#card_length_4i').val() === "00") && (($('#card_length_5i').val()) === "00")) {
+          $('#card_length_5i').next().html('<br>You re activity should last at least 15 minutes').show();
+          valid = false;
+        }
+        else {
+          $('#card_length_5i').next().html('<br>You re activity should last at least 15 minutes').hide();
+        }
+
+
+        if ($('#card_opening_hour_4i').val() > $('#card_closing_hour_4i').val()) {
+          $('#card_closing_hour_5i').next().html('<br>You should open before you close').show();
+          valid = false;
+        }
+        else if ($('#card_opening_hour_4i').val() === $('#card_closing_hour_4i').val()) {
+          $('#card_closing_hour_5i').next().html('<br>You should be open at least 1 hour').show();
+        }
+        else
+        {
+          $('#card_closing_hour_5i').next().html('<br>You should open before you close').hide();
+        }
+
+        if (valid === true) {
+          $('.step2').addClass("appear-step");
+          $('.step2').removeClass("disappear-step");
+          $('.step1').hide();
+          $('.step2').show();
+          $('.step3').hide();
+        }
+      });
+    });
+    $("#next_step2").click(function(e){
+      e.preventDefault();
+      valid = true;
+      if ($("#whatsapp").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+        $("#whatsapp").css("border-color", "#FF0000");
+        $("#whatsapp").next().html("Invalid field").show();
+        valid = false;
+      }
+      else {
+        $("#whatsapp").css("border-color", "#008000");
+        $("#whatsapp").next().html("Invalid field").hide();
+      }
+
+      if ($("#facebook").val() == "") {
+        $("#facebook").css("border-color", "#C0C0C0");
+      }
+      else if ($("#facebook").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
+        $("#facebook").css("border-color", "#FF0000");
+        $("#facebook").next().html("Invalid field").show();
+        valid = false;
+      }
+      else {
+        $("#facebook").css("border-color", "#008000");
+        $("#facebook").next().html("Invalid field").hide();
+      }
+
+      if ($("#instagram").val() == "") {
+        $("#instagram").css("border-color", "#C0C0C0");
+      }
+      else if ($("#instagram").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null) {
+        $("#instagram").css("border-color", "#FF0000");
+        $("#instagram").next().html("Invalid field").show();
+        valid = false;
+      }
+      else{
+        $("#instagram").css("border-color", "#008000");
+        $("#instagram").next().html("Invalid field").hide();
+      }
+      if (valid === true) {
+        $('.step3').addClass("appear-step");
+        $('.step3').removeClass("disappear-step");
+        $('.step1').hide();
+        $('.step2').hide();
+    //    $('.last_buttons').hide();
+        $('.step3').show();
+      }
+    });
+    $("#publish").click(function(e){
+      valid = true;
+      if ($("#card_address").val().match(/[a-zA-Z0-9\- ]{1,100}/) == null){
+        $("#card_address").css("border-color", "#FF0000");
+        $("#card_address").next().html("Invalid field").show();
+        valid = false;
+      }
+      else {
+        $("#card_address").css("border-color", "#008000");
+        $("#card_address").next().html("Invalid field").hide();
+      }
+      if ($('#card_city').val() === "") {
+        $("#card_city").css("border-color", "FF0000")
+        $("#card_city").next().html("Invalid field").show();
+        valid = false;
+      }
+      else {
+        $("#card_city").next().html("Invalid field").hide();
+      }
+      return valid;
+    });
+  });
+</script>

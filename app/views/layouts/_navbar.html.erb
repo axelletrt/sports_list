@@ -1,24 +1,49 @@
 <link rel="stylesheet" type="text/css" href="/components/navbar.scss">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <%= image_tag "logo.png", class: "logo"%>
-  <a id= "name_logo">Sports List</a>
+<nav id="nav" class="navbar navbar-fixed-top navbar-expand-lg navbar-light">
+  <%= link_to root_path do %>
+  <%= image_tag("logo.png", class: "logo")%>
+  <span id= "name_logo">Sports List</span>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Become SL Coach</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Help</a>
+        <% if user_signed_in? %>
+        <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
+        <%else%>
+              <a id="experience_button" data-toggle="modal" data-target="#signUpModal" class="nav-link">Offer an experience</a>
+        <% end %> 
       </li>
     </ul>
-  </div>
+    <ul class="nav-logo">
+      <% if user_signed_in? %>  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <% if current_user.avatar.attached? %>
+              <div class="nav-link-img"> <%= image_tag current_user.avatar, height: 40, width: 40, class: "rounded-circle"%> 
+              </div>
+            <% end %> 
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-item"> <%= current_user.username %> </div>
+            <a> <%= link_to "My activity", my_activity_index_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Edit my account", edit_user_registration_path, :class => "dropdown-item"%></a>
+            <a> <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "dropdown-item" %></a>
+          </div>
+        </li> 
+      <% else %> 
+        <li class="nav-item">        
+            <a class="log" data-toggle="modal" data-target="#logInModal">Sign In</a>
+            <a class="log" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+        </li>
+      <%end%> 
+    </ul>
+  </div> 
 </nav>
-
