@@ -11,9 +11,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav navbarhome ml-auto">
-      <li class="nav-item">
+    <!-- prevent access to form card to non connected users --> 
+      <% if user_signed_in? %>
         <a id="experience_button" class="nav-link" href="/cards/new">Offer an experience</a>
-      </li>
+        <%else%>
+              <a id="experience_button" data-toggle="modal" data-target="#signUpModal" class="nav-link">Offer an experience</a>
+        <% end %> 
     </ul>
     <ul class="nav-logo">
       <% if user_signed_in? %>

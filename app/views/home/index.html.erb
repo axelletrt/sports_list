@@ -8,90 +8,34 @@
     </div>
   <% end %>
 </div>
-
-<div class="container-hp">
-  <div class="discipline-title-hp">
-    <a href="/disciplines/1">SURF</a>
+  <!-- Partial Thumbnail : Modification by Axelle with Dorian, please keep it--> 
+  <div class="allcards"> 
+  <% @disciplines.each do |discipline| %>
+    <div class="homethumbnail">
+  <div class="discipline-title-hp"> <a href="/disciplines/<%=discipline.id%>"><%= discipline.name %></a></div>
+   <% if discipline.id == 0 %> 
     <p class="discipline-desc">Discover surfing in Bali, whether you are a beginner looking to get your first surf lesson or a skilled surfer hoping to get barreled at one of Bali’s legendary spots.</p>
-  </div>
-  <div class="card-deck-hp">
-    <% @cards_surf.take(4).reverse_each do |card| %>
-      <%= link_to card_path(card.id) do %>
-        <div class="wrapper-card-hp">
-          <div><%= image_tag card.photos[0], class: 'card-img-top-hp' %>
-          </div>
-          <div class="card-body-hp">
-            <div class="title-city">
-              <h5 class="card-title"><%= card.activity_title %></h5>
-              <p class="card-city"><%= card.city %></p>
-            </div>
-              <p class="card-price">IDR <%= card.price %></p>
-          </div>
+  <% elsif discipline.id == 1 %> 
+    <p class="discipline-desc">Immerse yourself into the Island of Gods sacred culture by practicing any type of yoga in Bali.</p>
+  <% else discipline.id == 2 %> 
+      <p class="discipline-desc">Manta rays, Mola Mola (sunfish), schooling fish, an incredible wreck and colourful reefs will leave even the most seasoned of divers spell bound.</p>
+  <%end%>
+    <div class="container home">
+      <% discipline.cards.each  do |card| %>
+        <div class="card-deck">
+          <%= link_to card_path(card.id) do %>
+          <%= render partial: "cards/thumbnail", locals: {card: card} %>
+          <% end %> 
         </div>
       <%end%>
-    <%end%>
-  </div>
-  <div class="link-to-list">
-    <a href="/disciplines/1">See all surf experiences </a>
-    <i class="fas fa-angle-double-right"></i>
-  </div>
-  <div class="discipline-title-hp">
-    <a href="/disciplines/2">YOGA</a>
-    <p class="discipline-desc">Immerse yourself into the Island of Gods sacred culture by practicing any type of yoga in Bali.
-  </p>
-  </div>
-  <div class="card-deck-hp">
-    <% @cards_yoga.take(4).reverse_each do |card| %>
-      <%= link_to card_path(card.id) do %>
-        <div class="wrapper-card-hp">
-          <div><%= image_tag card.photos[0], class: 'card-img-top-hp' %>
-          </div>
-          <div class="card-body-hp">
-            <div class="title-city">
-              <h5 class="card-title"><%= card.activity_title %></h5>
-              <p class="card-city"><%= card.city %></p>
+      </div>
+      <div class="link-to-list">
+      <a href="/disciplines/<%=discipline.id%>">See all <%=discipline.name%> experiences </a>
+      <i class="fas fa-angle-double-right"></i>
             </div>
-              <p class="card-price"><%= card.price %></p><%= card.price %> Rp / per person </p>
-          </div>
-        </div>
-      <%end%>
-    <%end%>
-  </div>
-  <div class="link-to-list">
-    <a href="/disciplines/2">See all yoga experiences </a>
-    <i class="fas fa-angle-double-right"></i>
-  </div>
-  <div class="discipline-title-hp">
-    <a href="/disciplines/3">SCUBA DIVING</a>
-    <p class="discipline-desc">Manta rays, Mola Mola (sunfish), schooling fish, an incredible wreck and colourful reefs will leave even the most seasoned of divers spell bound.</p>
-  </div>
-  <div class="card-deck-hp">
-    <% @cards_scuba.take(4).reverse_each do |card| %>
-      <%= link_to card_path(card.id) do %>
-        <div class="wrapper-card-hp">
-          <div><%= image_tag card.photos[0], class: 'card-img-top-hp' %>
-          </div>
-          <div class="card-body-hp">
-            <div class="title-city">
-              <h5 class="card-title"><%= card.activity_title %></h5>
-              <p class="card-city"><%= card.city %></p>
-            </div>
-              <p class="card-price">IDR <%= card.price %></p>
-          </div>
-        </div>
-      <%end%>
-    <%end%>
-  </div>
-  <div class="link-to-list">
-    <a href="/disciplines/3">See all scuba diving experiences </a>
-    <i class="fas fa-angle-double-right"></i>
-  </div>
+      </div>
+      <% end%>
+    </div>
 </div>
 
-<div>
-  <hr class="bottom-line">
-</div>
-
-<div class="become-coach">
-</div>
-
+<!-- end of the code you should keep --> 

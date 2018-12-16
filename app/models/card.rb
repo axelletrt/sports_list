@@ -13,44 +13,44 @@ class Card < ApplicationRecord
   has_many :disciplines, through: :cards_disciplines
   has_many :evaluations
   enum organization: %i[coach school club]
-  enum city: %i[
-  Amlapura
-  Bakas
-  Balikpapan
-  Batuan
-  Bedugul
-  Besakih
-  Candi Dasa
-  Canggu
-  Celuk
-  Cepaka
-  Denpasar
-  Gitgitl
-  Jatiluwith
-  Jimbaran
-  Kedonganan
-  Kerobokan
-  Ketewel
-  Kintamani
-  Kusamba
-  Kuta
-  Lalang Linggah
-  Lovina Beach
-  Munduk
-  Nusa Dua
-  Pandangbai
-  Sayan
-  Sekumpul
-  Semarapura
-  Seminyak 
-  Singaraja
-  Tampaksiring
-  Tenganan
-  Tuban
-  Ubud
-  Uluwatu 
-  Other 
-  ]
+  enum city: [
+    "Amlapura", 
+    "Bakas", 
+    "Balikpapan", 
+    "Batuan", 
+    "Bedugul", 
+    "Besakih", 
+    "CandiDasa", 
+    "Canggu", 
+    "Celuk", 
+    "Cepaka", 
+    "Denpasar", 
+    "Gitgitl", 
+    "Jatiluwith", 
+    "Jimbaran", 
+    "Kedonganan", 
+    "Kerobokan", 
+    "Ketewel", 
+    "Kintamani", 
+    "Kusamba", 
+    "Kuta", 
+    "Lalang Linggah", 
+    "Lovina Beach", 
+    "Munduk", 
+    "NusaDua", 
+    "Pandangbai", 
+    "Sayan", 
+    "Sekumpul", 
+    "Semarapura", 
+    "Seminyak", 
+    "Singaraja", 
+    "Tampaksiring", 
+    "Tenganan", 
+    "Tuban", 
+    "Ubud", 
+    "Uluwatu"
+]
+
   enum country: [:indonesia]
 
   has_many :cards_discipline, inverse_of: :card
