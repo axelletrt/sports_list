@@ -41,6 +41,9 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
           <span class="error-message-sign_up">error</span><br>
         </div>
+        <div class="field">
+          <a class="login-account" data-toggle="modal" data-target="#logInModal" data-dismiss="modal">Already an account?</a>         
+        </div>
         <div class="actions">
           <%= f.submit "Sign up", class: 'btn btn-sign', id: 'submit_sign_up' %>
           <span class="error-message-sign_up">error</span><br>
