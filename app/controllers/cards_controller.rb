@@ -22,17 +22,13 @@ class CardsController < ApplicationController
  end
 
  def edit
-   puts '+++++++++++++++++++++++++++++++++++'
-   @card = Card.friendly.find(params[:id])
+   @card = Card.find(params[:id])
    @disciplines = Discipline.all
    @languages = SpokenLanguage.all
  end
 
  def update
-   puts 'Yeeeeeeeeeeeeeeeeeeeeeees'
-   puts params
-   puts 'or not'
-   @card = Card.find_by(activity_title: params[:id])
+   @card = Card.find(params[:id])
    puts @card
    p_cards = params[:card]
    @card.update(card_parameters)
@@ -62,8 +58,6 @@ class CardsController < ApplicationController
 end
 
  def create
-   puts 'FUUUUUUUUUUCCCCCCCCCCKKKKKKKKKKK'
-   puts 'REALLY'
   @cards = Card.all
    p_cards = params[:card]
    @card = Card.new(card_parameters)
@@ -73,7 +67,6 @@ end
    @card.length = "#{p_cards['opening_hour(4i)']}:#{p_cards['opening_hour(5i)']}"
    @card.opening_hour = "#{p_cards['opening_hour(4i)']}:#{p_cards['opening_hour(5i)']}"
    @card.closing_hour = "#{p_cards['closing_hour(4i)']}:#{p_cards['closing_hour(5i)']}"
-   # @card.draft = false
    @card.save
 
    # send email to useremail when a new card is created

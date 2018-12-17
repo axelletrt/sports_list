@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Card < ApplicationRecord
-  extend FriendlyId
-  friendly_id :activity_title, use: :slugged
-  
+#  extend FriendlyId
+#  friendly_id :activity_title, use: :slugged
+
   has_many_attached :photos
 
   belongs_to :professional
@@ -14,40 +14,40 @@ class Card < ApplicationRecord
   has_many :evaluations
   enum organization: %i[coach school club]
   enum city: [
-    "Amlapura", 
-    "Bakas", 
-    "Balikpapan", 
-    "Batuan", 
-    "Bedugul", 
-    "Besakih", 
-    "CandiDasa", 
-    "Canggu", 
-    "Celuk", 
-    "Cepaka", 
-    "Denpasar", 
-    "Gitgitl", 
-    "Jatiluwith", 
-    "Jimbaran", 
-    "Kedonganan", 
-    "Kerobokan", 
-    "Ketewel", 
-    "Kintamani", 
-    "Kusamba", 
-    "Kuta", 
-    "Lalang Linggah", 
-    "Lovina Beach", 
-    "Munduk", 
-    "NusaDua", 
-    "Pandangbai", 
-    "Sayan", 
-    "Sekumpul", 
-    "Semarapura", 
-    "Seminyak", 
-    "Singaraja", 
-    "Tampaksiring", 
-    "Tenganan", 
-    "Tuban", 
-    "Ubud", 
+    "Amlapura",
+    "Bakas",
+    "Balikpapan",
+    "Batuan",
+    "Bedugul",
+    "Besakih",
+    "CandiDasa",
+    "Canggu",
+    "Celuk",
+    "Cepaka",
+    "Denpasar",
+    "Gitgitl",
+    "Jatiluwith",
+    "Jimbaran",
+    "Kedonganan",
+    "Kerobokan",
+    "Ketewel",
+    "Kintamani",
+    "Kusamba",
+    "Kuta",
+    "Lalang Linggah",
+    "Lovina Beach",
+    "Munduk",
+    "NusaDua",
+    "Pandangbai",
+    "Sayan",
+    "Sekumpul",
+    "Semarapura",
+    "Seminyak",
+    "Singaraja",
+    "Tampaksiring",
+    "Tenganan",
+    "Tuban",
+    "Ubud",
     "Uluwatu"
 ]
 
