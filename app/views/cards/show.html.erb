@@ -186,8 +186,12 @@
           <ul>
             <li>
               <%= image_tag "whatsapp_icon.png", id:"icon", class: "fab fa-whatsapp fa-2x"%><%=@card.whatsapp%></li>
+              <%if @card.facebook.length != 0 %>
               <a href="<%= @card.facebook%>"><%= image_tag "facebook_icon.png", id:"icon", class: "fab fa-facebook-square fa-2x"%></a>
+              <%end%>
+              <%if @card.instagram.length != 0%>
               <a href="<%= @card.instagram%>"><%= image_tag "instagram_icon.png", id:"icon", class: "fab fa-instagram fa-2x"%></a>
+              <%end%>
             </li>
           </ul>
         </div>
