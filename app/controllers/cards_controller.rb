@@ -44,6 +44,7 @@ class CardsController < ApplicationController
    p_cards[:spoken_languages].each do |l_id|
      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
    end
+   redirect_to my_activity_index_path
  end
 
  def destroy
