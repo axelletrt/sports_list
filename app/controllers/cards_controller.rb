@@ -22,16 +22,18 @@ class CardsController < ApplicationController
  end
 
  def edit
-
+   puts '+++++++++++++++++++++++++++++++++++'
    @card = Card.friendly.find(params[:id])
-   @card = Card.find(params[:id])
-
    @disciplines = Discipline.all
    @languages = SpokenLanguage.all
  end
 
  def update
-   @card = Card.find(params[:id])
+   puts 'Yeeeeeeeeeeeeeeeeeeeeeees'
+   puts params
+   puts 'or not'
+   @card = Card.find_by(activity_title: params[:id])
+   puts @card
    p_cards = params[:card]
    @card.update(card_parameters)
    @card.update(latitude: params["lat"])
@@ -60,6 +62,8 @@ class CardsController < ApplicationController
 end
 
  def create
+   puts 'FUUUUUUUUUUCCCCCCCCCCKKKKKKKKKKK'
+   puts 'REALLY'
   @cards = Card.all
    p_cards = params[:card]
    @card = Card.new(card_parameters)
@@ -90,7 +94,7 @@ end
    p_cards[:spoken_languages].each do |l_id|
      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
    end
-   
+
 end
 
  private

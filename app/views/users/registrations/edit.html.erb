@@ -47,7 +47,7 @@
   <div class="profile-picture">
     <% if user_signed_in? %>
       <% if current_user.avatar.attached? %>
-      <%= image_tag current_user.avatar, class: "rounded-circle", id: "pp-edit"%> 
+      <%= image_tag current_user.avatar, class: "rounded-circle", id: "pp-edit"%>
       <% end %>
     <% else %>
       <%= image_tag "pp-edit.jpg", class: "rounded-circle", id: "pp-edit"%>
@@ -58,7 +58,7 @@
     </div>
   </div>
   <div class="actions-update">
-      <%= f.submit "Update", :class => "btn-update" %>   
+      <%= f.submit "Update", :class => "btn-update", :action => "edit" %>   
   <% end %>
     <div class="unhappy">
       <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn-cancel" %>
@@ -68,5 +68,3 @@
   </div>
 
 </div>
-
-
