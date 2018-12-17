@@ -32,7 +32,6 @@ class CardsController < ApplicationController
 
  def update
    @card = Card.friendly.find(params[:id])
-   @card = Card.find(params[:id])
    p_cards = params[:card]
    @card.update(card_parameters)
    @card.update(latitude: params["lat"])
