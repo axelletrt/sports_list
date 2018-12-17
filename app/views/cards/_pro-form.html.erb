@@ -41,7 +41,7 @@
 				<span class="error-message">error</span><br>
 
             <%= f.label :'length*', :id => 'label-title' %><br>
-            <p> How long is your experience?</p> 
+            <p> How long is your experience?</p>
             <%= f.time_select :length, {start_hour: 0, end_hour: 4, minute_step: 15} %>
 						<span class="error-message">error</span><br>
 
@@ -51,14 +51,14 @@
 			<%= f.label "Closing hour", :id => 'label-title' %><br>
 			<%= f.time_select :closing_hour, {minute_step: 15} %>
 			<span class="error-message">error</span><br>
-      
+
       <div class="card-upload-pic">
 		  	<%= f.label :'Pictures*', :id => 'label-title', required:'required' %><br>
 			  <%= f.file_field :photos, id: 'gallery-photo-add', multiple: true, class: "pp-box" %><br>
       </div>
 
            <div class="gallery"></div>
-           <div class="mandatory">*Mandatory fields</div> 
+           <div class="mandatory">*Mandatory fields</div>
 
             <button class="btn-step" id="next_step1">Next Step</button>
 
@@ -80,7 +80,7 @@
 			<%= f.text_field :instagram, id: 'instagram', placeholder: 'https://www.instagram.com/myinstagramaccount/' %>
 			<span class="error-message">error</span><br>
 
-                 <div class="mandatory">*Mandatory fields</div> 
+                 <div class="mandatory">*Mandatory fields</div>
 
             <button id="back_step2" class="btn-step previous">Previous</button>
             <button id="next_step2" class="btn-step">Next</button>
@@ -101,13 +101,13 @@
             <div id="message">Please confirm or mark your position on the map</div>
             <div id="map">  <!-- Display Google map -->
             </div>
-            
+
 
             <input type="hidden"  id="lat" name="lat" />
             <input type="hidden"  id="lng" name="lng"/>
 
 
-            <div class="mandatory">*Mandatory fields</div> 
+            <div class="mandatory">*Mandatory fields</div>
 
             <button id="back_step3" class="btn-step">Previous</button><br>
             <%= f.submit "save and publish", id: "publish" %>
@@ -128,8 +128,8 @@
     }
 });
 </script>
-      
-<script type="text/javascript">     
+
+<script type="text/javascript">
 
 $(function() {
     // Multiple images preview in browser
