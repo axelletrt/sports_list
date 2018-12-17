@@ -7,7 +7,7 @@ class CardsController < ApplicationController
 
  def show
    @users = User.all
-   @card = Card.friendly.find(params[:id])
+   @card = Card.find(params[:id])
    @evaluations = @card.evaluations
    evals = @evaluations.pluck(:eval)
    @moyenne = (evals.sum.to_f / evals.size).round(1)
@@ -48,7 +48,7 @@ class CardsController < ApplicationController
  end
 
  def destroy
-   @card = Card.friendly.find(params[:id])
+   @card = Card.find(params[:id])
    @card.destroy
    CardsDiscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all
