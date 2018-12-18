@@ -6,10 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
    before_action :destroy_cards, only: :destroy
 
    def destroy_cards
-     @card = Card.find_by(professional_id: current_user.professional.id)
-     @card.destroy
-     CardsDiscipline.where(card_id: params[:id]).delete_all
-     CardsLanguage.where(card_id: params[:id]).delete_all
+     if current_user.professional
+       cards = Card.where(professional_id: current_user.professional.id)
+       cards.each do |card|
+         CardsDiscipline.where(card_id: card.id).delete_all
+         CardsLanguage.where(card_id: card.id).delete_all
+       end
+       cards.delete_all
+     end
    end
   #GET /resource/sign_up
   # def new
