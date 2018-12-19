@@ -10,7 +10,7 @@ class CardsController < ApplicationController
    @card = Card.find(params[:id])
    @evaluations = @card.evaluations
    evals = @evaluations.pluck(:eval)
-   @moyenne = (evals.sum.to_f / evals.size).round(1)
+   @average = (evals.sum.to_f / evals.size).round(1)
    @languages = @card.spoken_languages
    @disciplines = @card.disciplines
  end

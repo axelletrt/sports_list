@@ -65,4 +65,10 @@ class Card < ApplicationRecord
   #validates :city, presence: true
   #validates :price, presence: true
   #validates :length, presence: true
+
+  def evaluations_average
+    evaluations = self.evaluations
+    evals = evaluations.pluck(:eval)
+    average = (evals.sum.to_f / evals.size).round(1)
+  end
 end
