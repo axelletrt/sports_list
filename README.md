@@ -1,31 +1,37 @@
 # README
 
-## Sport-list
+#Sports-list
 
-Sport-List est un projet consistant à créer un annuaire de clubs ou coach sportifs à Bali.
+L'objectif de l'application web Sports-List est de mettre en relation les touristes et ou expatriés d'une destination avec des coach sportifs locaux : Faire du surf à Bali, du Rugby en Nouvelle-Zélande, Découvrir Cuba au travers de la Salsa...
 
-L'application à un intérêt pour les professionnels qui peuvent gagner en visibilité (notamment auprès des touristes et digitals nomades) et bien entendu pour les utilisateurs à la recherche d'activités sportives.
+Pour les acteurs sportifs locaux, Sports-List est une vitrine. Pour les touristes (notamment les "digital nomades"), il s'agit d'une solution express pour contacter un acteur local et découvrir une culture par le biais d'une activité sportive. 
 
-A terme, l'application a pour but de devenir payante pour les professionnels. 
 
-Les principales fonctionnalités de l'application sont:
+Next : 
+
+À terme, l'application a pour but de devenir payante pour les professionnels. 
+
+
+Main features : 
 
 Un visiteur peut :
   - Effectuer une recherche par discipline
   - Trouver un coach ou un club qui l'intéresse et le contacter directement
-  - s'inscrire
+
 Un utilisateur peut en plus:
-  - Laisser des commentaires
+  - Évaluer une activité 
   - Proposer sa propre activité et devenir professionnel
+
 Un professionnel peut:
-  - éditer son ou ses activitée(s)
+  - éditer son ou ses activités 
 
 Collaborateur sur ce projet:
 
-- Axelle
-- Charlotte
-- Cyril
-- Shayane
-- Olivier
+- Charlotte Houivet 
+- Cyril Avronsart 
+- Shayane Yakataly 
+- Olivier Rohellec 
+- Axelle Tortai 
+
 
 Lien de l'application: https://sports-list.herokuapp.com/

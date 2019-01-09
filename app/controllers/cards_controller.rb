@@ -1,5 +1,6 @@
 
 class CardsController < ApplicationController
+  
  def index
    @cards = Card.all
    @disciplines = Discipline.all.order(:name)
