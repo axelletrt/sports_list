@@ -14,11 +14,6 @@ a:hover {
   color: inherit !important;
 }
 
-.wrapper-card {
-  padding-left: 11px;
-  padding-right: 30px;
-  padding-top: 11px;
-}
 
 .discipline-title {
   margin-top: 90px;
@@ -35,10 +30,16 @@ a:hover {
   object-fit: cover;
 }
 
+.wrapper-card {
+  padding-right: 3vh !important;
+  padding-left: 3vh !important;
+}
+
 .card-deck {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  min-width: 25%;
     @media (min-width: 991px) {
        padding: 25px;
     }
@@ -52,6 +53,13 @@ a:hover {
 .card-deck .score{
   display:flex;
   margin-left: 0;
+}
+
+.card-title {
+  height: auto;
+  overflow-wrap: break-word;
+  flex-wrap: wrap !important;
+  max-width: 220px;
 }
 
 .score {

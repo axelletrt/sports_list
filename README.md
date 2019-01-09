@@ -11,7 +11,6 @@ Next :
 
 À terme, l'application a pour but de devenir payante pour les professionnels. 
 
-
 Main features : 
 
 Un visiteur peut :
@@ -25,7 +24,7 @@ Un utilisateur peut en plus:
 Un professionnel peut:
   - éditer son ou ses activités 
 
-Collaborateur sur ce projet:
+Collaborateurs sur ce projet:
 
 - Charlotte Houivet 
 - Cyril Avronsart 

@@ -1,10 +1,21 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+#   before_action :configure_sign_up_params, only: [:create]
+#   before_action :configure_account_update_params, only: [:update]
+   before_action :destroy_cards, only: :destroy
 
-  # GET /resource/sign_up
+   def destroy_cards
+     if current_user.professional
+       cards = Card.where(professional_id: current_user.professional.id)
+       cards.each do |card|
+         CardsDiscipline.where(card_id: card.id).delete_all
+         CardsLanguage.where(card_id: card.id).delete_all
+       end
+       cards.delete_all
+     end
+   end
+  #GET /resource/sign_up
   # def new
   #   super
   # end

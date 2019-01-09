@@ -12,19 +12,18 @@
             <p class="card-price"><%= card.price %> Rp / per person </p>              <!-- to calculate the average-->
                <% if card.evaluations.first.present?%>
                     <div class="average">
-                        <%= e = ((card.evaluations.pluck(:eval).sum.to_f) / card.evaluations.pluck(:eval).size).round(1) %>
-                    </div> 
+                        <%= e = card.evaluations_average %>
+                    </div>
                     <div class="stars">
-                            <% e.to_i.times do |i| %> 
+                            <% e.to_i.times do |i| %>
                                 <label class="full" for="star"></label>
                             <% end %>
                     </div>
             <div class="rating">
                 <label class="half" for="starhalf"></label>
             </div>
-        <% else %> 
+        <% else %>
                 No review.
         <% end %>
     </div>
 </div>
-

@@ -11,7 +11,7 @@ class CardsController < ApplicationController
    @card = Card.find(params[:id])
    @evaluations = @card.evaluations
    evals = @evaluations.pluck(:eval)
-   @moyenne = (evals.sum.to_f / evals.size).round(1)
+   @average = (evals.sum.to_f / evals.size).round(1)
    @languages = @card.spoken_languages
    @disciplines = @card.disciplines
  end
@@ -30,14 +30,13 @@ class CardsController < ApplicationController
 
  def update
    @card = Card.find(params[:id])
-   puts @card
    p_cards = params[:card]
    @card.update(card_parameters)
    @card.update(latitude: params["lat"])
    @card.update(longitude: params["lng"])
-   @card.update(length: "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}")
-   @card.update(opening_hour: "#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}")
-   @card.update(closing_hour: "#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}")
+   @card.update(length: "00:#{p_cards["length(4i)"]}:#{p_cards["length(5i)"]}")
+   @card.update(opening_hour: "00:#{p_cards["opening_hour(4i)"]}:#{p_cards["opening_hour(5i)"]}")
+   @card.update(closing_hour: "00:#{p_cards["closing_hour(4i)"]}:#{p_cards["closing_hour(5i)"]}")
    CardsDiscipline.where(card_id: params[:id]).delete_all
    CardsLanguage.where(card_id: params[:id]).delete_all
    p_cards[:disciplines].each do |d_id|
@@ -46,6 +45,7 @@ class CardsController < ApplicationController
    p_cards[:spoken_languages].each do |l_id|
      CardsLanguage.create(card_id: @card.id, spoken_language_id: l_id)
    end
+   redirect_to my_activity_index_path
  end
 
  def destroy

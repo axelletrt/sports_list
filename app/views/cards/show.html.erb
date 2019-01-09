@@ -1,20 +1,20 @@
 <!-- TOP BANNER -->
 <% @disciplines.each do |discipline| %>
-  <% if discipline.id == 1 %> 
+  <% if discipline.id == 1 %>
     <div class="background-surf">
       <div class="bg-text">
         <h3><%= @card.activity_title %></h3>
         <p>"<%=@card.short_description%>"</p>
       </div>
     </div>
-  <% elsif discipline.id == 2 %> 
+  <% elsif discipline.id == 2 %>
     <div class="background-yoga">
       <div class="bg-text">
         <h3><%= @card.activity_title %></h3>
         <p>"<%=@card.short_description%>"</p>
       </div>
     </div>
-  <% else discipline.id == 3 %> 
+  <% else discipline.id == 3 %>
     <div class="background-scuba">
       <div class="bg-text">
         <h3><%= @card.activity_title %></h3>
@@ -30,7 +30,7 @@
     <i class="fas fa-angle-double-left"></i> <%= link_to 'Back to previous page', :back, :class =>"go-back" %>
     <div class="activity">
       <p>
-      </p> 
+      </p>
     </div>
     <div class="description">
     <h3>Description</h3>
@@ -45,7 +45,7 @@
         <% @card.photos.each do |card| %>
         <div class="mySlides">
           <%= image_tag card, style: "width:100%" %>
-        </div>        
+        </div>
         <% end %>
 
 
@@ -68,7 +68,7 @@
             <%= image_tag card, class: "demo cursor", style: "width:100%", onclick: "currentSlide(#{n + 1})"%>
           </div>
           <% end %>
-        </div> 
+        </div>
       </div>
     </div>
 
@@ -78,7 +78,7 @@
       <div id="practical_info">
         <div class="price">
           <%= image_tag "coin.svg", style: "height:25px" %>
-          <%=@card.price%> IDR/ per person 
+          <%=@card.price%> IDR/ per person
         </div>
         <div class="address">
           <%= image_tag "placeholder.svg", style: "height:25px" %>
@@ -93,11 +93,11 @@
         </div>
          <div class="length">
                 <%= image_tag "time.svg", style: "height:25px" %>
-            <%=@card.length.strftime("%I:%M") %> 
+            <%=@card.length.strftime("%I:%M") %>
           </div>
         <div class="hours">
           <%= image_tag "clock.svg", style: "height:25px" %>
-          Operating hours <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %> 
+          Operating hours <%=@card.opening_hour.strftime("%I:%M %p")%> to <%= @card.closing_hour.strftime("%I:%M %p") %>
         </div>
       </div>
     </div>
@@ -106,46 +106,56 @@
      <!-- FORMULAIRE EVALUATION -->
 
   <div class="evaluation">
-  <div class="title_comment">
-    <h3 id="evaluation_title">Your Feedbacks</h3>
-    <button class="evaluation_button">Add a comment</button>
-      </div> 
+    <div class="title_comment">
+      <h3 id="evaluation_title">Your Feedbacks</h3>
+      <% if (Evaluation.where(user_id: current_user.id, card_id: params[:id]).empty?) %>
+        <button class="evaluation_button">Add a comment</button>
+      <% else %>
+        <p>You already commented this activity</p>
+      <% end %>
+    </div>
    <% if user_signed_in? %>
+
     <div class="evaluation_form">
     <%= render 'evaluations/new' %></div>
-    </div> 
-  <% else %> 
+    </div>
+  <% else %>
   <% end %>
-  
-    <!-- hide evaluation form before click --> 
 
-    <script> 
-      $('.evaluation_form').hide(); 
+    <!-- hide evaluation form before click -->
+
+    <script>
+      $('.evaluation_form').hide();
         <% if user_signed_in? %>
       $(".evaluation_button").click(function(){
       $(".evaluation_form").toggle();
         <% else %>
        $(".evaluation_button").click(function(){
         alert("Oups! Please SIGN IN or SIGN UP to evaluate an experience 🧘🏄‍");
-            <% end %> 
+            <% end %>
      });
-    </script> 
+    </script>
 
- 
+
     <div class="comments_evaluations">
+      <%= @average %>
         <% @evaluations.each do |e| %>
           <hr/>
           <div class="unique_comment">
 
             <div class="user">
-              <%= image_tag e.user.avatar, height: 40, width: 40, class: "rounded-circle"%> 
+              <% if e.user.avatar.attached? %>
+                <%= image_tag e.user.avatar, height: 40, width: 40, class: "rounded-circle"%>
+              <% else %>
+                <%= image_tag 'fond-gris', height: 40, width: 40, class: "rounded-circle"%>
+              <% end %>
               <%= @users.find(e.user_id).username %>
-            </div> 
+            </div>
             <div class="content">
               <div class="firstline">
                 <div>
                   <div class="stars">
-                    <% e.eval.times do |i| %> 
+                    <% e.eval.times do |i| %>
                       <label class="full" for="star"></label>
                     <% end %>
                   </div>
@@ -157,7 +167,7 @@
               <div class="comment">
                 <%= e.comment %>
               </div>
-            </div> 
+            </div>
           </div>
         <% end %>
       </div>
@@ -165,29 +175,33 @@
   </div>
 
   <div class="sidebar">
-    <div id="contact_info">   
+    <div id="contact_info">
         <div class="contact_picture">
         <% if @card.professional.user.avatar.attached?%>
           <%= image_tag @card.professional.user.avatar, class: "coach_picture"%>
           <% else%>
             <%= image_tag "fond-gris.jpg", class:"coach_picture"%>
             <% end%>
-        </div> 
+        </div>
         <div id="contact_name">
           <%= @card.professional.user.username%> <br>
         </div>
         <div class="card-org">
           <%= @card.organization %> <br>
           <% @disciplines.each do |discipline| %><%= discipline.name %>
-          <% end %>  
+          <% end %>
         </div>
         <button class="display_contact_button" onclick="display_contact()">Book your session !</button>
         <div id="display_contact_info">
           <ul>
             <li>
               <%= image_tag "whatsapp_icon.png", id:"icon", class: "fab fa-whatsapp fa-2x"%><%=@card.whatsapp%></li>
+              <%if @card.facebook.length != 0 %>
               <a href="<%= @card.facebook%>"><%= image_tag "facebook_icon.png", id:"icon", class: "fab fa-facebook-square fa-2x"%></a>
+              <%end%>
+              <%if @card.instagram.length != 0%>
               <a href="<%= @card.instagram%>"><%= image_tag "instagram_icon.png", id:"icon", class: "fab fa-instagram fa-2x"%></a>
+              <%end%>
             </li>
           </ul>
         </div>
@@ -209,6 +223,6 @@
    var infowindow = new google.maps.InfoWindow({
     content: "<%= @card.address%>"
   });
-  
+
     infowindow.open(map, marker);
-</script> 
+</script>
