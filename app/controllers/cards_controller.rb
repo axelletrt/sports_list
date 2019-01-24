@@ -16,7 +16,7 @@ class CardsController < ApplicationController
    @disciplines = @card.disciplines
  end
 
- def new
+ def new 
    @card = Card.new
    @disciplines = Discipline.all
    @languages = SpokenLanguage.all
