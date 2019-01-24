@@ -108,11 +108,7 @@
   <div class="evaluation">
     <div class="title_comment">
       <h3 id="evaluation_title">Your Feedbacks</h3>
-      <% if (Evaluation.where(user_id: current_user.id) %>
         <button class="evaluation_button">Add a comment</button>
-      <% else %>
-        <p>You already commented this activity</p>
-      <% end %>
     </div>
    <% if user_signed_in? %>
 
